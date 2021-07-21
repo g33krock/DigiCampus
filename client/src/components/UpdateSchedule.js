@@ -81,8 +81,8 @@ export class ScheduleUpdater extends Component {
                   <option value='26' selected>None</option>
                   {this.props.teachers?.filter((teacher) => teacher.campus.id === this.props?.campus.id)
                   .sort(function(a, b){
-                    let x = a.name.toLowerCase();
-                    let y = b.name.toLowerCase();
+                    let x = a.firstName.toLowerCase();
+                    let y = b.firstName.toLowerCase();
                     if (x < y) {return -1;}
                     if (x > y) {return 1;}
                     return 0;})

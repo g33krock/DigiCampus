@@ -41,7 +41,8 @@ export default class Teacher extends Component {
           <select id="scheduleTeacher" onChange={this.onChange}>
             <option selected>None</option>
             {this.state.teachers
-            .sort(function (a, b){
+            .filter((teacher) => teacher.campus.id === this.props?.campus.id)
+            .sort(function(a, b){
               let x = a.firstName.toLowerCase();
               let y = b.firstName.toLowerCase();
               if (x < y) {return -1;}
