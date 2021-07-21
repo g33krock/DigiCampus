@@ -80,7 +80,7 @@ export class ScheduleUpdater extends Component {
                 <Input type="select" id="scheduleTeacher">
                   <option value='26' selected>None</option>
                   {this.state.teachers?.filter((teacher) => teacher.campus.id === this.props?.campus.id)
-                  .sort((a, b) => a.firstName - b.firstName)
+                  .sort((a, b) => {return a.firstName - b.firstName})
                   .map((teacher) => (
                     <option value={teacher.id}>
                       {teacher.firstName} {teacher.lastName}
