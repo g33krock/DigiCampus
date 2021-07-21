@@ -20,6 +20,8 @@ export default class Schedule extends Component {
       isNavOpen: false,
       campuses: [],
       campus: null,
+      courses: [],
+      teachers: [],
       activeTab: "1",
     };
   }
@@ -58,6 +60,24 @@ export default class Schedule extends Component {
           );
         this.setState({
           students,
+        });
+      });
+      fetcher(`${baseURL}/teachers`)
+      // Convert response to a JSON object
+      .then((response) => response.json())
+      .then((data) => {
+        // Create relationship between students state array and JSON object
+        this.setState({
+          teachers: data,
+        });
+      });
+    fetcher(`${baseURL}/courses`)
+      // Convert response to a JSON object
+      .then((response) => response.json())
+      .then((data) => {
+        // Create relationship between students state array and JSON object
+        this.setState({
+          courses: data,
         });
       });
   }
@@ -206,6 +226,8 @@ export default class Schedule extends Component {
                               scheduleId={schedule.id}
                               period={schedule.period}
                               campus={schedule.campus}
+                              courses={this.state.courses}
+                              teachers={this.state.teachers}
                             ></ScheduleUpdater>
                             <DeleteSchedule
                               callback={() => this.getSchedules()}

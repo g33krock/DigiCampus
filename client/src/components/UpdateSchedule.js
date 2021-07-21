@@ -1,5 +1,5 @@
 import { Component } from "react";
-import {baseURL} from "../baseURL";
+// import {baseURL} from "../baseURL";
 import {
   Form,
   FormGroup,
@@ -10,7 +10,7 @@ import {
   ModalBody,
 } from "reactstrap";
 import { scheduleService } from "../services/scheduleService";
-import { fetcher } from '../services/fetcher';
+// import { fetcher } from '../services/fetcher';
 
 export class ScheduleUpdater extends Component {
   constructor(props) {
@@ -24,27 +24,27 @@ export class ScheduleUpdater extends Component {
     };
   }
 
-  componentDidMount() {
-    // Fetch Student Table from API
-    fetcher(`${baseURL}/teachers`)
-      // Convert response to a JSON object
-      .then((response) => response.json())
-      .then((data) => {
-        // Create relationship between students state array and JSON object
-        this.setState({
-          teachers: data,
-        });
-      });
-    fetcher(`${baseURL}/courses`)
-      // Convert response to a JSON object
-      .then((response) => response.json())
-      .then((data) => {
-        // Create relationship between students state array and JSON object
-        this.setState({
-          courses: data,
-        });
-      });
-  }
+  // componentDidMount() {
+  //   // Fetch Student Table from API
+  //   fetcher(`${baseURL}/teachers`)
+  //     // Convert response to a JSON object
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       // Create relationship between students state array and JSON object
+  //       this.setState({
+  //         teachers: data,
+  //       });
+  //     });
+  //   fetcher(`${baseURL}/courses`)
+  //     // Convert response to a JSON object
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       // Create relationship between students state array and JSON object
+  //       this.setState({
+  //         courses: data,
+  //       });
+  //     });
+  // }
 
   async updateSchedule() {
     const scheduleObject = {
@@ -79,7 +79,7 @@ export class ScheduleUpdater extends Component {
                 <Label for="scheduleTeacher">Select Teacher</Label>
                 <Input type="select" id="scheduleTeacher">
                   <option value='26' selected>None</option>
-                  {this.state.teachers?.filter((teacher) => teacher.campus.id === this.props?.campus.id)
+                  {this.props.teachers?.filter((teacher) => teacher.campus.id === this.props?.campus.id)
                   .sort(function(a, b){
                     let x = a.firstName.toLowerCase();
                     let y = b.firstName.toLowerCase();
@@ -96,7 +96,7 @@ export class ScheduleUpdater extends Component {
               <FormGroup>
                 <Input type="select" id="scheduleCourse">
                 <option value='15' selected>None</option>
-                  {this.state.courses?.map((course) => (
+                  {this.props.courses?.map((course) => (
                     <option value={course.id}>{course.name}</option>
                   ))}
                 </Input>
