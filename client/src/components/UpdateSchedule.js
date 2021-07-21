@@ -98,8 +98,8 @@ export class ScheduleUpdater extends Component {
                 <option value='15' selected>None</option>
                   {this.props.courses
                   .sort(function (a, b){
-                    let x = a.firstName.toLowerCase();
-                    let y = b.firstName.toLowerCase();
+                    let x = a.name.toLowerCase();
+                    let y = b.name.toLowerCase();
                     if (x < y) {return -1;}
                     if (x > y) {return 1;}
                     return 0;}).map((course) => (
