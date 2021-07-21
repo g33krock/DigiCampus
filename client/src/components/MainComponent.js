@@ -56,11 +56,11 @@ class Main extends Component {
             return (
                 <div>
                     <Switch>
-                        <PrivateRoute path='/sped' component={Sped} />
+                        <PrivateRoute path='/sped' component={Sped} campus = {this.state.campus}/>
                         <PrivateRoute path='/schedules' component={Schedule} campus = {this.state.campus}/>
-                        <PrivateRoute path='/teachers' component={Teacher} />
-                        <PrivateRoute path='/students' component={Student} />
-                        <PrivateRoute path='/transcripts' component={Transcript} />
+                        <PrivateRoute path='/teachers' component={Teacher} campus = {this.state.campus}/>
+                        <PrivateRoute path='/students' component={Student} campus = {this.state.campus}/>
+                        <PrivateRoute path='/transcripts' component={Transcript} campus = {this.state.campus}/>
                         <PrivateRoute path='/home' component={Home} />
                         <Redirect to='/home' />
                     </Switch>

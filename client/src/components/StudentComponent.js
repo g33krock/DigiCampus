@@ -6,7 +6,7 @@ import {StudentCreator} from "./CreateStudent";
 import {DeleteStudent} from "./DeleteStudent";
 import {StudentUpdater} from "./UpdateStudent";
 import AltStudentSchedule from "./AltStudentSchedule";
-import { EmptyScheduleCreator } from "./EmptySchedule";
+// import { EmptyScheduleCreator } from "./EmptySchedule";
 import { GuardianCreator } from "./CreateGuardian";
 import { fetcher } from '../services/fetcher';
 
@@ -50,7 +50,11 @@ export default class Student extends Component {
             <Label for="scheduleStudent">Select Student: </Label>
             <select id="scheduleStudent" onChange={this.onChange}>
               <option selected>None</option>
-              {this.state.students.sort(function (a, b){
+              {this.state.students
+              .filter(
+                    (cstudent) =>
+                      cstudent.campuses.id === this.props?.campus?.id
+                  ).sort(function (a, b){
                     let x = a.firstName.toLowerCase();
                     let y = b.firstName.toLowerCase();
                     if (x < y) {return -1;}
@@ -118,12 +122,12 @@ export default class Student extends Component {
                 </Row>
                 <Row>
                   <Col md="4">
-                    <EmptyScheduleCreator 
+                    {/* <EmptyScheduleCreator 
                       studentId={this.state.student?.id}
                       studentFirstName={this.state.student?.firstName}
                       studentLastName={this.state.student?.lastName}
                       campusId={this.state.student?.campuses.id}>
-                    </EmptyScheduleCreator>
+                    </EmptyScheduleCreator> */}
                   </Col>
                   <Col md="2"></Col>
                   <Col md="4">
