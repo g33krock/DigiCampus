@@ -40,7 +40,14 @@ export default class Teacher extends Component {
           <Label for="scheduleTeacher">Select Teacher</Label>
           <select id="scheduleTeacher" onChange={this.onChange}>
             <option selected>None</option>
-            {this.state.teachers.map(teacher => 
+            {this.state.teachers
+            .sort(function (a, b){
+              let x = a.firstName.toLowerCase();
+              let y = b.firstName.toLowerCase();
+              if (x < y) {return -1;}
+              if (x > y) {return 1;}
+              return 0;})
+            .map(teacher => 
               <option key={teacher.id} value={teacher.id}>
                 {teacher.firstName} {teacher.lastName}
               </option>

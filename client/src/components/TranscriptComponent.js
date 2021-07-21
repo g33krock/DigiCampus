@@ -99,7 +99,14 @@ export default class Transcript extends Component {
             <Label for="scheduleStudent">Select Student</Label>
             <select id="scheduleStudent" onChange={this.onChange}>
               <option selected>None</option>
-              {this.state.students.map((student) => (
+              {this.state.students
+              .sort(function (a, b){
+                let x = a.firstName.toLowerCase();
+                let y = b.firstName.toLowerCase();
+                if (x < y) {return -1;}
+                if (x > y) {return 1;}
+                return 0;})
+                .map((student) => (
                 <option key={student.id} value={student.id}>
                   {student.firstName} {student.lastName}
                 </option>
