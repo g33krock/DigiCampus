@@ -94,6 +94,7 @@ export class ScheduleUpdater extends Component {
                 </Input>
               </FormGroup>
               <FormGroup>
+                <Label for="scheduleCourse">Select Course</Label>
                 <Input type="select" id="scheduleCourse">
                 <option value='15' selected>None</option>
                   {this.props.courses
