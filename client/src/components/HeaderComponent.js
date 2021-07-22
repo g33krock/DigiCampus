@@ -27,7 +27,8 @@ class Header extends Component {
                     <div className="container" id="app">
                         <div className="row" id="wrapper">
                             <div className="col">
-                                <h1 className="glitch" id="perfectdark" data-text="CyberCampus">CyberCampus</h1>
+                                <h1>CyberCampus</h1>
+                                {/* <h1 className="glitch" id="perfectdark" data-text="CyberCampus">CyberCampus</h1> */}
                                 <h2>Let the robots do the work for you!</h2>
                             </div>
                         </div>
