@@ -350,7 +350,7 @@ export class TeacherUpdater extends Component {
               <Button
                 color="primary"
                 onClick={() => {
-                  this.createTeacher();
+                  this.updateTeacher();
                   this.setState({ modal: false })
                 }}
               >
