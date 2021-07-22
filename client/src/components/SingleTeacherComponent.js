@@ -38,9 +38,9 @@ export default class SingleTeacher extends Component {
         teacherId={this.state.teacher?.id}
         teacherFirstName={this.state.teacher?.firstName}
         teacherLastName={this.state.teacher?.lastName}
-        teacherBirthDate={this.state.teacher?.teacherBirthDate}
-        teacherRole={this.state.teacher?.role}
-        teacherCampus={this.state.teacher?.campus}
+        teacherBirthDate={this.state.teacher?.birthDate}
+        teacherRole={this.state.teacher?.role.id}
+        teacherCampus={this.state.teacher?.campus.id}
         teacherEmail={this.state.teacher?.email}
         teacherPhone={this.state.teacher?.phone}
         teacherLink={this.state.teacher?.link}
