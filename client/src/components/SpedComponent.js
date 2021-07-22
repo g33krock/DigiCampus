@@ -103,7 +103,7 @@ export default class Sped extends Component {
             <select id="scheduleStudent" onChange={this.onChange}>
               <option selected>None</option>
               {this.state.students
-              .filter(student => student.iep === "yes")
+              .filter(student => student.iep === "true")
               .sort(function (a, b){
                 let x = a.firstName.toLowerCase();
                 let y = b.firstName.toLowerCase();
