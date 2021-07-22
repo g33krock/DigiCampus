@@ -100,6 +100,7 @@ export default class Transcript extends Component {
             <select id="scheduleStudent" onChange={this.onChange}>
               <option selected>None</option>
               {this.state.students
+              .filter(student => student.grade >= 9)
               .sort(function (a, b){
                 let x = a.firstName.toLowerCase();
                 let y = b.firstName.toLowerCase();
