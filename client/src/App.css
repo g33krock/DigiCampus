@@ -362,10 +362,11 @@ skew to change the 'thickness' of the glitch.*/
 
 
 .Chris{
-  background: crimson;
+  background-image: radial-gradient(rgb(255, 0, 0), rgb(255, 255, 255), rgb(17, 0, 255));
 }
-.Monique{
-  background: darkmagenta;
+.Colton{
+  background-image: radial-gradient(rgb(0, 105, 0), rgb(114, 83, 0), rgb(0, 89, 97));
+  color: white
 }
 .Atlas{
   background-image: linear-gradient(rgb(255, 115, 0), rgb(229, 255, 0));
@@ -389,9 +390,8 @@ skew to change the 'thickness' of the glitch.*/
 .Yolanda{
   background-image: linear-gradient(rgb(0, 247, 255), rgb(247, 101, 157));
 }
-.Tahmid{
-  background: rgb(93, 69, 1);
-  color: white
+.Noelle{
+  background-image: linear-gradient(rgba(114, 71, 2, 0.623), rgba(5, 238, 255, 0.829), rgba(253, 236, 5, 0.671));
 }
 .Anna{
   background: rgb(88, 1, 37);
@@ -400,9 +400,8 @@ skew to change the 'thickness' of the glitch.*/
 .Brianna{
   background-image: radial-gradient(rgb(54, 252, 5), rgb(248, 208, 97), rgb(5, 232, 253));
 }
-.Rebecca{
-  background: rgb(1, 51, 58);
-  color: white
+.Kiri{
+  background-image: linear-gradient(rgba(194, 5, 252, 0.849), rgb(248, 107, 97), rgb(5, 232, 253));
 }
 .Michael{
   background-image: linear-gradient(rgba(0, 68, 255, 0.678), rgba(136, 136, 136, 0.568));
@@ -435,7 +434,7 @@ skew to change the 'thickness' of the glitch.*/
 .Justice{
   background-image: linear-gradient(Lime, Pink);
 }
-.Pamela{
+.Pam{
   background-image: linear-gradient(Red, Purple);
   color: white
 }
@@ -448,6 +447,44 @@ skew to change the 'thickness' of the glitch.*/
 }
 .Del{
   background-image: linear-gradient(rgb(255, 0, 0), rgb(255, 102, 0));
+}
+.Keegan{
+  background-image: linear-gradient(rgb(126, 0, 0), rgb(2, 0, 144));
+  color: white
+}
+.Kiier{
+  background-image: linear-gradient(rgb(0, 225, 255), rgb(0, 144, 55));
+}
+.Selena{
+  background-image: linear-gradient(rgb(251, 255, 0), rgb(195, 0, 186));
+}
+.Brandon{
+  background-image: linear-gradient(rgb(105, 105, 105), rgb(134, 112, 82));
+}
+.Kalee{
+  background-image: linear-gradient(rgba(85, 0, 0, 0.561), rgb(248, 244, 0));
+}
+.Rocky{
+  background-image: linear-gradient(rgb(250, 233, 0), rgba(14, 163, 1, 0.739));
+}
+.Sonia{
+  background-image: linear-gradient(rgb(87, 0, 250), rgba(152, 163, 1, 0.739));
+  color: white
+}
+.Zhane{
+  background-image: linear-gradient(rgb(0, 212, 250), rgba(255, 102, 0, 0.972));
+}
+.Brooke{
+  background-image: linear-gradient(rgb(86, 87, 87), rgba(253, 252, 252, 0.972));
+}
+.Claudia{
+  background-image: linear-gradient(rgb(185, 0, 123), rgba(209, 255, 2, 0.972));
+}
+.Julia{
+  background-image: linear-gradient(rgb(180, 98, 153), rgba(173, 131, 97, 0.972));
+}
+.Laura{
+  background-image: linear-gradient(rgb(117, 165, 106), rgba(18, 194, 71, 0.972));
 }
 .None{
   background: black;
