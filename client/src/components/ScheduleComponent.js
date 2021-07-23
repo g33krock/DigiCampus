@@ -317,12 +317,7 @@ export default class Schedule extends Component {
                         {student.firstName} {student.lastName}
                       </th>
                       {student.schedules
-                        .sort(function (a, b){
-                          let x = a.firstName.toLowerCase();
-                          let y = b.firstName.toLowerCase();
-                          if (x < y) {return -1;}
-                          if (x > y) {return 1;}
-                          return 0;})
+                        .sort((a, b) => a.period - b.period)
                         .map((schedule) => (
                           <td
                             className={schedule.teacher?.firstName}
