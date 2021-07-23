@@ -49,9 +49,9 @@ export function Login() {
 
       <br />
 
-      {/* <p>
+      <p>
         Don't have an account? <Link to="/signup">Sign Up</Link>
-      </p> */}
+      </p>
     </Container>
       
     </>
