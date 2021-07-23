@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { baseURL } from "../baseURL";
 import { Table, Col, Input, Label, TabContent, TabPane, Nav, NavItem, NavLink } from "reactstrap";
 import { ScheduleUpdater } from "./UpdateSchedule";
-// import { DeleteSchedule } from "./DeleteSchedule";
+import { DeleteSchedule } from "./DeleteSchedule";
 import { fetcher } from "../services/fetcher";
 import classnames from "classnames";
 import { campusService } from "../services/campusService";
