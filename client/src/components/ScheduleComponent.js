@@ -226,6 +226,8 @@ export default class Schedule extends Component {
                               scheduleId={schedule.id}
                               period={schedule.period}
                               campus={schedule.campus}
+                              teacher={schedule.teacher}
+                              course={schedule.course}
                               courses={this.state.courses}
                               teachers={this.state.teachers}
                             ></ScheduleUpdater>

@@ -486,6 +486,9 @@ skew to change the 'thickness' of the glitch.*/
 .Laura{
   background-image: linear-gradient(rgb(117, 165, 106), rgba(18, 194, 71, 0.972));
 }
+.Scott{
+  background-image: linear-gradient(rgba(192, 0, 0, 0.719), rgba(194, 197, 1, 0.972));
+}
 .None{
   background: black;
 }
