@@ -66,7 +66,13 @@ export default class TeacherSchedule extends Component {
                 </p>
                 <p>Course Name:{teachersched.course?.name}</p>
                 <p>Subject:{teachersched.course?.subject}</p>
-                <a href={this.props.teacher?.link}>Class Link</a>
+                <a class="link">Class Link</a>
+                <script  type="text/javascript">
+                    $("a.link").on("click",function(){
+                        window.open(this.props.teacher?.link,'_blank')
+                    });
+                </script>
+                {/* <a href={this.props.teacher?.link}>Class Link</a> */}
               </CardText>
               <StudentInfo student={teachersched.student}></StudentInfo>
 
