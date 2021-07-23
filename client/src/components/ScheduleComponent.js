@@ -212,10 +212,8 @@ export default class Schedule extends Component {
                             className={schedule.teacher?.firstName}
                             id="schedItem"
                           >
-                            <strong>Course: </strong>
                             <small>{schedule.course.name}</small>
                             <br />
-                            <strong>Teacher: </strong>
                             <small>
                               {schedule.teacher?.firstName}{" "}
                               {schedule.teacher?.lastName}
@@ -328,10 +326,8 @@ export default class Schedule extends Component {
                             className={schedule.teacher?.firstName}
                             id="schedItem"
                           >
-                            <strong>Course: </strong>
                             <small>{schedule.course.name}</small>
                             <br />
-                            <strong>Teacher: </strong>
                             <small>
                               {schedule.teacher?.firstName}{" "}
                               {schedule.teacher?.lastName}
