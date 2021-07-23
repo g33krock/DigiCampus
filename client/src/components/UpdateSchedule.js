@@ -95,7 +95,7 @@ export class ScheduleUpdater extends Component {
               </FormGroup>
               <FormGroup>
                 <Label for="scheduleCourse">Select Course</Label>
-                <Input type="select" id="scheduleCourse" defaultValue={this.props.teacher.id}>
+                <Input type="select" id="scheduleCourse" defaultValue={this.props.course.id}>
                 <option value='15' selected>None</option>
                   {this.props.courses
                   .sort(function (a, b){
