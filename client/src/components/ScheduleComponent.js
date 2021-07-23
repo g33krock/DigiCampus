@@ -231,11 +231,11 @@ export default class Schedule extends Component {
                               courses={this.state.courses}
                               teachers={this.state.teachers}
                             ></ScheduleUpdater>
-                            {/* <DeleteSchedule
+                            <DeleteSchedule
                               callback={() => this.getSchedules()}
                               scheduleId={schedule.id}
                               period={schedule.period}>
-                            </DeleteSchedule> */}
+                            </DeleteSchedule>
                           </td>
                         ))}
                     </tr>
@@ -310,7 +310,12 @@ export default class Schedule extends Component {
                   .filter(
                     (cstudent) =>
                       cstudent.campuses.id === this.state?.campus?.id
-                  )
+                  ).sort(function (a, b){
+                    let x = a.firstName.toLowerCase();
+                    let y = b.firstName.toLowerCase();
+                    if (x < y) {return -1;}
+                    if (x > y) {return 1;}
+                    return 0;})
                   .map((student) => (
                     <tr>
                       <th key={student.id}>

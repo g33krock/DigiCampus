@@ -122,12 +122,12 @@ export default class Student extends Component {
                 </Row>
                 <Row>
                   <Col md="4">
-                    {/* <EmptyScheduleCreator 
+                    <EmptyScheduleCreator 
                       studentId={this.state.student?.id}
                       studentFirstName={this.state.student?.firstName}
                       studentLastName={this.state.student?.lastName}
                       campusId={this.state.student?.campuses.id}>
-                    </EmptyScheduleCreator> */}
+                    </EmptyScheduleCreator>
                   </Col>
                   <Col md="2"></Col>
                   <Col md="4">
