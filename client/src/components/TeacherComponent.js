@@ -65,6 +65,7 @@ export default class Teacher extends Component {
         teacherP10={this.state.teacher?.pTen}
         ></TeacherUpdater>
         <h1 className="perfectdark">Hello {this.state.teacher?.firstName}</h1>
+        <h3>Link: {this.state.teacher?.link}</h3>
         <div className = "row">
           <Label for="scheduleTeacher">Select Teacher</Label>
           <select id="scheduleTeacher" onChange={this.onChange}>
