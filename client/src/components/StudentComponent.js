@@ -76,6 +76,16 @@ export default class Student extends Component {
           <div className="col-md-3">
             <Card body outline color="primary">
               {this.state.student && <CardImg src={`${this.state.student?.profile_image}`} alt={`${this.state.student?.firstName}`}></CardImg>}
+              {this.state.student?.guardians.map((guardian) => (
+                  <div>
+                    <p>
+                      <strong>Parent:</strong> {guardian?.firstName} {guardian?.lastName}
+                    </p>
+                    <p><strong>Email:</strong> {guardian?.email}</p>
+                    <p><strong>Phone:</strong> {guardian?.phone}</p>
+                    <p><strong>Address:</strong> {guardian?.address}</p>
+                  </div>
+                ))}
               {this.state.student &&<CardBody>
                 <p><strong>Campus:</strong> {this.state.student.campuses.name}</p>
                 <p><strong>Grade:</strong> {this.state.student.grade}</p>
