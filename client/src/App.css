@@ -453,7 +453,8 @@ skew to change the 'thickness' of the glitch.*/
   color: white
 }
 .Kiier{
-  background-image: linear-gradient(rgb(0, 225, 255), rgb(0, 144, 55));
+  background-image: linear-gradient(rgb(47, 0, 255), rgb(80, 1, 126), rgb(0, 144, 55));
+  color: white
 }
 .Selena{
   background-image: linear-gradient(rgb(251, 255, 0), rgb(195, 0, 186));
