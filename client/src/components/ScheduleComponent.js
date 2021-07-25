@@ -238,9 +238,9 @@ export default class Schedule extends Component {
                             </DeleteSchedule> */}
                           </td>
                         ))}
-                        {student.schedules.teacher
+                        {/* {student.schedules.teacher
                         .filter(aTeacher => this.state.schedules.filter(schedule => schedule.period === 1).studentId !== aTeacher.id)
-                        .every((teach) => (<p>{teach.firstName} {teach.lastName}</p>))}
+                        .every((teach) => (<p>{teach.firstName} {teach.lastName}</p>))} */}
                     </tr>
                   ))}
               </tbody>
