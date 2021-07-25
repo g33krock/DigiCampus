@@ -158,7 +158,7 @@ export class Student extends BaseEntity {
 	@ManyToOne(() => InstructionMode, instructionmode => instructionmode.students)
 	instructionmode: InstructionMode;
 
-	@ManyToOne(() => Guardian, guardian => guardian.students)
+	@ManyToOne(() => Guardian, guardian => guardian.students, {onDelete: 'CASCADE'})
 	guardian: Guardian;
 
 	@OneToMany(() => SpedQuestion, spedQuestion => spedQuestion.student, {onDelete: 'CASCADE'})
