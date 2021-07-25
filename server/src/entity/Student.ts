@@ -137,7 +137,7 @@ export class Student extends BaseEntity {
 	@OneToMany(() => Schedule, schedule => schedule.student, {onDelete: 'CASCADE'})
 	schedules: Schedule[];
 
-	@OneToMany(() => Guardian, guardian => guardian.student)
+	@OneToMany(() => Guardian, guardian => guardian.student, {onDelete: 'CASCADE'})
 	guardians: Guardian[];
 
 	@ManyToOne(() => Campus, campus => campus.students)
