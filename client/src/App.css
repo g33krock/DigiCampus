@@ -362,7 +362,7 @@ skew to change the 'thickness' of the glitch.*/
 
 
 .Chris{
-  background-image: radial-gradient(rgb(255, 0, 0), rgb(255, 255, 255), rgb(17, 0, 255));
+  background-image: linear-gradient(rgb(255, 0, 0), rgb(255, 255, 255), rgb(17, 0, 255));
 }
 .Colton{
   background-image: radial-gradient(rgb(0, 105, 0), rgb(114, 83, 0), rgb(0, 89, 97));
