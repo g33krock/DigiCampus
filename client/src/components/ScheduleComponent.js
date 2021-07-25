@@ -212,6 +212,7 @@ export default class Schedule extends Component {
                             className={schedule.teacher?.firstName}
                             id="schedItem"
                           >
+                            <small>{schedule.period}</small>
                             <small>{schedule.course.name}</small>
                             <br />
                             <small>
