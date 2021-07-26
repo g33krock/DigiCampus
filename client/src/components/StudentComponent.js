@@ -3,10 +3,10 @@ import React, { Component } from "react";
 import {baseURL} from "../baseURL";
 import { Card, Row, Col, CardImg, CardBody, Label, Container } from "reactstrap";
 import {StudentCreator} from "./CreateStudent";
-import {DeleteStudent} from "./DeleteStudent";
+// import {DeleteStudent} from "./DeleteStudent";
 import {StudentUpdater} from "./UpdateStudent";
 import AltStudentSchedule from "./AltStudentSchedule";
-// import { EmptyScheduleCreator } from "./EmptySchedule";
+import { EmptyScheduleCreator } from "./EmptySchedule";
 import { GuardianCreator } from "./CreateGuardian";
 import { fetcher } from '../services/fetcher';
 
@@ -92,11 +92,11 @@ export default class Student extends Component {
                 <p><strong>Additional Information:</strong> {this.state.student.additional_information}</p>
                 <Row>
                 <Col md="4">
-                  <DeleteStudent 
+                  {/* <DeleteStudent 
                     studentId={this.state.student?.id}
                     studentFirstName={this.state.student?.firstName}
                     studentLastName={this.state.student?.lastName}>
-                  </DeleteStudent>
+                  </DeleteStudent> */}
                 </Col>
                 <Col md="2"></Col>
                 <Col md="4">
@@ -131,14 +131,14 @@ export default class Student extends Component {
                 </Col>
                 </Row>
                 <Row>
-                  {/* <Col md="4">
+                  <Col md="4">
                     <EmptyScheduleCreator 
                       studentId={this.state.student?.id}
                       studentFirstName={this.state.student?.firstName}
                       studentLastName={this.state.student?.lastName}
                       campusId={this.state.student?.campuses.id}>
                     </EmptyScheduleCreator>
-                  </Col> */}
+                  </Col>
                   <Col md="2"></Col>
                   <Col md="4">
                     <GuardianCreator
