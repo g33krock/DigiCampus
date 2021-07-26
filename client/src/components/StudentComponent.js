@@ -10,10 +10,6 @@ import AltStudentSchedule from "./AltStudentSchedule";
 import { GuardianCreator } from "./CreateGuardian";
 import { fetcher } from '../services/fetcher';
 
-// export default async function getUser(req, res) {
-//   const user = await supabase.auth.user();
-//   return res.status(200).json({ user: user });
-// }
 
 export default class Student extends Component {
   constructor(props) {

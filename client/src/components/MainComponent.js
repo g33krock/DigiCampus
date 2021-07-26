@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Student from './StudentComponent';
+import Sub from './SubComponent';
 import Home from './HomeComponent';
 import { Switch, Redirect } from 'react-router-dom'
 import Teacher from './TeacherComponent';
@@ -47,6 +48,7 @@ class Main extends Component {
             
                 <Switch>
                     <PrivateRoute path='/singleteachers' component={SingleTeacher} userEmail = {this.props?.userEmail} />
+                    <PrivateRoute path='/substitute' component={Sub} userEmail = {this.props?.userEmail} campus = {this.state.campus}/>
                     <PrivateRoute path='/home' component={Home} />
                     <Redirect to='/home' />
                 </Switch>
@@ -61,6 +63,7 @@ class Main extends Component {
                         <PrivateRoute path='/teachers' component={Teacher} campus = {this.state.campus}/>
                         <PrivateRoute path='/students' component={Student} campus = {this.state.campus}/>
                         <PrivateRoute path='/transcripts' component={Transcript} campus = {this.state.campus}/>
+                        <PrivateRoute path='/substitute' component={Sub} userEmail = {this.props?.userEmail} campus = {this.state.campus} />
                         <PrivateRoute path='/home' component={Home} />
                         <Redirect to='/home' />
                     </Switch>

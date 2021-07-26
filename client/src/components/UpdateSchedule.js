@@ -1,5 +1,4 @@
 import { Component } from "react";
-// import {baseURL} from "../baseURL";
 import {
   Form,
   FormGroup,
@@ -10,7 +9,6 @@ import {
   ModalBody,
 } from "reactstrap";
 import { scheduleService } from "../services/scheduleService";
-// import { fetcher } from '../services/fetcher';
 
 export class ScheduleUpdater extends Component {
   constructor(props) {
@@ -24,27 +22,6 @@ export class ScheduleUpdater extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   // Fetch Student Table from API
-  //   fetcher(`${baseURL}/teachers`)
-  //     // Convert response to a JSON object
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       // Create relationship between students state array and JSON object
-  //       this.setState({
-  //         teachers: data,
-  //       });
-  //     });
-  //   fetcher(`${baseURL}/courses`)
-  //     // Convert response to a JSON object
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       // Create relationship between students state array and JSON object
-  //       this.setState({
-  //         courses: data,
-  //       });
-  //     });
-  // }
 
   async updateSchedule() {
     const scheduleObject = {
