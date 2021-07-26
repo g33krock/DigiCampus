@@ -87,7 +87,7 @@ export default class TeacherSchedule extends Component {
         return (
           <div key={teachersched.id} className="col">
             <Card onClick={() => this.setSchedule(teachersched)}>
-              <CardTitle>Period: {teachersched.period}</CardTitle>
+              <CardTitle>Period: {block}</CardTitle>
               <CardText style={{ color: "black" }}>
                 <p>
                   Student:{teachersched.student?.firstName}{" "}
