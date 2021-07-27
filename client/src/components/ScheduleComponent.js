@@ -1,12 +1,22 @@
 import React, { Component } from "react";
 import { baseURL } from "../baseURL";
-import { Table, Col, Input, Label, TabContent, TabPane, Nav, NavItem, NavLink } from "reactstrap";
+import {
+  Table,
+  Col,
+  Input,
+  Label,
+  TabContent,
+  TabPane,
+  Nav,
+  NavItem,
+  NavLink,
+} from "reactstrap";
 import { ScheduleUpdater } from "./UpdateSchedule";
 // import { DeleteSchedule } from "./DeleteSchedule";
 import { fetcher } from "../services/fetcher";
 import classnames from "classnames";
 import { campusService } from "../services/campusService";
-// import { scheduleService } from "../services/scheduleService";
+import { scheduleService } from "../services/scheduleService";
 
 export default class Schedule extends Component {
   constructor(props) {
@@ -44,12 +54,12 @@ export default class Schedule extends Component {
       });
       console.log(this.state.campuses);
     });
-    // scheduleService.all().then((schedules) => {
-    //   this.setState({
-    //     schedules,
-    //   });
-    //   console.log(this.state.schedules);
-    // });
+    scheduleService.all().then((schedules) => {
+      this.setState({
+        schedules,
+      });
+      console.log(this.state.schedules);
+    });
   }
 
   getSchedules() {
@@ -69,7 +79,7 @@ export default class Schedule extends Component {
           students,
         });
       });
-      fetcher(`${baseURL}/teachers`)
+    fetcher(`${baseURL}/teachers`)
       // Convert response to a JSON object
       .then((response) => response.json())
       .then((data) => {
@@ -115,10 +125,119 @@ export default class Schedule extends Component {
   }
 
   render() {
-    // const teach = this.state.students.map(student => student.schedules
-    //   .every(schedule => schedule.teacher.id !==26)
-    //     )
-    //   console.log(teach)
+    
+      let sched1 = this.state.schedules
+        .filter((schedule) => (schedule.period === 1))
+        .filter((schedule) => schedule.teacher.id !== 26)
+        .map((schedule) => schedule.teacher.firstName);
+      let teach1 = this.state.teachers
+        .filter((teacher) => teacher.campus.id === this.props.campus?.id)
+        .map((teacher) => teacher.firstName);
+      teach1 = teach1.filter(function (item) {
+        return !sched1.includes(item);
+      });
+      console.log(teach1);
+      let sched2 = this.state.schedules
+      .filter((schedule) => (schedule.period === 2))
+      .filter((schedule) => schedule.teacher.id !== 26)
+      .map((schedule) => schedule.teacher.firstName);
+    let teach2 = this.state.teachers
+      .filter((teacher) => teacher.campus.id === this.props.campus?.id)
+      .map((teacher) => teacher.firstName);
+    teach2 = teach2.filter(function (item) {
+      return !sched2.includes(item);
+    });
+    console.log(teach2);
+    let sched3 = this.state.schedules
+    .filter((schedule) => (schedule.period === 3))
+    .filter((schedule) => schedule.teacher.id !== 26)
+    .map((schedule) => schedule.teacher.firstName);
+  let teach3 = this.state.teachers
+    .filter((teacher) => teacher.campus.id === this.props.campus?.id)
+    .map((teacher) => teacher.firstName);
+  teach3 = teach3.filter(function (item) {
+    return !sched3.includes(item);
+  });
+  console.log(teach3);
+  let sched4 = this.state.schedules
+  .filter((schedule) => (schedule.period === 4))
+  .filter((schedule) => schedule.teacher.id !== 26)
+  .map((schedule) => schedule.teacher.firstName);
+let teach4 = this.state.teachers
+  .filter((teacher) => teacher.campus.id === this.props.campus?.id)
+  .map((teacher) => teacher.firstName);
+teach4 = teach4.filter(function (item) {
+  return !sched4.includes(item);
+});
+console.log(teach4);
+let sched5 = this.state.schedules
+.filter((schedule) => (schedule.period === 5))
+.filter((schedule) => schedule.teacher.id !== 26)
+.map((schedule) => schedule.teacher.firstName);
+let teach5 = this.state.teachers
+.filter((teacher) => teacher.campus.id === this.props.campus?.id)
+.map((teacher) => teacher.firstName);
+teach5 = teach5.filter(function (item) {
+return !sched5.includes(item);
+});
+console.log(teach5);
+let sched6 = this.state.schedules
+.filter((schedule) => (schedule.period === 6))
+.filter((schedule) => schedule.teacher.id !== 26)
+.map((schedule) => schedule.teacher.firstName);
+let teach6 = this.state.teachers
+.filter((teacher) => teacher.campus.id === this.props.campus?.id)
+.map((teacher) => teacher.firstName);
+teach6 = teach6.filter(function (item) {
+return !sched6.includes(item);
+});
+console.log(teach6);
+let sched7 = this.state.schedules
+.filter((schedule) => (schedule.period === 7))
+.filter((schedule) => schedule.teacher.id !== 26)
+.map((schedule) => schedule.teacher.firstName);
+let teach7 = this.state.teachers
+.filter((teacher) => teacher.campus.id === this.props.campus?.id)
+.map((teacher) => teacher.firstName);
+teach7 = teach7.filter(function (item) {
+return !sched7.includes(item);
+});
+console.log(teach7);
+let sched8 = this.state.schedules
+.filter((schedule) => (schedule.period === 8))
+.filter((schedule) => schedule.teacher.id !== 26)
+.map((schedule) => schedule.teacher.firstName);
+let teach8 = this.state.teachers
+.filter((teacher) => teacher.campus.id === this.props.campus?.id)
+.map((teacher) => teacher.firstName);
+teach8 = teach8.filter(function (item) {
+return !sched8.includes(item);
+});
+console.log(teach8);
+let sched9 = this.state.schedules
+.filter((schedule) => (schedule.period === 9))
+.filter((schedule) => schedule.teacher.id !== 26)
+.map((schedule) => schedule.teacher.firstName);
+let teach9 = this.state.teachers
+.filter((teacher) => teacher.campus.id === this.props.campus?.id)
+.map((teacher) => teacher.firstName);
+teach9 = teach9.filter(function (item) {
+return !sched9.includes(item);
+});
+console.log(teach9);
+let sched10 = this.state.schedules
+.filter((schedule) => (schedule.period === 10))
+.filter((schedule) => schedule.teacher.id !== 26)
+.map((schedule) => schedule.teacher.firstName);
+let teach10 = this.state.teachers
+.filter((teacher) => teacher.campus.id === this.props.campus?.id)
+.map((teacher) => teacher.firstName);
+teach10 = teach10.filter(function (item) {
+return !sched10.includes(item);
+});
+console.log(teach10);
+    
+
     return (
       <div class="tableFixHead">
         <Nav tabs>
@@ -215,12 +334,18 @@ export default class Schedule extends Component {
                   .filter(
                     (cstudent) =>
                       cstudent.campuses.id === this.props?.campus?.id
-                  ).sort(function (a, b){
+                  )
+                  .sort(function (a, b) {
                     let x = a.firstName.toLowerCase();
                     let y = b.firstName.toLowerCase();
-                    if (x < y) {return -1;}
-                    if (x > y) {return 1;}
-                    return 0;})
+                    if (x < y) {
+                      return -1;
+                    }
+                    if (x > y) {
+                      return 1;
+                    }
+                    return 0;
+                  })
                   .map((student) => (
                     <tr>
                       <th key={student.id}>
@@ -331,12 +456,18 @@ export default class Schedule extends Component {
                   .filter(
                     (cstudent) =>
                       cstudent.campuses.id === this.state?.campus?.id
-                  ).sort(function (a, b){
+                  )
+                  .sort(function (a, b) {
                     let x = a.firstName.toLowerCase();
                     let y = b.firstName.toLowerCase();
-                    if (x < y) {return -1;}
-                    if (x > y) {return 1;}
-                    return 0;})
+                    if (x < y) {
+                      return -1;
+                    }
+                    if (x > y) {
+                      return 1;
+                    }
+                    return 0;
+                  })
                   .map((student) => (
                     <tr>
                       <th key={student.id}>
@@ -419,11 +550,22 @@ export default class Schedule extends Component {
                 </tr>
               </thead>
               <tbody>
-                
+                <td></td>
+                <td>{teach1.map(teacher => <p>{teacher}</p>)}</td>
+                <td>{teach2.map(teacher => <p>{teacher}</p>)}</td>
+                <td>{teach3.map(teacher => <p>{teacher}</p>)}</td>
+                <td>{teach4.map(teacher => <p>{teacher}</p>)}</td>
+                <td>{teach5.map(teacher => <p>{teacher}</p>)}</td>
+                <td>{teach6.map(teacher => <p>{teacher}</p>)}</td>
+                <td>{teach7.map(teacher => <p>{teacher}</p>)}</td>
+                <td>{teach8.map(teacher => <p>{teacher}</p>)}</td>
+                <td>{teach9.map(teacher => <p>{teacher}</p>)}</td>
+                <td>{teach10.map(teacher => <p>{teacher}</p>)}</td>
               </tbody>
             </Table>
           </TabPane>
         </TabContent>
+        
       </div>
     );
   }
