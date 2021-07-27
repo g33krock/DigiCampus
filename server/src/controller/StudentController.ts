@@ -8,7 +8,7 @@ export class StudentController {
 	}
 
 	async one(request: Request, response: Response, next: NextFunction) {
-		return Student.findOne(request.params.id, { relations: ["schedules", "campuses", "schedules.teacher", "schedules.course", "guardians", "funding", "instructionmode"] });
+		return Student.findOne(request.params.id, { relations: ["schedules", "campuses", "schedules.teacher", "schedules.teacher.id", "schedules.course", "guardians", "funding", "instructionmode"] });
 	}
 
 

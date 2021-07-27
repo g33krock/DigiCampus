@@ -108,6 +108,10 @@ export default class Schedule extends Component {
   }
 
   render() {
+    // const teach = this.state.students.map(student => student.schedules
+    //   .filter(schedule => schedule.teacher.id !==26)
+    //     )
+    //   console.log(teach)
     return (
       <div class="tableFixHead">
         <Nav tabs>
@@ -129,6 +133,16 @@ export default class Schedule extends Component {
               }}
             >
               All Campuses
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === "3" })}
+              onClick={() => {
+                this.toggle("3");
+              }}
+            >
+              Free Teachers
             </NavLink>
           </NavItem>
         </Nav>
@@ -238,9 +252,6 @@ export default class Schedule extends Component {
                             </DeleteSchedule> */}
                           </td>
                         ))}
-                        {/* {student.schedules.teacher
-                        .filter(aTeacher => this.state.schedules.filter(schedule => schedule.period === 1).studentId !== aTeacher.id)
-                        .every((teach) => (<p>{teach.firstName} {teach.lastName}</p>))} */}
                     </tr>
                   ))}
               </tbody>
@@ -341,6 +352,67 @@ export default class Schedule extends Component {
                         ))}
                     </tr>
                   ))}
+              </tbody>
+            </Table>
+          </TabPane>
+          <TabPane tabId="3">
+            <Col sm={3}>
+              <Label>Home Campus: {this.props.campus?.name}</Label>
+            </Col>
+            <Table bordered hover size="sm">
+              <thead class="shadow">
+                <tr id="scheduleHeader">
+                  <th>
+                    <h2>Student</h2>
+                    <br /> <br />
+                  </th>
+                  <th>
+                    <br />
+                    <br />
+                    <br />
+                    <h2>Period 1</h2>
+                    <p>7:50-8:40</p>
+                  </th>
+                  <th>
+                    <h3>Period 2</h3>
+                    <p>8:40-9:30</p>
+                  </th>
+                  <th>
+                    <h3>Period 3</h3>
+                    <p>9:30-10:20</p>
+                  </th>
+                  <th>
+                    <h3>Period 4</h3>
+                    <p>10:20-11:10</p>
+                  </th>
+                  <th>
+                    <h3>Period 5</h3>
+                    <p>11:10-12:00</p>
+                  </th>
+                  <th>
+                    <h3>Period 6</h3>
+                    <p>12:00-12:50</p>
+                  </th>
+                  <th>
+                    <h3>Period 7</h3>
+                    <p>12:50-1:40</p>
+                  </th>
+                  <th>
+                    <h3>Period 8</h3>
+                    <p>1:40-2:30</p>
+                  </th>
+                  <th>
+                    <h3>Period 9</h3>
+                    <p>2:30-3:20</p>
+                  </th>
+                  <th>
+                    <h3>Period 10</h3>
+                    <p>3:20-4:10</p>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                
               </tbody>
             </Table>
           </TabPane>
