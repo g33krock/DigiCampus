@@ -152,6 +152,7 @@ export class TrackerCreator extends Component {
                     <FormGroup>
                       <Label for="spedResponseSuccess">Successes </Label>
                       <Input
+                        defaultValue='0'
                         type="number"
                         id={`spedResponseSuccess${spedQuestion?.id}`}
                       />
@@ -161,6 +162,7 @@ export class TrackerCreator extends Component {
                     <FormGroup>
                       <Label for="spedResponseOpportunity">Opportunities </Label>
                       <Input
+                        defaultValue='0'
                         type="number"
                         id={`spedResponseOpportunity${spedQuestion?.id}`}
                       />

@@ -6,6 +6,7 @@ import { ScheduleUpdater } from "./UpdateSchedule";
 import { fetcher } from "../services/fetcher";
 import classnames from "classnames";
 import { campusService } from "../services/campusService";
+// import { scheduleService } from "../services/scheduleService";
 
 export default class Schedule extends Component {
   constructor(props) {
@@ -43,6 +44,12 @@ export default class Schedule extends Component {
       });
       console.log(this.state.campuses);
     });
+    // scheduleService.all().then((schedules) => {
+    //   this.setState({
+    //     schedules,
+    //   });
+    //   console.log(this.state.schedules);
+    // });
   }
 
   getSchedules() {
@@ -109,7 +116,7 @@ export default class Schedule extends Component {
 
   render() {
     // const teach = this.state.students.map(student => student.schedules
-    //   .filter(schedule => schedule.teacher.id !==26)
+    //   .every(schedule => schedule.teacher.id !==26)
     //     )
     //   console.log(teach)
     return (
