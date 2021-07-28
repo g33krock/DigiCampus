@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { baseURL } from "../baseURL";
-import { Card, Title, CardBody,} from "reactstrap";
+import { Card, CardTitle, CardBody, Container} from "reactstrap";
 import { fetcher } from "../services/fetcher";
 
 export default class Announcement extends Component {
   constructor(props) {
     super(props);
-    this.state = { announcements: null };
+    this.state = { announcements: [] };
   }
 
   componentDidMount() {
@@ -17,18 +17,22 @@ export default class Announcement extends Component {
           announcements: data,
         });
       });
+      console.log(this.state.announcements)
   }
 
   render() {
-    {
-      this.state.announcements.map((announcement) => {
-        return (
+      return(
+          <Container>
+              {
+      this.state.announcements?.map((announcement) => {
         <Card>
-            <Title>{announcement.head}</Title>
+            <CardTitle>{announcement.head}</CardTitle>
             <br />
             <CardBody>{announcement.body}</CardBody>
-        </Card>);
-      });
+        </Card>;
+      })
     }
+          </Container>
+      )
   }
 }
