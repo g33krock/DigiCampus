@@ -3,7 +3,7 @@
 	"host": "db.qyctrtcwtwasdktftmuy.supabase.co",
 	"port": 5432,
 	"username": "postgres",
-	"password": "",
+	"password": "GassyPenguin16",
 	"database": "postgres",
 	"synchronize": true,
 	"logging": false,
