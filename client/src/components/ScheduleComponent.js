@@ -486,6 +486,10 @@ console.log(teach10);
                               {schedule.teacher?.firstName}{" "}
                               {schedule.teacher?.lastName}
                             </small>{" "}
+                            <br />
+                            <small>
+                              {schedule.teacher?.link}{" "}
+                            </small>{" "}
                           </td>
                         ))}
                     </tr>

@@ -9,6 +9,7 @@ import Schedule from './ScheduleComponent';
 import { PrivateRoute } from './PrivateRoute';
 import Sped from './SpedComponent';
 import Transcript from './TranscriptComponent';
+import Calendar from './CalendarComponent';
 import { teacherService } from '../services/teacherService';
 
 class Main extends Component {
@@ -48,6 +49,7 @@ class Main extends Component {
             
                 <Switch>
                     <PrivateRoute path='/singleteachers' component={SingleTeacher} userEmail = {this.props?.userEmail} />
+                    <PrivateRoute path='/calendar' component={Calendar} userEmail = {this.props?.userEmail} />
                     <PrivateRoute path='/substitute' component={Sub} userEmail = {this.props?.userEmail} campus = {this.state.campus}/>
                     <PrivateRoute path='/home' component={Home} />
                     <Redirect to='/home' />
@@ -64,6 +66,7 @@ class Main extends Component {
                         <PrivateRoute path='/students' component={Student} campus = {this.state.campus}/>
                         <PrivateRoute path='/transcripts' component={Transcript} campus = {this.state.campus}/>
                         <PrivateRoute path='/substitute' component={Sub} userEmail = {this.props?.userEmail} campus = {this.state.campus} />
+                        <PrivateRoute path='/calendar' component={Calendar} userEmail = {this.props?.userEmail} />
                         <PrivateRoute path='/home' component={Home} />
                         <Redirect to='/home' />
                     </Switch>
