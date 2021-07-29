@@ -49,8 +49,8 @@ export class TranscriptCreator extends Component {
       grade: document.getElementById("transcriptGrade").value,
       category: document.getElementById("transcriptCategory").value,
       credit: document.getElementById("transcriptCredit").value,
-      teachers: document.getElementById("transcriptTeacher").value,
-      courses: document.getElementById("transcriptCourse").value,
+      schoolYear: document.getElementById("transcriptSchoolYear").value,
+      semester: document.getElementById("transcriptSemester").value,
       school: document.getElementById("transcriptSchool")?.value,
       altTeacher: document.getElementById("transcriptAltTeacher")?.value,
       altCourse: document.getElementById("transcriptAltCourse")?.value,
@@ -170,33 +170,36 @@ export class TranscriptCreator extends Component {
                 <Row>
                   <Col>
                     <FormGroup>
-                      <Label for="transcriptTeacher">Teacher</Label>
+                      <Label for="transcriptSchoolYear">School Year</Label>
                       <Input
                         type="select"
-                        name="transcriptTeacher"
-                        id="transcriptTeacher"
+                        name="transcriptSchoolYear"
+                        id="transcriptSchoolYear"
                       >
-                        <option value="13"></option>
-                        {this.state.teachers.map((teacher) => (
-                          <option value={teacher.id}>
-                            {teacher.firstName} {teacher.lastName}
-                          </option>
-                        ))}
+                        <option></option>
+                        <option>2021-2022</option>
+                        <option>2020-2021</option>
+                        <option>2019-2020</option>
+                        <option>2018-2019</option>
+                        <option>2017-2018</option>
+                        <option>2016-2017</option>
+                        <option>2015-2016</option>
                       </Input>
                     </FormGroup>
                   </Col>
                   <Col>
                     <FormGroup>
-                      <Label for="transcriptCourse">Course</Label>
+                      <Label for="transcriptSemester">Course</Label>
                       <Input
                         type="select"
-                        name="transcriptCourse"
-                        id="transcriptCourse"
+                        name="transcriptSemester"
+                        id="transcriptSemester"
                       >
-                        <option value="15"></option>
-                        {this.state.courses.map((course) => (
-                          <option value={course.id}>{course.name}</option>
-                        ))}
+                        <option></option>
+                        <option>Semester 1</option>
+                        <option>Semester 2</option>
+                        <option>ESY</option>
+                        <option>Full Year</option>
                       </Input>
                     </FormGroup>
                   </Col>

@@ -17,7 +17,7 @@ import {
 } from "reactstrap";
 import { TranscriptCreator } from "./CreateTranscript";
 import classnames from "classnames";
-import { fetcher } from '../services/fetcher';
+import { fetcher } from "../services/fetcher";
 
 export default class Transcript extends Component {
   constructor(props) {
@@ -68,7 +68,8 @@ export default class Transcript extends Component {
   render() {
     const first = this.state.student?.firstName;
     const last = this.state.student?.lastName;
-    const creditTotal = (accumulator, currentValue) => accumulator + currentValue;
+    const creditTotal = (accumulator, currentValue) =>
+      accumulator + currentValue;
     return (
       <Container>
         <Nav tabs>
@@ -100,18 +101,23 @@ export default class Transcript extends Component {
             <select id="scheduleStudent" onChange={this.onChange}>
               <option selected>None</option>
               {this.state.students
-              .filter(student => student.grade >= 9)
-              .sort(function (a, b){
-                let x = a.firstName.toLowerCase();
-                let y = b.firstName.toLowerCase();
-                if (x < y) {return -1;}
-                if (x > y) {return 1;}
-                return 0;})
+                .filter((student) => student.grade >= 9)
+                .sort(function (a, b) {
+                  let x = a.firstName.toLowerCase();
+                  let y = b.firstName.toLowerCase();
+                  if (x < y) {
+                    return -1;
+                  }
+                  if (x > y) {
+                    return 1;
+                  }
+                  return 0;
+                })
                 .map((student) => (
-                <option key={student.id} value={student.id}>
-                  {student.firstName} {student.lastName}
-                </option>
-              ))}
+                  <option key={student.id} value={student.id}>
+                    {student.firstName} {student.lastName}
+                  </option>
+                ))}
             </select>
           </Col>
         </Row>
@@ -159,37 +165,52 @@ export default class Transcript extends Component {
                           <tr>
                             <th>
                               <p>
-                                <small><strong>Date</strong></small>
+                                <small>
+                                  <strong>Date</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Category</strong></small>
+                                <small>
+                                  <strong>Year/Semester</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Course</strong></small>
+                                <small>
+                                  <strong>Category</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>School</strong></small>
+                                <small>
+                                  <strong>Course</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Teacher</strong></small>
+                                <small>
+                                  <strong>School</strong>
+                                </small>
+                              </p>
+                            </th>
+
+                            <th>
+                              <p>
+                                <small>
+                                  <strong>Grade</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Grade</strong></small>
-                              </p>
-                            </th>
-                            <th>
-                              <p>
-                                <small><strong>Credit</strong></small>
+                                <small>
+                                  <strong>Credit</strong>
+                                </small>
                               </p>
                             </th>
                           </tr>
@@ -204,25 +225,22 @@ export default class Transcript extends Component {
                             )
                             .map((tran) => (
                               <tr>
-                                <th key={tran.id}><small>{tran.date}</small></th>
+                                <th key={tran.id}>
+                                  <small>{tran.date}</small>
+                                </th>
+                                <td>
+                                  <small>
+                                    {tran.schoolYear} {tran.semester}
+                                  </small>
+                                </td>
                                 <td>
                                   <small>{tran.category}</small>
                                 </td>
                                 <td>
-                                  <small>
-                                    {tran.courses?.name}
-                                    {tran?.altCourse}
-                                  </small>
+                                  <small>{tran?.altCourse}</small>
                                 </td>
                                 <td>
                                   <small>{tran.school}</small>
-                                </td>
-                                <td>
-                                  <small>
-                                    {tran.teachers?.firstName}{" "}
-                                    {tran.teachers?.lastName}
-                                    {tran?.altTeacher}
-                                  </small>
                                 </td>
                                 <td>
                                   <small>{tran.grade}</small>
@@ -240,40 +258,55 @@ export default class Transcript extends Component {
                       <h3>ELA</h3>
                       <Table bordered hover size="sm">
                         <thead>
-                        <tr>
+                          <tr>
                             <th>
                               <p>
-                                <small><strong>Date</strong></small>
+                                <small>
+                                  <strong>Date</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Category</strong></small>
+                                <small>
+                                  <strong>Year/Semester</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Course</strong></small>
+                                <small>
+                                  <strong>Category</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>School</strong></small>
+                                <small>
+                                  <strong>Course</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Teacher</strong></small>
+                                <small>
+                                  <strong>School</strong>
+                                </small>
+                              </p>
+                            </th>
+
+                            <th>
+                              <p>
+                                <small>
+                                  <strong>Grade</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Grade</strong></small>
-                              </p>
-                            </th>
-                            <th>
-                              <p>
-                                <small><strong>Credit</strong></small>
+                                <small>
+                                  <strong>Credit</strong>
+                                </small>
                               </p>
                             </th>
                           </tr>
@@ -288,26 +321,24 @@ export default class Transcript extends Component {
                             )
                             .map((tran) => (
                               <tr>
-                                <th key={tran.id}><small>{tran.date}</small></th>
+                                <th key={tran.id}>
+                                  <small>{tran.date}</small>
+                                </th>
+                                <td>
+                                  <small>
+                                    {tran.schoolYear} {tran.semester}
+                                  </small>
+                                </td>
                                 <td>
                                   <small>{tran.category}</small>
                                 </td>
                                 <td>
-                                  <small>
-                                    {tran.courses?.name}
-                                    {tran?.altCourse}
-                                  </small>
+                                  <small>{tran?.altCourse}</small>
                                 </td>
                                 <td>
                                   <small>{tran.school}</small>
                                 </td>
-                                <td>
-                                  <small>
-                                    {tran.teachers?.firstName}{" "}
-                                    {tran.teachers?.lastName}
-                                    {tran?.altTeacher}
-                                  </small>
-                                </td>
+
                                 <td>
                                   <small>{tran.grade}</small>
                                 </td>
@@ -325,40 +356,55 @@ export default class Transcript extends Component {
                       <h3>Science</h3>
                       <Table bordered hover size="sm">
                         <thead>
-                        <tr>
+                          <tr>
                             <th>
                               <p>
-                                <small><strong>Date</strong></small>
+                                <small>
+                                  <strong>Date</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Category</strong></small>
+                                <small>
+                                  <strong>Year/Semester</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Course</strong></small>
+                                <small>
+                                  <strong>Category</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>School</strong></small>
+                                <small>
+                                  <strong>Course</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Teacher</strong></small>
+                                <small>
+                                  <strong>School</strong>
+                                </small>
+                              </p>
+                            </th>
+
+                            <th>
+                              <p>
+                                <small>
+                                  <strong>Grade</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Grade</strong></small>
-                              </p>
-                            </th>
-                            <th>
-                              <p>
-                                <small><strong>Credit</strong></small>
+                                <small>
+                                  <strong>Credit</strong>
+                                </small>
                               </p>
                             </th>
                           </tr>
@@ -373,26 +419,24 @@ export default class Transcript extends Component {
                             )
                             .map((tran) => (
                               <tr>
-                                <th key={tran.id}><small>{tran.date}</small></th>
+                                <th key={tran.id}>
+                                  <small>{tran.date}</small>
+                                </th>
+                                <td>
+                                  <small>
+                                    {tran.schoolYear} {tran.semester}
+                                  </small>
+                                </td>
                                 <td>
                                   <small>{tran.category}</small>
                                 </td>
                                 <td>
-                                  <small>
-                                    {tran.courses?.name}
-                                    {tran?.altCourse}
-                                  </small>
+                                  <small>{tran?.altCourse}</small>
                                 </td>
                                 <td>
                                   <small>{tran.school}</small>
                                 </td>
-                                <td>
-                                  <small>
-                                    {tran.teachers?.firstName}{" "}
-                                    {tran.teachers?.lastName}
-                                    {tran?.altTeacher}
-                                  </small>
-                                </td>
+
                                 <td>
                                   <small>{tran.grade}</small>
                                 </td>
@@ -407,43 +451,60 @@ export default class Transcript extends Component {
                     <Col xs="2"></Col>
                     <Col xs="5">
                       <h3>Social Studies</h3>
-                      <p><strong>US History</strong></p>
+                      <p>
+                        <strong>US History</strong>
+                      </p>
                       <Table bordered hover size="sm">
                         <thead>
-                        <tr>
+                          <tr>
                             <th>
                               <p>
-                                <small><strong>Date</strong></small>
+                                <small>
+                                  <strong>Date</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Category</strong></small>
+                                <small>
+                                  <strong>Year/Semester</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Course</strong></small>
+                                <small>
+                                  <strong>Category</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>School</strong></small>
+                                <small>
+                                  <strong>Course</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Teacher</strong></small>
+                                <small>
+                                  <strong>School</strong>
+                                </small>
+                              </p>
+                            </th>
+
+                            <th>
+                              <p>
+                                <small>
+                                  <strong>Grade</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Grade</strong></small>
-                              </p>
-                            </th>
-                            <th>
-                              <p>
-                                <small><strong>Credit</strong></small>
+                                <small>
+                                  <strong>Credit</strong>
+                                </small>
                               </p>
                             </th>
                           </tr>
@@ -458,26 +519,24 @@ export default class Transcript extends Component {
                             )
                             .map((tran) => (
                               <tr>
-                                <th key={tran.id}><small>{tran.date}</small></th>
+                                <th key={tran.id}>
+                                  <small>{tran.date}</small>
+                                </th>
+                                <td>
+                                  <small>
+                                    {tran.schoolYear} {tran.semester}
+                                  </small>
+                                </td>
                                 <td>
                                   <small>{tran.category}</small>
                                 </td>
                                 <td>
-                                  <small>
-                                    {tran.courses?.name}
-                                    {tran?.altCourse}
-                                  </small>
+                                  <small>{tran?.altCourse}</small>
                                 </td>
                                 <td>
                                   <small>{tran.school}</small>
                                 </td>
-                                <td>
-                                  <small>
-                                    {tran.teachers?.firstName}{" "}
-                                    {tran.teachers?.lastName}
-                                    {tran?.altTeacher}
-                                  </small>
-                                </td>
+
                                 <td>
                                   <small>{tran.grade}</small>
                                 </td>
@@ -488,43 +547,60 @@ export default class Transcript extends Component {
                             ))}
                         </tbody>
                       </Table>
-                      <p><strong>World History</strong></p>
+                      <p>
+                        <strong>World History</strong>
+                      </p>
                       <Table bordered hover size="sm">
                         <thead>
-                        <tr>
+                          <tr>
                             <th>
                               <p>
-                                <small><strong>Date</strong></small>
+                                <small>
+                                  <strong>Date</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Category</strong></small>
+                                <small>
+                                  <strong>Year/Semester</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Course</strong></small>
+                                <small>
+                                  <strong>Category</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>School</strong></small>
+                                <small>
+                                  <strong>Course</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Teacher</strong></small>
+                                <small>
+                                  <strong>School</strong>
+                                </small>
+                              </p>
+                            </th>
+
+                            <th>
+                              <p>
+                                <small>
+                                  <strong>Grade</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Grade</strong></small>
-                              </p>
-                            </th>
-                            <th>
-                              <p>
-                                <small><strong>Credit</strong></small>
+                                <small>
+                                  <strong>Credit</strong>
+                                </small>
                               </p>
                             </th>
                           </tr>
@@ -539,26 +615,24 @@ export default class Transcript extends Component {
                             )
                             .map((tran) => (
                               <tr>
-                                <th key={tran.id}><small>{tran.date}</small></th>
+                                <th key={tran.id}>
+                                  <small>{tran.date}</small>
+                                </th>
+                                <td>
+                                  <small>
+                                    {tran.schoolYear} {tran.semester}
+                                  </small>
+                                </td>
                                 <td>
                                   <small>{tran.category}</small>
                                 </td>
                                 <td>
-                                  <small>
-                                    {tran.courses?.name}
-                                    {tran?.altCourse}
-                                  </small>
+                                  <small>{tran?.altCourse}</small>
                                 </td>
                                 <td>
                                   <small>{tran.school}</small>
                                 </td>
-                                <td>
-                                  <small>
-                                    {tran.teachers?.firstName}{" "}
-                                    {tran.teachers?.lastName}
-                                    {tran?.altTeacher}
-                                  </small>
-                                </td>
+
                                 <td>
                                   <small>{tran.grade}</small>
                                 </td>
@@ -569,43 +643,60 @@ export default class Transcript extends Component {
                             ))}
                         </tbody>
                       </Table>
-                      <p><strong>Government</strong></p>
+                      <p>
+                        <strong>Government</strong>
+                      </p>
                       <Table bordered hover size="sm">
                         <thead>
-                        <tr>
+                          <tr>
                             <th>
                               <p>
-                                <small><strong>Date</strong></small>
+                                <small>
+                                  <strong>Date</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Category</strong></small>
+                                <small>
+                                  <strong>Year/Semester</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Course</strong></small>
+                                <small>
+                                  <strong>Category</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>School</strong></small>
+                                <small>
+                                  <strong>Course</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Teacher</strong></small>
+                                <small>
+                                  <strong>School</strong>
+                                </small>
+                              </p>
+                            </th>
+
+                            <th>
+                              <p>
+                                <small>
+                                  <strong>Grade</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Grade</strong></small>
-                              </p>
-                            </th>
-                            <th>
-                              <p>
-                                <small><strong>Credit</strong></small>
+                                <small>
+                                  <strong>Credit</strong>
+                                </small>
                               </p>
                             </th>
                           </tr>
@@ -620,26 +711,24 @@ export default class Transcript extends Component {
                             )
                             .map((tran) => (
                               <tr>
-                                <th key={tran.id}><small>{tran.date}</small></th>
+                                <th key={tran.id}>
+                                  <small>{tran.date}</small>
+                                </th>
+                                <td>
+                                  <small>
+                                    {tran.schoolYear} {tran.semester}
+                                  </small>
+                                </td>
                                 <td>
                                   <small>{tran.category}</small>
                                 </td>
                                 <td>
-                                  <small>
-                                    {tran.courses?.name}
-                                    {tran?.altCourse}
-                                  </small>
+                                  <small>{tran?.altCourse}</small>
                                 </td>
                                 <td>
                                   <small>{tran.school}</small>
                                 </td>
-                                <td>
-                                  <small>
-                                    {tran.teachers?.firstName}{" "}
-                                    {tran.teachers?.lastName}
-                                    {tran?.altTeacher}
-                                  </small>
-                                </td>
+
                                 <td>
                                   <small>{tran.grade}</small>
                                 </td>
@@ -650,43 +739,60 @@ export default class Transcript extends Component {
                             ))}
                         </tbody>
                       </Table>
-                      <p><strong>Economics</strong></p>
+                      <p>
+                        <strong>Economics</strong>
+                      </p>
                       <Table bordered hover size="sm">
                         <thead>
-                        <tr>
+                          <tr>
                             <th>
                               <p>
-                                <small><strong>Date</strong></small>
+                                <small>
+                                  <strong>Date</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Category</strong></small>
+                                <small>
+                                  <strong>Year/Semester</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Course</strong></small>
+                                <small>
+                                  <strong>Category</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>School</strong></small>
+                                <small>
+                                  <strong>Course</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Teacher</strong></small>
+                                <small>
+                                  <strong>School</strong>
+                                </small>
+                              </p>
+                            </th>
+
+                            <th>
+                              <p>
+                                <small>
+                                  <strong>Grade</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Grade</strong></small>
-                              </p>
-                            </th>
-                            <th>
-                              <p>
-                                <small><strong>Credit</strong></small>
+                                <small>
+                                  <strong>Credit</strong>
+                                </small>
                               </p>
                             </th>
                           </tr>
@@ -701,26 +807,24 @@ export default class Transcript extends Component {
                             )
                             .map((tran) => (
                               <tr>
-                                <th key={tran.id}><small>{tran.date}</small></th>
+                                <th key={tran.id}>
+                                  <small>{tran.date}</small>
+                                </th>
+                                <td>
+                                  <small>
+                                    {tran.schoolYear} {tran.semester}
+                                  </small>
+                                </td>
                                 <td>
                                   <small>{tran.category}</small>
                                 </td>
                                 <td>
-                                  <small>
-                                    {tran.courses?.name}
-                                    {tran?.altCourse}
-                                  </small>
+                                  <small>{tran?.altCourse}</small>
                                 </td>
                                 <td>
                                   <small>{tran.school}</small>
                                 </td>
-                                <td>
-                                  <small>
-                                    {tran.teachers?.firstName}{" "}
-                                    {tran.teachers?.lastName}
-                                    {tran?.altTeacher}
-                                  </small>
-                                </td>
+
                                 <td>
                                   <small>{tran.grade}</small>
                                 </td>
@@ -738,40 +842,55 @@ export default class Transcript extends Component {
                       <h3>CTE/Fine Arts</h3>
                       <Table bordered hover size="sm">
                         <thead>
-                        <tr>
+                          <tr>
                             <th>
                               <p>
-                                <small><strong>Date</strong></small>
+                                <small>
+                                  <strong>Date</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Category</strong></small>
+                                <small>
+                                  <strong>Year/Semester</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Course</strong></small>
+                                <small>
+                                  <strong>Category</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>School</strong></small>
+                                <small>
+                                  <strong>Course</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Teacher</strong></small>
+                                <small>
+                                  <strong>School</strong>
+                                </small>
+                              </p>
+                            </th>
+
+                            <th>
+                              <p>
+                                <small>
+                                  <strong>Grade</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Grade</strong></small>
-                              </p>
-                            </th>
-                            <th>
-                              <p>
-                                <small><strong>Credit</strong></small>
+                                <small>
+                                  <strong>Credit</strong>
+                                </small>
                               </p>
                             </th>
                           </tr>
@@ -786,26 +905,24 @@ export default class Transcript extends Component {
                             )
                             .map((tran) => (
                               <tr>
-                                <th key={tran.id}><small>{tran.date}</small></th>
+                                <th key={tran.id}>
+                                  <small>{tran.date}</small>
+                                </th>
+                                <td>
+                                  <small>
+                                    {tran.schoolYear} {tran.semester}
+                                  </small>
+                                </td>
                                 <td>
                                   <small>{tran.category}</small>
                                 </td>
                                 <td>
-                                  <small>
-                                    {tran.courses?.name}
-                                    {tran?.altCourse}
-                                  </small>
+                                  <small>{tran?.altCourse}</small>
                                 </td>
                                 <td>
                                   <small>{tran.school}</small>
                                 </td>
-                                <td>
-                                  <small>
-                                    {tran.teachers?.firstName}{" "}
-                                    {tran.teachers?.lastName}
-                                    {tran?.altTeacher}
-                                  </small>
-                                </td>
+
                                 <td>
                                   <small>{tran.grade}</small>
                                 </td>
@@ -822,40 +939,55 @@ export default class Transcript extends Component {
                       <h3>Elective</h3>
                       <Table bordered hover size="sm">
                         <thead>
-                        <tr>
+                          <tr>
                             <th>
                               <p>
-                                <small><strong>Date</strong></small>
+                                <small>
+                                  <strong>Date</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Category</strong></small>
+                                <small>
+                                  <strong>Year/Semester</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Course</strong></small>
+                                <small>
+                                  <strong>Category</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>School</strong></small>
+                                <small>
+                                  <strong>Course</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Teacher</strong></small>
+                                <small>
+                                  <strong>School</strong>
+                                </small>
+                              </p>
+                            </th>
+
+                            <th>
+                              <p>
+                                <small>
+                                  <strong>Grade</strong>
+                                </small>
                               </p>
                             </th>
                             <th>
                               <p>
-                                <small><strong>Grade</strong></small>
-                              </p>
-                            </th>
-                            <th>
-                              <p>
-                                <small><strong>Credit</strong></small>
+                                <small>
+                                  <strong>Credit</strong>
+                                </small>
                               </p>
                             </th>
                           </tr>
@@ -870,26 +1002,24 @@ export default class Transcript extends Component {
                             )
                             .map((tran) => (
                               <tr>
-                                <th key={tran.id}><small>{tran.date}</small></th>
+                                <th key={tran.id}>
+                                  <small>{tran.date}</small>
+                                </th>
+                                <td>
+                                  <small>
+                                    {tran.schoolYear} {tran.semester}
+                                  </small>
+                                </td>
                                 <td>
                                   <small>{tran.category}</small>
                                 </td>
                                 <td>
-                                  <small>
-                                    {tran.courses?.name}
-                                    {tran?.altCourse}
-                                  </small>
+                                  <small>{tran?.altCourse}</small>
                                 </td>
                                 <td>
                                   <small>{tran.school}</small>
                                 </td>
-                                <td>
-                                  <small>
-                                    {tran.teachers?.firstName}{" "}
-                                    {tran.teachers?.lastName}
-                                    {tran?.altTeacher}
-                                  </small>
-                                </td>
+
                                 <td>
                                   <small>{tran.grade}</small>
                                 </td>
@@ -906,18 +1036,23 @@ export default class Transcript extends Component {
               </TabPane>
               <TabPane tabId="2">
                 <div class="tableFixHead">
-                  
-                  {console.log(this.state.transcripts.filter(
-                          (studentQ) =>
-                            studentQ.student?.id === this.state.student?.id
-                        ).credit?.reduce((creditTotal) ))
-                  }
-                  
+                  {console.log(
+                    this.state.transcripts
+                      .filter(
+                        (studentQ) =>
+                          studentQ.student?.id === this.state.student?.id
+                      )
+                      .credit?.reduce(creditTotal)
+                  )}
+
                   <Table bordered hover size="sm">
                     <thead class="shadow">
                       <tr>
                         <th>
                           <h3>Date</h3>
+                        </th>
+                        <th>
+                          <h3>Year/Semester</h3>
                         </th>
                         <th>
                           <h3>Category</h3>
@@ -928,9 +1063,7 @@ export default class Transcript extends Component {
                         <th>
                           <p>School</p>
                         </th>
-                        <th>
-                          <h3>Teacher</h3>
-                        </th>
+
                         <th>
                           <h3>Grade</h3>
                         </th>

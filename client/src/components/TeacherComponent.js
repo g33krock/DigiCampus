@@ -5,6 +5,7 @@ import TeacherSchedule from "./TeacherScheduleComponent";
 import {TeacherCreator} from "./CreateTeacher";
 import {TeacherUpdater} from "./UpdateTeacher";
 import { fetcher } from "../services/fetcher";
+import Announcement from "./AnnouncementComponent";
 
 
 export default class Teacher extends Component {
@@ -85,6 +86,7 @@ export default class Teacher extends Component {
             )}
           </select>
         </div>
+        
         {this.state.teacher && <TeacherSchedule teacher={this.state.teacher} userEmail={this.props?.userEmail}></TeacherSchedule>}
       </Container>
     );

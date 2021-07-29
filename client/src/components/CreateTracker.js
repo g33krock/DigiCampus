@@ -57,6 +57,8 @@ export class TrackerCreator extends Component {
       SEL1: document.getElementById("SEL1").value,
       SEL2: document.getElementById("SEL2").value,
       SEL3: document.getElementById("SEL3").value,
+      SEL4: document.getElementById("SEL4").value,
+      SEL5: document.getElementById("SEL5").value,
     };
     const tracker = await trackerService.create(trackerObject);
     console.log(tracker)
@@ -144,6 +146,7 @@ export class TrackerCreator extends Component {
                       <option></option>
                       <option value="true">Yes</option>
                       <option value="false">No</option>
+                      <option>Not Applicable</option>
                     </Input>
                   </Label>
                 </FormGroup>

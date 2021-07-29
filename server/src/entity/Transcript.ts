@@ -20,14 +20,18 @@ export class Transcript extends BaseEntity {
     })
     school: string;
 
+    @Column({
+        nullable: true
+    })
+    schoolYear: string;
+
+    @Column({
+        nullable: true
+    })
+    semester: string;
+
     @ManyToOne(() => Student, student => student.transcripts)
     student: Student;
-
-    @ManyToOne(() => Teacher, teacher => teacher.transcripts)
-    teachers: Schedule;
-
-    @ManyToOne(() => Course, course => course.transcripts)
-    courses: Course;
 
     @ManyToOne(() => Schedule, schedule => schedule.transcripts)
     schedules: Schedule;

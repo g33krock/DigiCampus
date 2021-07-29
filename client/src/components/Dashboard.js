@@ -26,7 +26,7 @@ export function Dashboard() {
       <p>Welcome, {user?.email}!</p>
       <button onClick={handleSignOut}>Sign out</button>
       <BrowserRouter>
-        <div className="App">
+        <div className="aspireOwl">
             <Header />
             <Main
               campus={campus}

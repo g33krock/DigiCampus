@@ -134,6 +134,11 @@ export class Student extends BaseEntity {
 	})
 	additional_information: string;
 
+	@Column({
+		nullable: true
+	})
+	withdraw: string;
+
 	@OneToMany(() => Schedule, schedule => schedule.student, {onDelete: 'CASCADE'})
 	schedules: Schedule[];
 

@@ -46,6 +46,7 @@ export class StudentUpdater extends Component {
       reading: document.getElementById("reading").value,
       writing: document.getElementById("writing").value,
       interests: document.getElementById("interests").value,
+      withdraw: document.getElementById("withdraw").value,
     };
     const student = await studentService.update(studentObject);
     console.log(student)
@@ -367,6 +368,14 @@ export class StudentUpdater extends Component {
                     </FormGroup>
                   </Col>
                 </Row>
+                <FormGroup>
+                      <Label for="withdraw">Withdrawl Date</Label>
+                      <Input
+                        type="date"
+                        name="withdraw"
+                        id="withdraw"
+                      />
+                    </FormGroup>
               </Container>
               <Button
                 color="primary"

@@ -1,7 +1,14 @@
 import React, { Component } from "react";
-import { baseURL } from "../baseURL";
-import { Card, CardTitle, CardBody, Container} from "reactstrap";
-import { fetcher } from "../services/fetcher";
+import {
+  Card,
+  CardTitle,
+  CardBody,
+  CardDeck,
+  CardText,
+  Row,
+  Col,
+} from "reactstrap";
+import { announcementService } from "../services/announcementService";
 
 export default class Announcement extends Component {
   constructor(props) {
@@ -9,30 +16,31 @@ export default class Announcement extends Component {
     this.state = { announcements: [] };
   }
 
-  componentDidMount() {
-    fetcher(`${baseURL}/announcements`)
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({
-          announcements: data,
-        });
-      });
-      console.log(this.state.announcements)
+  async componentDidMount() {
+    const announcements = await announcementService.all();
+    this.setState({ announcements });
+    console.log(this.state.announcements);
   }
 
   render() {
-      return(
-          <Container>
-              {
-      this.state.announcements?.map((announcement) => {
-        <Card>
-            <CardTitle>{announcement.head}</CardTitle>
-            <br />
-            <CardBody>{announcement.body}</CardBody>
-        </Card>;
-      })
-    }
-          </Container>
-      )
+    return (
+      <Row>
+        
+          {this.state.announcements.map((announcement) => {
+            return (
+              <Col>
+                <Card body className="text-center">
+                  <CardTitle>{announcement.head}</CardTitle>
+                  <br />
+                  <CardBody>
+                    <CardText>{announcement.body}</CardText>
+                  </CardBody>
+                </Card>
+              </Col>
+            );
+          })}
+        
+      </Row>
+    );
   }
 }
