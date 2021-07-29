@@ -52,7 +52,6 @@ export class TranscriptCreator extends Component {
       schoolYear: document.getElementById("transcriptSchoolYear").value,
       semester: document.getElementById("transcriptSemester").value,
       school: document.getElementById("transcriptSchool")?.value,
-      altTeacher: document.getElementById("transcriptAltTeacher")?.value,
       altCourse: document.getElementById("transcriptAltCourse")?.value,
       student: this.props.studentId,
     };
@@ -166,7 +165,6 @@ export class TranscriptCreator extends Component {
                 </Row>
               </Container>
               <Container>
-                <h3>Inside Aspire</h3>
                 <Row>
                   <Col>
                     <FormGroup>
@@ -189,7 +187,7 @@ export class TranscriptCreator extends Component {
                   </Col>
                   <Col>
                     <FormGroup>
-                      <Label for="transcriptSemester">Course</Label>
+                      <Label for="transcriptSemester">Semester</Label>
                       <Input
                         type="select"
                         name="transcriptSemester"
@@ -206,15 +204,6 @@ export class TranscriptCreator extends Component {
                 </Row>
               </Container>
               <Container>
-                <h3>Outside of Aspire</h3>
-                <FormGroup>
-                  <Label for="transcriptAltTeacher">Teacher</Label>
-                  <Input
-                    type="text"
-                    name="transcriptAltTeacher"
-                    id="transcriptAltTeacher"
-                  />
-                </FormGroup>
                 <FormGroup>
                   <Label for="transcriptAltCourse">Course</Label>
                   <Input
