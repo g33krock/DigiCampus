@@ -127,14 +127,14 @@ export default class Student extends Component {
                 </Col>
                 </Row>
                 <Row>
-                  {/* <Col md="4">
-                    <EmptyScheduleCreator 
+                  <Col md="4">
+                    {/* <EmptyScheduleCreator 
                       studentId={this.state.student?.id}
                       studentFirstName={this.state.student?.firstName}
                       studentLastName={this.state.student?.lastName}
                       campusId={this.state.student?.campuses.id}>
-                    </EmptyScheduleCreator>
-                  </Col> */}
+                    </EmptyScheduleCreator> */}
+                  </Col>
                   <Col md="2"></Col>
                   <Col md="4">
                     <GuardianCreator
