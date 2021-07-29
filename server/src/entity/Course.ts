@@ -12,9 +12,6 @@ export class Course extends BaseEntity {
 	@OneToMany(() => Schedule, schedule => schedule.course)
 	schedules: Schedule[];
 
-	@OneToMany(() => Transcript, transcript => transcript.courses)
-	transcripts: Transcript[];
-
 	@Column({
 		nullable: true
 	})
