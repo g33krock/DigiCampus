@@ -5,7 +5,6 @@ import TeacherSchedule from "./TeacherScheduleComponent";
 import {TeacherCreator} from "./CreateTeacher";
 import {TeacherUpdater} from "./UpdateTeacher";
 import { fetcher } from "../services/fetcher";
-import Announcement from "./AnnouncementComponent";
 
 
 export default class Teacher extends Component {
