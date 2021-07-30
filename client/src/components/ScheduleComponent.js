@@ -129,10 +129,11 @@ export default class Schedule extends Component {
       let sched1 = this.state.schedules
         .filter((schedule) => (schedule.period === 1))
         .filter((schedule) => schedule.teacher.id !== 26)
-        .map((schedule) => schedule.teacher.firstName);
+        .map((schedule) => `${schedule.teacher.firstName} ${schedule.teacher.lastName}`);
       let teach1 = this.state.teachers
         .filter((teacher) => teacher.campus.id === this.props.campus?.id)
-        .map((teacher) => teacher.firstName);
+        .filter((teacher => teacher.role.id === 2 || teacher.role.id === 3 || teacher.role.id === 4))
+        .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
       teach1 = teach1.filter(function (item) {
         return !sched1.includes(item);
       });
@@ -140,10 +141,11 @@ export default class Schedule extends Component {
       let sched2 = this.state.schedules
       .filter((schedule) => (schedule.period === 2))
       .filter((schedule) => schedule.teacher.id !== 26)
-      .map((schedule) => schedule.teacher.firstName);
+      .map((schedule) => `${schedule.teacher.firstName} ${schedule.teacher.lastName}`);
     let teach2 = this.state.teachers
       .filter((teacher) => teacher.campus.id === this.props.campus?.id)
-      .map((teacher) => teacher.firstName);
+      .filter((teacher => teacher.role.id === 2 || teacher.role.id === 3 || teacher.role.id === 4))
+      .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
     teach2 = teach2.filter(function (item) {
       return !sched2.includes(item);
     });
@@ -151,10 +153,11 @@ export default class Schedule extends Component {
     let sched3 = this.state.schedules
     .filter((schedule) => (schedule.period === 3))
     .filter((schedule) => schedule.teacher.id !== 26)
-    .map((schedule) => schedule.teacher.firstName);
+    .map((schedule) => `${schedule.teacher.firstName} ${schedule.teacher.lastName}`);
   let teach3 = this.state.teachers
     .filter((teacher) => teacher.campus.id === this.props.campus?.id)
-    .map((teacher) => teacher.firstName);
+    .filter((teacher => teacher.role.id === 2 || teacher.role.id === 3 || teacher.role.id === 4))
+    .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
   teach3 = teach3.filter(function (item) {
     return !sched3.includes(item);
   });
@@ -162,10 +165,11 @@ export default class Schedule extends Component {
   let sched4 = this.state.schedules
   .filter((schedule) => (schedule.period === 4))
   .filter((schedule) => schedule.teacher.id !== 26)
-  .map((schedule) => schedule.teacher.firstName);
+  .map((schedule) => `${schedule.teacher.firstName} ${schedule.teacher.lastName}`);
 let teach4 = this.state.teachers
   .filter((teacher) => teacher.campus.id === this.props.campus?.id)
-  .map((teacher) => teacher.firstName);
+  .filter((teacher => teacher.role.id === 2 || teacher.role.id === 3 || teacher.role.id === 4))
+  .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
 teach4 = teach4.filter(function (item) {
   return !sched4.includes(item);
 });
@@ -173,10 +177,11 @@ console.log(teach4);
 let sched5 = this.state.schedules
 .filter((schedule) => (schedule.period === 5))
 .filter((schedule) => schedule.teacher.id !== 26)
-.map((schedule) => schedule.teacher.firstName);
+.map((schedule) => `${schedule.teacher.firstName} ${schedule.teacher.lastName}`);
 let teach5 = this.state.teachers
 .filter((teacher) => teacher.campus.id === this.props.campus?.id)
-.map((teacher) => teacher.firstName);
+.filter((teacher => teacher.role.id === 2 || teacher.role.id === 3 || teacher.role.id === 4))
+.map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
 teach5 = teach5.filter(function (item) {
 return !sched5.includes(item);
 });
@@ -184,10 +189,11 @@ console.log(teach5);
 let sched6 = this.state.schedules
 .filter((schedule) => (schedule.period === 6))
 .filter((schedule) => schedule.teacher.id !== 26)
-.map((schedule) => schedule.teacher.firstName);
+.map((schedule) => `${schedule.teacher.firstName} ${schedule.teacher.lastName}`);
 let teach6 = this.state.teachers
 .filter((teacher) => teacher.campus.id === this.props.campus?.id)
-.map((teacher) => teacher.firstName);
+.filter((teacher => teacher.role.id === 2 || teacher.role.id === 3 || teacher.role.id === 4))
+.map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
 teach6 = teach6.filter(function (item) {
 return !sched6.includes(item);
 });
@@ -195,10 +201,11 @@ console.log(teach6);
 let sched7 = this.state.schedules
 .filter((schedule) => (schedule.period === 7))
 .filter((schedule) => schedule.teacher.id !== 26)
-.map((schedule) => schedule.teacher.firstName);
+.map((schedule) => `${schedule.teacher.firstName} ${schedule.teacher.lastName}`);
 let teach7 = this.state.teachers
 .filter((teacher) => teacher.campus.id === this.props.campus?.id)
-.map((teacher) => teacher.firstName);
+.filter((teacher => teacher.role.id === 2 || teacher.role.id === 3 || teacher.role.id === 4))
+.map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
 teach7 = teach7.filter(function (item) {
 return !sched7.includes(item);
 });
@@ -206,10 +213,11 @@ console.log(teach7);
 let sched8 = this.state.schedules
 .filter((schedule) => (schedule.period === 8))
 .filter((schedule) => schedule.teacher.id !== 26)
-.map((schedule) => schedule.teacher.firstName);
+.map((schedule) => `${schedule.teacher.firstName} ${schedule.teacher.lastName}`);
 let teach8 = this.state.teachers
 .filter((teacher) => teacher.campus.id === this.props.campus?.id)
-.map((teacher) => teacher.firstName);
+.filter((teacher => teacher.role.id === 2 || teacher.role.id === 3 || teacher.role.id === 4))
+.map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
 teach8 = teach8.filter(function (item) {
 return !sched8.includes(item);
 });
@@ -217,10 +225,11 @@ console.log(teach8);
 let sched9 = this.state.schedules
 .filter((schedule) => (schedule.period === 9))
 .filter((schedule) => schedule.teacher.id !== 26)
-.map((schedule) => schedule.teacher.firstName);
+.map((schedule) => `${schedule.teacher.firstName} ${schedule.teacher.lastName}`);
 let teach9 = this.state.teachers
 .filter((teacher) => teacher.campus.id === this.props.campus?.id)
-.map((teacher) => teacher.firstName);
+.filter((teacher => teacher.role.id === 2 || teacher.role.id === 3 || teacher.role.id === 4))
+.map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
 teach9 = teach9.filter(function (item) {
 return !sched9.includes(item);
 });
@@ -228,10 +237,11 @@ console.log(teach9);
 let sched10 = this.state.schedules
 .filter((schedule) => (schedule.period === 10))
 .filter((schedule) => schedule.teacher.id !== 26)
-.map((schedule) => schedule.teacher.firstName);
+.map((schedule) => `${schedule.teacher.firstName} ${schedule.teacher.lastName}`);
 let teach10 = this.state.teachers
 .filter((teacher) => teacher.campus.id === this.props.campus?.id)
-.map((teacher) => teacher.firstName);
+.filter((teacher => teacher.role.id === 2 || teacher.role.id === 3 || teacher.role.id === 4))
+.map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
 teach10 = teach10.filter(function (item) {
 return !sched10.includes(item);
 });
