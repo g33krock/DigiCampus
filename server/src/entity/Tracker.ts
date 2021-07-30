@@ -19,6 +19,11 @@ export class Tracker extends BaseEntity {
 	schedules: Course;
 
 	@Column({
+		nullable: true
+	})
+	date: string;
+
+	@Column({
 		nullable: false
 	})
 	attendance: string;
