@@ -15,6 +15,7 @@ import { SpedQuestionController } from "./controller/SpedQuestionController";
 import { SpedResponseController } from "./controller/SpedResponseController";
 import { TranscriptController } from "./controller/TranscriptController";
 import { AnnouncementController } from "./controller/AnnouncementController";
+import { IncidentController } from "./controller/IncidentController";
 
 export const Routes = [{
 	method: "get",
@@ -488,6 +489,35 @@ export const Routes = [{
     method: "delete",
     route: "/announcements/:id",
     controller: AnnouncementController,
+    action: "remove"
+},
+
+// Incident
+
+{
+    method: "get",
+    route: "/announcements",
+    controller: IncidentController,
+    action: "all"
+}, {
+    method: "get",
+    route: "/announcements/:id",
+    controller: IncidentController,
+    action: "one"
+}, {
+    method: "put",
+    route: "/announcements/:id",
+    controller: IncidentController,
+    action: "update"
+}, {
+    method: "post",
+    route: "/announcements",
+    controller: IncidentController,
+    action: "save"
+}, {
+    method: "delete",
+    route: "/announcements/:id",
+    controller: IncidentController,
     action: "remove"
 },
 ];

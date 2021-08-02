@@ -8,6 +8,7 @@ import { Funding } from "./Funding";
 import { InstructionMode } from "./InstructionMode";
 import { SpedQuestion } from "./SpedQuestion";
 import { Transcript } from "./Transcript";
+import { Incident } from "./Incident";
 
 @Entity()
 export class Student extends BaseEntity {
@@ -150,6 +151,9 @@ export class Student extends BaseEntity {
 
 	@OneToMany(() => Tracker, tracker => tracker.students, {onDelete: 'CASCADE'})
 	trackers: Tracker[];
+
+	@OneToMany(() => Incident, incident => incident.students, {onDelete: 'CASCADE'})
+	incidents: Incident[];
 
 	@OneToMany(() => Transcript, transcript => transcript.student, {onDelete: 'CASCADE'})
 	transcripts: Transcript[];
