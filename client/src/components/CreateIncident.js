@@ -1,5 +1,5 @@
 import { Component } from "react";
-import {baseURL} from "../baseURL";
+import { baseURL } from "../baseURL";
 import {
   Form,
   FormGroup,
@@ -10,28 +10,30 @@ import {
   ModalBody,
   Row,
   Col,
-  Container
+  Container,
 } from "reactstrap";
 import { incidentService } from "../services/incidentService";
-import { fetcher } from '../services/fetcher';
+import { fetcher } from "../services/fetcher";
 
 export class IncidentCreator extends Component {
   constructor(props) {
     super(props);
     this.state = {
       modal: false,
-      spedQuestions:[]
+      spedQuestions: [],
     };
   }
 
   componentDidMount() {
     fetcher(`${baseURL}/spedQuestions`)
-    .then((response) => response.json())
-    .then((data) => {
-      this.setState({
-        spedQuestions: data.filter(datas => datas.student.id === this.props.student.id),
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          spedQuestions: data.filter(
+            (datas) => datas.student.id === this.props.student.id
+          ),
+        });
       });
-    });
   }
 
   async createIncident() {
@@ -45,7 +47,9 @@ export class IncidentCreator extends Component {
       behavior: document.getElementById("behavior").value,
       after: document.getElementById("after").value,
       others: document.getElementById("others").value,
-      behaviorInterventionPlan:document.getElementById("behaviorInterventionPlan").value,
+      behaviorInterventionPlan: document.getElementById(
+        "behaviorInterventionPlan"
+      ).value,
       bipImplemented: document.getElementById("bipImplemented").value,
       redirect: document.getElementById("redirect").value,
       reinforce: document.getElementById("reinforce").value,
@@ -57,7 +61,9 @@ export class IncidentCreator extends Component {
       crisisMethod: document.getElementById("crisisMethod").value,
       crisisDisengagement: document.getElementById("crisisDisengagement").value,
       crisisHold: document.getElementById("crisisHold").value,
-      crisisMethodDescription: document.getElementById("crisisMethodDescription").value,
+      crisisMethodDescription: document.getElementById(
+        "crisisMethodDescription"
+      ).value,
       crisisStartTime: document.getElementById("crisisStartTime").value,
       crisisEndTime: document.getElementById("crisisEndTime").value,
       crisisLocation: document.getElementById("crisisLocation").value,
@@ -65,25 +71,29 @@ export class IncidentCreator extends Component {
       signature: document.getElementById("signature").value,
     };
     const incident = await incidentService.create(incidentObject);
-    console.log(incident)
+    console.log(incident);
   }
 
   toggle() {
     return !this.state.modal;
   }
 
-
   render() {
     return (
       <div>
-        <Button
-          color="link"
-          onClick={() => this.setState({ modal: true })}
-        >
-          Student Tracking
+        <Button outline color="danger" size="sm" onClick={() => this.setState({ modal: true })}>
+          Incident Report
         </Button>
         <Modal isOpen={this.state.modal} toggle={() => this.toggle()}>
-          <ModalBody id="fancy-cursor" style={{ backgroundColor: "lightgray", color: 'black', fontSize: '21px', textAlign: 'center'}}>
+          <ModalBody
+            id="fancy-cursor"
+            style={{
+              backgroundColor: "lightgray",
+              color: "black",
+              fontSize: "21px",
+              textAlign: "center",
+            }}
+          >
             <p>
               <strong>Student: </strong>
               {this.props.student.firstName} {this.props.student.lastName}
@@ -92,399 +102,231 @@ export class IncidentCreator extends Component {
               <strong>Teacher: </strong>
               {this.props.teacher.firstName} {this.props.teacher.lastName}
             </p>
-            
+
             <Form className="fancy-cursor">
-            <FormGroup>
-                <Label for="incidentDate">Date</Label>
-                <Input
-                  type="date"
-                  name={`incidentDate`}
-                  id={`incidentDate`}
-                />
-              </FormGroup>
-              <FormGroup id="trackerBox">
-                <Label for="startTime">
-                  <h3>Incident Start Time</h3>
-                </Label>
-                <Input type="datetime" name="startTime" id="startTime" placeholder="datetime placeholder" className="fancy-cursor">
-                </Input>
-              </FormGroup>
-              <FormGroup id="trackerBox">
-                <Label for="endTime">
-                  <h3>Incident End Time</h3>
-                </Label>
-                <Input type="datetime" name="endTime" id="endTime" placeholder="datetime placeholder" className="fancy-cursor">
-                </Input>
-              </FormGroup>
-              <FormGroup id="trackerBox">
-                <Label for="description">
-                  Describe the Incident
-                </Label>
-                <Input type="text" name="description" id="description" className="fancy-cursor" />
-              </FormGroup>
-                
+              <Container id="trackerBox">
+                <Row>
+                  <Col xs="3">
                     <FormGroup>
-                      <Label for="behavior">Describe What the Behavior Looked Like</Label>
+                      <Label for="incidentDate">Date</Label>
                       <Input
-                        type="text"
-                        name="behavior"
-                        id="behavior"
-                        className="fancy-cursor" />
+                        type="date"
+                        name={`incidentDate`}
+                        id={`incidentDate`}
+                      />
                     </FormGroup>
+                  </Col>
+
+                  <Col xs="3">
                     <FormGroup>
-                      <Label for="after">Describe What Happened Directly After the Incident</Label>
+                      <Label for="startTime">
+                        Incident Start Time
+                      </Label>
                       <Input
-                        type="text"
-                        name="after"
-                        id="after"
-                        className="fancy-cursor" />
+                        type="datetime"
+                        name="startTime"
+                        id="startTime"
+                        placeholder="hh:mm am/pm"
+                        className="fancy-cursor"
+                      ></Input>
                     </FormGroup>
+                  </Col>
+                  <Col xs="1"></Col>
+                  <Col xs="3">
                     <FormGroup>
-                      <Label for="others">Students and/or Staff Involved in the Incident</Label>
+                      <Label for="endTime">
+                        Incident End Time
+                      </Label>
                       <Input
-                        type="text"
-                        name="others"
-                        id="others"
-                        className="fancy-cursor" />
+                        type="datetime"
+                        name="endTime"
+                        id="endTime"
+                        placeholder="hh:mm am/pm"
+                        className="fancy-cursor"
+                      ></Input>
                     </FormGroup>
+                  </Col>
+                </Row>
+              </Container>
+              <Container id="trackerBox">
+                <FormGroup>
+                  <Label for="description">Describe the Incident</Label>
+                  <Input
+                    type="text"
+                    name="description"
+                    id="description"
+                    className="fancy-cursor"
+                  />
+                </FormGroup>
+
+                <FormGroup>
+                  <Label for="behavior">
+                    Describe What the Behavior Looked Like
+                  </Label>
+                  <Input
+                    type="text"
+                    name="behavior"
+                    id="behavior"
+                    className="fancy-cursor"
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="after">
+                    Describe What Happened Directly After the Incident
+                  </Label>
+                  <Input
+                    type="text"
+                    name="after"
+                    id="after"
+                    className="fancy-cursor"
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="others">
+                    Students and/or Staff Involved in the Incident
+                  </Label>
+                  <Input
+                    type="text"
+                    name="others"
+                    id="others"
+                    className="fancy-cursor"
+                  />
+                </FormGroup>
+              </Container>
+              <Container id="trackerBox">
+                <Row>
+                  <Col>
                     <FormGroup>
-                      <Label for="behaviorInterventionPlan">Describe What the Behavior Looked Like</Label>
+                      <Label for="behaviorInterventionPlan">
+                        Does this student have a Behavior Intervention Plan?
+                        *Required
+                      </Label>
                       <Input
                         type="select"
                         name="behaviorInterventionPlan"
                         id="behaviorInterventionPlan"
-                        className="fancy-cursor">
-                            <option>No</option>
-                            <option>Yes</option>
-                        </Input>
-                    </FormGroup>
-                  
-                  
-                    <FormGroup>
-                      <Label for="comprehensionAI">
-                        Check for Understanding Additional Information
-                      </Label>
-                      <Input
-                        type="select"
-                        name="comprehensionAI"
-                        id="comprehensionAI"
                         className="fancy-cursor"
-                        multiple
                       >
-                        <option>Requires review of basic content</option>
-                        <option>Processing/Memory/Retrieval issues</option>
-                        <option>Requires review of current content</option>
-                        <option>Requires modifications to content</option>
-                        <option>
-                          Requires differentiation and infusion to enhance
-                          understanding
-                        </option>
-                        <option>
-                          Requires assistance/ support from leadership
-                        </option>
-                        <option>
-                          Requires use of support materials/ tools
-                        </option>
-                        <option>Reading/ Comprehension issues</option>
-                        <option>Specific Learning Disabilities</option>
-                        <option>Requires behavioral support</option>
-                      </Input>
-                    </FormGroup>
-                  
-                <FormGroup>
-                  <Label for="comprehensionComment">
-                    Check for Understanding Comment
-                  </Label>
-                  <Input
-                    type="text"
-                    name="comprehensionComment"
-                    id="comprehensionComment"
-                    className="fancy-cursor"
-                  />
-                </FormGroup>
-              <Container style={{ backgroundColor: "lightblue" }} id="trackerBox">
-                <h3>Engagement</h3>
-                <Row form>
-                  <Col md={3}>
-                    <FormGroup>
-                      <Label for="engagement">Engagement</Label>
-                      <Input type="select" name="engagement" id="engagement" className="fancy-cursor">
                         <option></option>
-                        <option value="1">
-                          Disengaged: No demonstration of learning, disruptive/
-                          defiant/ avoidant
-                        </option>
-                        <option value="2">
-                          Retreatism: Little to no effort, productivity or
-                          inquiry, interest, or collaboration, no demonstrated
-                          inquiry
-                        </option>
-                        <option value="3">
-                          Ritual: Minimal effort to avoid negative consequences,
-                          no self-directed/ motivated, minimal inquiry
-                        </option>
-                        <option value="4">
-                          Strategic: Clear effort, focus on directions and task
-                          completion to meet standard, minimal inquiry
-                        </option>
-                        <option value="5">
-                          High: Persistent, sustained inquiry, self-directed
-                          learning, self motivated, highly engaged in learning
-                        </option>
+                        <option>No</option>
+                        <option>Yes</option>
                       </Input>
                     </FormGroup>
                   </Col>
-                  <Col md={9}>
+                  <Col xs="1" />
+                  <Col>
                     <FormGroup>
-                      <Label for="engagementAI">
-                        Engagement Additional Information
+                      <Label for="bipImplemented">
+                        Was the Behavior Intervention Plan Implemented?
+                        *Required
                       </Label>
                       <Input
                         type="select"
-                        name="engagementAI"
-                        id="engagementAI"
+                        name="bipImplemented"
+                        id="bipImplemented"
                         className="fancy-cursor"
-                        multiple
                       >
-                        <option>Work refusal</option>
-                        <option>Oppositionality</option>
-                        <option>Disruptive to others</option>
-                        <option>Aggression (verbal)</option>
-                        <option>Aggression (physical)</option>
-                        <option>
-                          Involved in other tasks/ activities/ behaviors
-                        </option>
-                        <option>Attention seeking behaviors (negative)</option>
-                        <option>
-                          Self-harm behaviors (verbally or physically)
-                        </option>
-                        <option>Negative attitude</option>
-                        <option>Shut down/ lack of participation</option>
-                        <option>Minimal Effort</option>
-                        <option>Requires Incentives</option>
-                        <option>Not interested in topic/ content</option>
-                        <option>Highly interested in topic/ content</option>
-                        <option>Emotional Difficulty Anxiety</option>
-                        <option>Emotional Difficulty Depression</option>
-                        <option>Medical Issue</option>
-                        <option>
-                          Requires Assistance/ Support from Leadership
-                        </option>
-                        <option>Requires Behavioral Support</option>
+                        <option>N/A</option>
+                        <option>No</option>
+                        <option>Yes</option>
                       </Input>
                     </FormGroup>
                   </Col>
                 </Row>
-                <FormGroup>
-                  <Label for="engagementComment">Engagement Comment</Label>
-                  <Input
-                    type="text"
-                    name="engagementComment"
-                    id="engagementComment"
-                    className="fancy-cursor"
-                  />
-                </FormGroup>
               </Container>
-              <Container style={{ backgroundColor: "gold" }} id="trackerBox">
-                <h3>Behavior/Zone</h3>
-                <Row form>
-                  <Col md={3}>
+
+              <Container id="trackerBox" style={{ backgroundColor: "lightblue" }}>
+                <h3>
+                  Choose a result if student is NOT on a Behavior Intervention
+                  Plan
+                </h3>
+                <Row>
+                  <Col xs="3">
                     <FormGroup>
-                      <Label for="behavior">Behavior/Zone of Regulation</Label>
-                      <Input type="select" name="behavior" id="behavior" className="fancy-cursor">
+                      <Label for="redirect">Redirection / Warning</Label>
+                      <Input
+                        type="select"
+                        name="redirect"
+                        id="redirect"
+                        className="fancy-cursor"
+                      >
                         <option></option>
-                        <option
-                          id="zone"
-                          style={{ backgroundColor: "green", color:"white" }}
-                          value="1"
-                        >
-                          Green Zone (happy, focused, calm, ready to learn)
-                        </option>
-                        <option
-                          id="zone"
-                          style={{ backgroundColor: "orange" }}
-                          value="2"
-                        >
-                          Yellow Zone (loss of some control, excited,
-                          silly/wiggly, frustrated)
-                        </option>
-                        <option
-                          id="zone"
-                          style={{ backgroundColor: "blue", color:"white" }}
-                          value="3"
-                        >
-                          Blue Zone (sad, sick, moving slowly, shut down, tired,
-                          anxious)
-                        </option>
-                        <option
-                          id="zone"
-                          style={{ backgroundColor: "red", color:"white" }}
-                          value="4"
-                        >
-                          Red Zone (angry, mad, aggressive verbally/physically)
-                        </option>
+                        <option>No</option>
+                        <option>Yes</option>
                       </Input>
                     </FormGroup>
                   </Col>
-                  <Col md={9}>
+                  <Col xs="1"></Col>
+                  <Col xs="3">
                     <FormGroup>
-                      <Label for="behaviorAI">
-                        Behavior/Zone Additional Information
+                      <Label for="reinforce">
+                        Reinforcement - Reward System
                       </Label>
                       <Input
                         type="select"
-                        name="behaviorAI"
-                        id="behaviorAI"
+                        name="reinforce"
+                        id="reinforce"
                         className="fancy-cursor"
-                        multiple
                       >
-                        <option>Out of seat</option>
-                        <option>Loss of Control</option>
-                        <option>Talking Out</option>
-                        <option>Unfocused</option>
-                        <option>Low Attention</option>
-                        <option>Sick</option>
-                        <option>Sad</option>
-                        <option>Head Down</option>
-                        <option>Anxious</option>
-                        <option>Low attention due to being tired</option>
-                        <option>Low communication</option>
-                        <option>Physical aggression toward teachers</option>
-                        <option>Physical aggression toward peers</option>
-                        <option>Verbal aggression toward teachers</option>
-                        <option>Verbal aggression toward peers</option>
-                        <option>Self-injurious behavior</option>
-                        <option>Property Destruction</option>
+                        <option></option>
+                        <option>No</option>
+                        <option>Yes</option>
+                      </Input>
+                    </FormGroup>
+                  </Col>
+                  <Col xs="1"></Col>
+                  <Col xs="3">
+                    <FormGroup>
+                      <Label for="quiet">Use of Quiet Area</Label>
+                      <Input
+                        type="select"
+                        name="quiet"
+                        id="quiet"
+                        className="fancy-cursor"
+                      >
+                        <option></option>
+                        <option>No</option>
+                        <option>Yes</option>
                       </Input>
                     </FormGroup>
                   </Col>
                 </Row>
-                <FormGroup>
-                  <Label for="behaviorComment">Behavior/Zone Comment</Label>
-                  <Input
-                    type="text"
-                    name="behaviorComment"
-                    id="behaviorComment"
-                    className="fancy-cursor"
-                  />
-                </FormGroup>
+                <Row>
+                  <Col xs="3">
+                    <FormGroup>
+                      <Label for="parentContact">Parent Contacted</Label>
+                      <Input
+                        type="select"
+                        name="parentContact"
+                        id="parentContact"
+                        className="fancy-cursor"
+                      >
+                        <option></option>
+                        <option>No</option>
+                        <option>Yes</option>
+                      </Input>
+                    </FormGroup>
+                  </Col>
+                  <Col xs="1"></Col>
+                  <Col xs="3">
+                    <FormGroup>
+                      <Label for="consultCaseManager">
+                        Case Manager Consulted
+                      </Label>
+                      <Input
+                        type="select"
+                        name="consultCaseManager"
+                        id="consultCaseManager"
+                        className="fancy-cursor"
+                      >
+                        <option></option>
+                        <option>No</option>
+                        <option>Yes</option>
+                      </Input>
+                    </FormGroup>
+                  </Col>
+                </Row>
               </Container>
-              <FormGroup id="trackerBox">
-                <Label for="assessment">
-                  <h3>Assessment</h3>
-                </Label>
-                <Input type="text" name="assessment" id="assessment" className="fancy-cursor"/>
-              </FormGroup>
-              <Container style={{ backgroundColor: "green" }} id="trackerBox">
-                <h3>Social Emotional Learning</h3>
-                <FormGroup>
-                  <Label for="SEL1">How often did this student demonstrate self-awareness?</Label>
-                  <Input type="select" name="SEL1" id="SEL1" className="fancy-cursor">
-                    <option></option>
-                    <option value="1">
-                      Never
-                    </option>
-                    <option value="2">
-                      Rarely
-                    </option>
-                    <option value="3">
-                      Sometimes
-                    </option>
-                    <option value="4">
-                      Occasionally
-                    </option>
-                    <option value="5">
-                      Always
-                    </option>
-                  </Input>
-                </FormGroup>
-                <FormGroup>
-                  <Label for="SEL2">How often did this student demonstrate self-management? </Label>
-                  <Input type="select" name="SEL2" id="SEL2" className="fancy-cursor">
-                    <option></option>
-                    <option value="1">
-                      Never
-                    </option>
-                    <option value="2">
-                      Rarely
-                    </option>
-                    <option value="3">
-                      Sometimes
-                    </option>
-                    <option value="4">
-                      Occasionally
-                    </option>
-                    <option value="5">
-                      Always
-                    </option>
-                  </Input>
-                </FormGroup>
-                <FormGroup>
-                  <Label for="SEL3">How often did this student demonstrate responsible decision making?</Label>
-                  <Input type="select" name="SEL3" id="SEL3" className="fancy-cursor">
-                    <option></option>
-                    <option value="1">
-                      Never
-                    </option>
-                    <option value="2">
-                      Rarely
-                    </option>
-                    <option value="3">
-                      Sometimes
-                    </option>
-                    <option value="4">
-                      Occasionally
-                    </option>
-                    <option value="5">
-                      Always
-                    </option>
-                  </Input>
-                </FormGroup>
-                <FormGroup>
-                  <Label for="SEL4">How often did this student demonstrate social awareness?</Label>
-                  <Input type="select" name="SEL4" id="SEL4" className="fancy-cursor">
-                    <option></option>
-                    <option value="1">
-                      Never
-                    </option>
-                    <option value="2">
-                      Rarely
-                    </option>
-                    <option value="3">
-                      Sometimes
-                    </option>
-                    <option value="4">
-                      Occasionally
-                    </option>
-                    <option value="5">
-                      Always
-                    </option>
-                  </Input>
-                </FormGroup>
-                <FormGroup>
-                  <Label for="SEL5">How often did this student demonstrate relationship skills?</Label>
-                  <Input type="select" name="SEL5" id="SEL5" className="fancy-cursor">
-                    <option></option>
-                    <option value="1">
-                      Never
-                    </option>
-                    <option value="2">
-                      Rarely
-                    </option>
-                    <option value="3">
-                      Sometimes
-                    </option>
-                    <option value="4">
-                      Occasionally
-                    </option>
-                    <option value="5">
-                      Always
-                    </option>
-                  </Input>
-                </FormGroup>            
-              </Container>
-              {/* <IncidentCreator submitted={this.state.submitted} modal={this.state.modal}
-              student={this.props.student.id} ></IncidentCreator> */}
               <Button
                 color="primary"
                 onClick={() => {

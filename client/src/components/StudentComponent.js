@@ -24,6 +24,7 @@ import { GuardianCreator } from "./CreateGuardian";
 import TrackerResponse from "./TrackerResponses";
 import classnames from "classnames";
 import { fetcher } from "../services/fetcher";
+import { IncidentCreator } from "./CreateIncident";
 
 export default class Student extends Component {
   constructor(props) {
@@ -32,7 +33,7 @@ export default class Student extends Component {
     this.state = {
       activeTab: "1",
     };
-    this.state = { students: [], student: null, id: null };
+    this.state = { students: [], student: null, id: null, teacher: this.props.teacher };
   }
 
   componentDidMount() {
@@ -231,6 +232,12 @@ export default class Student extends Component {
                       <GuardianCreator
                         studentId={this.state.student?.id}
                       ></GuardianCreator>
+                    </Col>
+                    <Col md="4">
+                      <IncidentCreator
+                        teacher={this.state.teacher}
+                        student={this.state.student}
+                      ></IncidentCreator>
                     </Col>
                   </Row>
                 </CardBody>

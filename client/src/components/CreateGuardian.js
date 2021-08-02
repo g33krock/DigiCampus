@@ -49,7 +49,7 @@ export class GuardianCreator extends Component {
   render() {
     return (
       <div>
-        <Button outline color="primary" onClick={() => this.setState({ modal: true })}>
+        <Button outline color="primary" size="sm" onClick={() => this.setState({ modal: true })}>
           Add Guardian
         </Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>

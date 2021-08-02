@@ -134,7 +134,7 @@ export class TrackerCreator extends Component {
               </FormGroup>
               {this.state.spedQuestions?.filter((speQ) => speQ.category === this.props.course.subject || speQ.category === 'Social').map((spedQuestion => 
             <div>
-              <Container id="trackerBox">
+              <Container id="trackerBox" style={{ backgroundColor: "pink" }}>
                 <FormGroup>
                   <Label for="spedResponseQuestion" id={`spedResponseQuestion${spedQuestion?.id}`} value={spedQuestion?.id}>{spedQuestion.question} </Label>
                 </FormGroup>
@@ -443,104 +443,119 @@ export class TrackerCreator extends Component {
                   <Label for="SEL1">How often did this student demonstrate self-awareness?</Label>
                   <Input type="select" name="SEL1" id="SEL1" className="fancy-cursor">
                     <option></option>
+                    <option value="0">
+                      Never 0% of time
+                    </option>
                     <option value="1">
-                      Never
+                      Rarely 0-15% of time
                     </option>
                     <option value="2">
-                      Rarely
+                      Seldom 15-30% if time
                     </option>
                     <option value="3">
-                      Sometimes
+                      Sometimes 30-60% of time
                     </option>
                     <option value="4">
-                      Occasionally
+                      Frequently 60-85% of time
                     </option>
                     <option value="5">
-                      Always
+                      Always 85-100% of time
                     </option>
                   </Input>
                 </FormGroup>
                 <FormGroup>
                   <Label for="SEL2">How often did this student demonstrate self-management? </Label>
                   <Input type="select" name="SEL2" id="SEL2" className="fancy-cursor">
-                    <option></option>
+                  <option></option>
+                    <option value="0">
+                      Never 0% of time
+                    </option>
                     <option value="1">
-                      Never
+                      Rarely 0-5% of time
                     </option>
                     <option value="2">
-                      Rarely
+                      Seldom 5-10% if time
                     </option>
                     <option value="3">
-                      Sometimes
+                      Sometimes 40-60% of time
                     </option>
                     <option value="4">
-                      Occasionally
+                      Frequently 70-85% of time
                     </option>
                     <option value="5">
-                      Always
+                      Always 85-100% of time
                     </option>
                   </Input>
                 </FormGroup>
                 <FormGroup>
                   <Label for="SEL3">How often did this student demonstrate responsible decision making?</Label>
                   <Input type="select" name="SEL3" id="SEL3" className="fancy-cursor">
-                    <option></option>
+                  <option></option>
+                    <option value="0">
+                      Never 0% of time
+                    </option>
                     <option value="1">
-                      Never
+                      Rarely 0-5% of time
                     </option>
                     <option value="2">
-                      Rarely
+                      Seldom 5-10% if time
                     </option>
                     <option value="3">
-                      Sometimes
+                      Sometimes 40-60% of time
                     </option>
                     <option value="4">
-                      Occasionally
+                      Frequently 70-85% of time
                     </option>
                     <option value="5">
-                      Always
+                      Always 85-100% of time
                     </option>
                   </Input>
                 </FormGroup>
                 <FormGroup>
                   <Label for="SEL4">How often did this student demonstrate social awareness?</Label>
                   <Input type="select" name="SEL4" id="SEL4" className="fancy-cursor">
-                    <option></option>
+                  <option></option>
+                    <option value="0">
+                      Never 0% of time
+                    </option>
                     <option value="1">
-                      Never
+                      Rarely 0-5% of time
                     </option>
                     <option value="2">
-                      Rarely
+                      Seldom 5-10% if time
                     </option>
                     <option value="3">
-                      Sometimes
+                      Sometimes 40-60% of time
                     </option>
                     <option value="4">
-                      Occasionally
+                      Frequently 70-85% of time
                     </option>
                     <option value="5">
-                      Always
+                      Always 85-100% of time
                     </option>
                   </Input>
                 </FormGroup>
                 <FormGroup>
                   <Label for="SEL5">How often did this student demonstrate relationship skills?</Label>
                   <Input type="select" name="SEL5" id="SEL5" className="fancy-cursor">
-                    <option></option>
+                  <option></option>
+                    <option value="0">
+                      Never 0% of time
+                    </option>
                     <option value="1">
-                      Never
+                      Rarely 0-5% of time
                     </option>
                     <option value="2">
-                      Rarely
+                      Seldom 5-10% if time
                     </option>
                     <option value="3">
-                      Sometimes
+                      Sometimes 40-60% of time
                     </option>
                     <option value="4">
-                      Occasionally
+                      Frequently 70-85% of time
                     </option>
                     <option value="5">
-                      Always
+                      Always 85-100% of time
                     </option>
                   </Input>
                 </FormGroup>            
