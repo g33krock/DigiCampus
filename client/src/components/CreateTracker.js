@@ -40,6 +40,7 @@ export class TrackerCreator extends Component {
       students: this.props.student.id,
       teachers: this.props.teacher.id,
       courses: this.props.course.id,
+      schedules: this.props.schedule.id,
       period: this.props.period,
       date: document.getElementById("spedResponseDate").value,
       attendance: document.getElementById("attendance").value,

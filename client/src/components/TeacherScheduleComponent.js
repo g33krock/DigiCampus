@@ -83,6 +83,8 @@ export default class TeacherSchedule extends Component {
           case 10:
             block = "3:20 - 4:10";
             break;
+
+            default:
         }       
         return (
           <div key={teachersched.id} className="col">
@@ -117,6 +119,7 @@ export default class TeacherSchedule extends Component {
                 teacher={teachersched.teacher}
                 course={teachersched.course}
                 period={teachersched.period}
+                schedule={teachersched}
               ></TrackerCreator>
             </Card>
           </div>
