@@ -471,16 +471,16 @@ export class TrackerCreator extends Component {
                       Never 0% of time
                     </option>
                     <option value="1">
-                      Rarely 0-5% of time
+                      Rarely 0-15% of time
                     </option>
                     <option value="2">
-                      Seldom 5-10% if time
+                      Seldom 15-30% if time
                     </option>
                     <option value="3">
-                      Sometimes 40-60% of time
+                      Sometimes 30-60% of time
                     </option>
                     <option value="4">
-                      Frequently 70-85% of time
+                      Frequently 60-85% of time
                     </option>
                     <option value="5">
                       Always 85-100% of time
@@ -495,16 +495,16 @@ export class TrackerCreator extends Component {
                       Never 0% of time
                     </option>
                     <option value="1">
-                      Rarely 0-5% of time
+                      Rarely 0-15% of time
                     </option>
                     <option value="2">
-                      Seldom 5-10% if time
+                      Seldom 15-30% if time
                     </option>
                     <option value="3">
-                      Sometimes 40-60% of time
+                      Sometimes 30-60% of time
                     </option>
                     <option value="4">
-                      Frequently 70-85% of time
+                      Frequently 60-85% of time
                     </option>
                     <option value="5">
                       Always 85-100% of time
@@ -519,16 +519,16 @@ export class TrackerCreator extends Component {
                       Never 0% of time
                     </option>
                     <option value="1">
-                      Rarely 0-5% of time
+                      Rarely 0-15% of time
                     </option>
                     <option value="2">
-                      Seldom 5-10% if time
+                      Seldom 15-30% if time
                     </option>
                     <option value="3">
-                      Sometimes 40-60% of time
+                      Sometimes 30-60% of time
                     </option>
                     <option value="4">
-                      Frequently 70-85% of time
+                      Frequently 60-85% of time
                     </option>
                     <option value="5">
                       Always 85-100% of time
@@ -543,16 +543,16 @@ export class TrackerCreator extends Component {
                       Never 0% of time
                     </option>
                     <option value="1">
-                      Rarely 0-5% of time
+                      Rarely 0-15% of time
                     </option>
                     <option value="2">
-                      Seldom 5-10% if time
+                      Seldom 15-30% if time
                     </option>
                     <option value="3">
-                      Sometimes 40-60% of time
+                      Sometimes 30-60% of time
                     </option>
                     <option value="4">
-                      Frequently 70-85% of time
+                      Frequently 60-85% of time
                     </option>
                     <option value="5">
                       Always 85-100% of time
