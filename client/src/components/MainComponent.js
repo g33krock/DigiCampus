@@ -50,7 +50,7 @@ class Main extends Component {
                 <Switch>
                     <PrivateRoute path='/singleteachers' component={SingleTeacher} userEmail = {this.props?.userEmail} />
                     <PrivateRoute path='/calendar' component={Calendar} userEmail = {this.props?.userEmail} />
-                    <PrivateRoute path='/substitute' component={Sub} userEmail = {this.props?.userEmail} campus = {this.state.campus}/>
+                    <PrivateRoute path='/substitute' component={Sub} userEmail = {this.props?.userEmail} campus = {this.state.campus} teacher = {this.state.teacher}/>
                     <PrivateRoute path='/home' component={Home} />
                     <Redirect to='/home' />
                 </Switch>
