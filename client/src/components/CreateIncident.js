@@ -56,19 +56,19 @@ export class IncidentCreator extends Component {
       quiet: document.getElementById("quiet").value,
       parentContact: document.getElementById("parentContact").value,
       consultCaseManager: document.getElementById("consultCaseManager").value,
-      crisisIntervention: document.getElementById("crisisIntervention").value,
-      crisisStaff: document.getElementById("crisisStaff").value,
-      crisisMethod: document.getElementById("crisisMethod").value,
-      crisisDisengagement: document.getElementById("crisisDisengagement").value,
-      crisisHold: document.getElementById("crisisHold").value,
-      crisisMethodDescription: document.getElementById(
-        "crisisMethodDescription"
-      ).value,
-      crisisStartTime: document.getElementById("crisisStartTime").value,
-      crisisEndTime: document.getElementById("crisisEndTime").value,
-      crisisLocation: document.getElementById("crisisLocation").value,
-      crisisReason: document.getElementById("crisisReason").value,
-      signature: document.getElementById("signature").value,
+      // crisisIntervention: document.getElementById("crisisIntervention").value,
+      // crisisStaff: document.getElementById("crisisStaff").value,
+      // crisisMethod: document.getElementById("crisisMethod").value,
+      // crisisDisengagement: document.getElementById("crisisDisengagement").value,
+      // crisisHold: document.getElementById("crisisHold").value,
+      // crisisMethodDescription: document.getElementById(
+      //   "crisisMethodDescription"
+      // ).value,
+      // crisisStartTime: document.getElementById("crisisStartTime").value,
+      // crisisEndTime: document.getElementById("crisisEndTime").value,
+      // crisisLocation: document.getElementById("crisisLocation").value,
+      // crisisReason: document.getElementById("crisisReason").value,
+      // signature: document.getElementById("signature").value,
     };
     const incident = await incidentService.create(incidentObject);
     console.log(incident);

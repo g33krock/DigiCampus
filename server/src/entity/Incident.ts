@@ -31,7 +31,7 @@ export class Incident extends BaseEntity {
 	@Column({
 		nullable: true
 	})
-	description: number;
+	description: string;
 
 	@Column({
 		nullable: true

@@ -496,27 +496,27 @@ export const Routes = [{
 
 {
     method: "get",
-    route: "/announcements",
+    route: "/incidents",
     controller: IncidentController,
     action: "all"
 }, {
     method: "get",
-    route: "/announcements/:id",
+    route: "/incidents/:id",
     controller: IncidentController,
     action: "one"
 }, {
     method: "put",
-    route: "/announcements/:id",
+    route: "/incidents/:id",
     controller: IncidentController,
     action: "update"
 }, {
     method: "post",
-    route: "/announcements",
+    route: "/incidents",
     controller: IncidentController,
     action: "save"
 }, {
     method: "delete",
-    route: "/announcements/:id",
+    route: "/incidents/:id",
     controller: IncidentController,
     action: "remove"
 },
