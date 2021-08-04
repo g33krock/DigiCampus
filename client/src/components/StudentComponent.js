@@ -215,6 +215,7 @@ export default class Student extends Component {
                         studentReading={this.state.student?.reading}
                         studentWriting={this.state.student?.writing}
                         studentInterests={this.state.student?.interests}
+                        dailyReport={this.state.student?.dailyReport}
                       ></StudentUpdater>
                     </Col>
                   </Row>

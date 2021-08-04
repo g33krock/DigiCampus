@@ -9,7 +9,7 @@ import {
   ModalBody,
   Row,
   Col,
-  Container
+  Container,
 } from "reactstrap";
 import { studentService } from "../services/studentService";
 
@@ -47,9 +47,10 @@ export class StudentUpdater extends Component {
       writing: document.getElementById("writing").value,
       interests: document.getElementById("interests").value,
       withdraw: document.getElementById("withdraw").value,
+      dailyReport: document.getElementById("dailyReport").value,
     };
     const student = await studentService.update(studentObject);
-    console.log(student)
+    console.log(student);
   }
 
   toggle() {
@@ -59,13 +60,18 @@ export class StudentUpdater extends Component {
   render() {
     return (
       <div>
-        <Button outline color="success" size="sm" onClick={() => this.setState({ modal: true })}>
+        <Button
+          outline
+          color="success"
+          size="sm"
+          onClick={() => this.setState({ modal: true })}
+        >
           Update Student
         </Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody>
             <Form>
-            <Row>
+              <Row>
                 <Col>
                   <FormGroup>
                     <Label for="studentFirstName">First Name</Label>
@@ -104,7 +110,12 @@ export class StudentUpdater extends Component {
                 <Col>
                   <FormGroup>
                     <Label for="studentGrade">Grade Level</Label>
-                    <Input type="select" name="studentGrade" id="studentGrade" defaultValue={this.props.studentGrade}>
+                    <Input
+                      type="select"
+                      name="studentGrade"
+                      id="studentGrade"
+                      defaultValue={this.props.studentGrade}
+                    >
                       <option>0</option>
                       <option>1</option>
                       <option>2</option>
@@ -124,7 +135,12 @@ export class StudentUpdater extends Component {
                 <Col>
                   <FormGroup>
                     <Label for="IEP">IEP</Label>
-                    <Input type="select" name="IEP" id="IEP" defaultValue={this.props.studentIEP}>
+                    <Input
+                      type="select"
+                      name="IEP"
+                      id="IEP"
+                      defaultValue={this.props.studentIEP}
+                    >
                       <option></option>
                       <option value="true">Yes</option>
                       <option value="false">No</option>
@@ -134,7 +150,12 @@ export class StudentUpdater extends Component {
                 <Col>
                   <FormGroup>
                     <Label for="studentCampus">Student Campus</Label>
-                    <Input type="select" name="studentCampus" id="studentCampus" defaultValue={this.props.studentCampus}>
+                    <Input
+                      type="select"
+                      name="studentCampus"
+                      id="studentCampus"
+                      defaultValue={this.props.studentCampus}
+                    >
                       <option></option>
                       <option value="1">Tempe</option>
                       <option value="2">Queen Creek</option>
@@ -150,7 +171,12 @@ export class StudentUpdater extends Component {
                 <Col>
                   <FormGroup>
                     <Label for="studentFunding">Funding Source</Label>
-                    <Input type="select" name="studentFunding" id="studentFunding" defaultValue={this.props.studentFunding}>
+                    <Input
+                      type="select"
+                      name="studentFunding"
+                      id="studentFunding"
+                      defaultValue={this.props.studentFunding}
+                    >
                       <option></option>
                       <option value="1">ESA</option>
                       <option value="2">District</option>
@@ -162,7 +188,12 @@ export class StudentUpdater extends Component {
                 <Col>
                   <FormGroup>
                     <Label for="studentInstructionMode">Instruction Mode</Label>
-                    <Input type="select" name="studentInstructionMode" id="studentInstructionMode" defaultValue={this.props.studentInstructionMode}>
+                    <Input
+                      type="select"
+                      name="studentInstructionMode"
+                      id="studentInstructionMode"
+                      defaultValue={this.props.studentInstructionMode}
+                    >
                       <option></option>
                       <option value="1">Ground</option>
                       <option value="2">Home</option>
@@ -368,20 +399,35 @@ export class StudentUpdater extends Component {
                     </FormGroup>
                   </Col>
                 </Row>
-                <FormGroup>
-                      <Label for="withdraw">Withdrawl Date</Label>
+                <Row>
+                  <Col xs="3">
+                    <FormGroup>
+                      <Label for="dailyReport">Daily Report</Label>
                       <Input
-                        type="date"
-                        name="withdraw"
-                        id="withdraw"
-                      />
+                        type="select"
+                        name="dailyReport"
+                        id="dailyReport"
+                        defaultValue={this.props.dailyReport}
+                      >
+                        <option>No</option>
+                        <option>Yes</option>
+                      </Input>
                     </FormGroup>
+                  </Col>
+                  <Col xs="3" />
+                  <Col xs="6">
+                    <FormGroup>
+                      <Label for="withdraw">Withdrawl Date</Label>
+                      <Input type="date" name="withdraw" id="withdraw" />
+                    </FormGroup>
+                  </Col>
+                </Row>
               </Container>
               <Button
                 color="primary"
                 onClick={() => {
                   this.updateStudent();
-                  this.setState({ modal: false })
+                  this.setState({ modal: false });
                 }}
               >
                 Submit
