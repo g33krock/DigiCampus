@@ -106,7 +106,7 @@ export class IncidentCreator extends Component {
             <Form className="fancy-cursor">
               <Container id="trackerBox">
                 <Row>
-                  <Col xs="3">
+                  <Col xs="5">
                     <FormGroup>
                       <Label for="incidentDate">Date</Label>
                       <Input
@@ -156,6 +156,7 @@ export class IncidentCreator extends Component {
                     name="description"
                     id="description"
                     className="fancy-cursor"
+                    id="tallInput"
                   />
                 </FormGroup>
 
@@ -168,6 +169,7 @@ export class IncidentCreator extends Component {
                     name="behavior"
                     id="behavior"
                     className="fancy-cursor"
+                    id="tallInput"
                   />
                 </FormGroup>
                 <FormGroup>
@@ -179,6 +181,7 @@ export class IncidentCreator extends Component {
                     name="after"
                     id="after"
                     className="fancy-cursor"
+                    id="tallInput"
                   />
                 </FormGroup>
                 <FormGroup>
@@ -190,6 +193,7 @@ export class IncidentCreator extends Component {
                     name="others"
                     id="others"
                     className="fancy-cursor"
+                    id="tallInput"
                   />
                 </FormGroup>
               </Container>
