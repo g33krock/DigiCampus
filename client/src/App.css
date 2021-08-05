@@ -364,7 +364,17 @@ skew to change the 'thickness' of the glitch.*/
   height: 150px;
 }
 
+.No{
+  background: rgb(36, 36, 36)
+}
 
+.Yes{
+  background: green
+}
+
+.Prep{
+  background:blue
+}
 
 .Chris{
   background-image: linear-gradient(rgb(255, 0, 0), rgb(255, 255, 255), rgb(17, 0, 255));

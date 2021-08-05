@@ -19,6 +19,9 @@ import { campusService } from "../services/campusService";
 import { courseService } from "../services/courseService";
 import { teacherService } from "../services/teacherService";
 import { scheduleService } from "../services/scheduleService";
+import {
+  TeacherPrepUpdater,
+} from "./UpdateTeacherPrepOne";
 
 export default class Schedule extends Component {
   constructor(props) {
@@ -94,44 +97,48 @@ export default class Schedule extends Component {
     const teachers = await teacherService.all();
     this.setState({ teachers });
     const pOne = this.state.teachers.filter(
-      (teacher) => teacher.pOne === 'Yes');
+      (teacher) => teacher.pOne === "Yes"
+    );
     this.setState({ pOne });
     const pTwo = this.state.teachers.filter(
-      (teacher) => teacher.pTwo === 'Yes');
+      (teacher) => teacher.pTwo === "Yes"
+    );
     this.setState({ pTwo });
     const pThree = this.state.teachers.filter(
-      (teacher) => teacher.pThree === 'Yes'
+      (teacher) => teacher.pThree === "Yes"
     );
     this.setState({ pThree });
     const pFour = this.state.teachers.filter(
-      (teacher) => teacher.pFour === 'Yes'
+      (teacher) => teacher.pFour === "Yes"
     );
     this.setState({ pFour });
     const pFive = this.state.teachers.filter(
-      (teacher) => teacher.pFive === 'Yes'
+      (teacher) => teacher.pFive === "Yes"
     );
     this.setState({ pFive });
     const pSix = this.state.teachers.filter(
-      (teacher) => teacher.pSix === 'Yes');
+      (teacher) => teacher.pSix === "Yes"
+    );
     this.setState({ pSix });
     const pSeven = this.state.teachers.filter(
-      (teacher) => teacher.pSeven === 'Yes'
+      (teacher) => teacher.pSeven === "Yes"
     );
     this.setState({ pSeven });
     const pEight = this.state.teachers.filter(
-      (teacher) => teacher.pEight === 'Yes'
+      (teacher) => teacher.pEight === "Yes"
     );
     this.setState({ pEight });
     const pNine = this.state.teachers.filter(
-      (teacher) => teacher.pNine === 'Yes'
+      (teacher) => teacher.pNine === "Yes"
     );
     this.setState({ pNine });
     const pTen = this.state.teachers.filter(
-      (teacher) => teacher.pTen === 'Yes');
+      (teacher) => teacher.pTen === "Yes"
+    );
     this.setState({ pTen });
     const courses = await courseService.all();
     this.setState({ courses });
-    console.log(this.state.pOne)
+    console.log(this.state.pOne);
   }
 
   setSchedule(schedule) {
@@ -392,6 +399,16 @@ export default class Schedule extends Component {
               }}
             >
               Free Teachers
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === "4" })}
+              onClick={() => {
+                this.toggle("4");
+              }}
+            >
+              Schedule Prep
             </NavLink>
           </NavItem>
         </Nav>
@@ -726,6 +743,112 @@ export default class Schedule extends Component {
                     <p>{teacher}</p>
                   ))}
                 </td>
+              </tbody>
+            </Table>
+          </TabPane>
+          <TabPane tabId="4">
+            <Col>
+              <Label>Home Campus: {this.props.campus?.name}</Label>
+            </Col>
+            <Table bordered hover size="sm">
+              <thead class="shadow">
+                <tr id="scheduleHeader">
+                  <th>
+                    <h2>Student</h2>
+                    <br /> <br />
+                  </th>
+                  <th>
+                    <br />
+                    <br />
+                    <br />
+                    <h2>Period 1</h2>
+                    <p>7:50-8:40</p>
+                  </th>
+                  <th>
+                    <h3>Period 2</h3>
+                    <p>8:40-9:30</p>
+                  </th>
+                  <th>
+                    <h3>Period 3</h3>
+                    <p>9:30-10:20</p>
+                  </th>
+                  <th>
+                    <h3>Period 4</h3>
+                    <p>10:20-11:10</p>
+                  </th>
+                  <th>
+                    <h3>Period 5</h3>
+                    <p>11:10-12:00</p>
+                  </th>
+                  <th>
+                    <h3>Period 6</h3>
+                    <p>12:00-12:50</p>
+                  </th>
+                  <th>
+                    <h3>Period 7</h3>
+                    <p>12:50-1:40</p>
+                  </th>
+                  <th>
+                    <h3>Period 8</h3>
+                    <p>1:40-2:30</p>
+                  </th>
+                  <th>
+                    <h3>Period 9</h3>
+                    <p>2:30-3:20</p>
+                  </th>
+                  <th>
+                    <h3>Period 10</h3>
+                    <p>3:20-4:10</p>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.teachers
+                  .filter(
+                    (cstudent) => cstudent.campus.id === this.props?.campus?.id
+                  )
+                  .sort(function (a, b) {
+                    let x = a.firstName.toLowerCase();
+                    let y = b.firstName.toLowerCase();
+                    if (x < y) {
+                      return -1;
+                    }
+                    if (x > y) {
+                      return 1;
+                    }
+                    return 0;
+                  })
+                  .map((teacher) => (
+                    <tr>
+                      <th key={teacher.id}>
+                        {teacher.firstName} {teacher.lastName}
+                        <TeacherPrepUpdater
+                          callback={() => this.getSchedules()}
+                          teacherID={teacher.id}
+                          teacherP1={teacher.pOne}
+                          teacherP2={teacher.pTwo}
+                          teacherP3={teacher.pThree}
+                          teacherP4={teacher.pFour}
+                          teacherP5={teacher.pFive}
+                          teacherP6={teacher.pSix}
+                          teacherP7={teacher.pSeven}
+                          teacherP8={teacher.pEight}
+                          teacherP9={teacher.pNine}
+                          teacherP10={teacher.pTen}
+                        ></TeacherPrepUpdater>
+                      </th>
+                      <td className={teacher.pOne}>1 {teacher.pOne}</td>
+                      <td className={teacher.pTwo}>2 {teacher.pTwo}</td>
+                      <td className={teacher.pThree}>3 {teacher.pThree}</td>
+                      <td className={teacher.pFour}>4 {teacher.pFour}</td>
+                      <td className={teacher.pFive}>5 {teacher.pFive}</td>
+                      <td className={teacher.pSix}>6 {teacher.pSix}</td>
+                      <td className={teacher.pSeven}>7 {teacher.pSeven}</td>
+                      <td className={teacher.pEight}>8 {teacher.pEight}</td>
+                      <td className={teacher.pNine}>9 {teacher.pNine}</td>
+                      <td className={teacher.pTen}>10 {teacher.pTen}</td>
+                    </tr>
+                  ))}
               </tbody>
             </Table>
           </TabPane>

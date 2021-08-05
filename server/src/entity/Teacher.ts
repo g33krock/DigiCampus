@@ -4,7 +4,6 @@ import { Role } from "./Role";
 import { Campus } from "./Campus";
 import { Tracker } from "./Tracker";
 import { Gradebook } from "./Gradebook";
-import { Transcript } from "./Transcript";
 import { Incident } from "./Incident";
 
 @Entity()
