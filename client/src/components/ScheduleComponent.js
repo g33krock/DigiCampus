@@ -754,7 +754,7 @@ export default class Schedule extends Component {
               <thead class="shadow">
                 <tr id="scheduleHeader">
                   <th>
-                    <h2>Student</h2>
+                    <h2>Teacher</h2>
                     <br /> <br />
                   </th>
                   <th>
