@@ -25,6 +25,7 @@ import TrackerResponse from "./TrackerResponses";
 import classnames from "classnames";
 import { fetcher } from "../services/fetcher";
 import { IncidentCreator } from "./CreateIncident";
+import Attendance from "./AttendanceComponent";
 
 export default class Student extends Component {
   constructor(props) {
@@ -89,6 +90,16 @@ export default class Student extends Component {
               }}
             >
               Student Tracking
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === "3" })}
+              onClick={() => {
+                this.toggle("3");
+              }}
+            >
+              Attendance
             </NavLink>
           </NavItem>
         </Nav>
@@ -257,6 +268,11 @@ export default class Student extends Component {
               <TabPane tabId="2">
               {this.state.student && (
                   <TrackerResponse student={this.state.student}></TrackerResponse>
+                )}
+              </TabPane>
+              <TabPane tabId="3">
+              {this.state.student && (
+                  <Attendance student={this.state.student}></Attendance>
                 )}
               </TabPane>
             </TabContent>
