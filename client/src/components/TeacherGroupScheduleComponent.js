@@ -1,0 +1,153 @@
+import React, { Component } from "react";
+import { baseURL } from "../baseURL";
+import { Card, CardText, CardTitle } from "reactstrap";
+import { GradebookCreator } from "./CreateGradebook";
+import { TrackerCreator } from "./CreateTracker";
+import { StudentInfo } from "./StudentInfo";
+import { fetcher } from "../services/fetcher";
+
+export default class TeacherGroupSchedule extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { teacherschedule: [], teachersched: [], modal: false };
+  }
+
+  componentDidMount() {
+    fetcher(`${baseURL}/teachers/${this.props.teacher?.id}/schedules`) //Fetch TeacherSchedule Table from API
+      .then((response) => response.json()) //Convert response to a JSON object
+      .then((data) => {
+        console.log(data);
+        this.setState({
+          teacherschedule: data,
+        });
+      });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.teacher === this.props.teacher) {
+      return;
+    }
+    console.log(this.props.teacher);
+    fetcher(`${baseURL}/teachers/${this.props.teacher?.id}/schedules`) //Fetch TeacherSchedule Table from API
+      .then((response) => response.json()) //Convert response to a JSON object
+      .then((data) => {
+        console.log(data);
+        this.setState({
+          teacherschedule: data, //Create relationship between teacherschedule state array and JSON object
+        });
+      });
+  }
+
+  setSchedule(teachersched) {
+    this.setState({ teachersched: teachersched });
+    this.setState({ modal: true });
+    // this.setState({teacher: teachersched.teachers})       //sets teachersched property to teachersched object.  This looks funny because they both are named teachersched
+  }
+  async assembleGroups() {
+    for (let i = 1; i < 11; i++) {
+      let per = i;
+      let group = "";
+      let solo = "";
+      const teacherSchedBox = this.state.teacherschedule
+        .sort(function (a, b) {
+          return a.period - b.period;
+        })
+        .filter((sched) => sched.period === per);
+      if (teacherSchedBox.length > 1) {
+        group = teacherSchedBox;
+      } else {
+        solo = teacherSchedBox;
+      }
+      console.log(teacherSchedBox);
+      console.log(group);
+      console.log(solo);
+      return teacherSchedBox
+    }
+  }
+  render() {
+    // const teacher = this.props.teacher;
+    return (
+      <div className="container" id="schedBox">
+        {/* Schedule for {teacher.firstName} {teacher.lastName} */}
+        {/* <div className="row">{this.assembleGroups()}</div> */}
+      </div>
+    );
+  }
+}
+
+// .map((teachersched) => {
+//   let block;
+//   switch (teachersched.period) {
+//     case 1:
+//       block = "7:50 - 8:40";
+//       break;
+//     case 2:
+//       block = "8:40 - 9:30";
+//       break;
+//     case 3:
+//       block = "9:30 - 10:20";
+//       break;
+//     case 4:
+//       block = "10:20 - 11:10";
+//       break;
+//     case 5:
+//       block = "11:10 - 12:00";
+//       break;
+//     case 6:
+//       block = "12:00 - 12:50";
+//       break;
+//     case 7:
+//       block = "12:50 - 1:40";
+//       break;
+//     case 8:
+//       block = "1:40 - 2:30";
+//       break;
+//     case 9:
+//       block = "2:30 - 3:20";
+//       break;
+//     case 10:
+//       block = "3:20 - 4:10";
+//       break;
+
+//     default:
+//   }
+//   return (
+//     <div key={teachersched.id} className="col">
+//       <Card onClick={() => this.setSchedule(teachersched)}>
+//         <CardTitle>Period: {block}</CardTitle>
+//         <CardText style={{ color: "black" }}>
+//           <p>
+//             Student:{teachersched.student?.firstName}{" "}
+//             {teachersched.student?.lastName}
+//           </p>
+//           <p>
+//             Teacher:{this.props.teacher?.firstName}{" "}
+//             {this.props.teacher?.lastName}
+//           </p>
+//           <p>Course Name:{teachersched.course?.name}</p>
+//           <p>Subject:{teachersched.course?.subject}</p>
+//           <a href={this.props.teacher?.link}>Class Link</a>
+//         </CardText>
+//         <StudentInfo student={teachersched.student}></StudentInfo>
+
+//         <GradebookCreator
+//           student={teachersched?.student}
+//           teacher={teachersched?.teacher}
+//           course={teachersched?.course}
+//           period={teachersched?.period}
+//           schedule={teachersched}
+//           campus={teachersched?.campus}
+//         ></GradebookCreator>
+
+//         <TrackerCreator
+//           student={teachersched.student}
+//           teacher={teachersched.teacher}
+//           course={teachersched.course}
+//           period={teachersched.period}
+//           schedule={teachersched}
+//         ></TrackerCreator>
+//       </Card>
+//     </div>
+//   );
+// }
+// );

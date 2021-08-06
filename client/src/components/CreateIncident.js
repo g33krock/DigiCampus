@@ -156,7 +156,6 @@ export class IncidentCreator extends Component {
                     name="description"
                     id="description"
                     className="fancy-cursor"
-                    id="tallInput"
                   />
                 </FormGroup>
 
@@ -169,7 +168,6 @@ export class IncidentCreator extends Component {
                     name="behavior"
                     id="behavior"
                     className="fancy-cursor"
-                    id="tallInput"
                   />
                 </FormGroup>
                 <FormGroup>
@@ -181,7 +179,6 @@ export class IncidentCreator extends Component {
                     name="after"
                     id="after"
                     className="fancy-cursor"
-                    id="tallInput"
                   />
                 </FormGroup>
                 <FormGroup>
@@ -193,7 +190,6 @@ export class IncidentCreator extends Component {
                     name="others"
                     id="others"
                     className="fancy-cursor"
-                    id="tallInput"
                   />
                 </FormGroup>
               </Container>
