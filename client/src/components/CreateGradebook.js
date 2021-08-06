@@ -24,7 +24,6 @@ export class GradebookCreator extends Component {
       teachers: this.props.teacher.id,
       schedule: this.props.id,
       courses: this.props.course.id,
-      campus: this.props.campus.id,
       period: this.props.period,
       pointsEarned: document.getElementById("pointsEarned").value,
       pointsAvailable: document.getElementById("pointsAvailable").value,

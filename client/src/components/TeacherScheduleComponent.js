@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import {baseURL} from "../baseURL";
+import { baseURL } from "../baseURL";
 import { Card, CardText, CardTitle } from "reactstrap";
 import { GradebookCreator } from "./CreateGradebook";
 import { TrackerCreator } from "./CreateTracker";
 import { StudentInfo } from "./StudentInfo";
-import { fetcher } from '../services/fetcher';
+import { fetcher } from "../services/fetcher";
+import { ClassGrades } from "./GradebookComponent";
 
 export default class TeacherSchedule extends Component {
   constructor(props) {
@@ -12,13 +13,13 @@ export default class TeacherSchedule extends Component {
     this.state = { teacherschedule: [], teachersched: [], modal: false };
   }
 
-  componentDidMount(){
+  componentDidMount() {
     fetcher(`${baseURL}/teachers/${this.props.teacher?.id}/schedules`) //Fetch TeacherSchedule Table from API
       .then((response) => response.json()) //Convert response to a JSON object
       .then((data) => {
         console.log(data);
         this.setState({
-          teacherschedule: data, 
+          teacherschedule: data,
         });
       });
   }
@@ -52,7 +53,7 @@ export default class TeacherSchedule extends Component {
       })
       .map((teachersched) => {
         let block;
-        switch (teachersched.period){
+        switch (teachersched.period) {
           case 1:
             block = "7:50 - 8:40";
             break;
@@ -84,8 +85,8 @@ export default class TeacherSchedule extends Component {
             block = "3:20 - 4:10";
             break;
 
-            default:
-        }       
+          default:
+        }
         return (
           <div key={teachersched.id} className="col">
             <Card onClick={() => this.setSchedule(teachersched)}>
@@ -113,6 +114,15 @@ export default class TeacherSchedule extends Component {
                 schedule={teachersched}
                 campus={teachersched?.campus}
               ></GradebookCreator>
+
+              <ClassGrades
+                student={teachersched?.student}
+                teacher={teachersched?.teacher}
+                course={teachersched?.course}
+                period={teachersched?.period}
+                schedule={teachersched}
+                campus={teachersched?.campus}
+              ></ClassGrades>
 
               <TrackerCreator
                 student={teachersched.student}
