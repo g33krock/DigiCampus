@@ -144,13 +144,13 @@ export default class Teacher extends Component {
             )}
           </TabPane>
           <TabPane tabId="2">
-            <h3>Coming Soon!</h3>
-            {/* {this.state.teacher && (
+            <h3>Still a work in progress!</h3>
+            {this.state.teacher && (
               <TeacherGroupSchedule
                 teacher={this.state.teacher}
                 userEmail={this.props?.userEmail}
               ></TeacherGroupSchedule>
-            )} */}
+            )}
           </TabPane>
         </TabContent>
       </Container>
