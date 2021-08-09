@@ -48,7 +48,7 @@ export class GroupTrackerCreator extends Component {
       courses: document.getElementById("courseId" + i.student.id).value,
       schedules: document.getElementById("schedId" + i.id).value,
       period: this.props.period,
-      date: document.getElementById("spedResponseDate" + i.student.id).value,
+      date: document.getElementById("spedResponseDate").value,
       attendance: document.getElementById("attendance" + i.student.id).value,
       engagement: document.getElementById("engagement" + i.student.id).value,
       behavior: document.getElementById("behavior" + i.student.id).value,
@@ -67,23 +67,24 @@ export class GroupTrackerCreator extends Component {
         .value,
       response: document.getElementById("spedResponseResponse" + i.id).value,
       students: i.student.id,
-      spedQuestions: i.id,
+      spedQuestions: i.spedQuestions,
     };
     const spedResponse = await spedResponseService.create(spedResponseObject);
-    fetcher({ baseURL } + "/spedResponses")
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({
-          spedResponse: data,
-        });
-      });
-    console.log(spedResponse);
+    console.log(spedResponse)
   }
 
   createSpedResponseNinja() {
-    this.state.spedQuestions.forEach((scheduleQuestion) =>
+      this.state.block.map((stud) => {
+        this.state.spedQuestions
+        ?.filter((speQ) => speQ.student.id === stud.student.id)
+        ?.filter(
+          (speQ) =>
+            speQ.category === "Social"
+        ).forEach((scheduleQuestion) =>
       this.createSpedResponse(scheduleQuestion)
     );
+      })
+
   }
 
   createTrackerNinja() {
@@ -115,6 +116,20 @@ export class GroupTrackerCreator extends Component {
               textAlign: "center",
             }}
           >
+              <Form>
+              <Col md={3}></Col>
+                    <Col md={6}>
+                      <FormGroup>
+                        <Label for="spedResponseDate">Date</Label>
+                        <Input
+                          type="date"
+                          name={`spedResponseDate`}
+                          id={`spedResponseDate`}
+                        />
+                      </FormGroup>
+                    </Col>
+                    <Col md={3}></Col>
+              </Form>
             {this.props.block.map((sched) => (
               <div>
                 <Container id="trackerBox">
@@ -130,18 +145,6 @@ export class GroupTrackerCreator extends Component {
                   </p>
                     <div id={`schedId${sched.id}`}>{sched.id}</div>
                   <Form>
-                    <Col md={3}></Col>
-                    <Col md={6}>
-                      <FormGroup>
-                        <Label for="spedResponseDate">Date</Label>
-                        <Input
-                          type="date"
-                          name={`spedResponseDate`}
-                          id={`spedResponseDate${sched.student.id}`}
-                        />
-                      </FormGroup>
-                    </Col>
-                    <Col md={3}></Col>
                     {this.state.spedQuestions
                       ?.filter((speQ) => speQ.student.id === sched.student.id)
                       ?.filter(
