@@ -81,7 +81,7 @@ export default class TrackerResponse extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.trackers.filter(studentz => studentz.students.id === this.props.student.id).map((tracker) => (
+            {this.state.trackers.filter(studentz => studentz.students?.id === this.props.student.id).map((tracker) => (
               <tr>
                 <th key={tracker.id}>{tracker?.date}</th>
                 <td>
