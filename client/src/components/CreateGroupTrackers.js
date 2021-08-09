@@ -67,7 +67,7 @@ export class GroupTrackerCreator extends Component {
         .value,
       response: document.getElementById("spedResponseResponse" + i.id).value,
       students: i.student.id,
-      spedQuestions: i.spedQuestions.id,
+      spedQuestions: i.id,
     };
     const spedResponse = await spedResponseService.create(spedResponseObject);
     console.log(spedResponse)
@@ -75,7 +75,7 @@ export class GroupTrackerCreator extends Component {
 
   createSpedResponseNinja() {
       this.state.block.map((stud) => {
-        this.state.spedQuestions.id
+        this.state.spedQuestions
         ?.filter((speQ) => speQ.student.id === stud.student.id)
         ?.filter(
           (speQ) =>
@@ -143,7 +143,7 @@ export class GroupTrackerCreator extends Component {
                     Teacher:
                     <small id={`teacherId${sched.student.id}`} value={sched.teacher.id}>{sched.teacher.firstName} {sched.teacher.lastName}</small>
                   </p>
-                    <div id={`schedId${sched.id}`}>{sched.id}</div>
+                    <div id={`schedId${sched.id}`}></div>
                   <Form>
                     {this.state.spedQuestions
                       ?.filter((speQ) => speQ.student.id === sched.student.id)
@@ -231,6 +231,7 @@ export class GroupTrackerCreator extends Component {
                             <option></option>
                             <option>Present</option>
                             <option>Absent</option>
+                            <option>Tardy</option>
                           </Input>
                         </FormGroup>
                       </Col>
