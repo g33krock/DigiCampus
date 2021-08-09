@@ -108,7 +108,7 @@ export default class SingleTeacher extends Component {
             )}
           </TabPane>
           <TabPane tabId="2">
-            <h3>Still a work in progress!</h3>
+            <h3>Mic Drop.... Boom!</h3>
             {this.state.teacher && (
               <TeacherGroupSchedule
                 teacher={this.state.teacher}
