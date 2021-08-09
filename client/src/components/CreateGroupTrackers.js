@@ -75,7 +75,7 @@ export class GroupTrackerCreator extends Component {
 
   createSpedResponseNinja() {
       this.state.block.map((stud) => {
-        this.state.spedQuestions
+        this.state.spedQuestions.id
         ?.filter((speQ) => speQ.student.id === stud.student.id)
         ?.filter(
           (speQ) =>
