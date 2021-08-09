@@ -266,14 +266,16 @@ export default class Student extends Component {
                 )}
               </TabPane>
               <TabPane tabId="2">
-              {this.state.student && (
+                Under Maintenance
+              {/* {this.state.student && (
                   <TrackerResponse student={this.state.student}></TrackerResponse>
-                )}
+                )} */}
               </TabPane>
               <TabPane tabId="3">
-              {this.state.student && (
+                Under Maintenance
+              {/* {this.state.student && (
                   <Attendance student={this.state.student}></Attendance>
-                )}
+                )} */}
               </TabPane>
             </TabContent>
           </div>
