@@ -43,10 +43,10 @@ export class GroupTrackerCreator extends Component {
 
   async createTracker(i) {
     const trackerObject = {
-      students: document.getElementById("studentId" + i.student.id).value,
-      teachers: document.getElementById("teacherId" + i.student.id).value,
-      courses: document.getElementById("courseId" + i.student.id).value,
-      schedules: document.getElementById("schedId" + i.id).value,
+      students: i.student.id,
+      teachers: i.teacher.id,
+      courses: i.course.id,
+      schedules: i.id,
       period: this.props.period,
       date: document.getElementById("spedResponseDate").value,
       attendance: document.getElementById("attendance" + i.student.id).value,
