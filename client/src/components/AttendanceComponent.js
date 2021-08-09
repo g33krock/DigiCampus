@@ -54,7 +54,7 @@ export default class Attendance extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.trackers.filter(studentz => studentz.students.id === this.props.student.id).map((tracker) => (
+            {this.state.trackers.filter(studentz => studentz.students.id === this.props.student.id).sort((a, b) => a?.date - b?.date).map((tracker) => (
               <tr>
                 <th key={tracker.id}>{tracker?.date}</th>
                 <td>

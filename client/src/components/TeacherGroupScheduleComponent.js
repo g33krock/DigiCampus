@@ -5,6 +5,7 @@ import { GradebookCreator } from "./CreateGradebook";
 import { TrackerCreator } from "./CreateTracker";
 import { StudentInfo } from "./StudentInfo";
 import { fetcher } from "../services/fetcher";
+import { GroupTrackerCreator } from "./CreateGroupTrackers";
 
 export default class TeacherGroupSchedule extends Component {
   constructor(props) {
@@ -130,6 +131,10 @@ export default class TeacherGroupSchedule extends Component {
                       </div>
                     ))}
                   </p>
+                  {/* <GroupTrackerCreator
+                  period = "1"
+                  block = {p1}
+                  ></GroupTrackerCreator> */}
                   <p>
                     Teacher:<br></br>
                     {this.props.teacher?.firstName}{" "}
@@ -162,6 +167,10 @@ export default class TeacherGroupSchedule extends Component {
                       </div>
                     ))}
                   </p>
+                  {/* <GroupTrackerCreator
+                  period = "2"
+                  block = {p2}
+                  ></GroupTrackerCreator> */}
                   <p>
                     Teacher:<br></br>
                     {this.props.teacher?.firstName}{" "}
@@ -194,6 +203,10 @@ export default class TeacherGroupSchedule extends Component {
                       </div>
                     ))}
                   </p>
+                  {/* <GroupTrackerCreator
+                  period = "3"
+                  block = {p3}
+                  ></GroupTrackerCreator> */}
                   <p>
                     Teacher:<br></br>
                     {this.props.teacher?.firstName}{" "}
@@ -226,6 +239,10 @@ export default class TeacherGroupSchedule extends Component {
                       </div>
                     ))}
                   </p>
+                  {/* <GroupTrackerCreator
+                  period = "4"
+                  block = {p4}
+                  ></GroupTrackerCreator> */}
                   <p>
                     Teacher:<br></br>
                     {this.props.teacher?.firstName}{" "}
@@ -258,6 +275,10 @@ export default class TeacherGroupSchedule extends Component {
                       </div>
                     ))}
                   </p>
+                  {/* <GroupTrackerCreator
+                  period = "5"
+                  block = {p5}
+                  ></GroupTrackerCreator> */}
                   <p>
                     Teacher:<br></br>
                     {this.props.teacher?.firstName}{" "}
@@ -290,6 +311,10 @@ export default class TeacherGroupSchedule extends Component {
                       </div>
                     ))}
                   </p>
+                  {/* <GroupTrackerCreator
+                  period = "6"
+                  block = {p6}
+                  ></GroupTrackerCreator> */}
                   <p>
                     Teacher:<br></br>
                     {this.props.teacher?.firstName}{" "}
@@ -322,6 +347,10 @@ export default class TeacherGroupSchedule extends Component {
                       </div>
                     ))}
                   </p>
+                  {/* <GroupTrackerCreator
+                  period = "7"
+                  block = {p7}
+                  ></GroupTrackerCreator> */}
                   <p>
                     Teacher:<br></br>
                     {this.props.teacher?.firstName}{" "}
@@ -354,6 +383,10 @@ export default class TeacherGroupSchedule extends Component {
                       </div>
                     ))}
                   </p>
+                  {/* <GroupTrackerCreator
+                  period = "8"
+                  block = {p8}
+                  ></GroupTrackerCreator> */}
                   <p>
                     Teacher:<br></br>
                     {this.props.teacher?.firstName}{" "}
@@ -386,6 +419,10 @@ export default class TeacherGroupSchedule extends Component {
                       </div>
                     ))}
                   </p>
+                  {/* <GroupTrackerCreator
+                  period = "9"
+                  block = {p9}
+                  ></GroupTrackerCreator> */}
                   <p>
                     Teacher:<br></br>
                     {this.props.teacher?.firstName}{" "}
@@ -418,6 +455,10 @@ export default class TeacherGroupSchedule extends Component {
                       </div>
                     ))}
                   </p>
+                  {/* <GroupTrackerCreator
+                  period = "10"
+                  block = {p10}
+                  ></GroupTrackerCreator> */}
                   <p>
                     Teacher:<br></br>
                     {this.props.teacher?.firstName}{" "}

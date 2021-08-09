@@ -138,7 +138,7 @@ export default class Schedule extends Component {
     this.setState({ pTen });
     const courses = await courseService.all();
     this.setState({ courses });
-    console.log(this.state.pOne);
+    // console.log(this.state.pOne);
   }
 
   setSchedule(schedule) {
@@ -186,7 +186,7 @@ export default class Schedule extends Component {
     teach1 = teach1.filter(function (item) {
       return !sched1.includes(item);
     });
-    console.log(teach1);
+    // console.log(teach1);
     let sched2 = this.state.schedules
       .filter((schedule) => schedule.period === 2)
       .filter((schedule) => schedule.teacher.id !== 26)
@@ -206,7 +206,7 @@ export default class Schedule extends Component {
     teach2 = teach2.filter(function (item) {
       return !sched2.includes(item);
     });
-    console.log(teach2);
+    // console.log(teach2);
     let sched3 = this.state.schedules
       .filter((schedule) => schedule.period === 3)
       .filter((schedule) => schedule.teacher.id !== 26)
@@ -226,7 +226,7 @@ export default class Schedule extends Component {
     teach3 = teach3.filter(function (item) {
       return !sched3.includes(item);
     });
-    console.log(teach3);
+    // console.log(teach3);
     let sched4 = this.state.schedules
       .filter((schedule) => schedule.period === 4)
       .filter((schedule) => schedule.teacher.id !== 26)
@@ -246,7 +246,7 @@ export default class Schedule extends Component {
     teach4 = teach4.filter(function (item) {
       return !sched4.includes(item);
     });
-    console.log(teach4);
+    // console.log(teach4);
     let sched5 = this.state.schedules
       .filter((schedule) => schedule.period === 5)
       .filter((schedule) => schedule.teacher.id !== 26)
@@ -266,7 +266,7 @@ export default class Schedule extends Component {
     teach5 = teach5.filter(function (item) {
       return !sched5.includes(item);
     });
-    console.log(teach5);
+    // console.log(teach5);
     let sched6 = this.state.schedules
       .filter((schedule) => schedule.period === 6)
       .filter((schedule) => schedule.teacher.id !== 26)
@@ -286,7 +286,7 @@ export default class Schedule extends Component {
     teach6 = teach6.filter(function (item) {
       return !sched6.includes(item);
     });
-    console.log(teach6);
+    // console.log(teach6);
     let sched7 = this.state.schedules
       .filter((schedule) => schedule.period === 7)
       .filter((schedule) => schedule.teacher.id !== 26)
@@ -306,7 +306,7 @@ export default class Schedule extends Component {
     teach7 = teach7.filter(function (item) {
       return !sched7.includes(item);
     });
-    console.log(teach7);
+    // console.log(teach7);
     let sched8 = this.state.schedules
       .filter((schedule) => schedule.period === 8)
       .filter((schedule) => schedule.teacher.id !== 26)
@@ -326,7 +326,7 @@ export default class Schedule extends Component {
     teach8 = teach8.filter(function (item) {
       return !sched8.includes(item);
     });
-    console.log(teach8);
+    // console.log(teach8);
     let sched9 = this.state.schedules
       .filter((schedule) => schedule.period === 9)
       .filter((schedule) => schedule.teacher.id !== 26)
@@ -346,7 +346,7 @@ export default class Schedule extends Component {
     teach9 = teach9.filter(function (item) {
       return !sched9.includes(item);
     });
-    console.log(teach9);
+    // console.log(teach9);
     let sched10 = this.state.schedules
       .filter((schedule) => schedule.period === 10)
       .filter((schedule) => schedule.teacher.id !== 26)
@@ -366,7 +366,7 @@ export default class Schedule extends Component {
     teach10 = teach10.filter(function (item) {
       return !sched10.includes(item);
     });
-    console.log(teach10);
+    // console.log(teach10);
 
     return (
       <div class="tableFixHead">
