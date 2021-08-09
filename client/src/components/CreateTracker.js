@@ -191,6 +191,7 @@ export class TrackerCreator extends Component {
                   <option></option>
                   <option>Present</option>
                   <option>Absent</option>
+                  <option>Tardy</option>
                 </Input>
               </FormGroup>
               <FormGroup id="trackerBox">
