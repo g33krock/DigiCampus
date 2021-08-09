@@ -67,7 +67,7 @@ export class GroupTrackerCreator extends Component {
         .value,
       response: document.getElementById("spedResponseResponse" + i.id).value,
       students: i.student.id,
-      spedQuestions: i.spedQuestions,
+      spedQuestions: i.spedQuestions.id,
     };
     const spedResponse = await spedResponseService.create(spedResponseObject);
     console.log(spedResponse)
