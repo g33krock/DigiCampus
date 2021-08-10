@@ -14,11 +14,12 @@ html {
 }
 
 .jumbotron {
-  color:white;
   text-align: center;
-  background: #0a0a0a;
-  background: linear-gradient(rgba(10, 10, 10, 0.6), rgba(0, 0, 0, 0.9)), repeating-linear-gradient(0, transparent, transparent 2px, black 3px, black 3px);
+  background-image: linear-gradient(rgb(255, 255, 255), rgb(124, 241, 250), rgb(255, 255, 255));
+}
 
+.motion {
+  border: 2px solid #0f018d;
 }
 
 #wrapper {
