@@ -138,4 +138,9 @@ export class Incident extends BaseEntity {
 	})
 	signature: string;
 
+	@Column({
+		nullable: true
+	})
+	sent: string;
+
 }
