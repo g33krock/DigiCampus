@@ -79,6 +79,7 @@ export class IncidentCreator extends Component {
   }
 
   render() {
+    var date = new Date(); 
     return (
       <div>
         <Button outline color="danger" size="sm" onClick={() => this.setState({ modal: true })}>
@@ -110,6 +111,8 @@ export class IncidentCreator extends Component {
                     <FormGroup>
                       <Label for="incidentDate">Date</Label>
                       <Input
+                        defaultValue={date.getFullYear().toString() + '-' + (date.getMonth() + 1).toString().padStart(2, 0) +
+                        '-' + date.getDate().toString().padStart(2, 0)}
                         type="date"
                         name={`incidentDate`}
                         id={`incidentDate`}

@@ -12,6 +12,7 @@ class IncidentService {
           return await response.json();
     };
     async create (incidentObject) {
+        try{
         const response = await fetcher(`${baseURL}/incidents`, {
             method: "POST",
             headers: {
@@ -19,7 +20,11 @@ class IncidentService {
             },
             body: JSON.stringify(incidentObject),
         });
-        return await response.json();
+        alert(`Your incident report submitted successfully.  Go tell your immediate supervisor how amazing you are.`)
+        return await response.json();}
+        catch (error) {
+            alert(`Your incident report did not submit successfully.  Make sure you are filling everything out and try again.`)
+          }
     };
     async delete(incidentObject){
         console.log(incidentObject)

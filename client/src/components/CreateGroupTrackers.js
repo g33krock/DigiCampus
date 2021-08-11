@@ -98,6 +98,7 @@ export class GroupTrackerCreator extends Component {
   }
 
   render() {
+    var date = new Date(); 
     return (
       <div>
         <Button color="link" onClick={() => {
@@ -122,6 +123,8 @@ export class GroupTrackerCreator extends Component {
                       <FormGroup>
                         <Label for="spedResponseDate">Date</Label>
                         <Input
+                          defaultValue={date.getFullYear().toString() + '-' + (date.getMonth() + 1).toString().padStart(2, 0) +
+                          '-' + date.getDate().toString().padStart(2, 0)}
                           type="date"
                           name={`spedResponseDate`}
                           id={`spedResponseDate`}
