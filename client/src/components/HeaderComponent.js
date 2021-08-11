@@ -52,10 +52,11 @@ class Header extends Component {
                     >
                         <div
                         style={{
-                            width: "150px",
-                            height: "auto",
-                            borderRadius: "100%",
-                            backgroundColor: "lightblue",
+                            minWidth: "300px",
+                            backgroundImage:"url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/sign/images/Bubble.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvQnViYmxlLnBuZyIsImlhdCI6MTYyODY0MzczMywiZXhwIjoxOTQ0MDAzNzMzfQ.dI8BFOJk-032ydJfO5SiJdNOr-KPj7NILzu_Y5KVIS4')",
+                            backgroundSize:"contain",
+                            backgroundRepeat:"no-repeat",
+                            backgroundPosition:"center center",
                             textAlign: "center",
                             lineHeight: "20px",
                         }}
