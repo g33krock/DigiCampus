@@ -41,7 +41,7 @@ class Header extends Component {
                 <Jumbotron fluid>
                 <div style={{ height: "400px" }}>
                 <Marquee velocity={12} minScale={0.7} resetAfterTries={200} scatterRandomly>
-                    {times(5, Number).map((id) => (
+                    {times(7, Number).map((id) => (
                     <Motion
                         key={`child-${id}`}
                         className="motion"
