@@ -11,11 +11,11 @@ class TrackerService {
             },
             body: JSON.stringify(trackerObject),
           });
-          alert(`Your tracker submitted successfully.  You are really good at this and should be proud of yourself!  ${trackerObject.students}`)
+          alert(`You are a smart, capable, and beautiful individual that submits trackers successfully!  ${trackerObject.students}`)
           return await response.json();
         }
           catch (error) {
-            alert(`Your tracker did not submit successfully.  Make sure you are filling everything out and try again.  ${trackerObject.students}`)
+            alert(`Your tracker did not submit successfully.  If at first you don't succeed, fill out the entire tracker and try again.  ${trackerObject.students}`)
           }
     }
 }

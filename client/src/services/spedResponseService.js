@@ -20,7 +20,7 @@ class SpedResponseService {
             },
             body: JSON.stringify(spedResponseObject),
         });
-        alert(`Your IEP response was submitted successfully.  You are cool =)  ${spedResponseObject.question}`)
+        alert(`Jen and Becky thank you for successfully submitting this IEP question  ${spedResponseObject.question}`)
         return await response.json();}
         catch (error) {
             alert(`Your IEP response did not submit successfully.  Make sure you are filling everything out and try again.  ${spedResponseObject.question}`)
