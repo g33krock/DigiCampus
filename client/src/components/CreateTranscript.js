@@ -56,14 +56,8 @@ export class TranscriptCreator extends Component {
       student: this.props.studentId,
     };
     const transcript = await transcriptService.create(transcriptObject);
-    fetcher(`${baseURL}/transcripts`)
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({
-          transcript: data,
-        });
-      });
-    console.log(transcript);
+    const refresh = await transcriptService.all(transcriptObject)
+    this.setState = ({transcript: refresh})
   }
 
   toggle() {

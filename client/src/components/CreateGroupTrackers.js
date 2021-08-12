@@ -248,7 +248,7 @@ export class GroupTrackerCreator extends Component {
                             id={`engagement${sched.student.id}`}
                             className="fancy-cursor"
                           >
-                            <option></option>
+                            <option value="0"></option>
                             <option value="1">
                               Disengaged: No demonstration of learning,
                               disruptive/ defiant/ avoidant
@@ -285,7 +285,7 @@ export class GroupTrackerCreator extends Component {
                             id={`behavior${sched.student.id}`}
                             className="fancy-cursor"
                           >
-                            <option></option>
+                            <option value="0"></option>
                             <option
                               id="zone"
                               style={{
