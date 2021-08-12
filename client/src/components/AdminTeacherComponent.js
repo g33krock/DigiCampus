@@ -1,13 +1,22 @@
 import React, { Component } from "react";
 import { baseURL } from "../baseURL";
-import { Container, Nav, NavLink, Label, TabContent, TabPane, NavItem } from "reactstrap";
-import { TeacherUpdater } from "./UpdateTeacher";
+import {
+  Container,
+  Label,
+  TabPane,
+  Nav,
+  NavItem,
+  NavLink,
+  TabContent,
+} from "reactstrap";
 import classnames from "classnames";
 import TeacherSchedule from "./TeacherScheduleComponent";
-import TeacherGroupSchedule from "./TeacherGroupScheduleComponent";
+import { TeacherCreator } from "./CreateTeacher";
+import { TeacherUpdater } from "./UpdateTeacher";
 import { fetcher } from "../services/fetcher";
+import TeacherGroupSchedule from "./TeacherGroupScheduleComponent";
 
-export default class SingleTeacher extends Component {
+export default class AdminTeacher extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,15 +33,7 @@ export default class SingleTeacher extends Component {
         this.setState({
           teachers: data,
         });
-      })
-      .then(() => {
-        this.setState({
-          teacher: this.state.teachers.find(
-            (teacher) => teacher.email === this.props?.userEmail
-          ),
-        });
       });
-    console.log(this.props?.userEmail);
   }
 
   toggle(tab) {
@@ -42,6 +43,16 @@ export default class SingleTeacher extends Component {
       });
     }
   }
+
+  onChange = (e) => {
+    const teacherId = Number(e.target.value);
+    const teacher = this.state.teachers.find(
+      (teacher) => teacher.id === teacherId
+    );
+    this.setState({ teacher });
+    console.log(this.state);
+    console.log(e.target.value);
+  };
 
   render() {
     return (
@@ -68,7 +79,8 @@ export default class SingleTeacher extends Component {
             </NavLink>
           </NavItem>
         </Nav>
-        {/* <TeacherUpdater
+        <TeacherCreator></TeacherCreator>
+        <TeacherUpdater
           teacherId={this.state.teacher?.id}
           teacherFirstName={this.state.teacher?.firstName}
           teacherLastName={this.state.teacher?.lastName}
@@ -95,9 +107,32 @@ export default class SingleTeacher extends Component {
           teacherP8={this.state.teacher?.pEight}
           teacherP9={this.state.teacher?.pNine}
           teacherP10={this.state.teacher?.pTen}
-        ></TeacherUpdater> */}
+        ></TeacherUpdater>
         <h1 className="perfectdark">Hello {this.state.teacher?.firstName}</h1>
         <h3>Link: {this.state.teacher?.link}</h3>
+        <div className="row">
+          <Label for="scheduleTeacher">Select Teacher</Label>
+          <select id="scheduleTeacher" onChange={this.onChange}>
+            <option selected>None</option>
+            {this.state.teachers
+              .sort(function (a, b) {
+                let x = a.firstName.toLowerCase();
+                let y = b.firstName.toLowerCase();
+                if (x < y) {
+                  return -1;
+                }
+                if (x > y) {
+                  return 1;
+                }
+                return 0;
+              })
+              .map((teacher) => (
+                <option key={teacher.id} value={teacher.id}>
+                  {teacher.firstName} {teacher.lastName}
+                </option>
+              ))}
+          </select>
+        </div>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
             {this.state.teacher && (
@@ -108,7 +143,7 @@ export default class SingleTeacher extends Component {
             )}
           </TabPane>
           <TabPane tabId="2">
-            <h3>Mic Drop.... Boom!</h3>
+            <h3>Mic Drop... Boom!</h3>
             {this.state.teacher && (
               <TeacherGroupSchedule
                 teacher={this.state.teacher}

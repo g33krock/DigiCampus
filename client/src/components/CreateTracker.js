@@ -15,7 +15,6 @@ import {
 import { trackerService } from "../services/trackerService";
 import { spedResponseService } from "../services/spedResponseService";
 import { fetcher } from '../services/fetcher';
-import { isNull } from "lodash";
 
 export class TrackerCreator extends Component {
   constructor(props) {

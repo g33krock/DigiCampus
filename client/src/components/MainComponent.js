@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import Student from './StudentComponent';
+import AdminStudent from './AdminStudentComponent';
 import Sub from './SubComponent';
 import Home from './HomeComponent';
 import { Switch, Redirect } from 'react-router-dom'
 import Teacher from './TeacherComponent';
+import AdminTeacher from './AdminTeacherComponent';
 import SingleTeacher from './SingleTeacherComponent';
 import Schedule from './ScheduleComponent';
+import AdminSchedule from './AdminScheduleComponent';
 import { PrivateRoute } from './PrivateRoute';
 import Sped from './SpedComponent';
 import Transcript from './TranscriptComponent';
@@ -62,8 +65,11 @@ class Main extends Component {
                     <Switch>
                         <PrivateRoute path='/sped' component={Sped} campus = {this.state.campus}/>
                         <PrivateRoute path='/schedules' component={Schedule} campus = {this.state.campus}/>
+                        <PrivateRoute path='/adminSchedules' component={AdminSchedule} campus = {this.state.campus}/>
                         <PrivateRoute path='/teachers' component={Teacher} campus = {this.state.campus}/>
+                        <PrivateRoute path='/adminTeachers' component={AdminTeacher} campus = {this.state.campus}/>
                         <PrivateRoute path='/students' component={Student} campus = {this.state.campus} teacher = {this.state.teacher}/>
+                        <PrivateRoute path='/adminStudents' component={AdminStudent} campus = {this.state.campus} teacher = {this.state.teacher}/>
                         <PrivateRoute path='/transcripts' component={Transcript} campus = {this.state.campus}/>
                         <PrivateRoute path='/substitute' component={Sub} userEmail = {this.props?.userEmail} campus = {this.state.campus} teacher = {this.state.teacher} />
                         <PrivateRoute path='/calendar' component={Calendar} userEmail = {this.props?.userEmail} />

@@ -27,7 +27,7 @@ import { fetcher } from "../services/fetcher";
 import { IncidentCreator } from "./CreateIncident";
 import Attendance from "./AttendanceComponent";
 
-export default class Student extends Component {
+export default class AdminStudent extends Component {
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
@@ -109,9 +109,6 @@ export default class Student extends Component {
             <select id="scheduleStudent" onChange={this.onChange}>
               <option selected>None</option>
               {this.state.students
-                .filter(
-                  (cstudent) => cstudent.campuses.id === this.props?.campus?.id
-                )
                 .sort(function (a, b) {
                   let x = a.firstName.toLowerCase();
                   let y = b.firstName.toLowerCase();

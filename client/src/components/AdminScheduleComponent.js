@@ -21,7 +21,7 @@ import { teacherService } from "../services/teacherService";
 import { scheduleService } from "../services/scheduleService";
 import { TeacherPrepUpdater } from "./UpdateTeacherPrepOne";
 
-export default class Schedule extends Component {
+export default class AdminSchedule extends Component {
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
@@ -60,7 +60,6 @@ export default class Schedule extends Component {
 
   componentDidMount() {
     this.getSchedules();
-    console.log(this.props.campus);
     campusService.all().then((campuses) => {
       this.setState({
         campuses,
@@ -173,7 +172,7 @@ export default class Schedule extends Component {
           `${schedule.teacher.firstName} ${schedule.teacher.lastName}`
       );
     let teach1 = this.state.pOne
-      .filter((teacher) => teacher.campus.id === this.props.campus?.id)
+      .filter((teacher) => teacher.campus.id === this.state.campus?.id)
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -193,7 +192,7 @@ export default class Schedule extends Component {
           `${schedule.teacher.firstName} ${schedule.teacher.lastName}`
       );
     let teach2 = this.state.pTwo
-      .filter((teacher) => teacher.campus.id === this.props.campus?.id)
+      .filter((teacher) => teacher.campus.id === this.state.campus?.id)
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -213,7 +212,7 @@ export default class Schedule extends Component {
           `${schedule.teacher.firstName} ${schedule.teacher.lastName}`
       );
     let teach3 = this.state.pThree
-      .filter((teacher) => teacher.campus.id === this.props.campus?.id)
+      .filter((teacher) => teacher.campus.id === this.state.campus?.id)
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -233,7 +232,7 @@ export default class Schedule extends Component {
           `${schedule.teacher.firstName} ${schedule.teacher.lastName}`
       );
     let teach4 = this.state.pFour
-      .filter((teacher) => teacher.campus.id === this.props.campus?.id)
+      .filter((teacher) => teacher.campus.id === this.state.campus?.id)
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -253,7 +252,7 @@ export default class Schedule extends Component {
           `${schedule.teacher.firstName} ${schedule.teacher.lastName}`
       );
     let teach5 = this.state.pFive
-      .filter((teacher) => teacher.campus.id === this.props.campus?.id)
+      .filter((teacher) => teacher.campus.id === this.state.campus?.id)
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -273,7 +272,7 @@ export default class Schedule extends Component {
           `${schedule.teacher.firstName} ${schedule.teacher.lastName}`
       );
     let teach6 = this.state.pSix
-      .filter((teacher) => teacher.campus.id === this.props.campus?.id)
+      .filter((teacher) => teacher.campus.id === this.state.campus?.id)
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -293,7 +292,7 @@ export default class Schedule extends Component {
           `${schedule.teacher.firstName} ${schedule.teacher.lastName}`
       );
     let teach7 = this.state.pSeven
-      .filter((teacher) => teacher.campus.id === this.props.campus?.id)
+      .filter((teacher) => teacher.campus.id === this.state.campus?.id)
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -313,7 +312,7 @@ export default class Schedule extends Component {
           `${schedule.teacher.firstName} ${schedule.teacher.lastName}`
       );
     let teach8 = this.state.pEight
-      .filter((teacher) => teacher.campus.id === this.props.campus?.id)
+      .filter((teacher) => teacher.campus.id === this.state.campus?.id)
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -333,7 +332,7 @@ export default class Schedule extends Component {
           `${schedule.teacher.firstName} ${schedule.teacher.lastName}`
       );
     let teach9 = this.state.pNine
-      .filter((teacher) => teacher.campus.id === this.props.campus?.id)
+      .filter((teacher) => teacher.campus.id === this.state.campus?.id)
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -353,7 +352,7 @@ export default class Schedule extends Component {
           `${schedule.teacher.firstName} ${schedule.teacher.lastName}`
       );
     let teach10 = this.state.pTen
-      .filter((teacher) => teacher.campus.id === this.props.campus?.id)
+      .filter((teacher) => teacher.campus.id === this.state.campus?.id)
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -412,8 +411,14 @@ export default class Schedule extends Component {
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
-            <Col>
-              <Label>Home Campus: {this.props.campus?.name}</Label>
+            <Col sm={3}>
+              <Label>Select Campus: </Label>
+              <Input type="select" id="selectCampus" onChange={this.onChange}>
+                <option></option>
+                {this.state.campuses.map((campus) => (
+                  <option value={campus.id}>{campus.name}</option>
+                ))}
+              </Input>
             </Col>
             <Table bordered hover size="sm">
               <thead class="shadow">
@@ -471,7 +476,7 @@ export default class Schedule extends Component {
                 {this.state.students
                   .filter(
                     (cstudent) =>
-                      cstudent.campuses.id === this.props?.campus?.id
+                      cstudent.campuses.id === this.state?.campus?.id
                   )
                   .sort(function (a, b) {
                     let x = a.firstName.toLowerCase();
@@ -635,7 +640,13 @@ export default class Schedule extends Component {
           </TabPane>
           <TabPane tabId="3">
             <Col sm={3}>
-              <Label>Home Campus: {this.props.campus?.name}</Label>
+              <Label>Select Campus: </Label>
+              <Input type="select" id="selectCampus" onChange={this.onChange}>
+                <option></option>
+                {this.state.campuses.map((campus) => (
+                  <option value={campus.id}>{campus.name}</option>
+                ))}
+              </Input>
             </Col>
             <Table bordered hover size="sm">
               <thead class="shadow">
@@ -745,8 +756,14 @@ export default class Schedule extends Component {
             </Table>
           </TabPane>
           <TabPane tabId="4">
-            <Col>
-              <Label>Home Campus: {this.props.campus?.name}</Label>
+            <Col sm={3}>
+              <Label>Select Campus: </Label>
+              <Input type="select" id="selectCampus" onChange={this.onChange}>
+                <option></option>
+                {this.state.campuses.map((campus) => (
+                  <option value={campus.id}>{campus.name}</option>
+                ))}
+              </Input>
             </Col>
             <Table bordered hover size="sm">
               <thead class="shadow">
@@ -803,7 +820,7 @@ export default class Schedule extends Component {
               <tbody>
                 {this.state.teachers
                   .filter(
-                    (cstudent) => cstudent.campus.id === this.props?.campus?.id
+                    (cstudent) => cstudent.campus.id === this.state?.campus?.id
                   )
                   .filter(
                     (teacher) =>
