@@ -4,11 +4,11 @@ import { Transcript } from "../entity/Transcript";
 export class TranscriptController {
 
     async all(request: Request, response: Response, next: NextFunction) {
-        return Transcript.find({ relations: ["student", "schedules", "teachers", "courses", "campus"] });
+        return Transcript.find({ relations: ["student", "schedules", "campus"] });
     }
 
     async one(request: Request, response: Response, next: NextFunction) {
-        return Transcript.findOne(request.params.id, { relations: ["student", "schedules", "teachers", "courses", "campus"] });
+        return Transcript.findOne(request.params.id, { relations: ["student", "schedules", "campus"] });
     }
 
 
