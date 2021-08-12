@@ -15,6 +15,7 @@ import {
 import { trackerService } from "../services/trackerService";
 import { spedResponseService } from "../services/spedResponseService";
 import { fetcher } from '../services/fetcher';
+import { isNull } from "lodash";
 
 export class TrackerCreator extends Component {
   constructor(props) {
@@ -215,7 +216,7 @@ export class TrackerCreator extends Component {
                         id="comprehension"
                         className="fancy-cursor"
                       >
-                        <option></option>
+                        <option value="0"></option>
                         <option value="1">Not Understanding</option>
                         <option value="2">Superficial Understanding</option>
                         <option value="3">Developing</option>
@@ -275,7 +276,7 @@ export class TrackerCreator extends Component {
                     <FormGroup>
                       <Label for="engagement">Engagement</Label>
                       <Input type="select" name="engagement" id="engagement" className="fancy-cursor">
-                        <option></option>
+                        <option value="0"></option>
                         <option value="1">
                           Disengaged: No demonstration of learning, disruptive/
                           defiant/ avoidant
@@ -358,7 +359,7 @@ export class TrackerCreator extends Component {
                     <FormGroup>
                       <Label for="behavior">Behavior/Zone of Regulation</Label>
                       <Input type="select" name="behavior" id="behavior" className="fancy-cursor">
-                        <option></option>
+                        <option value="0"></option>
                         <option
                           id="zone"
                           style={{ backgroundColor: "green", color:"white" }}
