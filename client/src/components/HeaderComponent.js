@@ -1,123 +1,220 @@
-import React, { Component } from 'react';
-import Marquee, { Motion, randomIntFromInterval } from "react-marquee-slider";
-import times from "lodash/times";
+import React, { Component } from "react";
 import { baseURL } from "../baseURL";
-import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron, Col } from 'reactstrap';
-import { NavLink } from 'react-router-dom';
-import { fetcher } from '../services/fetcher';
+import { teacherService } from "../services/teacherService";
+import {
+  Nav,
+  Navbar,
+  NavbarBrand,
+  NavbarToggler,
+  Collapse,
+  NavItem,
+  Col,
+} from "reactstrap";
+import { NavLink } from "react-router-dom";
+import { fetcher } from "../services/fetcher";
+import { Jumbo } from "./JumbotronComponent";
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
 
-    constructor(props) {
-        super(props);
+    this.toggleNav = this.toggleNav.bind(this);
+    this.state = {
+      isNavOpen: false,
+      announcements: [],
+    };
+  }
 
-        this.toggleNav = this.toggleNav.bind(this);
-        this.state = {
-            isNavOpen: false,
-            announcements:[]
-        };
-    }
-
-    componentDidMount() {
-        fetcher(`${baseURL}/announcements`)
-          .then((response) => response.json())
-          .then((data) => {
-            this.setState({
-              announcements: data,
-            });
-          });
-      }
-
-
-    toggleNav() {
+  componentDidMount() {
+    fetcher(`${baseURL}/announcements`)
+      .then((response) => response.json())
+      .then((data) => {
         this.setState({
-            isNavOpen: !this.state.isNavOpen
+          announcements: data,
+          students: [],
+          teachers: [],
+          teacher: null,
+          campus: null,
+          userEmail: null,
         });
-    }
+      });
+  }
 
-    render() {
-        return (
-            <React.Fragment>
-                <Jumbotron fluid>
-                <div style={{ height: "400px" }}>
-                <Marquee velocity={12} minScale={0.7} resetAfterTries={200} scatterRandomly>
-                    {times(7, Number).map((id) => (
-                    <Motion
-                        key={`child-${id}`}
-                        className="motion"
-                        initDeg={randomIntFromInterval(0, 360)}
-                        direction={Math.random() > 0.5 ? "clockwise" : "counterclockwise"}
-                        velocity={10}
-                        radius={50}
-                    >
-                        <div
-                        style={{
-                            minWidth: "300px",
-                            backgroundImage:"url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/sign/images/Bubble.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvQnViYmxlLnBuZyIsImlhdCI6MTYyODY0MzczMywiZXhwIjoxOTQ0MDAzNzMzfQ.dI8BFOJk-032ydJfO5SiJdNOr-KPj7NILzu_Y5KVIS4')",
-                            backgroundSize:"contain",
-                            backgroundRepeat:"no-repeat",
-                            backgroundPosition:"center center",
-                            textAlign: "center",
-                            lineHeight: "20px",
-                        }}
-                        >
-                        {this.state.announcements.filter((announcement) => announcement.id === id).map(announcement => <div><h3>{announcement.head}</h3><p>{announcement.body}</p></div>)}
-                        </div>
-                    </Motion>
-                    ))}
-                </Marquee>
-                </div>
-                    {/* <div className="container" id="app">
-                        <div className="row" id="wrapper">
-                            <div className="col">
-                                <h1 class="lead">CyberCampus</h1>
-                                <h2 class="lead">Let the robots do the work for you!</h2>
-                            </div>
-                        </div>
-                    </div> */}
-                </Jumbotron>
-                <Navbar dark sticky="top" expand="md">
-                    <div className="container">
-                        <NavbarBrand className="mr-auto" href="/"><img src='https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/sign/images/Aspire-Owl.gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvQXNwaXJlLU93bC5naWYiLCJpYXQiOjE2Mjg2MjAzMTAsImV4cCI6MTk0Mzk4MDMxMH0.K6zKYMhaQEiYPgsFOVq-EnadF8KeZAg51Ape30-Q9NA' height="50" width="50" alt="Aspire Owl"/></NavbarBrand>
-                        <NavbarToggler onClick={this.toggleNav} />
-                        <Collapse isOpen={this.state.isNavOpen} navbar>
-                            <Nav navbar>
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/home">Home</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/calendar">Calendar</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/teachers">Teachers</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/substitute">Substitute</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/singleteachers">Teacher</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/students">Students</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/schedules">Schedule</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/sped">Sped</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/transcripts">Transcript</NavLink>
-                                </NavItem>
-                            </Nav>
-                        </Collapse>
-                        <Col sm={3}>
-                        </Col>
-                    </div>
-                </Navbar>
-            </React.Fragment>
-        )
+  async componentDidMount() {
+    const teachers = await teacherService.all();
+    console.log(teachers);
+    const teacher = teachers.find(
+      (teacher) => teacher.email === this.props.userEmail
+    );
+    console.log(teacher);
+
+    this.setState({
+      teachers: teachers,
+      teacher: teacher,
+      campus: teacher.campus,
+    });
+    console.log(this.state.teachers);
+  }
+
+  toggleNav() {
+    this.setState({
+      isNavOpen: !this.state.isNavOpen,
+    });
+  }
+
+  render() {
+    let user;
+    if (
+      this.state.teacher?.role.id === 1 ||
+      this.state.teacher?.role.id === 2
+    ) {
+      user = (
+        <div className="container">
+          <NavbarBrand className="mr-auto" href="/">
+            <img
+              src="https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/sign/images/Aspire-Owl.gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvQXNwaXJlLU93bC5naWYiLCJpYXQiOjE2Mjg2MjAzMTAsImV4cCI6MTk0Mzk4MDMxMH0.K6zKYMhaQEiYPgsFOVq-EnadF8KeZAg51Ape30-Q9NA"
+              height="50"
+              width="50"
+              alt="Aspire Owl"
+            />
+          </NavbarBrand>
+          <NavbarToggler onClick={this.toggleNav} />
+          <Collapse isOpen={this.state.isNavOpen} navbar>
+            <Nav navbar>
+              <NavItem>
+                <NavLink className="nav-link" to="/home">
+                  Home
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/teachers">
+                  Teachers
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/students">
+                  Students
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/schedules">
+                  Schedule
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/sped">
+                  Sped
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/transcripts">
+                  Transcript
+                </NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+          <Col sm={3}></Col>
+        </div>
+      );
+    } else if (
+      this.state.teacher?.role.id === 3 ||
+      this.state.teacher?.role.id === 4
+    ) {
+      user = (
+        <div className="container">
+          <NavbarBrand className="mr-auto" href="/">
+            <img
+              src="https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/sign/images/Aspire-Owl.gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvQXNwaXJlLU93bC5naWYiLCJpYXQiOjE2Mjg2MjAzMTAsImV4cCI6MTk0Mzk4MDMxMH0.K6zKYMhaQEiYPgsFOVq-EnadF8KeZAg51Ape30-Q9NA"
+              height="50"
+              width="50"
+              alt="Aspire Owl"
+            />
+          </NavbarBrand>
+          <NavbarToggler onClick={this.toggleNav} />
+          <Collapse isOpen={this.state.isNavOpen} navbar>
+            <Nav navbar>
+              <NavItem>
+                <NavLink className="nav-link" to="/home">
+                  Home
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/singleteachers">
+                  Schedule
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/substitute">
+                  Substitute
+                </NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+          <Col sm={3}></Col>
+        </div>
+      );
+    } else if (
+      this.state.teacher?.role.id === 5 ||
+      this.state.teacher?.role.id === 7
+    ) {
+      user = (
+        <div className="container">
+          <NavbarBrand className="mr-auto" href="/">
+            <img
+              src="https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/sign/images/Aspire-Owl.gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvQXNwaXJlLU93bC5naWYiLCJpYXQiOjE2Mjg2MjAzMTAsImV4cCI6MTk0Mzk4MDMxMH0.K6zKYMhaQEiYPgsFOVq-EnadF8KeZAg51Ape30-Q9NA"
+              height="50"
+              width="50"
+              alt="Aspire Owl"
+            />
+          </NavbarBrand>
+          <NavbarToggler onClick={this.toggleNav} />
+          <Collapse isOpen={this.state.isNavOpen} navbar>
+            <Nav navbar>
+              <NavItem>
+                <NavLink className="nav-link" to="/home">
+                  Home
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/teachers">
+                  Teachers
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/students">
+                  Students
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/schedules">
+                  Schedule
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/sped">
+                  Sped
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/transcripts">
+                  Transcript
+                </NavLink>
+              </NavItem>
+              <Col sm={3}></Col>
+            </Nav>
+          </Collapse>
+        </div>
+      );
     }
+    return (
+      <React.Fragment>
+        <Jumbo />
+        <Navbar dark sticky="top" expand="md">
+          {user}
+        </Navbar>
+      </React.Fragment>
+    );
+  }
 }
 
-export default Header
+export default Header;

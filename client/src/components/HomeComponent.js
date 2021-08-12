@@ -1,12 +1,12 @@
 import { Component } from 'react';
-import Announcement from "./AnnouncementComponent";
 import {Container } from "reactstrap";
+import Calendar from './CalendarComponent';
 
 class Home extends Component {
     render() {
         return(
             <Container>
-            <Announcement></Announcement>
+                <Calendar />
             </Container>
         )
     }
