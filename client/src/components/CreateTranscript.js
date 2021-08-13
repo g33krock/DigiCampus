@@ -55,9 +55,8 @@ export class TranscriptCreator extends Component {
       altCourse: document.getElementById("transcriptAltCourse")?.value,
       student: this.props.studentId,
     };
-    const transcript = await transcriptService.create(transcriptObject);
-    const refresh = await transcriptService.all(transcriptObject)
-    this.setState = ({transcript: refresh})
+    await transcriptService.create(transcriptObject);
+    setTimeout(() => {  this.props.callback() }, 2000);
   }
 
   toggle() {

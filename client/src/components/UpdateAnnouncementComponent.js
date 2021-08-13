@@ -25,8 +25,8 @@ export class AnnouncementUpdater extends Component {
         body: document.getElementById("announcementBody").value,
         id: this.state.announcement.id,
     };
-    const announcement = await announcementService.update(announcementObject);
-    console.log(announcement)
+    await announcementService.update(announcementObject);
+    setTimeout(() => {  this.props.callback() }, 2000);
   }
 
   toggle() {

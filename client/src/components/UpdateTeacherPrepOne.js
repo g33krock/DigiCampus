@@ -36,9 +36,10 @@ export class TeacherPrepUpdater extends Component {
           pNine: document.getElementById("teacherP9").value,
           pTen: document.getElementById("teacherP10").value
         };
-    const teacher = await teacherService.update(teacherObject);
-    await this.props.callback()
-    console.log(teacher)
+    await teacherService.update(teacherObject);
+    setTimeout(() => {  this.props.callback() }, 2000);
+    
+    
   }
 
   toggle() {

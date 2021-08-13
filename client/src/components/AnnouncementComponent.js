@@ -8,7 +8,8 @@ import {
   Row,
   Col,
 } from "reactstrap";
-import { announcementService } from "../services/announcementService";
+import { baseURL } from "../baseURL";
+import { fetcher } from "../services/fetcher";
 import { AnnouncementUpdater } from "./UpdateAnnouncementComponent";
 
 export default class Announcement extends Component {
@@ -18,9 +19,18 @@ export default class Announcement extends Component {
   }
 
   async componentDidMount() {
-    const announcements = await announcementService.all();
-    this.setState({ announcements });
-    console.log(this.state.announcements);
+    this.getAnnouncements()
+
+  }
+
+  getAnnouncements() {
+    fetcher(`${baseURL}/announcements`)
+    .then((response) => response.json())
+    .then((data) => {
+      this.setState({
+        announcements: data,
+      });
+    });
   }
 
   render() {
@@ -37,6 +47,7 @@ export default class Announcement extends Component {
                     <CardText>{announcement.body}</CardText>
                   </CardBody>
                   <AnnouncementUpdater
+                    callback={() => this.getAnnouncements()}
                     announcement = {announcement}
                     announcementId = {announcement.id}
                     announcementHead = {announcement.head}

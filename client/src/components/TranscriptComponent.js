@@ -38,21 +38,24 @@ export default class Transcript extends Component {
   }
 
   componentDidMount() {
-    // Fetch Student Table from API
+    this.getTranscripts()
+  }
+
+  getTranscripts() {
     fetcher(`${baseURL}/students`)
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({
-          students: data,
-        });
+    .then((response) => response.json())
+    .then((data) => {
+      this.setState({
+        students: data,
       });
-    fetcher(`${baseURL}/transcripts`)
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({
-          transcripts: data,
-        });
+    });
+  fetcher(`${baseURL}/transcripts`)
+    .then((response) => response.json())
+    .then((data) => {
+      this.setState({
+        transcripts: data,
       });
+    });
   }
 
   onChange = (e) => {
@@ -146,6 +149,7 @@ export default class Transcript extends Component {
                     {this.state.student.additional_information}
                   </p>
                   <TranscriptCreator
+                    callback={() => this.getTranscripts()}
                     student={this.state.student}
                     studentId={this.state.student?.id}
                   ></TranscriptCreator>
