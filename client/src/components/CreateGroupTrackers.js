@@ -181,7 +181,7 @@ export class GroupTrackerCreator extends Component {
                                   <option></option>
                                   <option value="true">Yes</option>
                                   <option value="false">No</option>
-                                  <option>Not Applicable</option>
+                                  <option value="NA">Not Applicable</option>
                                 </Input>
                               </Label>
                             </FormGroup>
