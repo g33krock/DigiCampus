@@ -200,6 +200,11 @@ class Header extends Component {
                   Transcript
                 </NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/announcements">
+                  Announcement
+                </NavLink>
+              </NavItem>
               <Col sm={3}></Col>
             </Nav>
           </Collapse>

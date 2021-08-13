@@ -15,6 +15,7 @@ export class AnnouncementUpdater extends Component {
     super(props);
     this.state = {
       modal: false,
+      announcement: this.props.announcement
     };
   }
 
@@ -22,7 +23,7 @@ export class AnnouncementUpdater extends Component {
     const announcementObject = {
         head: document.getElementById("announcementHead").value,
         body: document.getElementById("announcementBody").value,
-        id: 1,
+        id: this.state.announcement.id,
     };
     const announcement = await announcementService.update(announcementObject);
     console.log(announcement)
@@ -44,7 +45,7 @@ export class AnnouncementUpdater extends Component {
               <FormGroup>
                 <Label for="announcementHead">Title</Label>
                 <Input
-                  defaultValue={this.props.announcementTitle}
+                  defaultValue={this.props.announcementHead}
                   type="text"
                   name="announcementHead"
                   id="announcementHead"

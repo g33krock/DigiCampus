@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import Marquee, { Motion, randomIntFromInterval } from "react-marquee-slider";
 import times from "lodash/times";
 import { baseURL } from "../baseURL";
-import {
-  Jumbotron
-} from "reactstrap";
 import { fetcher } from "../services/fetcher";
 
 export class Jumbo extends Component {
@@ -26,8 +23,8 @@ export class Jumbo extends Component {
     }
 render(){
     return(
-        <Jumbotron fluid>
-        <div style={{ height: "400px" }}>
+
+        <div style={{ height: "300px" }} className="megatron">
           <Marquee
             velocity={12}
             minScale={0.7}
@@ -70,15 +67,7 @@ render(){
             ))}
           </Marquee>
         </div>
-        {/* <div className="container" id="app">
-                      <div className="row" id="wrapper">
-                          <div className="col">
-                              <h1 class="lead">CyberCampus</h1>
-                              <h2 class="lead">Let the robots do the work for you!</h2>
-                          </div>
-                      </div>
-                  </div> */}
-      </Jumbotron>
+      
     )
 }
 }

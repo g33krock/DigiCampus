@@ -24,7 +24,7 @@ class AnnouncementService {
     };
     async delete(announcementObject){
         console.log(announcementObject)
-        const response = fetcher(`${baseURL}/announcements/`+announcementObject.announcementID, {
+        const response = fetcher(`${baseURL}/announcements/`+announcementObject.id, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -33,7 +33,7 @@ class AnnouncementService {
         return response;
     };
     async update(announcementObject) {
-        const response = fetcher(`${baseURL}/announcements/`+announcementObject.announcementID, {
+        const response = fetcher(`${baseURL}/announcements/`+announcementObject.id, {
             method: "PUT",
             headers: {
             "Content-Type": "application/json",

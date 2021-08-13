@@ -14,6 +14,7 @@ import Sped from './SpedComponent';
 import Transcript from './TranscriptComponent';
 import Calendar from './CalendarComponent';
 import { teacherService } from '../services/teacherService';
+import Announcement from './AnnouncementComponent';
 
 class Main extends Component {
     
@@ -71,6 +72,7 @@ class Main extends Component {
                         <PrivateRoute path='/students' component={Student} campus = {this.state.campus} teacher = {this.state.teacher}/>
                         <PrivateRoute path='/adminStudents' component={AdminStudent} campus = {this.state.campus} teacher = {this.state.teacher}/>
                         <PrivateRoute path='/transcripts' component={Transcript} campus = {this.state.campus}/>
+                        <PrivateRoute path='/announcements' component={Announcement} campus = {this.state.campus}/>
                         <PrivateRoute path='/substitute' component={Sub} userEmail = {this.props?.userEmail} campus = {this.state.campus} teacher = {this.state.teacher} />
                         <PrivateRoute path='/calendar' component={Calendar} userEmail = {this.props?.userEmail} />
                         <PrivateRoute path='/home' component={Home} />

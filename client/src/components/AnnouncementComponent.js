@@ -9,6 +9,7 @@ import {
   Col,
 } from "reactstrap";
 import { announcementService } from "../services/announcementService";
+import { AnnouncementUpdater } from "./UpdateAnnouncementComponent";
 
 export default class Announcement extends Component {
   constructor(props) {
@@ -35,6 +36,12 @@ export default class Announcement extends Component {
                   <CardBody>
                     <CardText>{announcement.body}</CardText>
                   </CardBody>
+                  <AnnouncementUpdater
+                    announcement = {announcement}
+                    announcementId = {announcement.id}
+                    announcementHead = {announcement.head}
+                    announcementBody = {announcement.body}
+                  ></AnnouncementUpdater>
                 </Card>
               </Col>
             );

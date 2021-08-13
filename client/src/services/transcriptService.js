@@ -20,9 +20,6 @@ class TranscriptService {
         },
         body: JSON.stringify(transcriptObject),
       });
-      alert(
-        `Congrats! You did it right!`
-      );
       return await response.json();
     } catch (error) {
       alert(
