@@ -11,7 +11,6 @@ class TrackerService {
             },
             body: JSON.stringify(trackerObject),
           });
-          alert(`You are a smart, capable, and beautiful individual that submits trackers successfully!  ${trackerObject.students}`)
           return await response.json();
         }
           catch (error) {
