@@ -46,6 +46,7 @@ export default class TeacherSchedule extends Component {
   }
 
   render() {
+    var done;
     const teacher = this.props.teacher;
     const teacherSchedBox = this.state.teacherschedule
       .sort(function (a, b) {
@@ -53,6 +54,8 @@ export default class TeacherSchedule extends Component {
       })
       .map((teachersched) => {
         let block;
+        const date = new Date()
+        if (teachersched?.lastUpdate === `${date.getFullYear()}-${("0" + (date.getMonth() + 1)).slice(-2)}-${("0" + date.getDate()).slice(-2)}`) {done = "green"}
         switch (teachersched.period) {
           case 1:
             block = "7:50 - 8:40";
@@ -89,7 +92,7 @@ export default class TeacherSchedule extends Component {
         }
         return (
           <div key={teachersched.id} className="col">
-            <Card onClick={() => this.setSchedule(teachersched)}>
+            <Card onClick={() => this.setSchedule(teachersched)} id={done}>
               <CardTitle>Period: {block}</CardTitle>
               <CardText style={{ color: "black" }}>
                 <p>

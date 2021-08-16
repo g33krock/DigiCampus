@@ -14,6 +14,7 @@ import {
 } from "reactstrap";
 import { trackerService } from "../services/trackerService";
 import { spedResponseService } from "../services/spedResponseService";
+import { scheduleService } from "../services/scheduleService";
 import { fetcher } from '../services/fetcher';
 
 export class TrackerCreator extends Component {
@@ -33,6 +34,14 @@ export class TrackerCreator extends Component {
         spedQuestions: data.filter(datas => datas.student.id === this.props.student.id),
       });
     });
+  }
+
+  async updateSchedule() {
+    const scheduleObject = {
+      id: this.props.schedule.id,
+      lastUpdate: document.getElementById("spedResponseDate").value
+    };
+    await scheduleService.update(scheduleObject);
   }
 
   async createTracker() {
@@ -77,13 +86,6 @@ export class TrackerCreator extends Component {
       spedQuestions: i.id
     };
     const spedResponse = await spedResponseService.create(spedResponseObject);
-    fetcher({baseURL}+"/spedResponses")
-    .then((response) => response.json())
-    .then((data) => {
-      this.setState({
-        spedResponse: data,
-      });
-    });
     console.log(spedResponse);
   }
 
@@ -571,6 +573,7 @@ export class TrackerCreator extends Component {
                 onClick={() => {
                   this.createTracker();
                   this.createSpedResponseNinja();
+                  this.updateSchedule();
                   this.setState({ modal: false });
                 }}
               >

@@ -14,6 +14,7 @@ import {
 } from "reactstrap";
 import { trackerService } from "../services/trackerService";
 import { spedResponseService } from "../services/spedResponseService";
+import { scheduleService } from "../services/scheduleService";
 import { fetcher } from "../services/fetcher";
 
 export class GroupTrackerCreator extends Component {
@@ -39,6 +40,14 @@ export class GroupTrackerCreator extends Component {
           //   })
         });
       });
+  }
+
+  async updateSchedule(i) {
+    const scheduleObject = {
+      id: i.id,
+      lastUpdate: document.getElementById("spedResponseDate").value
+    };
+    await scheduleService.update(scheduleObject);
   }
 
   async createTracker(i) {
@@ -91,6 +100,13 @@ export class GroupTrackerCreator extends Component {
     this.state.block.forEach((scheduleQuestion) =>
       this.createTracker(scheduleQuestion)
     );
+
+  }
+
+  updateScheduleNinja() {
+    this.state.block.forEach((scheduleQuestion) =>
+    this.updateSchedule(scheduleQuestion)
+  );
   }
 
   toggle() {
@@ -338,6 +354,7 @@ export class GroupTrackerCreator extends Component {
                 onClick={() => {
                   this.createTrackerNinja();
                   this.createSpedResponseNinja();
+                  this.updateScheduleNinja();
                   this.setState({ modal: false });
                   console.log(this.state.block)
                 }}

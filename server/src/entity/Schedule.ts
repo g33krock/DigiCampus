@@ -39,6 +39,11 @@ export class Schedule extends BaseEntity {
 	})
 	period: number;
 
+	@Column({
+		nullable: true
+	})
+	lastUpdate: string;
+
 	@OneToMany(() => Tracker, tracker => tracker.schedules)
 	trackers: Tracker[];
 
