@@ -46,7 +46,6 @@ export default class TeacherSchedule extends Component {
   }
 
   render() {
-    var done;
     const teacher = this.props.teacher;
     const teacherSchedBox = this.state.teacherschedule
       .sort(function (a, b) {
@@ -54,6 +53,7 @@ export default class TeacherSchedule extends Component {
       })
       .map((teachersched) => {
         let block;
+        let done;
         const date = new Date()
         if (teachersched?.lastUpdate === `${date.getFullYear()}-${("0" + (date.getMonth() + 1)).slice(-2)}-${("0" + date.getDate()).slice(-2)}`) {done = "green"}
         switch (teachersched.period) {
