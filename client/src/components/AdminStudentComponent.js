@@ -19,7 +19,7 @@ import { StudentCreator } from "./CreateStudent";
 // import {DeleteStudent} from "./DeleteStudent";
 import { StudentUpdater } from "./UpdateStudent";
 import AltStudentSchedule from "./AltStudentSchedule";
-// import { EmptyScheduleCreator } from "./EmptySchedule";
+import { EmptyScheduleCreator } from "./EmptySchedule";
 import { GuardianCreator } from "./CreateGuardian";
 import TrackerResponse from "./TrackerResponses";
 import classnames from "classnames";
@@ -229,12 +229,12 @@ export default class AdminStudent extends Component {
                   </Row>
                   <Row>
                     <Col md="4">
-                      {/* <EmptyScheduleCreator 
+                      <EmptyScheduleCreator 
                       studentId={this.state.student?.id}
                       studentFirstName={this.state.student?.firstName}
                       studentLastName={this.state.student?.lastName}
                       campusId={this.state.student?.campuses.id}>
-                    </EmptyScheduleCreator> */}
+                    </EmptyScheduleCreator>
                     </Col>
                     <Col md="2"></Col>
                     <Col md="4">
