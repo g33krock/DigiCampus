@@ -84,6 +84,7 @@ export class TeacherPrepUpdater extends Component {
                         <option>Yes</option>
                         <option>No</option>
                         <option>Prep</option>
+                        <option>Para Support</option>
                       </Input>
                     </FormGroup>
                   </Col>
