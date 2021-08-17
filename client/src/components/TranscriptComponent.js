@@ -18,6 +18,7 @@ import {
 import { TranscriptCreator } from "./CreateTranscript";
 import classnames from "classnames";
 import { fetcher } from "../services/fetcher";
+import { TranscriptUpdater } from "./UpdateTranscript";
 
 export default class Transcript extends Component {
   constructor(props) {
@@ -1086,6 +1087,11 @@ export default class Transcript extends Component {
                           <tr>
                             <th key={tran.id}>{tran.date}</th>
                             <td>
+                              <small>
+                                {tran.schoolYear} {tran.semester}
+                              </small>
+                            </td>
+                            <td>
                               <small>{tran.category}</small>
                             </td>
                             <td>
@@ -1098,17 +1104,24 @@ export default class Transcript extends Component {
                               <small>{tran.school}</small>
                             </td>
                             <td>
-                              <small>
-                                {tran.teachers?.firstName}{" "}
-                                {tran.teachers?.lastName}
-                                {tran?.altTeacher}
-                              </small>
-                            </td>
-                            <td>
                               <small>{tran.grade}</small>
                             </td>
                             <td>
                               <small>{tran.credit}</small>
+                            </td>
+                            <td>
+                              <TranscriptUpdater
+                              callback={() => this.getTranscripts()}
+                              transcript={tran}
+                              date={tran.date}
+                              schoolYear={tran.schoolYear}
+                              semester={tran.semester}
+                              category={tran.category}
+                              course={tran.altCourse}
+                              school={tran.school}
+                              grade={tran.grade}
+                              credit={tran.credit}
+                              ></TranscriptUpdater>
                             </td>
                           </tr>
                         ))}
