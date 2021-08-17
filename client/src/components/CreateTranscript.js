@@ -122,6 +122,7 @@ export class TranscriptCreator extends Component {
                         id="transcriptCredit"
                       >
                         <option></option>
+                        <option>0</option>
                         <option>0.5</option>
                         <option>1</option>
                       </Input>
