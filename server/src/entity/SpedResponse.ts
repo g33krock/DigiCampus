@@ -1,6 +1,7 @@
 import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne } from "typeorm";
 import { SpedQuestion } from "./SpedQuestion";
 import { Student } from "./Student";
+import { Teacher } from "./Teacher";
 
 
 @Entity()
@@ -13,6 +14,9 @@ export class SpedResponse extends BaseEntity {
 
     @ManyToOne(() => SpedQuestion, spedQuestion => spedQuestion.spedResponses, {onDelete: 'CASCADE'})
 	spedQuestions: SpedQuestion;
+
+    @ManyToOne(() => Teacher, teacher => teacher.spedResponse, {onDelete: 'CASCADE'})
+	teachers: Teacher;
 
 	@Column({
 		nullable: true

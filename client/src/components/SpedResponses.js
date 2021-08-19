@@ -6,7 +6,7 @@ import { fetcher } from '../services/fetcher';
 export default class SpedResponse extends Component {
   constructor(props) {
     super(props);
-    this.state = { speds: [], schedule: null, students: [], student: null };
+    this.state = { speds: [], schedule: null, students: [], student: null, teachers:[] };
   }
 
   componentDidMount() {
@@ -42,6 +42,9 @@ export default class SpedResponse extends Component {
                 <h3>Date</h3>
               </th>
               <th>
+                <h3>Teacher</h3>
+              </th>
+              <th>
                 <h3>Question</h3>
               </th>
               <th>
@@ -62,6 +65,9 @@ export default class SpedResponse extends Component {
             {this.state.speds.filter(student => student.students?.id === this.props.student.id).map((sped) => (
               <tr>
                 <th key={sped.id}>{sped.date}</th>
+                <td>
+                  <small>{sped.teachers.firstName} {sped.teachers.lastName}</small>
+                </td>
                 <td>
                   <small>{sped.question}</small>
                 </td>

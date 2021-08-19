@@ -4,11 +4,11 @@ import { SpedResponse } from "../entity/SpedResponse";
 export class SpedResponseController {
 
 	async all(request: Request, response: Response, next: NextFunction) {
-		return SpedResponse.find({ relations: ["students"] });
+		return SpedResponse.find({ relations: ["students", "teachers"] });
 	}
 
 	async one(request: Request, response: Response, next: NextFunction) {
-		return SpedResponse.findOne(request.params.id, { relations: ["student"] });
+		return SpedResponse.findOne(request.params.id, { relations: ["student", "teacher"] });
 	}
 
 
