@@ -16,6 +16,7 @@ import { SpedResponseController } from "./controller/SpedResponseController";
 import { TranscriptController } from "./controller/TranscriptController";
 import { AnnouncementController } from "./controller/AnnouncementController";
 import { IncidentController } from "./controller/IncidentController";
+import { StaffAttendanceController } from "./controller/StaffAttendanceController";
 
 export const Routes = [{
 	method: "get",
@@ -518,6 +519,35 @@ export const Routes = [{
     method: "delete",
     route: "/incidents/:id",
     controller: IncidentController,
+    action: "remove"
+},
+
+// StaffAttendance
+
+{
+    method: "get",
+    route: "/staffAttendance",
+    controller: StaffAttendanceController,
+    action: "all"
+}, {
+    method: "get",
+    route: "/staffAttendance/:id",
+    controller: StaffAttendanceController,
+    action: "one"
+}, {
+    method: "put",
+    route: "/staffAttendance/:id",
+    controller: StaffAttendanceController,
+    action: "update"
+}, {
+    method: "post",
+    route: "/staffAttendance",
+    controller: StaffAttendanceController,
+    action: "save"
+}, {
+    method: "delete",
+    route: "/staffAttendance/:id",
+    controller: StaffAttendanceController,
     action: "remove"
 },
 ];

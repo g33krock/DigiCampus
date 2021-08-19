@@ -76,13 +76,14 @@ export class TrackerCreator extends Component {
 
   async createSpedResponse(i) {
     const spedResponseObject = {
+      teachers: this.props.teacher.id,
       date: document.getElementById("spedResponseDate").value,
       question: i.question,
       meet: document.getElementById("spedResponseMeet"+i.id).value,
       success: document.getElementById("spedResponseSuccess"+i.id).value,
       opportunity: document.getElementById("spedResponseOpportunity"+i.id).value,
       response: document.getElementById("spedResponseResponse"+i.id).value,
-      students: this.props.student,
+      students: this.props.student.id,
       spedQuestions: i.id
     };
     const spedResponse = await spedResponseService.create(spedResponseObject);

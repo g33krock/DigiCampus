@@ -68,6 +68,7 @@ export class GroupTrackerCreator extends Component {
 
   async createSpedResponse(i) {
     const spedResponseObject = {
+      teachers: i.teacher.id,
       date: document.getElementById("spedResponseDate").value,
       question: i.question,
       meet: document.getElementById("spedResponseMeet" + i.id).value,

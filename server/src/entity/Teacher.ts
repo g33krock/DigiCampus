@@ -5,6 +5,8 @@ import { Campus } from "./Campus";
 import { Tracker } from "./Tracker";
 import { Gradebook } from "./Gradebook";
 import { Incident } from "./Incident";
+import { StaffAttendance } from "./StaffAttendance";
+import { SpedResponse } from "./SpedResponse";
 
 @Entity()
 export class Teacher extends BaseEntity {
@@ -139,6 +141,12 @@ export class Teacher extends BaseEntity {
 
 	@ManyToOne(() => Campus, campus => campus.teachers)
 	campus: Campus;
+
+	@ManyToOne(() => StaffAttendance, staffAttendance => staffAttendance.teachers)
+	staffAttendance: StaffAttendance;
+
+	@OneToMany(() => SpedResponse, spedResponse => spedResponse.teachers)
+	spedResponse: SpedResponse[];
 
 	@OneToMany(() => Tracker, tracker => tracker.teachers)
 	trackers: Tracker[];
