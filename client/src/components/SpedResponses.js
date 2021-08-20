@@ -66,7 +66,7 @@ export default class SpedResponse extends Component {
               <tr>
                 <th key={sped.id}>{sped.date}</th>
                 <td>
-                  <small>{sped.teachers.firstName} {sped.teachers.lastName}</small>
+                  <small>{sped.teachers?.firstName} {sped.teachers?.lastName}</small>
                 </td>
                 <td>
                   <small>{sped.question}</small>
