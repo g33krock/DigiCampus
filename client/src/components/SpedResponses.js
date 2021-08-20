@@ -1,92 +1,120 @@
 import React, { Component } from "react";
-import {baseURL} from "../baseURL";
+import { baseURL } from "../baseURL";
 import { Table } from "reactstrap";
-import { fetcher } from '../services/fetcher';
+import { fetcher } from "../services/fetcher";
+import { spedQuestionService } from "../services/spedQuestionService";
+import { spedResponseService } from "../services/spedResponseService";
 
 export default class SpedResponse extends Component {
   constructor(props) {
     super(props);
-    this.state = { speds: [], schedule: null, students: [], student: null, teachers:[] };
+    this.state = {
+      speds: [],
+      speQ: [],
+      schedule: null,
+      students: [],
+      student: null,
+      teachers: [],
+    };
   }
 
   componentDidMount() {
-    this.getSchedules()
+    this.getSchedules();
   }
 
-  getSchedules() {
-    fetcher(`${baseURL}/spedResponses`)
-      // Convert response to a JSON object
-      .then((response) => response.json())
-      .then((speds) => {
-          speds.sort((speda, spedb) => speda.date-spedb.date)
-        this.setState({
-          speds,
-        })
-      });
+  async getSchedules() {
+    const spedQuestions = await spedQuestionService.all();
+    this.setState({ speQ: spedQuestions });
+    const spedResponses = await spedResponseService.all();
+    this.setState({speds: spedResponses})
   }
 
   setSped(speds) {
-    // sets student property to student object.  This looks funny because they both are named student
     this.setState({ speds: speds });
     console.log(speds);
   }
 
-
   render() {
     return (
       <div class="tableFixHead">
-        <Table bordered hover size="sm">
-          <thead class="shadow">
-            <tr>
-              <th>
-                <h3>Date</h3>
-              </th>
-              <th>
-                <h3>Teacher</h3>
-              </th>
-              <th>
-                <h3>Question</h3>
-              </th>
-              <th>
-                <h3>Meet</h3>
-              </th>
-              <th>
-                <h3>Successes</h3>
-              </th>
-              <th>
-                <h3>Opportunities</h3>
-              </th>
-              <th>
-                <h3>Comment</h3>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.speds.filter(student => student.students?.id === this.props.student.id).map((sped) => (
+        {this.state.speQ
+        .filter((stu) => stu.student?.id === this.props.student.id)
+        .map((quest) => (
+          <div>
+            <h3>{quest.question}</h3>
+          <Table bordered hover size="sm">
+            <thead class="shadow">
               <tr>
-                <th key={sped.id}>{sped.date}</th>
-                <td>
-                  <small>{sped.teachers?.firstName} {sped.teachers?.lastName}</small>
-                </td>
-                <td>
-                  <small>{sped.question}</small>
-                </td>
-                <td>
-                  <small>{sped.meet}</small>
-                </td>
-                <td>
-                  <small>{sped.success}</small>
-                </td>
-                <td>
-                  <small>{sped.opportunity}</small>
-                </td>
-                <td>
-                  <small>{sped.response}</small>
-                </td>
+                <th>
+                  <h3>Date</h3>
+                </th>
+                <th>
+                  <h3>Teacher</h3>
+                </th>
+                <th>
+                  <h3>Question</h3>
+                </th>
+                <th>
+                  <h3>Meet</h3>
+                </th>
+                <th>
+                  <h3>Successes</h3>
+                </th>
+                <th>
+                  <h3>Opportunities</h3>
+                </th>
+                <th>
+                  <h3>Comment</h3>
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </Table>
+            </thead>
+            <tbody>
+              {this.state.speds
+                .filter(
+                  (student) => student.students?.id === this.props.student.id
+                )
+                .filter((speQues) => speQues.question === quest.question)
+                .filter((dog) => dog.meet === "true" || dog.meet === "false")
+                .sort(function (a, b) {
+                  let x = a.date;
+                  let y = b.date;
+                  if (x < y) {
+                    return -1;
+                  }
+                  if (x > y) {
+                    return 1;
+                  }
+                  return 0;
+                })
+                .map((sped) => (
+                  <tr>
+                    <th key={sped.id}>{sped.date}</th>
+                    <td>
+                      <small>
+                        {sped.teachers?.firstName} {sped.teachers?.lastName}
+                      </small>
+                    </td>
+                    <td>
+                      <small>{sped.question}</small>
+                    </td>
+                    <td>
+                      <small>{sped.meet}</small>
+                    </td>
+                    <td>
+                      <small>{sped.success}</small>
+                    </td>
+                    <td>
+                      <small>{sped.opportunity}</small>
+                    </td>
+                    <td>
+                      <small>{sped.response}</small>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </Table>
+          </div>
+        ))}
       </div>
     );
   }
