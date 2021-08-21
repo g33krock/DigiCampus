@@ -29,10 +29,10 @@ export class StaffAttendanceCreator extends Component {
       teachers: this.props.teacher.id,
       campuses: this.props.campus.id,
       date: document.getElementById("incidentDate").value,
-      approved: document.getElementById("startTime").value,
-      illness: document.getElementById("endTime").value,
-      hours: document.getElementById("description").value,
-      points: document.getElementById("behavior").value,
+      approved: document.getElementById("approved").value,
+      illness: document.getElementById("illness").value,
+      hours: document.getElementById("hours").value,
+      points: document.getElementById("points").value,
     };
     const staffAttendance = await staffAttendanceService.create(staffAttendanceObject);
     console.log(staffAttendance);
@@ -47,7 +47,7 @@ export class StaffAttendanceCreator extends Component {
     return (
       <div>
         <Button outline color="danger" size="sm" onClick={() => this.setState({ modal: true })}>
-          Incident Report
+          Attendance
         </Button>
         <Modal isOpen={this.state.modal} toggle={() => this.toggle()}>
           <ModalBody
@@ -141,7 +141,7 @@ export class StaffAttendanceCreator extends Component {
               <Button
                 color="primary"
                 onClick={() => {
-                  this.createIncident();
+                  this.createStaffAttendance();
                   this.setState({ modal: false });
                 }}
               >

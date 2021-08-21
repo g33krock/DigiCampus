@@ -26,7 +26,6 @@ class Header extends Component {
   }
 
   async componentDidMount() {
-    this.getAnnouncements();
     const teachers = await teacherService.all();
     console.log(teachers);
     const teacher = teachers.find(
@@ -40,6 +39,7 @@ class Header extends Component {
       campus: teacher.campus,
     });
     console.log(this.state.teachers);
+    this.getAnnouncements();
   }
 
   getAnnouncements() {
@@ -48,11 +48,6 @@ class Header extends Component {
     .then((data) => {
       this.setState({
         announcements: data,
-        students: [],
-        teachers: [],
-        teacher: null,
-        campus: null,
-        userEmail: null,
       });
     });
   }

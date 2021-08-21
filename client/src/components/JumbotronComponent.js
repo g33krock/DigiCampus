@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import Marquee, { Motion, randomIntFromInterval } from "react-marquee-slider";
 import times from "lodash/times";
-import { baseURL } from "../baseURL";
-import { fetcher } from "../services/fetcher";
+import { announcementService } from "../services/announcementService";
 
 export class Jumbo extends Component {
     constructor(props) {
@@ -14,18 +13,13 @@ export class Jumbo extends Component {
   
     componentDidMount() {
       this.getAnnouncements()
-      setInterval(this.getAnnouncements, 10*1000);
-  
     }
   
-    getAnnouncements() {
-      fetcher(`${baseURL}/announcements`)
-      .then((response) => response.json())
-      .then((data) => {
+    async getAnnouncements() {
+      const announcements = await announcementService.all()
         this.setState({
-          announcements: data,
+          announcements
         });
-      });
     }
   
 

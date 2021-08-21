@@ -4,7 +4,7 @@ import { StaffAttendance } from "../entity/StaffAttendance";
 export class StaffAttendanceController {
 
 	async all(request: Request, response: Response, next: NextFunction) {
-		return StaffAttendance.find();
+		return StaffAttendance.find({relations: ["teachers"]});
 	}
 
 	async one(request: Request, response: Response, next: NextFunction) {
