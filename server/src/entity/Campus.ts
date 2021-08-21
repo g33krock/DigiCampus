@@ -21,8 +21,8 @@ export class Campus extends BaseEntity {
 	@ManyToOne(() => School_Admin, school_admin => school_admin.campus)
 	school_admin: School_Admin;
 
-	@ManyToOne(() => StaffAttendance, StaffAttendance => StaffAttendance.campuses)
-	staffAttendance: StaffAttendance;
+	@OneToMany(() => StaffAttendance, staffAttendance => staffAttendance.campuses)
+	staffAttendance: StaffAttendance[];
 
 	@OneToMany(() => Gradebook, gradebook => gradebook.campus)
 	gradebooks: Gradebook[];

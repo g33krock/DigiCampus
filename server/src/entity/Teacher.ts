@@ -142,8 +142,8 @@ export class Teacher extends BaseEntity {
 	@ManyToOne(() => Campus, campus => campus.teachers)
 	campus: Campus;
 
-	@ManyToOne(() => StaffAttendance, staffAttendance => staffAttendance.teachers)
-	staffAttendance: StaffAttendance;
+	@OneToMany(() => StaffAttendance, staffAttendance => staffAttendance.teachers)
+	staffAttendance: StaffAttendance[];
 
 	@OneToMany(() => SpedResponse, spedResponse => spedResponse.teachers)
 	spedResponse: SpedResponse[];

@@ -33,9 +33,9 @@ export class StaffAttendance extends BaseEntity {
 	})
 	points: number;
 
-	@OneToMany(() => Teacher, teacher => teacher.staffAttendance)
-	teachers: Teacher[];
+	@ManyToOne(() => Teacher, teacher => teacher.staffAttendance, {onDelete: 'CASCADE'})
+	teachers: Teacher;
 
-	@OneToMany(() => Campus, campus => campus.staffAttendance)
-	campuses: Campus[];
+	@ManyToOne(() => Campus, campus => campus.staffAttendance, {onDelete: 'CASCADE'})
+	campuses: Teacher;
 }

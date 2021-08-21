@@ -27,6 +27,7 @@ export class StaffAttendanceCreator extends Component {
   async createStaffAttendance() {
     const staffAttendanceObject = {
       teachers: this.props.teacher.id,
+      campuses: this.props.campus.id,
       date: document.getElementById("incidentDate").value,
       approved: document.getElementById("startTime").value,
       illness: document.getElementById("endTime").value,
@@ -59,11 +60,7 @@ export class StaffAttendanceCreator extends Component {
             }}
           >
             <p>
-              <strong>Student: </strong>
-              {this.props.student.firstName} {this.props.student.lastName}
-            </p>
-            <p>
-              <strong>Teacher: </strong>
+              <strong>Staff: </strong>
               {this.props.teacher.firstName} {this.props.teacher.lastName}
             </p>
 
@@ -85,213 +82,61 @@ export class StaffAttendanceCreator extends Component {
 
                   <Col xs="3">
                     <FormGroup>
-                      <Label for="startTime">
-                        Incident Start Time
+                      <Label for="approved">
+                        Approved
                       </Label>
                       <Input
-                        type="datetime"
-                        name="startTime"
-                        id="startTime"
-                        placeholder="hh:mm am/pm"
+                        type="select"
+                        name="approved"
+                        id="approved"
                         className="fancy-cursor"
-                      ></Input>
+                      >
+                        <option></option>
+                        <option>No</option>
+                        <option>Yes</option>
+                      </Input>
                     </FormGroup>
                   </Col>
                   <Col xs="1"></Col>
                   <Col xs="3">
-                    <FormGroup>
-                      <Label for="endTime">
-                        Incident End Time
+                  <FormGroup>
+                      <Label for="illness">
+                        Illness
                       </Label>
                       <Input
-                        type="datetime"
-                        name="endTime"
-                        id="endTime"
-                        placeholder="hh:mm am/pm"
+                        type="select"
+                        name="illness"
+                        id="illness"
                         className="fancy-cursor"
-                      ></Input>
+                      >
+                        <option></option>
+                        <option>No</option>
+                        <option>Yes</option>
+                      </Input>
                     </FormGroup>
                   </Col>
                 </Row>
               </Container>
               <Container id="trackerBox">
                 <FormGroup>
-                  <Label for="description">Describe the Incident</Label>
+                  <Label for="hours">Hours Missed</Label>
                   <Input
-                    type="text"
-                    name="description"
-                    id="description"
+                    type="number"
+                    name="hours"
+                    id="hours"
                     className="fancy-cursor"
                   />
                 </FormGroup>
 
                 <FormGroup>
-                  <Label for="behavior">
-                    Describe What the Behavior Looked Like
-                  </Label>
+                  <Label for="points">Points Accrued</Label>
                   <Input
-                    type="text"
-                    name="behavior"
-                    id="behavior"
+                    type="number"
+                    name="points"
+                    id="points"
                     className="fancy-cursor"
                   />
                 </FormGroup>
-                <FormGroup>
-                  <Label for="after">
-                    Describe What Happened Directly After the Incident
-                  </Label>
-                  <Input
-                    type="text"
-                    name="after"
-                    id="after"
-                    className="fancy-cursor"
-                  />
-                </FormGroup>
-                <FormGroup>
-                  <Label for="others">
-                    Students and/or Staff Involved in the Incident
-                  </Label>
-                  <Input
-                    type="text"
-                    name="others"
-                    id="others"
-                    className="fancy-cursor"
-                  />
-                </FormGroup>
-              </Container>
-              <Container id="trackerBox">
-                <Row>
-                  <Col>
-                    <FormGroup>
-                      <Label for="behaviorInterventionPlan">
-                        Does this student have a Behavior Intervention Plan?
-                        *Required
-                      </Label>
-                      <Input
-                        type="select"
-                        name="behaviorInterventionPlan"
-                        id="behaviorInterventionPlan"
-                        className="fancy-cursor"
-                      >
-                        <option></option>
-                        <option>No</option>
-                        <option>Yes</option>
-                      </Input>
-                    </FormGroup>
-                  </Col>
-                  <Col xs="1" />
-                  <Col>
-                    <FormGroup>
-                      <Label for="bipImplemented">
-                        Was the Behavior Intervention Plan Implemented?
-                        *Required
-                      </Label>
-                      <Input
-                        type="select"
-                        name="bipImplemented"
-                        id="bipImplemented"
-                        className="fancy-cursor"
-                      >
-                        <option>N/A</option>
-                        <option>No</option>
-                        <option>Yes</option>
-                      </Input>
-                    </FormGroup>
-                  </Col>
-                </Row>
-              </Container>
-
-              <Container id="trackerBox" style={{ backgroundColor: "lightblue" }}>
-                <h3>
-                  Choose a result if student is NOT on a Behavior Intervention
-                  Plan
-                </h3>
-                <Row>
-                  <Col xs="3">
-                    <FormGroup>
-                      <Label for="redirect">Redirection / Warning</Label>
-                      <Input
-                        type="select"
-                        name="redirect"
-                        id="redirect"
-                        className="fancy-cursor"
-                      >
-                        <option></option>
-                        <option>No</option>
-                        <option>Yes</option>
-                      </Input>
-                    </FormGroup>
-                  </Col>
-                  <Col xs="1"></Col>
-                  <Col xs="3">
-                    <FormGroup>
-                      <Label for="reinforce">
-                        Reinforcement - Reward System
-                      </Label>
-                      <Input
-                        type="select"
-                        name="reinforce"
-                        id="reinforce"
-                        className="fancy-cursor"
-                      >
-                        <option></option>
-                        <option>No</option>
-                        <option>Yes</option>
-                      </Input>
-                    </FormGroup>
-                  </Col>
-                  <Col xs="1"></Col>
-                  <Col xs="3">
-                    <FormGroup>
-                      <Label for="quiet">Use of Quiet Area</Label>
-                      <Input
-                        type="select"
-                        name="quiet"
-                        id="quiet"
-                        className="fancy-cursor"
-                      >
-                        <option></option>
-                        <option>No</option>
-                        <option>Yes</option>
-                      </Input>
-                    </FormGroup>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col xs="3">
-                    <FormGroup>
-                      <Label for="parentContact">Parent Contacted</Label>
-                      <Input
-                        type="select"
-                        name="parentContact"
-                        id="parentContact"
-                        className="fancy-cursor"
-                      >
-                        <option></option>
-                        <option>No</option>
-                        <option>Yes</option>
-                      </Input>
-                    </FormGroup>
-                  </Col>
-                  <Col xs="1"></Col>
-                  <Col xs="3">
-                    <FormGroup>
-                      <Label for="consultCaseManager">
-                        Case Manager Consulted
-                      </Label>
-                      <Input
-                        type="select"
-                        name="consultCaseManager"
-                        id="consultCaseManager"
-                        className="fancy-cursor"
-                      >
-                        <option></option>
-                        <option>No</option>
-                        <option>Yes</option>
-                      </Input>
-                    </FormGroup>
-                  </Col>
-                </Row>
               </Container>
               <Button
                 color="primary"
