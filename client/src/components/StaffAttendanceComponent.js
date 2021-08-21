@@ -10,10 +10,10 @@ export default class StaffAttendance extends Component {
   }
 
   componentDidMount() {
-    this.getSchedules()
+    this.getStaffAttendance()
   }
 
-  getSchedules() {
+  getStaffAttendance() {
     fetcher(`${baseURL}/staffAttendance`)
       // Convert response to a JSON object
       .then((response) => response.json())
@@ -54,6 +54,9 @@ export default class StaffAttendance extends Component {
               <th>
                 <strong>Points</strong>
               </th>
+              <th>
+                <strong>Comment</strong>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -85,6 +88,9 @@ export default class StaffAttendance extends Component {
                 </td>
                 <td>
                   <small>{attendance?.points}</small>
+                </td>
+                <td>
+                  <small>{attendance?.comment}</small>
                 </td>
                </tr>
             ))}

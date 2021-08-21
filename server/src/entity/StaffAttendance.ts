@@ -33,6 +33,11 @@ export class StaffAttendance extends BaseEntity {
 	})
 	points: number;
 
+	@Column({
+		nullable: true
+	})
+	comment: string;
+
 	@ManyToOne(() => Teacher, teacher => teacher.staffAttendance, {onDelete: 'CASCADE'})
 	teachers: Teacher;
 

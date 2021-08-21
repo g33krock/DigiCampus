@@ -46,6 +46,19 @@ export default class AdminTeacher extends Component {
     }
   }
 
+  getStaffAttendance() {
+    fetcher(`${baseURL}/staffAttendance`)
+      // Convert response to a JSON object
+      .then((response) => response.json())
+      .then((attendances) => {
+          attendances.sort((attendancea, attendanceb) => attendancea?.date-attendanceb?.date)
+        this.setState({
+            staffAttendance: attendances,
+        })
+        console.log(this.state.staffAttendance)
+      });
+  }
+
   onChange = (e) => {
     const teacherId = Number(e.target.value);
     const teacher = this.state.teachers.find(
@@ -167,6 +180,7 @@ export default class AdminTeacher extends Component {
             <h3>Staff Attendance</h3>
             {this.state.teacher && (
               <StaffAttendanceCreator
+                callback={() => this.getStaffAttendance()}
                 teacher={this.state.teacher}
                 campus={this.state.teacher.campus}
                 userEmail={this.props?.userEmail}

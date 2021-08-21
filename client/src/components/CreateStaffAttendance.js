@@ -14,7 +14,6 @@ import {
 } from "reactstrap";
 import { staffAttendanceService } from "../services/staffAttendanceService";
 
-
 export class StaffAttendanceCreator extends Component {
   constructor(props) {
     super(props);
@@ -33,9 +32,12 @@ export class StaffAttendanceCreator extends Component {
       illness: document.getElementById("illness").value,
       hours: document.getElementById("hours").value,
       points: document.getElementById("points").value,
+      comment: document.getElementById("comment").value,
     };
-    const staffAttendance = await staffAttendanceService.create(staffAttendanceObject);
-    console.log(staffAttendance);
+    const staffAttendance = await staffAttendanceService.create(
+      staffAttendanceObject
+    );
+    setTimeout(() => {  this.props.callback() }, 2000);
   }
 
   toggle() {
@@ -43,10 +45,15 @@ export class StaffAttendanceCreator extends Component {
   }
 
   render() {
-    var date = new Date(); 
+    var date = new Date();
     return (
       <div>
-        <Button outline color="danger" size="sm" onClick={() => this.setState({ modal: true })}>
+        <Button
+          outline
+          color="danger"
+          size="sm"
+          onClick={() => this.setState({ modal: true })}
+        >
           Attendance
         </Button>
         <Modal isOpen={this.state.modal} toggle={() => this.toggle()}>
@@ -71,8 +78,13 @@ export class StaffAttendanceCreator extends Component {
                     <FormGroup>
                       <Label for="incidentDate">Date</Label>
                       <Input
-                        defaultValue={date.getFullYear().toString() + '-' + (date.getMonth() + 1).toString().padStart(2, 0) +
-                        '-' + date.getDate().toString().padStart(2, 0)}
+                        defaultValue={
+                          date.getFullYear().toString() +
+                          "-" +
+                          (date.getMonth() + 1).toString().padStart(2, 0) +
+                          "-" +
+                          date.getDate().toString().padStart(2, 0)
+                        }
                         type="date"
                         name={`incidentDate`}
                         id={`incidentDate`}
@@ -82,9 +94,7 @@ export class StaffAttendanceCreator extends Component {
 
                   <Col xs="3">
                     <FormGroup>
-                      <Label for="approved">
-                        Approved
-                      </Label>
+                      <Label for="approved">Approved</Label>
                       <Input
                         type="select"
                         name="approved"
@@ -99,10 +109,8 @@ export class StaffAttendanceCreator extends Component {
                   </Col>
                   <Col xs="1"></Col>
                   <Col xs="3">
-                  <FormGroup>
-                      <Label for="illness">
-                        Illness
-                      </Label>
+                    <FormGroup>
+                      <Label for="illness">Illness</Label>
                       <Input
                         type="select"
                         name="illness"
@@ -118,22 +126,37 @@ export class StaffAttendanceCreator extends Component {
                 </Row>
               </Container>
               <Container id="trackerBox">
+                <Row>
+                  <Col xs="3">
+                    <FormGroup>
+                      <Label for="hours">Hours Missed</Label>
+                      <Input
+                        type="number"
+                        name="hours"
+                        id="hours"
+                        className="fancy-cursor"
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col xs="1"></Col>
+                  <Col xs="3">
+                    <FormGroup>
+                      <Label for="points">Points Accrued</Label>
+                      <Input
+                        type="number"
+                        name="points"
+                        id="points"
+                        className="fancy-cursor"
+                      />
+                    </FormGroup>
+                  </Col>
+                </Row>
                 <FormGroup>
-                  <Label for="hours">Hours Missed</Label>
+                  <Label for="comment">Comment</Label>
                   <Input
-                    type="number"
-                    name="hours"
-                    id="hours"
-                    className="fancy-cursor"
-                  />
-                </FormGroup>
-
-                <FormGroup>
-                  <Label for="points">Points Accrued</Label>
-                  <Input
-                    type="number"
-                    name="points"
-                    id="points"
+                    type="text"
+                    name="comment"
+                    id="comment"
                     className="fancy-cursor"
                   />
                 </FormGroup>

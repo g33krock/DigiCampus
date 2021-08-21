@@ -15,6 +15,8 @@ import { TeacherCreator } from "./CreateTeacher";
 import { TeacherUpdater } from "./UpdateTeacher";
 import { fetcher } from "../services/fetcher";
 import TeacherGroupSchedule from "./TeacherGroupScheduleComponent";
+import { StaffAttendanceCreator } from "./CreateStaffAttendance";
+import StaffAttendance from "./StaffAttendanceComponent";
 
 export default class Teacher extends Component {
   constructor(props) {
@@ -42,6 +44,19 @@ export default class Teacher extends Component {
         activeTab: tab,
       });
     }
+  }
+
+  getStaffAttendance() {
+    fetcher(`${baseURL}/staffAttendance`)
+      // Convert response to a JSON object
+      .then((response) => response.json())
+      .then((attendances) => {
+          attendances.sort((attendancea, attendanceb) => attendancea?.date-attendanceb?.date)
+        this.setState({
+            staffAttendance: attendances,
+        })
+        console.log(this.state.staffAttendance)
+      });
   }
 
   onChange = (e) => {
@@ -165,10 +180,19 @@ export default class Teacher extends Component {
           <TabPane tabId="3">
             <h3>Staff Attendance</h3>
             {this.state.teacher && (
-              <TeacherGroupSchedule
+              <StaffAttendanceCreator
+                callback={() => this.getStaffAttendance()}
                 teacher={this.state.teacher}
+                campus={this.state.teacher.campus}
                 userEmail={this.props?.userEmail}
-              ></TeacherGroupSchedule>
+              ></StaffAttendanceCreator>
+            )}
+            {this.state.teacher && (
+              <StaffAttendance
+                teacher={this.state.teacher}
+                campus={this.state.teacher.campus}
+                userEmail={this.props?.userEmail}
+              ></StaffAttendance>
             )}
           </TabPane>
         </TabContent>
