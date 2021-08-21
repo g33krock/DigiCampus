@@ -15,6 +15,7 @@ import Transcript from './TranscriptComponent';
 import Calendar from './CalendarComponent';
 import { teacherService } from '../services/teacherService';
 import Announcement from './AnnouncementComponent';
+import Resource from './ResourceComponent';
 
 class Main extends Component {
     
@@ -55,6 +56,7 @@ class Main extends Component {
                     <PrivateRoute path='/singleteachers' component={SingleTeacher} userEmail = {this.props?.userEmail} />
                     <PrivateRoute path='/calendar' component={Calendar} userEmail = {this.props?.userEmail} />
                     <PrivateRoute path='/substitute' component={Sub} userEmail = {this.props?.userEmail} campus = {this.state.campus} teacher = {this.state.teacher}/>
+                    <PrivateRoute path='/resources' component={Resource} userEmail = {this.props?.userEmail} />
                     <PrivateRoute path='/home' component={Home} />
                     <Redirect to='/home' />
                 </Switch>
@@ -75,6 +77,7 @@ class Main extends Component {
                         <PrivateRoute path='/announcements' component={Announcement} campus = {this.state.campus}/>
                         <PrivateRoute path='/substitute' component={Sub} userEmail = {this.props?.userEmail} campus = {this.state.campus} teacher = {this.state.teacher} />
                         <PrivateRoute path='/calendar' component={Calendar} userEmail = {this.props?.userEmail} />
+                        <PrivateRoute path='/resources' component={Resource} userEmail = {this.props?.userEmail} />
                         <PrivateRoute path='/home' component={Home} />
                         <Redirect to='/home' />
                     </Switch>

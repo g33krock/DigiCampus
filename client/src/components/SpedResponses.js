@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { baseURL } from "../baseURL";
 import { Table } from "reactstrap";
-import { fetcher } from "../services/fetcher";
 import { spedQuestionService } from "../services/spedQuestionService";
 import { spedResponseService } from "../services/spedResponseService";
 
@@ -49,12 +47,6 @@ export default class SpedResponse extends Component {
                   <h3>Date</h3>
                 </th>
                 <th>
-                  <h3>Teacher</h3>
-                </th>
-                <th>
-                  <h3>Question</h3>
-                </th>
-                <th>
                   <h3>Meet</h3>
                 </th>
                 <th>
@@ -65,6 +57,9 @@ export default class SpedResponse extends Component {
                 </th>
                 <th>
                   <h3>Comment</h3>
+                </th>
+                <th>
+                  <h3>Teacher</h3>
                 </th>
               </tr>
             </thead>
@@ -90,14 +85,6 @@ export default class SpedResponse extends Component {
                   <tr>
                     <th key={sped.id}>{sped.date}</th>
                     <td>
-                      <small>
-                        {sped.teachers?.firstName} {sped.teachers?.lastName}
-                      </small>
-                    </td>
-                    <td>
-                      <small>{sped.question}</small>
-                    </td>
-                    <td>
                       <small>{sped.meet}</small>
                     </td>
                     <td>
@@ -108,6 +95,11 @@ export default class SpedResponse extends Component {
                     </td>
                     <td>
                       <small>{sped.response}</small>
+                    </td>
+                    <td>
+                      <small>
+                        {sped.teachers?.firstName} {sped.teachers?.lastName}
+                      </small>
                     </td>
                   </tr>
                 ))}

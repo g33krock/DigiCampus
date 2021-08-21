@@ -78,6 +78,16 @@ export default class Teacher extends Component {
               Group
             </NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === "3" })}
+              onClick={() => {
+                this.toggle("3");
+              }}
+            >
+              Attendance
+            </NavLink>
+          </NavItem>
         </Nav>
         <TeacherCreator></TeacherCreator>
         <TeacherUpdater
@@ -145,6 +155,15 @@ export default class Teacher extends Component {
           </TabPane>
           <TabPane tabId="2">
             <h3>Mic Drop... Boom!</h3>
+            {this.state.teacher && (
+              <TeacherGroupSchedule
+                teacher={this.state.teacher}
+                userEmail={this.props?.userEmail}
+              ></TeacherGroupSchedule>
+            )}
+          </TabPane>
+          <TabPane tabId="3">
+            <h3>Staff Attendance</h3>
             {this.state.teacher && (
               <TeacherGroupSchedule
                 teacher={this.state.teacher}

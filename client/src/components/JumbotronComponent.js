@@ -13,14 +13,22 @@ export class Jumbo extends Component {
     }
   
     componentDidMount() {
-      fetcher(`${baseURL}/announcements`)
-        .then((response) => response.json())
-        .then((data) => {
-          this.setState({
-            announcements: data,
-          });
-        });
+      this.getAnnouncements()
+      setInterval(this.getAnnouncements, 10*1000);
+  
     }
+  
+    getAnnouncements() {
+      fetcher(`${baseURL}/announcements`)
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          announcements: data,
+        });
+      });
+    }
+  
+
 render(){
     return(
 
@@ -46,6 +54,7 @@ render(){
                   style={{
                     minWidth: "300px",
                     backgroundImage:
+                        // "url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/sign/images/flappingowl.gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvZmxhcHBpbmdvd2wuZ2lmIiwiaWF0IjoxNjI5NDk0NzI4LCJleHAiOjE5NDQ4NTQ3Mjh9.l4YhGnu8NaW8SOQBt-SH8v48ob__pckb7Tv3MyOyQ9c')",
                       "url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/sign/images/Bubble.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvQnViYmxlLnBuZyIsImlhdCI6MTYyODY0MzczMywiZXhwIjoxOTQ0MDAzNzMzfQ.dI8BFOJk-032ydJfO5SiJdNOr-KPj7NILzu_Y5KVIS4')",
                     backgroundSize: "contain",
                     backgroundRepeat: "no-repeat",

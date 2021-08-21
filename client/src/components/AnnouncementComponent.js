@@ -19,7 +19,6 @@ export default class Announcement extends Component {
 
   async componentDidMount() {
     this.getAnnouncements()
-
   }
 
   getAnnouncements() {

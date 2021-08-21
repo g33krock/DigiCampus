@@ -25,22 +25,8 @@ class Header extends Component {
     };
   }
 
-  componentDidMount() {
-    fetcher(`${baseURL}/announcements`)
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({
-          announcements: data,
-          students: [],
-          teachers: [],
-          teacher: null,
-          campus: null,
-          userEmail: null,
-        });
-      });
-  }
-
   async componentDidMount() {
+    this.getAnnouncements();
     const teachers = await teacherService.all();
     console.log(teachers);
     const teacher = teachers.find(
@@ -54,6 +40,21 @@ class Header extends Component {
       campus: teacher.campus,
     });
     console.log(this.state.teachers);
+  }
+
+  getAnnouncements() {
+    fetcher(`${baseURL}/announcements`)
+    .then((response) => response.json())
+    .then((data) => {
+      this.setState({
+        announcements: data,
+        students: [],
+        teachers: [],
+        teacher: null,
+        campus: null,
+        userEmail: null,
+      });
+    });
   }
 
   toggleNav() {
@@ -111,6 +112,11 @@ class Header extends Component {
                   Transcript
                 </NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/resources">
+                  Resources
+                </NavLink>
+              </NavItem>
             </Nav>
           </Collapse>
           <Col sm={3}></Col>
@@ -146,6 +152,11 @@ class Header extends Component {
               <NavItem>
                 <NavLink className="nav-link" to="/substitute">
                   Substitute
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/resources">
+                  Resources
                 </NavLink>
               </NavItem>
             </Nav>
@@ -198,6 +209,11 @@ class Header extends Component {
               <NavItem>
                 <NavLink className="nav-link" to="/transcripts">
                   Transcript
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/resources">
+                  Resources
                 </NavLink>
               </NavItem>
               <NavItem>
