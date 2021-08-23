@@ -408,6 +408,16 @@ export default class AdminSchedule extends Component {
               Schedule Prep
             </NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === "5" })}
+              onClick={() => {
+                this.toggle("5");
+              }}
+            >
+              Efficiency
+            </NavLink>
+          </NavItem>
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
@@ -870,6 +880,468 @@ export default class AdminSchedule extends Component {
                       <td className={teacher.pTen}>10 {teacher.pTen}</td>
                     </tr>
                   ))}
+              </tbody>
+            </Table>
+          </TabPane>
+          <TabPane tabId="5">
+            Efficiency
+            <Col sm={3}>
+              <Label>Select Campus: </Label>
+              <Input type="select" id="selectCampus" onChange={this.onChange}>
+                <option></option>
+                {this.state.campuses.map((campus) => (
+                  <option value={campus.id}>{campus.name}</option>
+                ))}
+              </Input>
+            </Col>
+            <Table>
+              <thead>
+                <tr>
+                  <th>
+                    <h2>Student</h2>
+                  </th>
+                  <th>
+                    <h2>Teacher</h2>
+                  </th>
+                  <th>
+                    <h2>Efficiency</h2>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>
+                    {this.state.schedules
+                      .filter(
+                        (schedule) =>
+                          schedule.campus.id === this.state?.campus?.id
+                      )
+                      .filter((schedule) => schedule.teacher.id !== 26)
+                      .filter(
+                        (schedule) =>
+                          schedule.course.subject === "ELA" ||
+                          schedule.course.subject === "Math"
+                      ).length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pOne === "Para Support")
+                        .length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pTwo === "Para Support")
+                        .length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pThree === "Para Support")
+                        .length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pFour === "Para Support")
+                        .length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pFive === "Para Support")
+                        .length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pSix === "Para Support")
+                        .length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pSeven === "Para Support")
+                        .length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pEight === "Para Support")
+                        .length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pNine === "Para Support")
+                        .length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pTen === "Para Support")
+                        .length}{" "}
+                  </th>
+                  <th>
+                    {this.state.teachers
+                      .filter(
+                        (teacher) =>
+                          teacher.role.id === 2 ||
+                          teacher.role.id === 3 ||
+                          teacher.role.id === 4
+                      )
+                      .filter(
+                        (teacher) =>
+                          teacher.campus.id === this.state?.campus?.id
+                      )
+                      .filter((teacher) => teacher.pOne !== "No")
+                      .filter((teacher) => teacher.pOne !== "Prep").length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.role.id === 2 ||
+                            teacher.role.id === 3 ||
+                            teacher.role.id === 4
+                        )
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pTwo !== "No")
+                        .filter((teacher) => teacher.pTwo !== "Prep").length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.role.id === 2 ||
+                            teacher.role.id === 3 ||
+                            teacher.role.id === 4
+                        )
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pThree !== "No")
+                        .filter((teacher) => teacher.pThree !== "Prep").length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.role.id === 2 ||
+                            teacher.role.id === 3 ||
+                            teacher.role.id === 4
+                        )
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pFour !== "No")
+                        .filter((teacher) => teacher.pFour !== "Prep").length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.role.id === 2 ||
+                            teacher.role.id === 3 ||
+                            teacher.role.id === 4
+                        )
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pFive !== "No")
+                        .filter((teacher) => teacher.pFive !== "Prep").length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.role.id === 2 ||
+                            teacher.role.id === 3 ||
+                            teacher.role.id === 4
+                        )
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pSix !== "No")
+                        .filter((teacher) => teacher.pSix !== "Prep").length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.role.id === 2 ||
+                            teacher.role.id === 3 ||
+                            teacher.role.id === 4
+                        )
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pSeven !== "No")
+                        .filter((teacher) => teacher.pSeven !== "Prep").length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.role.id === 2 ||
+                            teacher.role.id === 3 ||
+                            teacher.role.id === 4
+                        )
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pEight !== "No")
+                        .filter((teacher) => teacher.pEight !== "Prep").length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.role.id === 2 ||
+                            teacher.role.id === 3 ||
+                            teacher.role.id === 4
+                        )
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pNine !== "No")
+                        .filter((teacher) => teacher.pNine !== "Prep").length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.role.id === 2 ||
+                            teacher.role.id === 3 ||
+                            teacher.role.id === 4
+                        )
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pTen !== "No")
+                        .filter((teacher) => teacher.pTen !== "Prep").length}
+                  </th>
+                  <th>
+                    {(this.state.teachers
+                      .filter(
+                        (teacher) =>
+                          teacher.role.id === 2 ||
+                          teacher.role.id === 3 ||
+                          teacher.role.id === 4
+                      )
+                      .filter(
+                        (teacher) =>
+                          teacher.campus.id === this.state?.campus?.id
+                      )
+                      .filter((teacher) => teacher.pOne !== "No")
+                      .filter((teacher) => teacher.pOne !== "Prep").length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.role.id === 2 ||
+                            teacher.role.id === 3 ||
+                            teacher.role.id === 4
+                        )
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pTwo !== "No")
+                        .filter((teacher) => teacher.pTwo !== "Prep").length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.role.id === 2 ||
+                            teacher.role.id === 3 ||
+                            teacher.role.id === 4
+                        )
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pThree !== "No")
+                        .filter((teacher) => teacher.pThree !== "Prep").length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.role.id === 2 ||
+                            teacher.role.id === 3 ||
+                            teacher.role.id === 4
+                        )
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pFour !== "No")
+                        .filter((teacher) => teacher.pFour !== "Prep").length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.role.id === 2 ||
+                            teacher.role.id === 3 ||
+                            teacher.role.id === 4
+                        )
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pFive !== "No")
+                        .filter((teacher) => teacher.pFive !== "Prep").length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.role.id === 2 ||
+                            teacher.role.id === 3 ||
+                            teacher.role.id === 4
+                        )
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pSix !== "No")
+                        .filter((teacher) => teacher.pSix !== "Prep").length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.role.id === 2 ||
+                            teacher.role.id === 3 ||
+                            teacher.role.id === 4
+                        )
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pSeven !== "No")
+                        .filter((teacher) => teacher.pSeven !== "Prep").length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.role.id === 2 ||
+                            teacher.role.id === 3 ||
+                            teacher.role.id === 4
+                        )
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pEight !== "No")
+                        .filter((teacher) => teacher.pEight !== "Prep").length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.role.id === 2 ||
+                            teacher.role.id === 3 ||
+                            teacher.role.id === 4
+                        )
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pNine !== "No")
+                        .filter((teacher) => teacher.pNine !== "Prep").length +
+                      this.state.teachers
+                        .filter(
+                          (teacher) =>
+                            teacher.role.id === 2 ||
+                            teacher.role.id === 3 ||
+                            teacher.role.id === 4
+                        )
+                        .filter(
+                          (teacher) =>
+                            teacher.campus.id === this.state?.campus?.id
+                        )
+                        .filter((teacher) => teacher.pTen !== "No")
+                        .filter((teacher) => teacher.pTen !== "Prep").length) /
+                      (this.state.schedules
+                        .filter(
+                          (schedule) =>
+                            schedule.campus.id === this.state?.campus?.id
+                        )
+                        .filter((schedule) => schedule.teacher.id !== 26)
+                        .filter(
+                          (schedule) =>
+                            schedule.course.subject === "ELA" ||
+                            schedule.course.subject === "Math"
+                        ).length +
+                        this.state.teachers
+                          .filter(
+                            (teacher) =>
+                              teacher.campus.id === this.state?.campus?.id
+                          )
+                          .filter((teacher) => teacher.pOne === "Para Support")
+                          .length +
+                        this.state.teachers
+                          .filter(
+                            (teacher) =>
+                              teacher.campus.id === this.state?.campus?.id
+                          )
+                          .filter((teacher) => teacher.pTwo === "Para Support")
+                          .length +
+                        this.state.teachers
+                          .filter(
+                            (teacher) =>
+                              teacher.campus.id === this.state?.campus?.id
+                          )
+                          .filter(
+                            (teacher) => teacher.pThree === "Para Support"
+                          ).length +
+                        this.state.teachers
+                          .filter(
+                            (teacher) =>
+                              teacher.campus.id === this.state?.campus?.id
+                          )
+                          .filter((teacher) => teacher.pFour === "Para Support")
+                          .length +
+                        this.state.teachers
+                          .filter(
+                            (teacher) =>
+                              teacher.campus.id === this.state?.campus?.id
+                          )
+                          .filter((teacher) => teacher.pFive === "Para Support")
+                          .length +
+                        this.state.teachers
+                          .filter(
+                            (teacher) =>
+                              teacher.campus.id === this.state?.campus?.id
+                          )
+                          .filter((teacher) => teacher.pSix === "Para Support")
+                          .length +
+                        this.state.teachers
+                          .filter(
+                            (teacher) =>
+                              teacher.campus.id === this.state?.campus?.id
+                          )
+                          .filter(
+                            (teacher) => teacher.pSeven === "Para Support"
+                          ).length +
+                        this.state.teachers
+                          .filter(
+                            (teacher) =>
+                              teacher.campus.id === this.state?.campus?.id
+                          )
+                          .filter(
+                            (teacher) => teacher.pEight === "Para Support"
+                          ).length +
+                        this.state.teachers
+                          .filter(
+                            (teacher) =>
+                              teacher.campus.id === this.state?.campus?.id
+                          )
+                          .filter((teacher) => teacher.pNine === "Para Support")
+                          .length +
+                        this.state.teachers
+                          .filter(
+                            (teacher) =>
+                              teacher.campus.id === this.state?.campus?.id
+                          )
+                          .filter((teacher) => teacher.pTen === "Para Support")
+                          .length)}
+                  </th>
+                </tr>
               </tbody>
             </Table>
           </TabPane>
