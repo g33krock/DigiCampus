@@ -80,8 +80,8 @@ export class TrackerCreator extends Component {
       date: document.getElementById("spedResponseDate").value,
       question: i.question,
       meet: document.getElementById("spedResponseMeet"+i.id).value,
-      success: document.getElementById("spedResponseSuccess"+i.id).value,
-      opportunity: document.getElementById("spedResponseOpportunity"+i.id).value,
+      success: Math.abs(document.getElementById("spedResponseSuccess"+i.id).value),
+      opportunity: Math.abs(document.getElementById("spedResponseOpportunity"+i.id).value),
       response: document.getElementById("spedResponseResponse"+i.id).value,
       students: this.props.student.id,
       spedQuestions: i.id
@@ -154,6 +154,7 @@ export class TrackerCreator extends Component {
                       <option value="true">Yes</option>
                       <option value="false">No</option>
                       <option value="NA">Not Applicable</option>
+                      <option value="IP">In Progress</option>
                     </Input>
                   </Label>
                 </FormGroup>

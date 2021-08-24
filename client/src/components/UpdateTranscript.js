@@ -32,7 +32,7 @@ export class TranscriptUpdater extends Component {
         semester: document.getElementById("transcriptSemester").value,
         school: document.getElementById("transcriptSchool")?.value,
         altCourse: document.getElementById("transcriptAltCourse")?.value,
-        id: this.state.transcript.id,
+        id: this.props.transcript.id,
     };
     await transcriptService.update(transcriptObject);
     setTimeout(() => {  this.props.callback() }, 2000);

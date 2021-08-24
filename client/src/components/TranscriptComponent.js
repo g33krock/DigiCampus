@@ -19,6 +19,8 @@ import { TranscriptCreator } from "./CreateTranscript";
 import classnames from "classnames";
 import { fetcher } from "../services/fetcher";
 import { TranscriptUpdater } from "./UpdateTranscript";
+import { reduce} from "lodash";
+import { DeleteTranscript } from "./DeleteTranscript";
 
 export default class Transcript extends Component {
   constructor(props) {
@@ -164,7 +166,23 @@ export default class Transcript extends Component {
                 <Container>
                   <Row>
                     <Col xs="5">
-                      <h3>Math</h3>
+                      
+                        <h3>Math</h3>
+                        <p>4 Credits Required</p>
+                      
+                      {/* <Col xs="3">
+                        <p>
+                      {reduce(Number.parseFloat(
+                        this.state.transcripts
+                            .filter(
+                              (studentQ) =>
+                                studentQ.student?.id ===
+                                  this.state.student?.id &&
+                                studentQ.category === "Math"
+                            )?.credit)
+                            .toFixed(2))}
+                            </p>
+                      </Col> */}
                       <Table bordered hover size="sm">
                         <thead>
                           <tr>
@@ -261,6 +279,7 @@ export default class Transcript extends Component {
                     <Col xs="2"></Col>
                     <Col xs="5">
                       <h3>ELA</h3>
+                      <p>4 Credits Required</p>
                       <Table bordered hover size="sm">
                         <thead>
                           <tr>
@@ -359,6 +378,7 @@ export default class Transcript extends Component {
                   <Row>
                     <Col xs="5">
                       <h3>Science</h3>
+                      <p>3 Credits Required</p>
                       <Table bordered hover size="sm">
                         <thead>
                           <tr>
@@ -456,9 +476,11 @@ export default class Transcript extends Component {
                     <Col xs="2"></Col>
                     <Col xs="5">
                       <h3>Social Studies</h3>
-                      <p>
+                      <p>3 Credits Required</p>
+                      
                         <strong>US History</strong>
-                      </p>
+                        <p>1 Credit Required</p>
+                      
                       <Table bordered hover size="sm">
                         <thead>
                           <tr>
@@ -552,9 +574,10 @@ export default class Transcript extends Component {
                             ))}
                         </tbody>
                       </Table>
-                      <p>
+                      
                         <strong>World History</strong>
-                      </p>
+                        <p>1 Credit Required</p>
+                      
                       <Table bordered hover size="sm">
                         <thead>
                           <tr>
@@ -648,9 +671,10 @@ export default class Transcript extends Component {
                             ))}
                         </tbody>
                       </Table>
-                      <p>
+                      
                         <strong>Government</strong>
-                      </p>
+                        <p>0.5 Credit Required</p>
+                      
                       <Table bordered hover size="sm">
                         <thead>
                           <tr>
@@ -744,9 +768,10 @@ export default class Transcript extends Component {
                             ))}
                         </tbody>
                       </Table>
-                      <p>
+                      
                         <strong>Economics</strong>
-                      </p>
+                        <p>0.5 Credit Required</p>
+                      
                       <Table bordered hover size="sm">
                         <thead>
                           <tr>
@@ -845,6 +870,7 @@ export default class Transcript extends Component {
                   <Row>
                     <Col xs="5">
                       <h3>CTE/Fine Arts</h3>
+                      <p>1 Credits Required</p>
                       <Table bordered hover size="sm">
                         <thead>
                           <tr>
@@ -942,6 +968,7 @@ export default class Transcript extends Component {
                     <Col xs="2"></Col>
                     <Col xs="5">
                       <h3>Elective</h3>
+                      <p>7 Credits Required</p>
                       <Table bordered hover size="sm">
                         <thead>
                           <tr>
@@ -1122,6 +1149,11 @@ export default class Transcript extends Component {
                               grade={tran.grade}
                               credit={tran.credit}
                               ></TranscriptUpdater>
+                            </td>
+                            <td>
+                            <DeleteTranscript
+                              transcriptId={tran.id}
+                            ></DeleteTranscript>
                             </td>
                           </tr>
                         ))}

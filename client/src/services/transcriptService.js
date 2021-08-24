@@ -29,7 +29,7 @@ class TranscriptService {
   }
   async delete(transcriptObject) {
     console.log(transcriptObject);
-    const response = fetcher(
+    fetcher(
       `${baseURL}/transcripts/` + transcriptObject.transcriptId,
       {
         method: "DELETE",
@@ -38,7 +38,7 @@ class TranscriptService {
         },
       }
     );
-    return response;
+    return;
   }
   async update(transcriptObject) {
     console.log(transcriptObject);

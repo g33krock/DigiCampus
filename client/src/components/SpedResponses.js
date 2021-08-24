@@ -69,7 +69,7 @@ export default class SpedResponse extends Component {
                   (student) => student.students?.id === this.props.student.id
                 )
                 .filter((speQues) => speQues.question === quest.question)
-                .filter((dog) => dog.meet === "true" || dog.meet === "false")
+                .filter((dog) => dog.meet === "true" || dog.meet === "false" || dog.meet === "IP")
                 .sort(function (a, b) {
                   let x = a.date;
                   let y = b.date;
