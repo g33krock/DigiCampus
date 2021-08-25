@@ -19,7 +19,6 @@ import { TranscriptCreator } from "./CreateTranscript";
 import classnames from "classnames";
 import { fetcher } from "../services/fetcher";
 import { TranscriptUpdater } from "./UpdateTranscript";
-import { reduce} from "lodash";
 import { DeleteTranscript } from "./DeleteTranscript";
 
 export default class Transcript extends Component {

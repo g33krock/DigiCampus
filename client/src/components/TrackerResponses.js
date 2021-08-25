@@ -43,6 +43,12 @@ export default class TrackerResponse extends Component {
                 <strong>Date</strong>
               </th>
               <th>
+                <strong>Teacher</strong>
+              </th>
+              <th>
+                <strong>Course</strong>
+              </th>
+              <th>
                 <strong>Attendance</strong>
               </th>
               <th>
@@ -84,6 +90,12 @@ export default class TrackerResponse extends Component {
             {this.state.trackers.filter(studentz => studentz.students?.id === this.props.student.id).map((tracker) => (
               <tr>
                 <th key={tracker.id}>{tracker?.date}</th>
+                <td>
+                  <small>{tracker?.teachers.firstName} {tracker?.teachers.lastName}</small>
+                </td>
+                <td>
+                  <small>{tracker?.courses.name}</small>
+                </td>
                 <td>
                   <small>{tracker?.attendance}</small>
                 </td>

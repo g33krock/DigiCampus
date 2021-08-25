@@ -131,6 +131,7 @@ export default class TeacherGroupSchedule extends Component {
                   <GroupTrackerCreator
                   period = "1"
                   block = {p1}
+                  teacher = {teachersched}
                   ></GroupTrackerCreator>
                   <p>
                     Teacher:<br></br>

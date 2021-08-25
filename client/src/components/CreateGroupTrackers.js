@@ -58,9 +58,11 @@ export class GroupTrackerCreator extends Component {
       schedules: i.id,
       period: this.props.period,
       date: document.getElementById("spedResponseDate").value,
+      lesson: document.getElementById("lesson").value,
       attendance: document.getElementById("attendance" + i.student.id).value,
       engagement: document.getElementById("engagement" + i.student.id).value,
       behavior: document.getElementById("behavior" + i.student.id).value,
+      behaviorComment: document.getElementById("behaviorComment" + i.student.id).value,
     };
     const tracker = await trackerService.create(trackerObject);
     console.log(tracker);
@@ -68,7 +70,7 @@ export class GroupTrackerCreator extends Component {
 
   async createSpedResponse(i) {
     const spedResponseObject = {
-      teachers: i.teacher.id,
+      teachers: this.props.teacher,
       date: document.getElementById("spedResponseDate").value,
       question: i.question,
       meet: document.getElementById("spedResponseMeet" + i.id).value,
@@ -135,8 +137,9 @@ export class GroupTrackerCreator extends Component {
             }}
           >
               <Form>
-              <Col md={3}></Col>
-                    <Col md={6}>
+                <Row>
+              <Col xs={1}></Col>
+                    <Col xs={5}>
                       <FormGroup>
                         <Label for="spedResponseDate">Date</Label>
                         <Input
@@ -148,7 +151,20 @@ export class GroupTrackerCreator extends Component {
                         />
                       </FormGroup>
                     </Col>
-                    <Col md={3}></Col>
+                    <Col xs={1}></Col>
+                    <Col xs={5}>
+                        <FormGroup>
+                          <Label for="lesson">Lesson</Label>
+                          <Input
+                            type="text"
+                            name="lesson"
+                            id={`lesson`}
+                            className="fancy-cursor"
+                          >
+                          </Input>
+                        </FormGroup>
+                      </Col>
+                      </Row>
               </Form>
             {this.props.block.map((sched) => (
               <div>
@@ -344,6 +360,22 @@ export class GroupTrackerCreator extends Component {
                         </FormGroup>
                       </Col>
                     </Row>
+                    <Row>
+                      <Col xs={1}></Col>
+                      <Col>
+                        <FormGroup>
+                          <Label for="behaviorComment">Comment</Label>
+                          <Input
+                            type="text"
+                            name="behaviorComment"
+                            id={`behaviorComment${sched.student.id}`}
+                            className="fancy-cursor"
+                          >
+                          </Input>
+                        </FormGroup>
+                      </Col>
+                      <Col xs={1}></Col>
+                      </Row>
                   </Form>
                 </Container>
               </div>
