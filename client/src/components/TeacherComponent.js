@@ -198,13 +198,13 @@ export default class Teacher extends Component {
                 userEmail={this.props?.userEmail}
               ></StaffAttendanceCreator>
             )}
-            {/* {this.state.teacher && (
+            {this.state.teacher && (
               <StaffAttendance
                 teacher={this.state.teacher}
                 campus={this.state.teacher.campus}
                 userEmail={this.props?.userEmail}
               ></StaffAttendance>
-            )} */}
+            )}
           </TabPane>
           <TabPane tabId="4">
             {this.state.teacher && (
