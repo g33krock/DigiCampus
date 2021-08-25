@@ -17,6 +17,7 @@ import { fetcher } from "../services/fetcher";
 import TeacherGroupSchedule from "./TeacherGroupScheduleComponent";
 import { StaffAttendanceCreator } from "./CreateStaffAttendance";
 import StaffAttendance from "./StaffAttendanceComponent";
+import TeacherTrackerResponse from "./TeacherTrackerResponses";
 
 export default class AdminTeacher extends Component {
   constructor(props) {
@@ -101,6 +102,16 @@ export default class AdminTeacher extends Component {
               }}
             >
               Attendance
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === "4" })}
+              onClick={() => {
+                this.toggle("4");
+              }}
+            >
+              Tracker Entries
             </NavLink>
           </NavItem>
         </Nav>
@@ -193,6 +204,14 @@ export default class AdminTeacher extends Component {
                 userEmail={this.props?.userEmail}
               ></StaffAttendance>
             )} */}
+          </TabPane>
+          <TabPane tabId="4">
+            {this.state.teacher && (
+              <TeacherTrackerResponse
+                teacher={this.state.teacher}
+                userEmail={this.props?.userEmail}
+              ></TeacherTrackerResponse>
+            )}
           </TabPane>
         </TabContent>
       </Container>

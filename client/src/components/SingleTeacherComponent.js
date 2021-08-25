@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { baseURL } from "../baseURL";
-import { Container, Nav, NavLink, Label, TabContent, TabPane, NavItem } from "reactstrap";
-import { TeacherUpdater } from "./UpdateTeacher";
+import { Container, Nav, NavLink, TabContent, TabPane, NavItem } from "reactstrap";
 import classnames from "classnames";
 import TeacherSchedule from "./TeacherScheduleComponent";
 import TeacherGroupSchedule from "./TeacherGroupScheduleComponent";
 import { fetcher } from "../services/fetcher";
+import TeacherTrackerResponse from "./TeacherTrackerResponses";
 
 export default class SingleTeacher extends Component {
   constructor(props) {
@@ -67,35 +67,17 @@ export default class SingleTeacher extends Component {
               Group
             </NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === "3" })}
+              onClick={() => {
+                this.toggle("3");
+              }}
+            >
+              Tracker Entries
+            </NavLink>
+          </NavItem>
         </Nav>
-        {/* <TeacherUpdater
-          teacherId={this.state.teacher?.id}
-          teacherFirstName={this.state.teacher?.firstName}
-          teacherLastName={this.state.teacher?.lastName}
-          teacherBirthDate={this.state.teacher?.birthDate}
-          teacherRole={this.state.teacher?.role.id}
-          teacherCampus={this.state.teacher?.campus.id}
-          teacherEmail={this.state.teacher?.email}
-          teacherPhone={this.state.teacher?.phone}
-          teacherLink={this.state.teacher?.link}
-          teacherElementary={this.state.teacher?.elementary}
-          teacherMiddle={this.state.teacher?.middle}
-          teacherHighschoolMath={this.state.teacher?.math}
-          teacherHighschoolELA={this.state.teacher?.ELA}
-          teacherHighschoolHistory={this.state.teacher?.history}
-          teacherHighschoolScience={this.state.teacher?.science}
-          teacherElective={this.state.teacher?.elective}
-          teacherP1={this.state.teacher?.pOne}
-          teacherP2={this.state.teacher?.pTwo}
-          teacherP3={this.state.teacher?.pThree}
-          teacherP4={this.state.teacher?.pFour}
-          teacherP5={this.state.teacher?.pFive}
-          teacherP6={this.state.teacher?.pSix}
-          teacherP7={this.state.teacher?.pSeven}
-          teacherP8={this.state.teacher?.pEight}
-          teacherP9={this.state.teacher?.pNine}
-          teacherP10={this.state.teacher?.pTen}
-        ></TeacherUpdater> */}
         <h1 className="perfectdark">Hello {this.state.teacher?.firstName}</h1>
         <h3>Link: {this.state.teacher?.link}</h3>
         <TabContent activeTab={this.state.activeTab}>
@@ -108,12 +90,20 @@ export default class SingleTeacher extends Component {
             )}
           </TabPane>
           <TabPane tabId="2">
-            <h3>Mic Drop.... Boom!</h3>
+            <h3>Ahoy!</h3>
             {this.state.teacher && (
               <TeacherGroupSchedule
                 teacher={this.state.teacher}
                 userEmail={this.props?.userEmail}
               ></TeacherGroupSchedule>
+            )}
+          </TabPane>
+          <TabPane tabId="3">
+            {this.state.teacher && (
+              <TeacherTrackerResponse
+                teacher={this.state.teacher}
+                userEmail={this.props?.userEmail}
+              ></TeacherTrackerResponse>
             )}
           </TabPane>
         </TabContent>
