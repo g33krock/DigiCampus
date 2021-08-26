@@ -54,7 +54,7 @@ export default class TeacherTrackerResponse extends Component {
                 <strong>Date</strong>
               </th>
               <th>
-                <strong>Teacher</strong>
+                <strong>Student</strong>
               </th>
               <th>
                 <strong>Course</strong>
@@ -102,7 +102,7 @@ export default class TeacherTrackerResponse extends Component {
               <tr>
                 <th key={tracker.id}>{tracker?.date}</th>
                 <td>
-                  <small>{tracker?.teachers.firstName} {tracker?.teachers.lastName}</small>
+                  <small>{tracker?.students.firstName} {tracker?.students.lastName}</small>
                 </td>
                 <td>
                   <small>{tracker?.courses.name}</small>
