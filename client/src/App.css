@@ -361,6 +361,12 @@ skew to change the 'thickness' of the glitch.*/
   background-repeat: no-repeat;
 }
 
+#headline{
+
+  justify-content: 'center';
+  align-items: 'center'
+}
+
 #tallInput{
   height: 150px;
 }
