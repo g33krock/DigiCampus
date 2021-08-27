@@ -375,6 +375,10 @@ skew to change the 'thickness' of the glitch.*/
   background: green
 }
 
+.tight{
+  line-height: 80%;
+}
+
 .No{
   background: rgb(36, 36, 36)
 }

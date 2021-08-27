@@ -430,8 +430,8 @@ export default class AdminSchedule extends Component {
                 ))}
               </Input>
             </Col>
-            <h1 id="headline">K-6</h1>
-            <Table bordered hover size="sm">
+            <h1 id="headline">K-5</h1>
+            <Table bordered hover size="sm" className="tight">
               <thead class="shadow">
                 <tr id="scheduleHeader">
                   <th>
@@ -488,7 +488,7 @@ export default class AdminSchedule extends Component {
                   .filter(
                     (cstudent) =>
                       cstudent.campuses.id === this.state?.campus?.id
-                  ).filter(student => student.grade <= 6)
+                  ).filter(student => student.grade <= 5)
                   .sort(function (a, b) {
                     let x = a.firstName.toLowerCase();
                     let y = b.firstName.toLowerCase();
@@ -512,8 +512,8 @@ export default class AdminSchedule extends Component {
                             className={schedule.teacher?.firstName}
                             id="schedItem"
                           >
-                            <small>{schedule.period}</small>
-                            <br />
+                            {/* <small>{schedule.period}</small>
+                            <br /> */}
                             <small>{schedule.course.name}</small>
                             <br />
                             <small>
@@ -521,11 +521,18 @@ export default class AdminSchedule extends Component {
                               {schedule.teacher?.lastName}
                             </small>{" "}
                             <br />
+                            <small>
+                              {schedule.para?.firstName}{" "}
+                              {schedule.para?.lastName}
+                            </small>{" "}
+                            <br />
                             <ScheduleUpdater
                               callback={() => this.getSchedules()}
                               scheduleId={schedule.id}
                               period={schedule.period}
                               campus={schedule.campus}
+                              para={schedule?.para}
+                              oneToOne={schedule?.oneToOne}
                               teacher={schedule.teacher}
                               course={schedule.course}
                               courses={this.state.courses}
@@ -542,8 +549,8 @@ export default class AdminSchedule extends Component {
                   ))}
               </tbody>
             </Table>
-            <h1 id="headline">7-12</h1>
-            <Table bordered hover size="sm">
+            <h1 id="headline">6-12</h1>
+            <Table bordered hover size="sm" className="tight">
               <thead class="shadow">
                 <tr id="scheduleHeader">
                   <th>
@@ -600,7 +607,7 @@ export default class AdminSchedule extends Component {
                   .filter(
                     (cstudent) =>
                       cstudent.campuses.id === this.state?.campus?.id
-                  ).filter(student => student.grade >= 7)
+                  ).filter(student => student.grade >= 6)
                   .sort(function (a, b) {
                     let x = a.firstName.toLowerCase();
                     let y = b.firstName.toLowerCase();
@@ -624,8 +631,8 @@ export default class AdminSchedule extends Component {
                             className={schedule.teacher?.firstName}
                             id="schedItem"
                           >
-                            <small>{schedule.period}</small>
-                            <br />
+                            {/* <small>{schedule.period}</small>
+                            <br /> */}
                             <small>{schedule.course.name}</small>
                             <br />
                             <small>
@@ -633,11 +640,18 @@ export default class AdminSchedule extends Component {
                               {schedule.teacher?.lastName}
                             </small>{" "}
                             <br />
+                            <small>
+                              {schedule.para?.firstName}{" "}
+                              {schedule.para?.lastName}
+                            </small>{" "}
+                            <br />
                             <ScheduleUpdater
                               callback={() => this.getSchedules()}
                               scheduleId={schedule.id}
                               period={schedule.period}
                               campus={schedule.campus}
+                              para={schedule?.para}
+                              oneToOne={schedule?.oneToOne}
                               teacher={schedule.teacher}
                               course={schedule.course}
                               courses={this.state.courses}
@@ -665,8 +679,8 @@ export default class AdminSchedule extends Component {
                 ))}
               </Input>
             </Col>
-            <h1 id="headline">K-6</h1>
-            <Table bordered hover size="sm">
+            <h1 id="headline">K-5</h1>
+            <Table bordered hover size="sm" className="tight">
               <thead class="shadow">
                 <tr id="scheduleHeader">
                   <th>
@@ -723,7 +737,7 @@ export default class AdminSchedule extends Component {
                   .filter(
                     (cstudent) =>
                       cstudent.campuses.id === this.state?.campus?.id
-                  ).filter(student => student.grade <= 6)
+                  ).filter(student => student.grade <= 5)
                   .sort(function (a, b) {
                     let x = a.firstName.toLowerCase();
                     let y = b.firstName.toLowerCase();
@@ -754,6 +768,11 @@ export default class AdminSchedule extends Component {
                               {schedule.teacher?.lastName}
                             </small>{" "}
                             <br />
+                            <small>
+                              {schedule.para?.firstName}{" "}
+                              {schedule.para?.lastName}
+                            </small>{" "}
+                            <br />
                             <small>{schedule.teacher?.link} </small>{" "}
                           </td>
                         ))}
@@ -761,8 +780,8 @@ export default class AdminSchedule extends Component {
                   ))}
               </tbody>
             </Table>
-            <h1 id="headline">7-12</h1>
-            <Table bordered hover size="sm">
+            <h1 id="headline">6-12</h1>
+            <Table bordered hover size="sm" className="tight">
               <thead class="shadow">
                 <tr id="scheduleHeader">
                   <th>
@@ -819,7 +838,7 @@ export default class AdminSchedule extends Component {
                   .filter(
                     (cstudent) =>
                       cstudent.campuses.id === this.state?.campus?.id
-                  ).filter(student => student.grade >= 7)
+                  ).filter(student => student.grade >= 6)
                   .sort(function (a, b) {
                     let x = a.firstName.toLowerCase();
                     let y = b.firstName.toLowerCase();
@@ -848,6 +867,11 @@ export default class AdminSchedule extends Component {
                             <small>
                               {schedule.teacher?.firstName}{" "}
                               {schedule.teacher?.lastName}
+                            </small>{" "}
+                            <br />
+                            <small>
+                              {schedule.para?.firstName}{" "}
+                              {schedule.para?.lastName}
                             </small>{" "}
                             <br />
                             <small>{schedule.teacher?.link} </small>{" "}
@@ -868,7 +892,7 @@ export default class AdminSchedule extends Component {
                 ))}
               </Input>
             </Col>
-            <Table bordered hover size="sm">
+            <Table bordered hover size="sm" className="tight">
               <thead class="shadow">
                 <tr id="scheduleHeader">
                   <th>

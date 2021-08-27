@@ -7,6 +7,8 @@ import {
   Button,
   Modal,
   ModalBody,
+  Row,
+  Col
 } from "reactstrap";
 import { scheduleService } from "../services/scheduleService";
 
@@ -27,7 +29,9 @@ export class ScheduleUpdater extends Component {
     const scheduleObject = {
       id: this.props.scheduleId,
       teacher: parseInt(document.getElementById("scheduleTeacher").value),
+      para: parseInt(document.getElementById("schedulePara").value),
       course: parseInt(document.getElementById("scheduleCourse").value),
+      oneToOne: document.getElementById("scheduleOneToOne").value,
       period: this.props.period
     };
     await scheduleService.update(scheduleObject);
@@ -52,8 +56,10 @@ export class ScheduleUpdater extends Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody>
             <Form>
+              <Row>
+                <Col>
               <FormGroup>
-                <Label for="scheduleTeacher">Select Teacher</Label>
+                <Label for="scheduleTeacher">Teacher</Label>
                 <Input type="select" id="scheduleTeacher" defaultValue={this.props.teacher.id}>
                   <option value='26' selected>None</option>
                   {this.props.teachers?.filter((teacher) => teacher.campus.id === this.props?.campus.id)
@@ -70,6 +76,30 @@ export class ScheduleUpdater extends Component {
                   ))}
                 </Input>
               </FormGroup>
+              </Col>
+              <Col>
+              <FormGroup>
+                <Label for="schedulePara">Para</Label>
+                <Input type="select" id="schedulePara" defaultValue={this.props.para?.id}>
+                  <option value='26' selected>None</option>
+                  {this.props.teachers?.filter((teacher) => teacher.campus.id === this.props?.campus.id)
+                  .sort(function(a, b){
+                    let x = a.firstName.toLowerCase();
+                    let y = b.firstName.toLowerCase();
+                    if (x < y) {return -1;}
+                    if (x > y) {return 1;}
+                    return 0;})
+                  .map((teacher) => (
+                    <option value={teacher.id}>
+                      {teacher.firstName} {teacher.lastName}
+                    </option>
+                  ))}
+                </Input>
+              </FormGroup>
+              </Col>
+              </Row>
+              <Row>
+                <Col>
               <FormGroup>
                 <Label for="scheduleCourse">Select Course</Label>
                 <Input type="select" id="scheduleCourse" defaultValue={this.props.course.id}>
@@ -85,6 +115,18 @@ export class ScheduleUpdater extends Component {
                   ))}
                 </Input>
               </FormGroup>
+              </Col>
+              <Col>
+              <FormGroup>
+                <Label for="scheduleOneToOne">One-To-One?</Label>
+                <Input type="select" id="scheduleOneToOne" defaultValue={this.props?.oneToOne}>
+                <option value='NULL'></option>
+                <option value='false'>No</option>
+                <option value='true'>Yes</option>
+                </Input>
+              </FormGroup>
+              </Col>
+              </Row>
               <Button
                 color="primary"
                 onClick={() => {

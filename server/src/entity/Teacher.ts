@@ -133,6 +133,9 @@ export class Teacher extends BaseEntity {
 	})
 	pTen: string;
 
+	@OneToMany(() => Schedule, schedule => schedule.para)
+	pschedule: Schedule[];
+
 	@OneToMany(() => Schedule, schedule => schedule.teacher)
 	schedules: Schedule[];
 

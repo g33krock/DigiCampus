@@ -29,15 +29,18 @@ export class Schedule extends BaseEntity {
 	})
 	link: string;
 
-	@Column({
-		nullable: true
-	})
-	para: string;
+	@ManyToOne(() => Teacher, teacher => teacher.pschedule)
+	para: Teacher;
 
 	@Column({
 		nullable: true
 	})
 	period: number;
+
+	@Column({
+		nullable: true
+	})
+	oneToOne: string;
 
 	@Column({
 		nullable: true
