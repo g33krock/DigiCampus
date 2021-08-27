@@ -52,9 +52,6 @@ export default class StaffAttendance extends Component {
                 <strong>Hours</strong>
               </th>
               <th>
-                <strong>Points</strong>
-              </th>
-              <th>
                 <strong>Comment</strong>
               </th>
             </tr>
@@ -85,9 +82,6 @@ export default class StaffAttendance extends Component {
                 </td>
                 <td>
                   <small>{attendance?.hours}</small>
-                </td>
-                <td>
-                  <small>{attendance?.points}</small>
                 </td>
                 <td>
                   <small>{attendance?.comment}</small>

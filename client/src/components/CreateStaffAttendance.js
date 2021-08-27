@@ -51,7 +51,6 @@ export class StaffAttendanceCreator extends Component {
       approved: document.getElementById("approved").value,
       illness: document.getElementById("illness").value,
       hours: document.getElementById("hours").value,
-      points: document.getElementById("points").value,
       comment: document.getElementById("comment").value,
     };
     const staffAttendance = await staffAttendanceService.create(
@@ -93,9 +92,6 @@ export class StaffAttendanceCreator extends Component {
                 <strong>Hours</strong>
               </th>
               <th>
-                <strong>Points</strong>
-              </th>
-              <th>
                 <strong>Comment</strong>
               </th>
             </tr>
@@ -128,9 +124,6 @@ export class StaffAttendanceCreator extends Component {
                   <small>{attendance?.hours}</small>
                 </td>
                 <td>
-                  <small>{attendance?.points}</small>
-                </td>
-                <td>
                   <small>{attendance?.comment}</small>
                 </td>
                </tr>
@@ -156,7 +149,7 @@ export class StaffAttendanceCreator extends Component {
             <Form className="fancy-cursor">
               <Container id="trackerBox">
                 <Row>
-                  <Col xs="5">
+                  <Col>
                     <FormGroup>
                       <Label for="incidentDate">Date</Label>
                       <Input
@@ -173,8 +166,7 @@ export class StaffAttendanceCreator extends Component {
                       />
                     </FormGroup>
                   </Col>
-
-                  <Col xs="3">
+                  <Col>
                     <FormGroup>
                       <Label for="approved">Approved</Label>
                       <Input
@@ -189,8 +181,9 @@ export class StaffAttendanceCreator extends Component {
                       </Input>
                     </FormGroup>
                   </Col>
-                  <Col xs="1"></Col>
-                  <Col xs="3">
+                  </Row>
+                  <Row>
+                  <Col>
                     <FormGroup>
                       <Label for="illness">Illness</Label>
                       <Input
@@ -205,13 +198,9 @@ export class StaffAttendanceCreator extends Component {
                       </Input>
                     </FormGroup>
                   </Col>
-                </Row>
-              </Container>
-              <Container id="trackerBox">
-                <Row>
-                  <Col xs="3">
+                  <Col>
                     <FormGroup>
-                      <Label for="hours">Hours Missed</Label>
+                      <Label for="hours"><small>Hours Missed</small></Label>
                       <Input
                         type="number"
                         name="hours"
@@ -220,19 +209,9 @@ export class StaffAttendanceCreator extends Component {
                       />
                     </FormGroup>
                   </Col>
-                  <Col xs="1"></Col>
-                  <Col xs="3">
-                    <FormGroup>
-                      <Label for="points">Points Accrued</Label>
-                      <Input
-                        type="number"
-                        name="points"
-                        id="points"
-                        className="fancy-cursor"
-                      />
-                    </FormGroup>
-                  </Col>
                 </Row>
+              </Container>
+              <Container id="trackerBox">
                 <FormGroup>
                   <Label for="comment">Comment</Label>
                   <Input
