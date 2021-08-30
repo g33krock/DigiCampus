@@ -8,6 +8,11 @@ import {
   NavItem,
   NavLink,
   TabContent,
+  Row,
+  Form,
+  Col,
+  Input,
+  Button
 } from "reactstrap";
 import classnames from "classnames";
 import TeacherSchedule from "./TeacherScheduleComponent";
@@ -16,7 +21,6 @@ import { TeacherUpdater } from "./UpdateTeacher";
 import { fetcher } from "../services/fetcher";
 import TeacherGroupSchedule from "./TeacherGroupScheduleComponent";
 import { StaffAttendanceCreator } from "./CreateStaffAttendance";
-import StaffAttendance from "./StaffAttendanceComponent";
 import TeacherTrackerResponse from "./TeacherTrackerResponses";
 
 export default class AdminTeacher extends Component {
@@ -25,7 +29,7 @@ export default class AdminTeacher extends Component {
     this.state = {
       activeTab: "1",
     };
-    this.state = { teachers: [], teacher: null };
+    this.state = { teachers: [], teacher: null, startDate: null, endDate: null };
   }
 
   componentDidMount() {
@@ -46,6 +50,12 @@ export default class AdminTeacher extends Component {
       });
     }
   }
+
+  async saveTheDate() {
+    const date = await this.setState({ startDate: document.getElementById("startDate").value, endDate: document.getElementById("endDate").value });
+    console.log(date)
+    console.log(`Start: ${this.state.startDate}  End: ${this.state.endDate}`)
+}
 
   getStaffAttendance() {
     fetcher(`${baseURL}/staffAttendance`)
@@ -115,7 +125,11 @@ export default class AdminTeacher extends Component {
             </NavLink>
           </NavItem>
         </Nav>
+        <Row>
+          <Col md="2">
         <TeacherCreator></TeacherCreator>
+        </Col>
+        <Col md="2">
         <TeacherUpdater
           teacherId={this.state.teacher?.id}
           teacherFirstName={this.state.teacher?.firstName}
@@ -144,6 +158,43 @@ export default class AdminTeacher extends Component {
           teacherP9={this.state.teacher?.pNine}
           teacherP10={this.state.teacher?.pTen}
         ></TeacherUpdater>
+        </Col>
+        <Col md="8">
+        <Form>
+          <Row>
+        <Col md="3">
+        <Label for="startDate"><small>Start Date</small></Label>
+        <Input
+          type="date"
+          name="startDate"
+          id="startDate"
+          placeholder="Start"
+        />
+        </Col>
+        <Col md="3">
+        <Label for="endDate"><small>End Date</small></Label>
+        <Input
+          type="date"
+          name="endDate"
+          id="endDate"
+          placeholder="End"
+        />
+        </Col>
+        <Col md="2">
+                      <Button
+                color="link"
+                size="sm"
+                onClick={() => {
+                    this.saveTheDate()
+                }}
+              >
+                Submit
+              </Button>
+              </Col>
+              </Row>
+        </Form>
+        </Col>
+        </Row>
         <h1 className="perfectdark">Hello {this.state.teacher?.firstName}</h1>
         <h3>Link: {this.state.teacher?.link}</h3>
         <div className="row">
@@ -192,6 +243,8 @@ export default class AdminTeacher extends Component {
             {this.state.teacher && (
               <StaffAttendanceCreator
                 callback={() => this.getStaffAttendance()}
+                startDate={this.state?.startDate}
+                endDate={this.state?.endDate}
                 teacher={this.state.teacher}
                 campus={this.state.teacher.campus}
                 userEmail={this.props?.userEmail}
@@ -208,6 +261,8 @@ export default class AdminTeacher extends Component {
           <TabPane tabId="4">
             {this.state.teacher && (
               <TeacherTrackerResponse
+                startDate={this.state?.startDate}
+                endDate={this.state?.endDate}
                 teacher={this.state.teacher}
                 userEmail={this.props?.userEmail}
               ></TeacherTrackerResponse>

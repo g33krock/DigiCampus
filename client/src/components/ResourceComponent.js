@@ -30,6 +30,36 @@ export default class Resource extends Component {
                   <CardLink href="https://drive.google.com/drive/folders/1q57URLhny9zFjPIaxXk2Y5XI7_hfhnwC?usp=sharing">STEAM Curriculum</CardLink>
                 </Card>
               </Col>
+              <Col>
+                <Card body className="text-center">
+                  <CardTitle>Edgenuity</CardTitle>
+                  <br />
+                  <CardBody>
+                    <CardText>Wanna get to Edgenuity? Click here!</CardText>
+                  </CardBody>
+                  <CardLink href="https://www.edgenuity.com/">Edgenuity Link</CardLink>
+                </Card>
+              </Col>
+              <Col>
+                <Card body className="text-center">
+                  <CardTitle>IXL</CardTitle>
+                  <br />
+                  <CardBody>
+                    <CardText>Wanna get to IXL? Click here!</CardText>
+                  </CardBody>
+                  <CardLink href="https://www.ixl.com/">IXL Link</CardLink>
+                </Card>
+              </Col>
+              <Col>
+                <Card body className="text-center">
+                  <CardTitle>STAR Testing</CardTitle>
+                  <br />
+                  <CardBody>
+                    <CardText>Wanna get to STAR? Click here!</CardText>
+                  </CardBody>
+                  <CardLink href="https://global-zone50.renaissance-go.com/welcomeportal/7627521">STAR Link</CardLink>
+                </Card>
+              </Col>
 
       </Row>
     );

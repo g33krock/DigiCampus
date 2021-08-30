@@ -61,7 +61,7 @@ export class TeacherUpdater extends Component {
   render() {
     return (
       <div>
-        <Button outline color="success" size="sm" onClick={() => this.setState({ modal: true })}>
+        <Button color="link" size="sm" onClick={() => this.setState({ modal: true })}>
           Update Teacher
         </Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>

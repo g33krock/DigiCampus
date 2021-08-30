@@ -20,6 +20,7 @@ import { courseService } from "../services/courseService";
 import { teacherService } from "../services/teacherService";
 import { scheduleService } from "../services/scheduleService";
 import { TeacherPrepUpdater } from "./UpdateTeacherPrepOne";
+import DateRangeFilter from "./DateRangeFilter";
 
 export default class AdminSchedule extends Component {
   constructor(props) {
@@ -416,6 +417,16 @@ export default class AdminSchedule extends Component {
               }}
             >
               Efficiency
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === "6" })}
+              onClick={() => {
+                this.toggle("6");
+              }}
+            >
+              Date filter
             </NavLink>
           </NavItem>
         </Nav>
@@ -1578,6 +1589,9 @@ export default class AdminSchedule extends Component {
                 </tr>
               </tbody>
             </Table>
+          </TabPane>
+          <TabPane tabId="6">
+            <DateRangeFilter></DateRangeFilter>
           </TabPane>
         </TabContent>
       </div>

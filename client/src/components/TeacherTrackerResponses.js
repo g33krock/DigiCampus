@@ -31,15 +31,14 @@ export default class TeacherTrackerResponse extends Component {
             return 0;
           })
         this.setState({
-          trackers,
+          trackers: trackers.filter(tracker => tracker?.date >= this.props?.startDate).filter(tracker => tracker?.date <= this.props?.endDate),
         })
         console.log(this.state.trackers)
       });
   }
 
   setTracker(trackers) {
-    // sets student property to student object.  This looks funny because they both are named student
-    this.setState({ trackers: trackers });
+    this.setState({ trackers: trackers.filter(tracker => tracker?.date >= this.props?.startDate) });
     console.log(trackers);
   }
 

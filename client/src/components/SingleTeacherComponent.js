@@ -44,6 +44,7 @@ export default class SingleTeacher extends Component {
   }
 
   render() {
+    const date = new Date()
     return (
       <Container>
         <Nav tabs>
@@ -101,6 +102,8 @@ export default class SingleTeacher extends Component {
           <TabPane tabId="3">
             {this.state.teacher && (
               <TeacherTrackerResponse
+              startDate="2021-08-04"
+              endDate={`${date.getFullYear()}-${("0" + (date.getMonth() + 1)).slice(-2)}-${("0" + date.getDate()).slice(-2)}`}
                 teacher={this.state.teacher}
                 userEmail={this.props?.userEmail}
               ></TeacherTrackerResponse>

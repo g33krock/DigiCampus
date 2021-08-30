@@ -66,6 +66,8 @@ export default class AltStudentSchedule extends Component {
           case 10:
             block = "3:20 - 4:10";
             break;
+            default:
+            block= "dance party"
         }   
         return (
             <Table key={studentsched.id}>
