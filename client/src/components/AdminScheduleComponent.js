@@ -213,6 +213,7 @@ export default class AdminSchedule extends Component {
         teacher.campus.id === this.state?.campus?.id &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
+          teacher.role.id === 7 ||
           teacher.role.id === 4)
     ).length;
     const pTwos = this.state.teachers.filter(
@@ -223,6 +224,7 @@ export default class AdminSchedule extends Component {
         teacher.campus.id === this.state?.campus?.id &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
+          teacher.role.id === 7 ||
           teacher.role.id === 4)
     ).length;
     const pThrees = this.state.teachers.filter(
@@ -233,6 +235,7 @@ export default class AdminSchedule extends Component {
         teacher.campus.id === this.state?.campus?.id &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
+          teacher.role.id === 7 ||
           teacher.role.id === 4)
     ).length;
     const pFours = this.state.teachers.filter(
@@ -243,6 +246,7 @@ export default class AdminSchedule extends Component {
         teacher.campus.id === this.state?.campus?.id &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
+          teacher.role.id === 7 ||
           teacher.role.id === 4)
     ).length;
     const pFives = this.state.teachers.filter(
@@ -253,6 +257,7 @@ export default class AdminSchedule extends Component {
         teacher.campus.id === this.state?.campus?.id &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
+          teacher.role.id === 7 ||
           teacher.role.id === 4)
     ).length;
     const pSixs = this.state.teachers.filter(
@@ -263,6 +268,7 @@ export default class AdminSchedule extends Component {
         teacher.campus.id === this.state?.campus?.id &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
+          teacher.role.id === 7 ||
           teacher.role.id === 4)
     ).length;
     const pSevens = this.state.teachers.filter(
@@ -273,6 +279,7 @@ export default class AdminSchedule extends Component {
         teacher.campus.id === this.state?.campus?.id &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
+          teacher.role.id === 7 ||
           teacher.role.id === 4)
     ).length;
     const pEights = this.state.teachers.filter(
@@ -283,6 +290,7 @@ export default class AdminSchedule extends Component {
         teacher.campus.id === this.state?.campus?.id &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
+          teacher.role.id === 7 ||
           teacher.role.id === 4)
     ).length;
     const pNines = this.state.teachers.filter(
@@ -293,6 +301,7 @@ export default class AdminSchedule extends Component {
         teacher.campus.id === this.state?.campus?.id &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
+          teacher.role.id === 7 ||
           teacher.role.id === 4)
     ).length;
     const pTens = this.state.teachers.filter(
@@ -303,6 +312,7 @@ export default class AdminSchedule extends Component {
         teacher.campus.id === this.state?.campus?.id &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
+          teacher.role.id === 7 ||
           teacher.role.id === 4)
     ).length;
     let sched1 = this.state.schedules
