@@ -1263,7 +1263,7 @@ export default class AdminSchedule extends Component {
                             (schedule) =>
                               schedule.course.subject === "ELA" ||
                               schedule.course.subject === "Math" ||
-                              schedule.oneToOne === "Yes"
+                              schedule.oneToOne === "true"
                           ).length
                         }
                       </th>
