@@ -87,6 +87,7 @@ export default class AltStudentSchedule extends Component {
                             teacher={studentsched.teacher}
                             course={studentsched.course}
                             period={studentsched.period}
+                            schedule={studentsched}
                           ></TrackerCreator>
                           </td>
                     </tr>
