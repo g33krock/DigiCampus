@@ -1246,8 +1246,8 @@ export default class Schedule extends Component {
                           (schedule) =>
                             schedule?.para?.id !== 26 &&
                             schedule?.para?.id !== isNull &&
-                            schedule?.para?.id >= 1 &&
-                            schedule.course.id !== 48
+                            schedule?.para?.id >= 1
+                            // schedule.course.id !== 48
                         ).length}
                       </th>
                     </tr>
