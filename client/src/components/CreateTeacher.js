@@ -152,6 +152,7 @@ export class TeacherCreator extends Component {
                       <option value="4">Paraprofessional</option>
                       <option value="7">Sped Coordinator</option>
                       <option value="5">District Administrator</option>
+                      <option value="8">Occupational Therapist</option>
                     </Input>
                   </FormGroup>
                 </Col>

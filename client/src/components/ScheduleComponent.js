@@ -172,6 +172,14 @@ export default class Schedule extends Component {
         (schedule) =>
           `${schedule.teacher.firstName} ${schedule.teacher.lastName}`
       );
+      let para1 = this.state.schedules
+      .filter((schedule) => schedule.period === 1)
+      .filter((schedule) => schedule.para?.id !== 26)
+      .map(
+        (schedule) =>
+          `${schedule.para?.firstName} ${schedule.para?.lastName}`
+      );
+    let total1 = sched1.concat(para1);
     let teach1 = this.state.pOne
       .filter((teacher) => teacher.campus.id === this.props.campus?.id)
       .filter(
@@ -182,7 +190,7 @@ export default class Schedule extends Component {
       )
       .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
     teach1 = teach1.filter(function (item) {
-      return !sched1.includes(item);
+      return !total1.includes(item);
     });
     // console.log(teach1);
     let sched2 = this.state.schedules
@@ -192,6 +200,14 @@ export default class Schedule extends Component {
         (schedule) =>
           `${schedule.teacher.firstName} ${schedule.teacher.lastName}`
       );
+      let para2 = this.state.schedules
+      .filter((schedule) => schedule.period === 2)
+      .filter((schedule) => schedule.para?.id !== 26)
+      .map(
+        (schedule) =>
+          `${schedule.para?.firstName} ${schedule.para?.lastName}`
+      );
+    let total2 = sched2.concat(para2);
     let teach2 = this.state.pTwo
       .filter((teacher) => teacher.campus.id === this.props.campus?.id)
       .filter(
@@ -202,7 +218,7 @@ export default class Schedule extends Component {
       )
       .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
     teach2 = teach2.filter(function (item) {
-      return !sched2.includes(item);
+      return !total2.includes(item);
     });
     // console.log(teach2);
     let sched3 = this.state.schedules
@@ -212,6 +228,14 @@ export default class Schedule extends Component {
         (schedule) =>
           `${schedule.teacher.firstName} ${schedule.teacher.lastName}`
       );
+      let para3 = this.state.schedules
+      .filter((schedule) => schedule.period === 3)
+      .filter((schedule) => schedule.para?.id !== 26)
+      .map(
+        (schedule) =>
+          `${schedule.para?.firstName} ${schedule.para?.lastName}`
+      );
+    let total3 = sched3.concat(para3);
     let teach3 = this.state.pThree
       .filter((teacher) => teacher.campus.id === this.props.campus?.id)
       .filter(
@@ -222,7 +246,7 @@ export default class Schedule extends Component {
       )
       .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
     teach3 = teach3.filter(function (item) {
-      return !sched3.includes(item);
+      return !total3.includes(item);
     });
     // console.log(teach3);
     let sched4 = this.state.schedules
@@ -232,6 +256,14 @@ export default class Schedule extends Component {
         (schedule) =>
           `${schedule.teacher.firstName} ${schedule.teacher.lastName}`
       );
+      let para4 = this.state.schedules
+      .filter((schedule) => schedule.period === 4)
+      .filter((schedule) => schedule.para?.id !== 26)
+      .map(
+        (schedule) =>
+          `${schedule.para?.firstName} ${schedule.para?.lastName}`
+      );
+    let total4 = sched4.concat(para4);
     let teach4 = this.state.pFour
       .filter((teacher) => teacher.campus.id === this.props.campus?.id)
       .filter(
@@ -242,7 +274,7 @@ export default class Schedule extends Component {
       )
       .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
     teach4 = teach4.filter(function (item) {
-      return !sched4.includes(item);
+      return !total4.includes(item);
     });
     // console.log(teach4);
     let sched5 = this.state.schedules
@@ -252,6 +284,14 @@ export default class Schedule extends Component {
         (schedule) =>
           `${schedule.teacher.firstName} ${schedule.teacher.lastName}`
       );
+      let para5 = this.state.schedules
+      .filter((schedule) => schedule.period === 5)
+      .filter((schedule) => schedule.para?.id !== 26)
+      .map(
+        (schedule) =>
+          `${schedule.para?.firstName} ${schedule.para?.lastName}`
+      );
+    let total5 = sched5.concat(para5);
     let teach5 = this.state.pFive
       .filter((teacher) => teacher.campus.id === this.props.campus?.id)
       .filter(
@@ -262,7 +302,7 @@ export default class Schedule extends Component {
       )
       .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
     teach5 = teach5.filter(function (item) {
-      return !sched5.includes(item);
+      return !total5.includes(item);
     });
     // console.log(teach5);
     let sched6 = this.state.schedules
@@ -272,6 +312,14 @@ export default class Schedule extends Component {
         (schedule) =>
           `${schedule.teacher.firstName} ${schedule.teacher.lastName}`
       );
+      let para6 = this.state.schedules
+      .filter((schedule) => schedule.period === 6)
+      .filter((schedule) => schedule.para?.id !== 26)
+      .map(
+        (schedule) =>
+          `${schedule.para?.firstName} ${schedule.para?.lastName}`
+      );
+    let total6 = sched6.concat(para6);
     let teach6 = this.state.pSix
       .filter((teacher) => teacher.campus.id === this.props.campus?.id)
       .filter(
@@ -282,7 +330,7 @@ export default class Schedule extends Component {
       )
       .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
     teach6 = teach6.filter(function (item) {
-      return !sched6.includes(item);
+      return !total6.includes(item);
     });
     // console.log(teach6);
     let sched7 = this.state.schedules
@@ -292,6 +340,14 @@ export default class Schedule extends Component {
         (schedule) =>
           `${schedule.teacher.firstName} ${schedule.teacher.lastName}`
       );
+      let para7 = this.state.schedules
+      .filter((schedule) => schedule.period === 7)
+      .filter((schedule) => schedule.para?.id !== 26)
+      .map(
+        (schedule) =>
+          `${schedule.para?.firstName} ${schedule.para?.lastName}`
+      );
+    let total7 = sched7.concat(para7);
     let teach7 = this.state.pSeven
       .filter((teacher) => teacher.campus.id === this.props.campus?.id)
       .filter(
@@ -302,7 +358,7 @@ export default class Schedule extends Component {
       )
       .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
     teach7 = teach7.filter(function (item) {
-      return !sched7.includes(item);
+      return !total7.includes(item);
     });
     // console.log(teach7);
     let sched8 = this.state.schedules
@@ -312,6 +368,14 @@ export default class Schedule extends Component {
         (schedule) =>
           `${schedule.teacher.firstName} ${schedule.teacher.lastName}`
       );
+      let para8 = this.state.schedules
+      .filter((schedule) => schedule.period === 8)
+      .filter((schedule) => schedule.para?.id !== 26)
+      .map(
+        (schedule) =>
+          `${schedule.para?.firstName} ${schedule.para?.lastName}`
+      );
+    let total8 = sched8.concat(para8);
     let teach8 = this.state.pEight
       .filter((teacher) => teacher.campus.id === this.props.campus?.id)
       .filter(
@@ -322,7 +386,7 @@ export default class Schedule extends Component {
       )
       .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
     teach8 = teach8.filter(function (item) {
-      return !sched8.includes(item);
+      return !total8.includes(item);
     });
     // console.log(teach8);
     let sched9 = this.state.schedules
@@ -332,6 +396,14 @@ export default class Schedule extends Component {
         (schedule) =>
           `${schedule.teacher.firstName} ${schedule.teacher.lastName}`
       );
+      let para9 = this.state.schedules
+      .filter((schedule) => schedule.period === 9)
+      .filter((schedule) => schedule.para?.id !== 26)
+      .map(
+        (schedule) =>
+          `${schedule.para?.firstName} ${schedule.para?.lastName}`
+      );
+    let total9 = sched9.concat(para9);
     let teach9 = this.state.pNine
       .filter((teacher) => teacher.campus.id === this.props.campus?.id)
       .filter(
@@ -342,7 +414,7 @@ export default class Schedule extends Component {
       )
       .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
     teach9 = teach9.filter(function (item) {
-      return !sched9.includes(item);
+      return !total9.includes(item);
     });
     // console.log(teach9);
     let sched10 = this.state.schedules
@@ -352,6 +424,14 @@ export default class Schedule extends Component {
         (schedule) =>
           `${schedule.teacher.firstName} ${schedule.teacher.lastName}`
       );
+      let para10 = this.state.schedules
+      .filter((schedule) => schedule.period === 10)
+      .filter((schedule) => schedule.para?.id !== 26)
+      .map(
+        (schedule) =>
+          `${schedule.para?.firstName} ${schedule.para?.lastName}`
+      );
+    let total10 = sched10.concat(para10);
     let teach10 = this.state.pTen
       .filter((teacher) => teacher.campus.id === this.props.campus?.id)
       .filter(
@@ -362,7 +442,7 @@ export default class Schedule extends Component {
       )
       .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
     teach10 = teach10.filter(function (item) {
-      return !sched10.includes(item);
+      return !total10.includes(item);
     });
     // console.log(teach10);
 
