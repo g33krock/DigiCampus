@@ -186,6 +186,7 @@ export default class Schedule extends Component {
         (teacher) =>
           teacher.role.id === 2 ||
           teacher.role.id === 3 ||
+          teacher.role.id === 7 ||
           teacher.role.id === 4
       )
       .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
@@ -214,6 +215,7 @@ export default class Schedule extends Component {
         (teacher) =>
           teacher.role.id === 2 ||
           teacher.role.id === 3 ||
+          teacher.role.id === 7 ||
           teacher.role.id === 4
       )
       .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
@@ -242,6 +244,7 @@ export default class Schedule extends Component {
         (teacher) =>
           teacher.role.id === 2 ||
           teacher.role.id === 3 ||
+          teacher.role.id === 7 ||
           teacher.role.id === 4
       )
       .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
@@ -270,6 +273,7 @@ export default class Schedule extends Component {
         (teacher) =>
           teacher.role.id === 2 ||
           teacher.role.id === 3 ||
+          teacher.role.id === 7 ||
           teacher.role.id === 4
       )
       .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
@@ -298,6 +302,7 @@ export default class Schedule extends Component {
         (teacher) =>
           teacher.role.id === 2 ||
           teacher.role.id === 3 ||
+          teacher.role.id === 7 ||
           teacher.role.id === 4
       )
       .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
@@ -326,6 +331,7 @@ export default class Schedule extends Component {
         (teacher) =>
           teacher.role.id === 2 ||
           teacher.role.id === 3 ||
+          teacher.role.id === 7 ||
           teacher.role.id === 4
       )
       .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
@@ -354,6 +360,7 @@ export default class Schedule extends Component {
         (teacher) =>
           teacher.role.id === 2 ||
           teacher.role.id === 3 ||
+          teacher.role.id === 7 ||
           teacher.role.id === 4
       )
       .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
@@ -382,6 +389,7 @@ export default class Schedule extends Component {
         (teacher) =>
           teacher.role.id === 2 ||
           teacher.role.id === 3 ||
+          teacher.role.id === 7 ||
           teacher.role.id === 4
       )
       .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
@@ -410,6 +418,7 @@ export default class Schedule extends Component {
         (teacher) =>
           teacher.role.id === 2 ||
           teacher.role.id === 3 ||
+          teacher.role.id === 7 ||
           teacher.role.id === 4
       )
       .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
@@ -438,6 +447,7 @@ export default class Schedule extends Component {
         (teacher) =>
           teacher.role.id === 2 ||
           teacher.role.id === 3 ||
+          teacher.role.id === 7 ||
           teacher.role.id === 4
       )
       .map((teacher) => `${teacher.firstName} ${teacher.lastName}`);
