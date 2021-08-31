@@ -20,6 +20,7 @@ import { courseService } from "../services/courseService";
 import { teacherService } from "../services/teacherService";
 import { scheduleService } from "../services/scheduleService";
 import { TeacherPrepUpdater } from "./UpdateTeacherPrepOne";
+import { isNull } from "lodash";
 
 export default class Schedule extends Component {
   constructor(props) {
@@ -1205,444 +1206,52 @@ export default class Schedule extends Component {
                     <h2>Teacher</h2>
                   </th>
                   <th>
-                    <h2>Efficiency</h2>
+                    <h2>Para</h2>
                   </th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th>
-                    {this.state.schedules
-                      .filter(
-                        (schedule) =>
-                          schedule.campus.id === this.props?.campus?.id
-                      )
-                      .filter((schedule) => schedule.teacher.id !== 26)
-                      .filter(
-                        (schedule) =>
-                          schedule.course.subject === "ELA" ||
-                          schedule.course.subject === "Math"
-                      ).length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pOne === "Para Support")
-                        .length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pTwo === "Para Support")
-                        .length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pThree === "Para Support")
-                        .length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pFour === "Para Support")
-                        .length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pFive === "Para Support")
-                        .length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pSix === "Para Support")
-                        .length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pSeven === "Para Support")
-                        .length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pEight === "Para Support")
-                        .length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pNine === "Para Support")
-                        .length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pTen === "Para Support")
-                        .length}{" "}
-                  </th>
-                  <th>
-                    {this.state.teachers
-                      .filter(
-                        (teacher) =>
-                          teacher.role.id === 2 ||
-                          teacher.role.id === 3 ||
-                          teacher.role.id === 4
-                      )
-                      .filter(
-                        (teacher) =>
-                          teacher.campus.id === this.props?.campus?.id
-                      )
-                      .filter((teacher) => teacher.pOne !== "No")
-                      .filter((teacher) => teacher.pOne !== "Prep").length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.role.id === 2 ||
-                            teacher.role.id === 3 ||
-                            teacher.role.id === 4
-                        )
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pTwo !== "No")
-                        .filter((teacher) => teacher.pTwo !== "Prep").length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.role.id === 2 ||
-                            teacher.role.id === 3 ||
-                            teacher.role.id === 4
-                        )
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pThree !== "No")
-                        .filter((teacher) => teacher.pThree !== "Prep").length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.role.id === 2 ||
-                            teacher.role.id === 3 ||
-                            teacher.role.id === 4
-                        )
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pFour !== "No")
-                        .filter((teacher) => teacher.pFour !== "Prep").length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.role.id === 2 ||
-                            teacher.role.id === 3 ||
-                            teacher.role.id === 4
-                        )
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pFive !== "No")
-                        .filter((teacher) => teacher.pFive !== "Prep").length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.role.id === 2 ||
-                            teacher.role.id === 3 ||
-                            teacher.role.id === 4
-                        )
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pSix !== "No")
-                        .filter((teacher) => teacher.pSix !== "Prep").length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.role.id === 2 ||
-                            teacher.role.id === 3 ||
-                            teacher.role.id === 4
-                        )
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pSeven !== "No")
-                        .filter((teacher) => teacher.pSeven !== "Prep").length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.role.id === 2 ||
-                            teacher.role.id === 3 ||
-                            teacher.role.id === 4
-                        )
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pEight !== "No")
-                        .filter((teacher) => teacher.pEight !== "Prep").length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.role.id === 2 ||
-                            teacher.role.id === 3 ||
-                            teacher.role.id === 4
-                        )
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pNine !== "No")
-                        .filter((teacher) => teacher.pNine !== "Prep").length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.role.id === 2 ||
-                            teacher.role.id === 3 ||
-                            teacher.role.id === 4
-                        )
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pTen !== "No")
-                        .filter((teacher) => teacher.pTen !== "Prep").length}
-                  </th>
-                  <th>
-                    {(this.state.teachers
-                      .filter(
-                        (teacher) =>
-                          teacher.role.id === 2 ||
-                          teacher.role.id === 3 ||
-                          teacher.role.id === 4
-                      )
-                      .filter(
-                        (teacher) =>
-                          teacher.campus.id === this.props?.campus?.id
-                      )
-                      .filter((teacher) => teacher.pOne !== "No")
-                      .filter((teacher) => teacher.pOne !== "Prep").length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.role.id === 2 ||
-                            teacher.role.id === 3 ||
-                            teacher.role.id === 4
-                        )
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pTwo !== "No")
-                        .filter((teacher) => teacher.pTwo !== "Prep").length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.role.id === 2 ||
-                            teacher.role.id === 3 ||
-                            teacher.role.id === 4
-                        )
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pThree !== "No")
-                        .filter((teacher) => teacher.pThree !== "Prep").length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.role.id === 2 ||
-                            teacher.role.id === 3 ||
-                            teacher.role.id === 4
-                        )
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pFour !== "No")
-                        .filter((teacher) => teacher.pFour !== "Prep").length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.role.id === 2 ||
-                            teacher.role.id === 3 ||
-                            teacher.role.id === 4
-                        )
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pFive !== "No")
-                        .filter((teacher) => teacher.pFive !== "Prep").length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.role.id === 2 ||
-                            teacher.role.id === 3 ||
-                            teacher.role.id === 4
-                        )
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pSix !== "No")
-                        .filter((teacher) => teacher.pSix !== "Prep").length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.role.id === 2 ||
-                            teacher.role.id === 3 ||
-                            teacher.role.id === 4
-                        )
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pSeven !== "No")
-                        .filter((teacher) => teacher.pSeven !== "Prep").length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.role.id === 2 ||
-                            teacher.role.id === 3 ||
-                            teacher.role.id === 4
-                        )
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pEight !== "No")
-                        .filter((teacher) => teacher.pEight !== "Prep").length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.role.id === 2 ||
-                            teacher.role.id === 3 ||
-                            teacher.role.id === 4
-                        )
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pNine !== "No")
-                        .filter((teacher) => teacher.pNine !== "Prep").length +
-                      this.state.teachers
-                        .filter(
-                          (teacher) =>
-                            teacher.role.id === 2 ||
-                            teacher.role.id === 3 ||
-                            teacher.role.id === 4
-                        )
-                        .filter(
-                          (teacher) =>
-                            teacher.campus.id === this.props?.campus?.id
-                        )
-                        .filter((teacher) => teacher.pTen !== "No")
-                        .filter((teacher) => teacher.pTen !== "Prep").length) /
-                      (this.state.schedules
-                        .filter(
+                {this.state.students
+                  .filter(
+                    (student) => student.campuses.id === this.props?.campus?.id
+                  )
+                  .sort(function (a, b) {
+                    let x = a.lastName.toLowerCase();
+                    let y = b.lastName.toLowerCase();
+                    if (x < y) {
+                      return -1;
+                    }
+                    if (x > y) {
+                      return 1;
+                    }
+                    return 0;
+                  })
+                  .map((student) => (
+                    <tr>
+                      <th>
+                        {student.lastName}, {student.firstName}
+                      </th>
+                      <th>
+                        {
+                          student.schedules.filter(
+                            (schedule) =>
+                              schedule.course.subject === "ELA" ||
+                              schedule.course.subject === "Math" ||
+                              schedule.oneToOne === "Yes"
+                          ).length
+                        }
+                      </th>
+                      <th>
+                        {student.schedules.filter(
                           (schedule) =>
-                            schedule.campus.id === this.props?.campus?.id
-                        )
-                        .filter((schedule) => schedule.teacher.id !== 26)
-                        .filter(
-                          (schedule) =>
-                            schedule.course.subject === "ELA" ||
-                            schedule.course.subject === "Math"
-                        ).length +
-                        this.state.teachers
-                          .filter(
-                            (teacher) =>
-                              teacher.campus.id === this.state?.campus?.id
-                          )
-                          .filter((teacher) => teacher.pOne === "Para Support")
-                          .length +
-                        this.state.teachers
-                          .filter(
-                            (teacher) =>
-                              teacher.campus.id === this.props?.campus?.id
-                          )
-                          .filter((teacher) => teacher.pTwo === "Para Support")
-                          .length +
-                        this.state.teachers
-                          .filter(
-                            (teacher) =>
-                              teacher.campus.id === this.props?.campus?.id
-                          )
-                          .filter(
-                            (teacher) => teacher.pThree === "Para Support"
-                          ).length +
-                        this.state.teachers
-                          .filter(
-                            (teacher) =>
-                              teacher.campus.id === this.props?.campus?.id
-                          )
-                          .filter((teacher) => teacher.pFour === "Para Support")
-                          .length +
-                        this.state.teachers
-                          .filter(
-                            (teacher) =>
-                              teacher.campus.id === this.props?.campus?.id
-                          )
-                          .filter((teacher) => teacher.pFive === "Para Support")
-                          .length +
-                        this.state.teachers
-                          .filter(
-                            (teacher) =>
-                              teacher.campus.id === this.props?.campus?.id
-                          )
-                          .filter((teacher) => teacher.pSix === "Para Support")
-                          .length +
-                        this.state.teachers
-                          .filter(
-                            (teacher) =>
-                              teacher.campus.id === this.props?.campus?.id
-                          )
-                          .filter(
-                            (teacher) => teacher.pSeven === "Para Support"
-                          ).length +
-                        this.state.teachers
-                          .filter(
-                            (teacher) =>
-                              teacher.campus.id === this.props?.campus?.id
-                          )
-                          .filter(
-                            (teacher) => teacher.pEight === "Para Support"
-                          ).length +
-                        this.state.teachers
-                          .filter(
-                            (teacher) =>
-                              teacher.campus.id === this.props?.campus?.id
-                          )
-                          .filter((teacher) => teacher.pNine === "Para Support")
-                          .length +
-                        this.state.teachers
-                          .filter(
-                            (teacher) =>
-                              teacher.campus.id === this.props?.campus?.id
-                          )
-                          .filter((teacher) => teacher.pTen === "Para Support")
-                          .length)}
-                  </th>
-                </tr>
+                            schedule?.para?.id !== 26 &&
+                            schedule?.para?.id !== isNull &&
+                            schedule?.para?.id >= 1 &&
+                            schedule.course.id !== 48
+                        ).length}
+                      </th>
+                    </tr>
+                  ))}
               </tbody>
             </Table>
           </TabPane>
