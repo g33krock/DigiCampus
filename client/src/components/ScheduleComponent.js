@@ -1277,12 +1277,13 @@ export default class Schedule extends Component {
               <tbody>
                 {this.state.teachers
                   .filter(
-                    (cstudent) => cstudent.campus.id === this.props?.campus?.id
+                    (cstudent) => cstudent.campus.id === this.props?.campus?.id || cstudent.campus.id === 10
                   )
                   .filter(
                     (teacher) =>
                       teacher.role.id === 2 ||
                       teacher.role.id === 3 ||
+                      teacher.role.id === 7 ||
                       teacher.role.id === 4
                   )
                   .sort(function (a, b) {

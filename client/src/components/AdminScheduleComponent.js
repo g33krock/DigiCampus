@@ -330,7 +330,7 @@ export default class AdminSchedule extends Component {
       );
     let total1 = sched1.concat(para1);
     let teach1 = this.state.pOne
-      .filter((teacher) => teacher.campus.id === this.state.campus?.id)
+      .filter((teacher) => teacher.campus.id === this.state.campus?.id || teacher.campus.id === 10)
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -358,7 +358,7 @@ export default class AdminSchedule extends Component {
       );
     let total2 = sched2.concat(para2);
     let teach2 = this.state.pTwo
-      .filter((teacher) => teacher.campus.id === this.state.campus?.id)
+      .filter((teacher) => teacher.campus.id === this.state.campus?.id  || teacher.campus.id === 10)
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -386,7 +386,7 @@ export default class AdminSchedule extends Component {
       );
     let total3 = sched3.concat(para3);
     let teach3 = this.state.pThree
-      .filter((teacher) => teacher.campus.id === this.state.campus?.id)
+      .filter((teacher) => teacher.campus.id === this.state.campus?.id || teacher.campus.id === 10)
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -414,7 +414,7 @@ export default class AdminSchedule extends Component {
       );
     let total4 = sched4.concat(para4);
     let teach4 = this.state.pFour
-      .filter((teacher) => teacher.campus.id === this.state.campus?.id)
+      .filter((teacher) => teacher.campus.id === this.state.campus?.id || teacher.campus.id === 10)
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -442,7 +442,7 @@ export default class AdminSchedule extends Component {
       );
     let total5 = sched5.concat(para5);
     let teach5 = this.state.pFive
-      .filter((teacher) => teacher.campus.id === this.state.campus?.id)
+      .filter((teacher) => teacher.campus.id === this.state.campus?.id || teacher.campus.id === 10)
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -470,7 +470,7 @@ export default class AdminSchedule extends Component {
       );
     let total6 = sched6.concat(para6);
     let teach6 = this.state.pSix
-      .filter((teacher) => teacher.campus.id === this.state.campus?.id)
+      .filter((teacher) => teacher.campus.id === this.state.campus?.id || teacher.campus.id === 10)
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -498,7 +498,7 @@ export default class AdminSchedule extends Component {
       );
     let total7 = sched7.concat(para7);
     let teach7 = this.state.pSeven
-      .filter((teacher) => teacher.campus.id === this.state.campus?.id)
+      .filter((teacher) => teacher.campus.id === this.state.campus?.id || teacher.campus.id === 10)
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -526,7 +526,7 @@ export default class AdminSchedule extends Component {
       );
     let total8 = sched8.concat(para8);
     let teach8 = this.state.pEight
-      .filter((teacher) => teacher.campus.id === this.state.campus?.id)
+      .filter((teacher) => teacher.campus.id === this.state.campus?.id || teacher.campus.id === 10)
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -554,7 +554,7 @@ export default class AdminSchedule extends Component {
       );
     let total9 = sched9.concat(para9);
     let teach9 = this.state.pNine
-      .filter((teacher) => teacher.campus.id === this.state.campus?.id)
+      .filter((teacher) => teacher.campus.id === this.state.campus?.id || teacher.campus.id === 10)
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -582,7 +582,7 @@ export default class AdminSchedule extends Component {
       );
     let total10 = sched10.concat(para10);
     let teach10 = this.state.pTen
-      .filter((teacher) => teacher.campus.id === this.state.campus?.id)
+      .filter((teacher) => teacher.campus.id === this.state.campus?.id || teacher.campus.id === 10)
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -1319,12 +1319,13 @@ export default class AdminSchedule extends Component {
               <tbody>
                 {this.state.teachers
                   .filter(
-                    (cstudent) => cstudent.campus.id === this.state?.campus?.id
+                    (cstudent) => cstudent.campus.id === this.state?.campus?.id || cstudent.campus.id === 10
                   )
                   .filter(
                     (teacher) =>
                       teacher.role.id === 2 ||
                       teacher.role.id === 3 ||
+                      teacher.role.id === 7 ||
                       teacher.role.id === 4
                   )
                   .sort(function (a, b) {
