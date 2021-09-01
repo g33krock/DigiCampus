@@ -97,64 +97,64 @@ export default class AdminSchedule extends Component {
     this.setState({ teachers });
     const pOne = this.state.teachers
       .filter(
-        (teacher) => teacher.pOne === "Yes" || teacher.pOne === "Para Support"
+        (teacher) => teacher.pOne === "Yes"
       )
       .filter((teacher) => teacher.campus.id === this.state?.campus?.id);
     this.setState({ pOne });
     const pTwo = this.state.teachers
       .filter(
-        (teacher) => teacher.pTwo === "Yes" || teacher.pTwo === "Para Support"
+        (teacher) => teacher.pTwo === "Yes"
       )
       .filter((teacher) => teacher.campus.id === this.state?.campus?.id);
     this.setState({ pTwo });
     const pThree = this.state.teachers
       .filter(
         (teacher) =>
-          teacher.pThree === "Yes" || teacher.pThree === "Para Support"
+          teacher.pThree === "Yes"
       )
       .filter((teacher) => teacher.campus.id === this.state?.campus?.id);
     this.setState({ pThree });
     const pFour = this.state.teachers
       .filter(
-        (teacher) => teacher.pFour === "Yes" || teacher.pFour === "Para Support"
+        (teacher) => teacher.pFour === "Yes" 
       )
       .filter((teacher) => teacher.campus.id === this.state?.campus?.id);
     this.setState({ pFour });
     const pFive = this.state.teachers
       .filter(
-        (teacher) => teacher.pFive === "Yes" || teacher.pFive === "Para Support"
+        (teacher) => teacher.pFive === "Yes"
       )
       .filter((teacher) => teacher.campus.id === this.state?.campus?.id);
     this.setState({ pFive });
     const pSix = this.state.teachers
       .filter(
-        (teacher) => teacher.pSix === "Yes" || teacher.pSix === "Para Support"
+        (teacher) => teacher.pSix === "Yes"
       )
       .filter((teacher) => teacher.campus.id === this.state?.campus?.id);
     this.setState({ pSix });
     const pSeven = this.state.teachers
       .filter(
         (teacher) =>
-          teacher.pSeven === "Yes" || teacher.pSeven === "Para Support"
+          teacher.pSeven === "Yes"
       )
       .filter((teacher) => teacher.campus.id === this.state?.campus?.id);
     this.setState({ pSeven });
     const pEight = this.state.teachers
       .filter(
         (teacher) =>
-          teacher.pEight === "Yes" || teacher.pEight === "Para Support"
+          teacher.pEight === "Yes"
       )
       .filter((teacher) => teacher.campus.id === this.state?.campus?.id);
     this.setState({ pEight });
     const pNine = this.state.teachers
       .filter(
-        (teacher) => teacher.pNine === "Yes" || teacher.pNine === "Para Support"
+        (teacher) => teacher.pNine === "Yes"
       )
       .filter((teacher) => teacher.campus.id === this.state?.campus?.id);
     this.setState({ pNine });
     const pTen = this.state.teachers
       .filter(
-        (teacher) => teacher.pTen === "Yes" || teacher.pTen === "Para Support"
+        (teacher) => teacher.pTen === "Yes"
       )
       .filter((teacher) => teacher.campus.id === this.state?.campus?.id);
     this.setState({ pTen });
