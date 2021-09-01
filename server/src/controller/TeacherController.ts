@@ -1,15 +1,14 @@
 import { NextFunction, Request, Response } from "express";
-import { Schedule } from "../entity/Schedule";
 import { Teacher } from "../entity/Teacher";
 
 export class TeacherController {
 
 	async all(request: Request, response: Response, next: NextFunction) {
-		return Teacher.find({ relations: ["campus", "role", "schedules", "schedules.course"] });
+		return Teacher.find({ relations: ["campus", "role", "schedules", "schedules.course", "schedules.campus"] });
 	}
 
 	async one(request: Request, response: Response, next: NextFunction) {
-		return Teacher.findOne(request.params.id, { relations: ["campus", "role", "schedules", "schedules.course"] });
+		return Teacher.findOne(request.params.id, { relations: ["campus", "role", "schedules", "schedules.course", "schedules.campus"] });
 	}
 
 
