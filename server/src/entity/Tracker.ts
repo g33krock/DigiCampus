@@ -116,4 +116,9 @@ export class Tracker extends BaseEntity {
 	})
 	SEL5: string;
 
+	@Column({
+		nullable: true
+	})
+	method: string;
+
 }
