@@ -45,7 +45,7 @@ export class GroupTrackerCreator extends Component {
   async updateSchedule(i) {
     const scheduleObject = {
       id: i.id,
-      lastUpdate: document.getElementById("spedResponseDate").value
+      lastUpdate: document.getElementById("spedResponseDate").value,
     };
     await scheduleService.update(scheduleObject);
   }
@@ -62,7 +62,9 @@ export class GroupTrackerCreator extends Component {
       attendance: document.getElementById("attendance" + i.student.id).value,
       engagement: document.getElementById("engagement" + i.student.id).value,
       behavior: document.getElementById("behavior" + i.student.id).value,
-      behaviorComment: document.getElementById("behaviorComment" + i.student.id).value,
+      method: document.getElementById("method" + i.student.id).value,
+      behaviorComment: document.getElementById("behaviorComment" + i.student.id)
+        .value,
     };
     const tracker = await trackerService.create(trackerObject);
     console.log(tracker);
@@ -82,34 +84,30 @@ export class GroupTrackerCreator extends Component {
       spedQuestions: i.id,
     };
     const spedResponse = await spedResponseService.create(spedResponseObject);
-    console.log(spedResponse)
+    console.log(spedResponse);
   }
 
   createSpedResponseNinja() {
-      this.state.block.forEach((stud) => {
-        this.state.spedQuestions
+    this.state.block.forEach((stud) => {
+      this.state.spedQuestions
         ?.filter((speQ) => speQ.student.id === stud.student.id)
-        ?.filter(
-          (speQ) =>
-            speQ.category === "Social"
-        ).forEach((scheduleQuestion) =>
-      this.createSpedResponse(scheduleQuestion)
-    );
-      })
-
+        ?.filter((speQ) => speQ.category === "Social")
+        .forEach((scheduleQuestion) =>
+          this.createSpedResponse(scheduleQuestion)
+        );
+    });
   }
 
   createTrackerNinja() {
     this.state.block.forEach((scheduleQuestion) =>
       this.createTracker(scheduleQuestion)
     );
-
   }
 
   updateScheduleNinja() {
     this.state.block.forEach((scheduleQuestion) =>
-    this.updateSchedule(scheduleQuestion)
-  );
+      this.updateSchedule(scheduleQuestion)
+    );
   }
 
   toggle() {
@@ -117,13 +115,16 @@ export class GroupTrackerCreator extends Component {
   }
 
   render() {
-    var date = new Date(); 
+    var date = new Date();
     return (
       <div>
-        <Button color="link" onClick={() => {
-            this.setState({ modal: true })
-            this.setState({ block: this.props.block})
-            }}>
+        <Button
+          color="link"
+          onClick={() => {
+            this.setState({ modal: true });
+            this.setState({ block: this.props.block });
+          }}
+        >
           Student Group Tracking
         </Button>
         <Modal isOpen={this.state.modal} toggle={() => this.toggle()}>
@@ -136,50 +137,67 @@ export class GroupTrackerCreator extends Component {
               textAlign: "center",
             }}
           >
-              <Form>
-                <Row>
-              <Col xs={1}></Col>
-                    <Col xs={5}>
-                      <FormGroup>
-                        <Label for="spedResponseDate">Date</Label>
-                        <Input
-                          defaultValue={date.getFullYear().toString() + '-' + (date.getMonth() + 1).toString().padStart(2, 0) +
-                          '-' + date.getDate().toString().padStart(2, 0)}
-                          type="date"
-                          name={`spedResponseDate`}
-                          id={`spedResponseDate`}
-                        />
-                      </FormGroup>
-                    </Col>
-                    <Col xs={1}></Col>
-                    <Col xs={5}>
-                        <FormGroup>
-                          <Label for="lesson">Lesson</Label>
-                          <Input
-                            type="text"
-                            name="lesson"
-                            id={`lesson`}
-                            className="fancy-cursor"
-                          >
-                          </Input>
-                        </FormGroup>
-                      </Col>
-                      </Row>
-              </Form>
+            <Form>
+              <Row>
+                <Col xs={1}></Col>
+                <Col xs={5}>
+                  <FormGroup>
+                    <Label for="spedResponseDate">Date</Label>
+                    <Input
+                      defaultValue={
+                        date.getFullYear().toString() +
+                        "-" +
+                        (date.getMonth() + 1).toString().padStart(2, 0) +
+                        "-" +
+                        date.getDate().toString().padStart(2, 0)
+                      }
+                      type="date"
+                      name={`spedResponseDate`}
+                      id={`spedResponseDate`}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col xs={1}></Col>
+                <Col xs={5}>
+                  <FormGroup>
+                    <Label for="lesson">Lesson</Label>
+                    <Input
+                      type="text"
+                      name="lesson"
+                      id={`lesson`}
+                      className="fancy-cursor"
+                    ></Input>
+                  </FormGroup>
+                </Col>
+              </Row>
+            </Form>
             {this.props.block.map((sched) => (
               <div>
                 <Container id="trackerBox">
                   <p>
                     Student:
-                    <small id={`studentId${sched.student.id}`} value={sched.student.id}>
+                    <small
+                      id={`studentId${sched.student.id}`}
+                      value={sched.student.id}
+                    >
                       {sched.student.firstName} {sched.student.lastName}
                     </small>
                     Course:
-                    <small id={`courseId${sched.student.id}`} value={sched.course.id}>{sched.course.name}</small>
+                    <small
+                      id={`courseId${sched.student.id}`}
+                      value={sched.course.id}
+                    >
+                      {sched.course.name}
+                    </small>
                     Teacher:
-                    <small id={`teacherId${sched.student.id}`} value={sched.teacher.id}>{sched.teacher.firstName} {sched.teacher.lastName}</small>
+                    <small
+                      id={`teacherId${sched.student.id}`}
+                      value={sched.teacher.id}
+                    >
+                      {sched.teacher.firstName} {sched.teacher.lastName}
+                    </small>
                   </p>
-                    <div id={`schedId${sched.id}`}></div>
+                  <div id={`schedId${sched.id}`}></div>
                   <Form>
                     {this.state.spedQuestions
                       ?.filter((speQ) => speQ.student.id === sched.student.id)
@@ -254,6 +272,24 @@ export class GroupTrackerCreator extends Component {
                           </Container>
                         </div>
                       ))}
+                    <Row>
+                      <Col>
+                        <FormGroup>
+                          <Label for="method">Method</Label>
+                          <Input
+                            type="select"
+                            name="method"
+                            id={`Method${sched.student.id}`}
+                            className="fancy-cursor"
+                          >
+                            <option></option>
+                            <option>Ground</option>
+                            <option>Virtual</option>
+                          </Input>
+                        </FormGroup>
+                      </Col>
+                    </Row>
+
                     <Row form>
                       <Col md={3}>
                         <FormGroup>
@@ -370,12 +406,11 @@ export class GroupTrackerCreator extends Component {
                             name="behaviorComment"
                             id={`behaviorComment${sched.student.id}`}
                             className="fancy-cursor"
-                          >
-                          </Input>
+                          ></Input>
                         </FormGroup>
                       </Col>
                       <Col xs={1}></Col>
-                      </Row>
+                    </Row>
                   </Form>
                 </Container>
               </div>
@@ -389,7 +424,7 @@ export class GroupTrackerCreator extends Component {
                   this.createSpedResponseNinja();
                   this.updateScheduleNinja();
                   this.setState({ modal: false });
-                  console.log(this.state.block)
+                  console.log(this.state.block);
                 }}
               >
                 Submit
