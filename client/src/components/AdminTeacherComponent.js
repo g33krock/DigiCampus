@@ -12,7 +12,7 @@ import {
   Form,
   Col,
   Input,
-  Button
+  Button,
 } from "reactstrap";
 import classnames from "classnames";
 import TeacherSchedule from "./TeacherScheduleComponent";
@@ -29,7 +29,12 @@ export default class AdminTeacher extends Component {
     this.state = {
       activeTab: "1",
     };
-    this.state = { teachers: [], teacher: null, startDate: null, endDate: null };
+    this.state = {
+      teachers: [],
+      teacher: null,
+      startDate: null,
+      endDate: null,
+    };
   }
 
   componentDidMount() {
@@ -52,21 +57,26 @@ export default class AdminTeacher extends Component {
   }
 
   async saveTheDate() {
-    const date = await this.setState({ startDate: document.getElementById("startDate").value, endDate: document.getElementById("endDate").value });
-    console.log(date)
-    console.log(`Start: ${this.state.startDate}  End: ${this.state.endDate}`)
-}
+    const date = await this.setState({
+      startDate: document.getElementById("startDate").value,
+      endDate: document.getElementById("endDate").value,
+    });
+    console.log(date);
+    console.log(`Start: ${this.state.startDate}  End: ${this.state.endDate}`);
+  }
 
   getStaffAttendance() {
     fetcher(`${baseURL}/staffAttendance`)
       // Convert response to a JSON object
       .then((response) => response.json())
       .then((attendances) => {
-          attendances.sort((attendancea, attendanceb) => attendancea?.date-attendanceb?.date)
+        attendances.sort(
+          (attendancea, attendanceb) => attendancea?.date - attendanceb?.date
+        );
         this.setState({
-            staffAttendance: attendances,
-        })
-        console.log(this.state.staffAttendance)
+          staffAttendance: attendances,
+        });
+        console.log(this.state.staffAttendance);
       });
   }
 
@@ -127,75 +137,85 @@ export default class AdminTeacher extends Component {
         </Nav>
         <Row>
           <Col md="2">
-        <TeacherCreator></TeacherCreator>
-        </Col>
-        <Col md="2">
-        <TeacherUpdater
-          teacherId={this.state.teacher?.id}
-          teacherFirstName={this.state.teacher?.firstName}
-          teacherLastName={this.state.teacher?.lastName}
-          teacherBirthDate={this.state.teacher?.birthDate}
-          teacherRole={this.state.teacher?.role.id}
-          teacherCampus={this.state.teacher?.campus.id}
-          teacherEmail={this.state.teacher?.email}
-          teacherPhone={this.state.teacher?.phone}
-          teacherLink={this.state.teacher?.link}
-          teacherElementary={this.state.teacher?.elementary}
-          teacherMiddle={this.state.teacher?.middle}
-          teacherHighschoolMath={this.state.teacher?.math}
-          teacherHighschoolELA={this.state.teacher?.ELA}
-          teacherHighschoolHistory={this.state.teacher?.history}
-          teacherHighschoolScience={this.state.teacher?.science}
-          teacherElective={this.state.teacher?.elective}
-          teacherP1={this.state.teacher?.pOne}
-          teacherP2={this.state.teacher?.pTwo}
-          teacherP3={this.state.teacher?.pThree}
-          teacherP4={this.state.teacher?.pFour}
-          teacherP5={this.state.teacher?.pFive}
-          teacherP6={this.state.teacher?.pSix}
-          teacherP7={this.state.teacher?.pSeven}
-          teacherP8={this.state.teacher?.pEight}
-          teacherP9={this.state.teacher?.pNine}
-          teacherP10={this.state.teacher?.pTen}
-        ></TeacherUpdater>
-        </Col>
-        <Col md="8">
-        <Form>
-          <Row>
-        <Col md="3">
-        <Label for="startDate"><small>Start Date</small></Label>
-        <Input
-          type="date"
-          name="startDate"
-          id="startDate"
-          placeholder="Start"
-        />
-        </Col>
-        <Col md="3">
-        <Label for="endDate"><small>End Date</small></Label>
-        <Input
-          type="date"
-          name="endDate"
-          id="endDate"
-          placeholder="End"
-        />
-        </Col>
-        <Col md="2">
-                      <Button
-                color="link"
-                size="sm"
-                onClick={() => {
-                    this.saveTheDate()
-                }}
-              >
-                Submit
-              </Button>
-              </Col>
+            <TeacherCreator></TeacherCreator>
+          </Col>
+          <Col md="2">
+            <TeacherUpdater
+              teacherId={this.state.teacher?.id}
+              teacherFirstName={this.state.teacher?.firstName}
+              teacherLastName={this.state.teacher?.lastName}
+              teacherBirthDate={this.state.teacher?.birthDate}
+              teacherRole={this.state.teacher?.role.id}
+              teacherCampus={this.state.teacher?.campus.id}
+              teacherEmail={this.state.teacher?.email}
+              teacherPhone={this.state.teacher?.phone}
+              teacherLink={this.state.teacher?.link}
+              teacherElementary={this.state.teacher?.elementary}
+              teacherMiddle={this.state.teacher?.middle}
+              teacherHighschoolMath={this.state.teacher?.math}
+              teacherHighschoolELA={this.state.teacher?.ELA}
+              teacherHighschoolHistory={this.state.teacher?.history}
+              teacherHighschoolScience={this.state.teacher?.science}
+              teacherElective={this.state.teacher?.elective}
+              teacherP1={this.state.teacher?.pOne}
+              teacherP2={this.state.teacher?.pTwo}
+              teacherP3={this.state.teacher?.pThree}
+              teacherP4={this.state.teacher?.pFour}
+              teacherP5={this.state.teacher?.pFive}
+              teacherP6={this.state.teacher?.pSix}
+              teacherP7={this.state.teacher?.pSeven}
+              teacherP8={this.state.teacher?.pEight}
+              teacherP9={this.state.teacher?.pNine}
+              teacherP10={this.state.teacher?.pTen}
+            ></TeacherUpdater>
+          </Col>
+          <Col md="8">
+            <Form>
+              <Row>
+                <Col md="3">
+                  <Label for="startDate">
+                    <small>Start Date</small>
+                  </Label>
+                  <Input
+                    type="date"
+                    name="startDate"
+                    id="startDate"
+                    placeholder="Start"
+                  />
+                </Col>
+                <Col md="3">
+                  <Label for="endDate">
+                    <small>End Date</small>
+                  </Label>
+                  <Input
+                    type="date"
+                    name="endDate"
+                    id="endDate"
+                    placeholder="End"
+                  />
+                </Col>
+                <Col md="2">
+                  <Button
+                    color="link"
+                    size="sm"
+                    onClick={() => {
+                      this.saveTheDate();
+                    }}
+                  >
+                    Submit
+                  </Button>
+                </Col>
               </Row>
-        </Form>
-        </Col>
+            </Form>
+          </Col>
         </Row>
-        <h1 className="perfectdark">Hello {this.state.teacher?.firstName}</h1>
+        <h1 className="perfectdark">
+          <img
+            style={{ width: 80, height: 80, borderRadius: 60 / 2 }}
+            src={this.state.teacher?.image}
+          />
+          Hello {this.state.teacher?.firstName}{" "}
+        </h1>
         <h3>Link: {this.state.teacher?.link}</h3>
         <div className="row">
           <Label for="scheduleTeacher">Select Teacher</Label>

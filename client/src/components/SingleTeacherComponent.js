@@ -86,7 +86,13 @@ export default class SingleTeacher extends Component {
             </NavLink>
           </NavItem>
         </Nav>
-        <h1 className="perfectdark">Hello {this.state.teacher?.firstName}</h1>
+        <h1 className="perfectdark">
+          <img
+            style={{ width: 80, height: 80, borderRadius: 60 / 2 }}
+            src={this.state.teacher?.image}
+          />
+          Hello {this.state.teacher?.firstName}
+        </h1>
         <h3>Link: {this.state.teacher?.link}</h3>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">

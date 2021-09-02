@@ -52,11 +52,13 @@ export default class Teacher extends Component {
       // Convert response to a JSON object
       .then((response) => response.json())
       .then((attendances) => {
-          attendances.sort((attendancea, attendanceb) => attendancea?.date-attendanceb?.date)
+        attendances.sort(
+          (attendancea, attendanceb) => attendancea?.date - attendanceb?.date
+        );
         this.setState({
-            staffAttendance: attendances,
-        })
-        console.log(this.state.staffAttendance)
+          staffAttendance: attendances,
+        });
+        console.log(this.state.staffAttendance);
       });
   }
 
@@ -71,7 +73,7 @@ export default class Teacher extends Component {
   };
 
   render() {
-    const date = new Date()
+    const date = new Date();
     return (
       <Container>
         <Nav tabs>
@@ -145,7 +147,13 @@ export default class Teacher extends Component {
           teacherP9={this.state.teacher?.pNine}
           teacherP10={this.state.teacher?.pTen}
         ></TeacherUpdater>
-        <h1 className="perfectdark">Hello {this.state.teacher?.firstName}</h1>
+        <h1 className="perfectdark">
+          <img
+            style={{ width: 80, height: 80, borderRadius: 60 / 2 }}
+            src={this.state.teacher?.image}
+          />
+          Hello {this.state.teacher?.firstName}
+        </h1>
         <h3>Link: {this.state.teacher?.link}</h3>
         <div className="row">
           <Label for="scheduleTeacher">Select Teacher</Label>
@@ -210,8 +218,11 @@ export default class Teacher extends Component {
           <TabPane tabId="4">
             {this.state.teacher && (
               <TeacherTrackerResponse
-              startDate="2021-08-04"
-              endDate={`${date.getFullYear()}-${("0" + (date.getMonth() + 1)).slice(-2)}-${("0" + date.getDate()).slice(-2)}`}
+                startDate="2021-08-04"
+                endDate={`${date.getFullYear()}-${(
+                  "0" +
+                  (date.getMonth() + 1)
+                ).slice(-2)}-${("0" + date.getDate()).slice(-2)}`}
                 teacher={this.state.teacher}
                 userEmail={this.props?.userEmail}
               ></TeacherTrackerResponse>
