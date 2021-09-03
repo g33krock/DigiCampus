@@ -44,12 +44,12 @@ class Header extends Component {
 
   getAnnouncements() {
     fetcher(`${baseURL}/announcements`)
-    .then((response) => response.json())
-    .then((data) => {
-      this.setState({
-        announcements: data,
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          announcements: data,
+        });
       });
-    });
   }
 
   toggleNav() {
@@ -110,6 +110,11 @@ class Header extends Component {
               <NavItem>
                 <NavLink className="nav-link" to="/resources">
                   Resources
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/timeCard">
+                  TimeCard
                 </NavLink>
               </NavItem>
             </Nav>
@@ -214,6 +219,11 @@ class Header extends Component {
               <NavItem>
                 <NavLink className="nav-link" to="/announcements">
                   Announcement
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/timeCard">
+                  TimeCard
                 </NavLink>
               </NavItem>
               <Col sm={3}></Col>

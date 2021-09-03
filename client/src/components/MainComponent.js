@@ -16,6 +16,7 @@ import Calendar from './CalendarComponent';
 import { teacherService } from '../services/teacherService';
 import Announcement from './AnnouncementComponent';
 import Resource from './ResourceComponent';
+import { TimeCard } from './TimeCardComponent';
 
 class Main extends Component {
     
@@ -78,6 +79,7 @@ class Main extends Component {
                         <PrivateRoute path='/substitute' component={Sub} userEmail = {this.props?.userEmail} campus = {this.state.campus} teacher = {this.state.teacher} />
                         <PrivateRoute path='/calendar' component={Calendar} userEmail = {this.props?.userEmail} />
                         <PrivateRoute path='/resources' component={Resource} userEmail = {this.props?.userEmail} />
+                        <PrivateRoute path='/timeCard' component={TimeCard} userEmail = {this.props?.userEmail} campus = {this.state.campus} />
                         <PrivateRoute path='/home' component={Home} />
                         <Redirect to='/home' />
                     </Switch>

@@ -159,4 +159,9 @@ export class Teacher extends BaseEntity {
 
 	@OneToMany(() => Gradebook, gradebook => gradebook.teachers)
 	gradebooks: Gradebook[];
+
+	@Column({
+		nullable: true
+	})
+	here: string;
 }

@@ -177,4 +177,9 @@ export class Student extends BaseEntity {
 
 	@OneToMany(() => SpedQuestion, spedQuestion => spedQuestion.student, {onDelete: 'CASCADE'})
 	spedQuestions: SpedQuestion[];
+
+	@Column({
+		nullable: true
+	})
+	here: boolean;
 }

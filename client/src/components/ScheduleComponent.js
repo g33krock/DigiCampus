@@ -1299,7 +1299,7 @@ export default class Schedule extends Component {
                   })
                   .map((teacher) => (
                     <tr>
-                      <th key={teacher.id}>
+                      <th key={teacher.id} className={teacher.here}>
                         {teacher.firstName} {teacher.lastName}
                         <TeacherPrepUpdater
                           callback={() => this.getSchedules()}
