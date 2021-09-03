@@ -51,9 +51,6 @@ export default class Attendance extends Component {
               <th>
                 <strong>Teacher</strong>
               </th>
-              <th>
-                <strong>Method</strong>
-              </th>
             </tr>
           </thead>
           <tbody>
@@ -82,9 +79,6 @@ export default class Attendance extends Component {
                 </td>
                 <td>
                   <small>{tracker?.teachers.firstName} {tracker?.teachers.lastName}</small>
-                </td>
-                <td>
-                  <small>{tracker?.method}</small>
                 </td>
                </tr>
             ))}
