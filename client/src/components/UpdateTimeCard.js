@@ -18,7 +18,7 @@ export class UpdateTimeCard extends Component {
       teacherID: this.props.teacher.id,
     };
     await teacherService.update(teacherObject);
-    await this.props.callback();
+    setTimeout(() => {  this.props.callback() }, 1000);
   }
 
   async clockOut() {
