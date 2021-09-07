@@ -1,6 +1,15 @@
 import { Component } from "react";
 import { Button } from "reactstrap";
 import { teacherService } from "../services/teacherService";
+import { timecardService } from "../services/timecardService";
+
+var today = new Date();
+var day = today.getFullYear().toString() +
+"-" +
+(today.getMonth() + 1).toString().padStart(2, 0) +
+"-" +
+today.getDate().toString().padStart(2, 0);
+var time = today.getHours() + ":" + today.getMinutes()
 
 export class UpdateTimeCard extends Component {
   constructor(props) {
@@ -18,7 +27,10 @@ export class UpdateTimeCard extends Component {
       teacherID: this.props.teacher.id,
     };
     await teacherService.update(teacherObject);
-    setTimeout(() => {  this.props.callback() }, 1000);
+    await this.stampIn();
+    setTimeout(() => {
+      this.props.callback();
+    }, 1000);
   }
 
   async clockOut() {
@@ -27,29 +39,55 @@ export class UpdateTimeCard extends Component {
       teacherID: this.props.teacher.id,
     };
     await teacherService.update(teacherObject);
-    setTimeout(() => {  this.props.callback() }, 1000);
+    await this.stampOut();
+    setTimeout(() => {
+      this.props.callback();
+    }, 1000);
+  }
+
+  async stampIn() {
+    const timecardObject = {
+      date: day,
+      time: time,
+      inOut: "In",
+      teacher: this.props.teacher.id,
+    };
+    await timecardService.create(timecardObject);
+  }
+
+  async stampOut() {
+    const timecardObject = {
+      date: day,
+      time: time,
+      inOut: "Out",
+      teacher: this.props.teacher.id,
+    };
+    await timecardService.create(timecardObject);
   }
 
   render() {
-      const isHere = () => {
-        if (this.props.teacher.here === "true") {
-          return "Clock Out";
-        } else {
-          return "Clock In";
-        }
+    const isHere = () => {
+      if (this.props.teacher.here === "true") {
+        return "Out";
+      } else {
+        return "In";
       }
+    };
     return (
       <Button
         size="sm"
-        onClick={() => {
-          if (this.props.teacher.here === "true") {
-            return this.clockOut();
-          } else {
-            return this.clockIn();
+        onClick={
+          (() => {
+            if (this.props.teacher.here === "true") {
+              return this.clockOut();
+            } else {
+              return this.clockIn();
+            }
           }
-        }}
+          )
+        }
       >
-          Punch Clock
+        Punch Clock
       </Button>
     );
   }

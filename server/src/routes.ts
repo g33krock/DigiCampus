@@ -556,27 +556,27 @@ export const Routes = [{
 
 {
     method: "get",
-    route: "/timecard",
+    route: "/timecards",
     controller: TimeCardController,
     action: "all"
 }, {
     method: "get",
-    route: "/timecard/:id",
+    route: "/timecards/:id",
     controller: TimeCardController,
     action: "one"
 }, {
     method: "put",
-    route: "/timecard/:id",
+    route: "/timecards/:id",
     controller: TimeCardController,
     action: "update"
 }, {
     method: "post",
-    route: "/timecard",
+    route: "/timecards",
     controller: TimeCardController,
     action: "save"
 }, {
     method: "delete",
-    route: "/timecard/:id",
+    route: "/timecards/:id",
     controller: TimeCardController,
     action: "remove"
 },

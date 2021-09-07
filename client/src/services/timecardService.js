@@ -44,3 +44,5 @@ class TimeCardService {
         console.log(data);
     }
 }
+
+export const timecardService = new TimeCardService();

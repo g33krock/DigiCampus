@@ -1,4 +1,4 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm";
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
 
 import { Teacher } from "./Teacher";
 
@@ -19,7 +19,7 @@ export class TimeCard extends BaseEntity {
 	@Column({
 		nullable: true
 	})
-	time: number;
+	time: string;
 
 	@Column({
 		nullable: true
