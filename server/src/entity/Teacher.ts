@@ -7,6 +7,7 @@ import { Gradebook } from "./Gradebook";
 import { Incident } from "./Incident";
 import { StaffAttendance } from "./StaffAttendance";
 import { SpedResponse } from "./SpedResponse";
+import { TimeCard } from "./TimeCard";
 
 @Entity()
 export class Teacher extends BaseEntity {
@@ -138,6 +139,9 @@ export class Teacher extends BaseEntity {
 
 	@OneToMany(() => Schedule, schedule => schedule.teacher)
 	schedules: Schedule[];
+
+	@OneToMany(() => TimeCard, timecard => timecard.teacher)
+	timecard: TimeCard[];
 
 	@ManyToOne(() => Role, role => role.teachers)
 	role: Role;

@@ -17,6 +17,7 @@ import { TranscriptController } from "./controller/TranscriptController";
 import { AnnouncementController } from "./controller/AnnouncementController";
 import { IncidentController } from "./controller/IncidentController";
 import { StaffAttendanceController } from "./controller/StaffAttendanceController";
+import { TimeCardController } from "./controller/TimeCardController";
 
 export const Routes = [{
 	method: "get",
@@ -548,6 +549,35 @@ export const Routes = [{
     method: "delete",
     route: "/staffAttendance/:id",
     controller: StaffAttendanceController,
+    action: "remove"
+},
+
+// TimeCard
+
+{
+    method: "get",
+    route: "/timecard",
+    controller: TimeCardController,
+    action: "all"
+}, {
+    method: "get",
+    route: "/timecard/:id",
+    controller: TimeCardController,
+    action: "one"
+}, {
+    method: "put",
+    route: "/timecard/:id",
+    controller: TimeCardController,
+    action: "update"
+}, {
+    method: "post",
+    route: "/timecard",
+    controller: TimeCardController,
+    action: "save"
+}, {
+    method: "delete",
+    route: "/timecard/:id",
+    controller: TimeCardController,
     action: "remove"
 },
 ];

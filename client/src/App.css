@@ -7,15 +7,16 @@ html, body, h1 {
 }
 
 html {
-  background-image: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Aspire-Owl.gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvQXNwaXJlLU93bC5naWYiLCJpYXQiOjE2MjQ1NTUxMzAsImV4cCI6MTkzOTkxNTEzMH0.t7V5iTGS19-Dt0-T6xu-RHIKfkfYK5AO7dXtXjjxc1s');
+  background-color: rgb(174, 216, 255);
   background-repeat: no-repeat;
   background-position: bottom;
  
 }
 
 .megatron {
-  text-align: center;
-  background-image: linear-gradient(rgb(255, 255, 255), rgb(124, 241, 250), rgb(255, 255, 255));
+  background-image: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Aspire-Owl.gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvQXNwaXJlLU93bC5naWYiLCJpYXQiOjE2MjQ1NTUxMzAsImV4cCI6MTkzOTkxNTEzMH0.t7V5iTGS19-Dt0-T6xu-RHIKfkfYK5AO7dXtXjjxc1s');
+  background-repeat: no-repeat;
+  background-position: bottom;
 }
 
 .motion {
