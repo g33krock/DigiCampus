@@ -113,7 +113,7 @@ export class Jumbo extends Component {
             resetAfterTries={200}
             scatterRandomly
           >
-            {times(6, Number).map((id) => (
+            {times(4, Number).map((id) => (
               <Box key={`child-${id}`} scale={this.scale}>
                 <Review scale={this.scale}>
                   <Content scale={this.scale}>
