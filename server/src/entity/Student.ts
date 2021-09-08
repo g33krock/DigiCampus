@@ -9,6 +9,7 @@ import { InstructionMode } from "./InstructionMode";
 import { SpedQuestion } from "./SpedQuestion";
 import { Transcript } from "./Transcript";
 import { Incident } from "./Incident";
+import { StudentTimeCard } from "./StudentTimeCard";
 
 @Entity()
 export class Student extends BaseEntity {
@@ -178,8 +179,11 @@ export class Student extends BaseEntity {
 	@OneToMany(() => SpedQuestion, spedQuestion => spedQuestion.student, {onDelete: 'CASCADE'})
 	spedQuestions: SpedQuestion[];
 
+	@OneToMany(() => StudentTimeCard, stimecard => stimecard.student)
+	stimecard: StudentTimeCard[];
+
 	@Column({
 		nullable: true
 	})
-	here: boolean;
+	here: string;
 }
