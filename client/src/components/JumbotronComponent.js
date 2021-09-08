@@ -66,14 +66,6 @@ export class Jumbo extends Component {
       }
     `;
 
-    const portraits = [
-      "https://randomuser.me/api/portraits/women/68.jpg",
-      "https://randomuser.me/api/portraits/men/75.jpg",
-      "https://randomuser.me/api/portraits/lego/3.jpg",
-      "https://randomuser.me/api/portraits/women/89.jpg",
-      "https://randomuser.me/api/portraits/men/26.jpg",
-    ];
-
     const Reviews = ({ size, onStartPerformance, onEndPerformance }) => {
       const [key, setKey] = useState(nanoid());
 
@@ -99,10 +91,10 @@ export class Jumbo extends Component {
     const FullWidth = styled.div`
       width: 100vw;
       position: relative;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
+      left: 25%;
+      right: 25%;
+      margin-left: -25vw;
+      margin-right: -25vw;
     `;
     return (
       <FullWidth className="megatron">
@@ -113,7 +105,7 @@ export class Jumbo extends Component {
             resetAfterTries={200}
             scatterRandomly
           >
-            {times(2, Number).map((id) => (
+            {times(4, Number).map((id) => (
               <Box key={`child-${id}`} scale={this.scale}>
                 <Review scale={this.scale}>
                   <Content scale={this.scale}>

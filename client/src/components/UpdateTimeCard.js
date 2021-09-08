@@ -9,7 +9,7 @@ var day = today.getFullYear().toString() +
 (today.getMonth() + 1).toString().padStart(2, 0) +
 "-" +
 today.getDate().toString().padStart(2, 0);
-var time = today.getHours() + ":" + today.getMinutes()
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
 export class UpdateTimeCard extends Component {
   constructor(props) {
