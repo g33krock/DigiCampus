@@ -3,13 +3,7 @@ import { Button } from "reactstrap";
 import { teacherService } from "../services/teacherService";
 import { timecardService } from "../services/timecardService";
 
-var today = new Date();
-var day = today.getFullYear().toString() +
-"-" +
-(today.getMonth() + 1).toString().padStart(2, 0) +
-"-" +
-today.getDate().toString().padStart(2, 0);
-var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
 
 export class UpdateTimeCard extends Component {
   constructor(props) {
@@ -18,6 +12,7 @@ export class UpdateTimeCard extends Component {
       here: null,
       teachers: [],
       teacher: null,
+      time: null
     };
   }
 
@@ -45,20 +40,30 @@ export class UpdateTimeCard extends Component {
     }, 1000);
   }
 
-  async stampIn() {
+  async stampIn(time, day) {
+    let today = new Date();
     const timecardObject = {
-      date: day,
-      time: time,
+      date: today.getFullYear().toString() +
+      "-" +
+      (today.getMonth() + 1).toString().padStart(2, 0) +
+      "-" +
+      today.getDate().toString().padStart(2, 0),
+      time: today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
       inOut: "In",
       teacher: this.props.teacher.id,
     };
     await timecardService.create(timecardObject);
   }
 
-  async stampOut() {
+  async stampOut(time, day) {
+    let today = new Date();
     const timecardObject = {
-      date: day,
-      time: time,
+      date: today.getFullYear().toString() +
+      "-" +
+      (today.getMonth() + 1).toString().padStart(2, 0) +
+      "-" +
+      today.getDate().toString().padStart(2, 0),
+      time: today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
       inOut: "Out",
       teacher: this.props.teacher.id,
     };
@@ -66,22 +71,23 @@ export class UpdateTimeCard extends Component {
   }
 
   render() {
-    const isHere = () => {
-      if (this.props.teacher.here === "true") {
-        return "Out";
-      } else {
-        return "In";
-      }
-    };
+    let today = new Date();
+    let day = today.getFullYear().toString() +
+    "-" +
+    (today.getMonth() + 1).toString().padStart(2, 0) +
+    "-" +
+    today.getDate().toString().padStart(2, 0);
+    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     return (
       <Button
         size="sm"
         onClick={
           (() => {
+            
             if (this.props.teacher.here === "true") {
-              return this.clockOut();
+              return this.clockOut(time, day);
             } else {
-              return this.clockIn();
+              return this.clockIn(time, day);
             }
           }
           )
