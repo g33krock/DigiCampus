@@ -90,6 +90,7 @@ export default class SingleTeacher extends Component {
           <img
             style={{ width: 80, height: 80, borderRadius: 60 / 2 }}
             src={this.state.teacher?.image}
+            alt={this.state.teacher?.firstName}
           />
           Hello {this.state.teacher?.firstName}
         </h1>

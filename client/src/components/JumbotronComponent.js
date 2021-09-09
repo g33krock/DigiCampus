@@ -1,8 +1,7 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component } from "react";
 import Marquee from "react-marquee-slider";
 import styled from "styled-components";
 import times from "lodash/times";
-import { nanoid } from "nanoid";
 import { announcementService } from "../services/announcementService";
 
 export class Jumbo extends Component {
@@ -42,18 +41,6 @@ export class Jumbo extends Component {
       border-radius: 4px;
     `;
 
-    const Avatar = styled.div`
-      border-radius: 50%;
-      width: ${(props) => props.scale * 58}px;
-      height: ${(props) => props.scale * 58}px;
-      overflow: hidden;
-      flex-shrink: 0;
-      margin-right: ${(props) => props.scale * 15}px;
-      img {
-        max-width: 100%;
-      }
-    `;
-
     const Content = styled.div`
       p {
         margin: 0;
@@ -66,27 +53,6 @@ export class Jumbo extends Component {
       }
     `;
 
-    const Reviews = ({ size, onStartPerformance, onEndPerformance }) => {
-      const [key, setKey] = useState(nanoid());
-
-      useEffect(() => {
-        setKey(nanoid());
-      }, [size, setKey]);
-
-      let scale = 0.5;
-
-      if (size && size.width > 800) {
-        scale = 0.65;
-      }
-
-      if (size && size.width > 1100) {
-        scale = 0.8;
-      }
-
-      if (size && size.width > 1400) {
-        scale = 1;
-      }
-    };
 
     const FullWidth = styled.div`
       width: 100vw;
@@ -105,7 +71,7 @@ export class Jumbo extends Component {
             resetAfterTries={200}
             scatterRandomly
           >
-            {times(4, Number).map((id) => (
+            {times(2, Number).map((id) => (
               <Box key={`child-${id}`} scale={this.scale}>
                 <Review scale={this.scale}>
                   <Content scale={this.scale}>
