@@ -26,6 +26,7 @@ import classnames from "classnames";
 import { fetcher } from "../services/fetcher";
 import { IncidentCreator } from "./CreateIncident";
 import Attendance from "./AttendanceComponent";
+import { UpdateGuardian } from "./UpdateGuardian";
 
 export default class AdminStudent extends Component {
   constructor(props) {
@@ -158,6 +159,14 @@ export default class AdminStudent extends Component {
                   <p>
                     <strong>Address:</strong> {guardian?.address}
                   </p>
+                  <UpdateGuardian
+                guardianId={guardian?.id}
+                firstName={guardian?.firstName}
+                lastName={guardian?.lastName}
+                phone={guardian?.phone}
+                email={guardian?.email}
+                address={guardian?.address}
+                additionalInfo={guardian?.guardian_additionalinfo} />
                 </div>
               ))}
               {this.state.student && (
