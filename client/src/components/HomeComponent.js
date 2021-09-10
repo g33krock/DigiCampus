@@ -1,15 +1,15 @@
-import { Component } from 'react';
-import {Container } from "reactstrap";
-import Calendar from './CalendarComponent';
+import { Component } from "react";
+import { Container } from "reactstrap";
+import Calendar from "./CalendarComponent";
 
 class Home extends Component {
-    render() {
-        return(
-            <Container>
-                <Calendar />
-            </Container>
-        )
-    }
+  render() {
+    return (
+      <Container>
+        <Calendar />
+      </Container>
+    );
+  }
 }
 
-export default Home
+export default Home;

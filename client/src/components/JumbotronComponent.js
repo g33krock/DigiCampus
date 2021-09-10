@@ -65,7 +65,7 @@ export class Jumbo extends Component {
     return (
       <FullWidth className="megatron">
         <Height height={300}>
-          <Marquee
+          {/* <Marquee
             velocity={12}
             minScale={0.7}
             resetAfterTries={200}
@@ -120,7 +120,7 @@ export class Jumbo extends Component {
               //   </div>
               // </Motion>
             ))}
-          </Marquee>
+          </Marquee> */}
         </Height>
       </FullWidth>
     );
