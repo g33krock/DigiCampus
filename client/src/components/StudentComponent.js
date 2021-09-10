@@ -35,7 +35,12 @@ export default class Student extends Component {
     this.state = {
       activeTab: "1",
     };
-    this.state = { students: [], student: null, id: null, teacher: this.props.teacher };
+    this.state = {
+      students: [],
+      student: null,
+      id: null,
+      teacher: this.props.teacher,
+    };
   }
 
   componentDidMount() {
@@ -162,15 +167,16 @@ export default class Student extends Component {
                   <p>
                     <strong>Address:</strong> {guardian?.address}
                   </p>
-                
-                <UpdateGuardian
-                guardianId={guardian?.id}
-                firstName={guardian?.firstName}
-                lastName={guardian?.lastName}
-                phone={guardian?.phone}
-                email={guardian?.email}
-                address={guardian?.address}
-                additionalInfo={guardian?.guardian_additionalinfo} />
+
+                  {/* <UpdateGuardian
+                    guardianId={guardian?.id}
+                    firstName={guardian?.firstName}
+                    lastName={guardian?.lastName}
+                    phone={guardian?.phone}
+                    email={guardian?.email}
+                    address={guardian?.address}
+                    additionalInfo={guardian?.guardian_additionalinfo}
+                  /> */}
                 </div>
               ))}
               {this.state.student && (
@@ -276,12 +282,14 @@ export default class Student extends Component {
                 )}
               </TabPane>
               <TabPane tabId="2">
-              {this.state.student && (
-                  <TrackerResponse student={this.state.student}></TrackerResponse>
+                {this.state.student && (
+                  <TrackerResponse
+                    student={this.state.student}
+                  ></TrackerResponse>
                 )}
               </TabPane>
               <TabPane tabId="3">
-              {this.state.student && (
+                {this.state.student && (
                   <Attendance student={this.state.student}></Attendance>
                 )}
               </TabPane>
