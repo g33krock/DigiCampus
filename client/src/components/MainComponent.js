@@ -17,7 +17,6 @@ import { teacherService } from '../services/teacherService';
 import Announcement from './AnnouncementComponent';
 import Resource from './ResourceComponent';
 import { TimeCard } from './TimeCardComponent';
-import { AlarmClock } from './AlarmClockComponent';
 
 class Main extends Component {
     
