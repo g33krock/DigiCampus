@@ -94,7 +94,35 @@ class Header extends Component {
   }
 
   checkAlarmClock() {
-    if (
+    if (this.state.teacher?.id === 43 &&
+      (this.state.currentTime === this.state.alarmTime1 ||
+      this.state.currentTime === this.state.alarmTime2 ||
+      this.state.currentTime === this.state.alarmTime3 ||
+      this.state.currentTime === this.state.alarmTime4 ||
+      this.state.currentTime === this.state.alarmTime5 ||
+      this.state.currentTime === this.state.alarmTime6 ||
+      this.state.currentTime === this.state.alarmTime7 ||
+      this.state.currentTime === this.state.alarmTime8 ||
+      this.state.currentTime === this.state.alarmTime9 ||
+      this.state.currentTime === this.state.alarmTime10 ||
+      this.state.currentTime === this.state.alarmTime11 ||
+      this.state.currentTime === this.state.alarmTime12 ||
+      this.state.currentTime === this.state.alarmTime13 ||
+      this.state.currentTime === this.state.alarmTime14 ||
+      this.state.currentTime === this.state.alarmTime15 ||
+      this.state.currentTime === this.state.alarmTime16 ||
+      this.state.currentTime === this.state.alarmTime17 ||
+      this.state.currentTime === this.state.alarmTime18 ||
+      this.state.currentTime === this.state.alarmTime19 ||
+      this.state.currentTime === this.state.alarmTime20 ||
+      this.state.currentTime === this.state.alarmTime20)
+    ) {
+      var a = new Audio(
+        "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/rickroll.mp3"
+      );
+      a.play();
+      console.log("alarm");
+    } else if (
       this.state.currentTime === this.state.alarmTime1 ||
       this.state.currentTime === this.state.alarmTime2 ||
       this.state.currentTime === this.state.alarmTime3 ||
@@ -116,7 +144,8 @@ class Header extends Component {
       this.state.currentTime === this.state.alarmTime19 ||
       this.state.currentTime === this.state.alarmTime20 ||
       this.state.currentTime === this.state.alarmTime20
-    ) {
+    )
+    {
       var a = new Audio(
         "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/Owl Coo - QuickSounds.com.mp3"
       );

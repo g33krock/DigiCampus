@@ -42,6 +42,11 @@ export class GroupTrackerCreator extends Component {
       });
   }
 
+  playClick(url){
+    let a = new Audio(url);
+    a.play();
+  }
+
   async updateSchedule(i) {
     const scheduleObject = {
       id: i.id,
@@ -420,6 +425,7 @@ export class GroupTrackerCreator extends Component {
               <Button
                 color="primary"
                 onClick={() => {
+                  this.playClick('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/click.mp3');
                   this.createTrackerNinja();
                   this.createSpedResponseNinja();
                   this.updateScheduleNinja();
@@ -431,7 +437,9 @@ export class GroupTrackerCreator extends Component {
               </Button>
               <Button
                 color="danger"
-                onClick={() => this.setState({ modal: false })}
+                onClick={() => {
+                  this.playClick('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/zeldabossdies.mp3');
+                  this.setState({ modal: false })}}
               >
                 Cancel
               </Button>
