@@ -14,7 +14,7 @@ export default class TeacherTrackerResponse extends Component {
   }
 
   getSchedules() {
-    fetcher(`${baseURL}/trackers`)
+    fetcher(`${baseURL}/trackers?teachersId=${this.props.teacher.id}`)
       // Convert response to a JSON object
       .then((response) => response.json())
       .then((trackers) => {

@@ -4,7 +4,7 @@ import { Tracker } from "../entity/Tracker";
 export class TrackerController {
 
 	async all(request: Request, response: Response, next: NextFunction) {
-		return Tracker.find({ relations: ["students", "courses", "teachers", "schedules"] });
+		return Tracker.find({ relations: ["students", "courses", "teachers", "schedules"], where:{teachers:request.query.teachersId} } );
 	}
 
 	async one(request: Request, response: Response, next: NextFunction) {

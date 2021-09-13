@@ -251,7 +251,7 @@ export const Routes = [{
 // Tracker
 {
 	method: "get",
-	route: "/trackers",
+	route: "/trackers?:teachersId",
 	controller: TrackerController,
 	action: "all"
 }, {
