@@ -94,7 +94,7 @@ class Header extends Component {
   }
 
   checkAlarmClock() {
-    if (this.state.teacher?.id === 43 &&
+    if (this.state.teacher?.id === 21 &&
       (this.state.currentTime === this.state.alarmTime1 ||
       this.state.currentTime === this.state.alarmTime2 ||
       this.state.currentTime === this.state.alarmTime3 ||
