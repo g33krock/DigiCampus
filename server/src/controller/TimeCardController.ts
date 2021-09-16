@@ -7,6 +7,10 @@ export class TimeCardController {
 		return TimeCard.find({ relations: ["teacher"] });
 	}
 
+	async almostAll(request: Request, response: Response, next: NextFunction) {
+		return TimeCard.find({ relations: ["teacher"], where:{teacher:request.query.teacherId} } );
+	}
+
 	async one(request: Request, response: Response, next: NextFunction) {
 		return TimeCard.findOne(request.params.id, { relations: ["teacher"] });
 	}

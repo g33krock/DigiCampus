@@ -11,6 +11,15 @@ class TimeCardService {
           });
           return await response.json();
     };
+    async almostAll () {
+        const response = await fetcher(`${baseURL}/timecards?teacherId=${this.props.teacher.id}`, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          return await response.json();
+    };
     async create(timecardObject) {
         const response = await fetcher(`${baseURL}/timecards`, {
             method: "POST",

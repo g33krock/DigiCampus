@@ -560,6 +560,11 @@ export const Routes = [{
     route: "/timecards",
     controller: TimeCardController,
     action: "all"
+},{
+	method: "get",
+	route: "/timecards?:teacherId",
+	controller: TimeCardController,
+	action: "almostAll"
 }, {
     method: "get",
     route: "/timecards/:id",

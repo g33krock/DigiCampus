@@ -88,7 +88,23 @@ export default class AdminTeacher extends Component {
     this.setState({ teacher });
     console.log(this.state);
     console.log(e.target.value);
+      this.getTimes(teacherId)
   };
+
+  getTimes(teacherId) {
+    fetcher(`${baseURL}/timecards?teacherId=${teacherId}`)
+    .then((response) => response.json())
+    .then((timecards) => {
+      timecards.sort(
+        (attendancea, attendanceb) => attendancea?.date - attendanceb?.date
+      );
+      this.setState({
+        timecard: timecards,
+      });
+      console.log(this.state.timecard)
+      console.log(teacherId);
+    });
+  }
 
   render() {
     return (
