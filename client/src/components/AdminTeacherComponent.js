@@ -22,6 +22,7 @@ import { fetcher } from "../services/fetcher";
 import TeacherGroupSchedule from "./TeacherGroupScheduleComponent";
 import { StaffAttendanceCreator } from "./CreateStaffAttendance";
 import TeacherTrackerResponse from "./TeacherTrackerResponses";
+import {TimeCardOverride} from "./OverrideTimeCardComponent";
 
 export default class AdminTeacher extends Component {
   constructor(props) {
@@ -34,6 +35,7 @@ export default class AdminTeacher extends Component {
       teacher: null,
       startDate: null,
       endDate: null,
+      timecard: [],
     };
   }
 
@@ -92,7 +94,7 @@ export default class AdminTeacher extends Component {
   };
 
   getTimes(teacherId) {
-    fetcher(`${baseURL}/timecards?teacherId=${teacherId}`)
+    fetcher(`${baseURL}/ttimecards?teacherId=${teacherId}`)
     .then((response) => response.json())
     .then((timecards) => {
       timecards.sort(
@@ -103,6 +105,21 @@ export default class AdminTeacher extends Component {
       });
       console.log(this.state.timecard)
       console.log(teacherId);
+    });
+  }
+
+  getTimesCallback() {
+    fetcher(`${baseURL}/ttimecards?teacherId=${this.state.teacher.id}`)
+    .then((response) => response.json())
+    .then((timecards) => {
+      timecards.sort(
+        (attendancea, attendanceb) => attendancea?.date - attendanceb?.date
+      );
+      this.setState({
+        timecard: timecards,
+      });
+      console.log(this.state.timecard)
+      console.log(this.state.teacher.id);
     });
   }
 
@@ -148,6 +165,16 @@ export default class AdminTeacher extends Component {
               }}
             >
               Tracker Entries
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === "5" })}
+              onClick={() => {
+                this.toggle("5");
+              }}
+            >
+              TimeCard Override
             </NavLink>
           </NavItem>
         </Nav>
@@ -302,6 +329,21 @@ export default class AdminTeacher extends Component {
                 teacher={this.state.teacher}
                 userEmail={this.props?.userEmail}
               ></TeacherTrackerResponse>
+            )}
+          </TabPane>
+          <TabPane tabId="5">
+            {this.state.teacher && (
+              this.state.timecard.map(times =>
+                <TimeCardOverride
+                callback={() => this.getTimesCallback()}
+                timecardId={times.id}
+                date={times.date}
+                time={times.time}
+                inOut={times.inOut}
+                teacher={times.teacher}
+
+              ></TimeCardOverride>
+                )
             )}
           </TabPane>
         </TabContent>

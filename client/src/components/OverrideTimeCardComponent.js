@@ -29,20 +29,8 @@ export class TimeCardOverride extends Component {
     const timecardObject = {
       id: this.props.timecardId,
       date: document.getElementById("timecardDate").value,
-      time: document.getElementById("timecardTime").value,
-      inOut: document.addEventListener('DOMContentLoaded', function () {
-        var checkbox = document.querySelector('input[type="switch"]');
-      
-        checkbox.addEventListener('change', function () {
-          if (checkbox.checked) {
-            console.log('In')
-            return "In";
-          } else {
-            console.log('Out')
-            return "Out";
-          }
-        });
-      }),
+      time: document.getElementById("timecardTime").value+":00",
+      inOut: document.getElementById("timecardInOut").value,
       teacher: this.props.teacher.id,
 
     };
@@ -63,7 +51,7 @@ export class TimeCardOverride extends Component {
           color="link"
           onClick={() => this.setState({ modal: true })}
         >
-          Update TimeCard
+          {this.props.date} - {this.props.inOut}: {this.props.time}
         </Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody>
@@ -76,7 +64,7 @@ export class TimeCardOverride extends Component {
                       type="date"
                       name="date"
                       id="timecardDate"
-                      placeholder={this.props.date}
+                      defaultValue={this.props.date}
                     />
                   </FormGroup>
                 </Col>
@@ -86,16 +74,24 @@ export class TimeCardOverride extends Component {
                     type="time"
                     name="time"
                     id="timecardTime"
-                    placeholder={this.props.time}
+                    defaultValue={this.props.time}
                   />
                 </FormGroup>
               </Row>
               <FormGroup>
-                <Label for="Out/In">{`<--Out/In-->`}</Label>
-                <div>
-                  <CustomInput type="switch" id="inoutSwitch" name="customSwitch" label={`<--Out/In-->`} />
-                </div>
-              </FormGroup>
+                      <Label for="timecardInOut">In/Out</Label>
+                      <Input
+                        type="select"
+                        name="timecardInOut"
+                        id="timecardInOut"
+                        defaultValue={this.props.inOut}
+                        className="fancy-cursor"
+                      >
+                        <option value="In">Check-In</option>
+                        <option value="Out">Check-Out</option>
+
+                      </Input>
+                    </FormGroup>
 
               <Button
                 color="primary"

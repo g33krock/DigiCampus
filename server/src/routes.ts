@@ -18,6 +18,7 @@ import { AnnouncementController } from "./controller/AnnouncementController";
 import { IncidentController } from "./controller/IncidentController";
 import { StaffAttendanceController } from "./controller/StaffAttendanceController";
 import { TimeCardController } from "./controller/TimeCardController";
+import { TeacherTimeCardController } from "./controller/TeacherTimeCardController";
 import { StudentTimeCardController } from "./controller/StudentTimeCardController";
 
 export const Routes = [{
@@ -562,9 +563,9 @@ export const Routes = [{
     action: "all"
 },{
 	method: "get",
-	route: "/timecards?:teacherId",
-	controller: TimeCardController,
-	action: "almostAll"
+	route: "/ttimecards?:teacherId",
+	controller: TeacherTimeCardController,
+	action: "all"
 }, {
     method: "get",
     route: "/timecards/:id",

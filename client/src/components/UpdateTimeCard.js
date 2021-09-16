@@ -48,7 +48,7 @@ export class UpdateTimeCard extends Component {
       (today.getMonth() + 1).toString().padStart(2, 0) +
       "-" +
       today.getDate().toString().padStart(2, 0),
-      time: today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
+      time: (today.getHours()<10?'0':'')+today.getHours() + ":" + (today.getMinutes()<10?'0':'')+today.getMinutes() + ":" + (today.getSeconds()<10?'0':'')+today.getSeconds(),
       inOut: "In",
       teacher: this.props.teacher.id,
     };
@@ -63,7 +63,7 @@ export class UpdateTimeCard extends Component {
       (today.getMonth() + 1).toString().padStart(2, 0) +
       "-" +
       today.getDate().toString().padStart(2, 0),
-      time: today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
+      time: (today.getHours()<10?'0':'')+today.getHours() + ":" + (today.getMinutes()<10?'0':'')+today.getMinutes() + ":" + (today.getSeconds()<10?'0':'')+today.getSeconds(),
       inOut: "Out",
       teacher: this.props.teacher.id,
     };
@@ -77,7 +77,7 @@ export class UpdateTimeCard extends Component {
     (today.getMonth() + 1).toString().padStart(2, 0) +
     "-" +
     today.getDate().toString().padStart(2, 0);
-    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    let time = (today.getHours()<10?'0':'')+today.getHours() + ":" + (today.getMinutes()<10?'0':'')+today.getMinutes() + ":" + (today.getSeconds()<10?'0':'')+today.getSeconds();
     return (
       <Button
         size="sm"
