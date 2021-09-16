@@ -575,6 +575,46 @@ skew to change the 'thickness' of the glitch.*/
   background-image: linear-gradient(rgb(0, 139, 93), rgb(156, 18, 0), rgb(59, 0, 107));
   color: white
 }
+.Jay{
+  background-image: linear-gradient(rgb(1, 253, 169), rgb(255, 30, 0), rgb(141, 1, 255));
+}
+.Juanita{
+  background-image: linear-gradient(rgb(0, 21, 139), rgb(156, 88, 0), rgb(107, 0, 0));
+  color: white
+}
+.Curtis{
+  background-image: linear-gradient(rgb(23, 139, 0), rgb(0, 156, 0), rgb(0, 107, 62));
+  color: white
+}
+.Corinne{
+  background-image: linear-gradient(rgb(0, 14, 139), rgb(0, 81, 156), rgb(32, 0, 107));
+  color: white
+}
+.Karol{
+  background-image: linear-gradient(rgb(139, 5, 0), rgb(156, 0, 91), rgb(107, 0, 5));
+  color: white
+}
+.Paloma{
+  background-image: linear-gradient(rgb(139, 90, 0), rgb(156, 114, 0), rgb(107, 34, 0));
+  color: white
+}
+.Angela{
+  background-image: linear-gradient(rgb(127, 0, 139), rgb(143, 0, 156), rgb(67, 1, 80));
+  color: white
+}
+.Romon{
+  background-image: linear-gradient(rgb(0, 75, 173), rgb(255, 255, 255), rgb(196, 0, 10));
+}
+.Tyler{
+  background-image: linear-gradient(rgb(255, 0, 242), rgb(156, 0, 143), rgb(255, 0, 242));
+}
+.Terrance{
+  background-image: linear-gradient(rgb(0, 150, 50), rgb(249, 253, 0), rgb(4, 107, 0));
+}
+.Kassandra{
+  background-image: linear-gradient(rgb(139, 0, 139), rgb(0, 156, 65), rgb(141, 92, 0));
+  color: white
+}
 .None{
   background: black;
 }
