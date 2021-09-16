@@ -18,6 +18,7 @@ import TeacherGroupSchedule from "./TeacherGroupScheduleComponent";
 import { StaffAttendanceCreator } from "./CreateStaffAttendance";
 import StaffAttendance from "./StaffAttendanceComponent";
 import TeacherTrackerResponse from "./TeacherTrackerResponses";
+import { TimeCardOverride } from "./OverrideTimeCardComponent";
 
 export default class Teacher extends Component {
   constructor(props) {
@@ -25,7 +26,10 @@ export default class Teacher extends Component {
     this.state = {
       activeTab: "1",
     };
-    this.state = { teachers: [], teacher: null };
+    this.state = { 
+      teachers: [], 
+      teacher: null,
+      timecard:[] };
   }
 
   componentDidMount() {
@@ -70,7 +74,38 @@ export default class Teacher extends Component {
     this.setState({ teacher });
     console.log(this.state);
     console.log(e.target.value);
+    this.getTimes(teacherId)
   };
+
+  getTimes(teacherId) {
+    fetcher(`${baseURL}/ttimecards?teacherId=${teacherId}`)
+    .then((response) => response.json())
+    .then((timecards) => {
+      timecards.sort(
+        (attendancea, attendanceb) => attendancea?.date - attendanceb?.date
+      );
+      this.setState({
+        timecard: timecards,
+      });
+      console.log(this.state.timecard)
+      console.log(teacherId);
+    });
+  }
+
+  getTimesCallback() {
+    fetcher(`${baseURL}/ttimecards?teacherId=${this.state.teacher.id}`)
+    .then((response) => response.json())
+    .then((timecards) => {
+      timecards.sort(
+        (attendancea, attendanceb) => attendancea?.date - attendanceb?.date
+      );
+      this.setState({
+        timecard: timecards,
+      });
+      console.log(this.state.timecard)
+      console.log(this.state.teacher.id);
+    });
+  }
 
   render() {
     const date = new Date();
@@ -115,6 +150,16 @@ export default class Teacher extends Component {
               }}
             >
               Tracking Entries
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === "5" })}
+              onClick={() => {
+                this.toggle("5");
+              }}
+            >
+              Timecard Override
             </NavLink>
           </NavItem>
         </Nav>
@@ -226,6 +271,21 @@ export default class Teacher extends Component {
                 teacher={this.state.teacher}
                 userEmail={this.props?.userEmail}
               ></TeacherTrackerResponse>
+            )}
+          </TabPane>
+          <TabPane tabId="5">
+            {this.state.teacher && (
+              this.state.timecard.map(times =>
+                <TimeCardOverride
+                callback={() => this.getTimesCallback()}
+                timecardId={times.id}
+                date={times.date}
+                time={times.time}
+                inOut={times.inOut}
+                teacher={times.teacher}
+
+              ></TimeCardOverride>
+                )
             )}
           </TabPane>
         </TabContent>
