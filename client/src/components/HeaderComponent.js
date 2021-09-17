@@ -157,34 +157,8 @@ class Header extends Component {
   render() {
     let user;
     if (
-      this.state.teacher?.role.id === 9
-    ) {
-      user = (
-        <div className="container">
-          <NavbarBrand className="mr-auto" href="/">
-            <img
-              src="https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/sign/images/Aspire-Owl.gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvQXNwaXJlLU93bC5naWYiLCJpYXQiOjE2Mjg2MjAzMTAsImV4cCI6MTk0Mzk4MDMxMH0.K6zKYMhaQEiYPgsFOVq-EnadF8KeZAg51Ape30-Q9NA"
-              height="50"
-              width="50"
-              alt="Aspire Owl"
-            />
-          </NavbarBrand>
-          <NavbarToggler onClick={this.toggleNav} />
-          <Collapse isOpen={this.state.isNavOpen} navbar>
-            <Nav navbar>
-              <NavItem>
-                <NavLink className="nav-link" to="/timeCard">
-                  TimeCard
-                </NavLink>
-              </NavItem>
-            </Nav>
-          </Collapse>
-          <Col sm={3}></Col>
-        </div>
-      );
-    } else if (
-      this.state.teacher?.role.id === 3 ||
-      this.state.teacher?.role.id === 4
+      this.state.teacher?.role.id === 1 ||
+      this.state.teacher?.role.id === 2
     ) {
       user = (
         <div className="container">
