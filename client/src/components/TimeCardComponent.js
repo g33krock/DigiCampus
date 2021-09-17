@@ -104,7 +104,7 @@ export class TimeCard extends Component {
           <TabPane tabId="1">
         <Row>
           {this.state.teachers
-            .filter((teacher) => teacher.campus.id === this.props?.campus.id)
+            .filter((teacher) => teacher.campus.id === this.props?.campus.id && (teacher.role.id <= 4 || teacher.role.id === 7 ))
             .sort(function (a, b) {
               let x = a.firstName.toLowerCase();
               let y = b.firstName.toLowerCase();
