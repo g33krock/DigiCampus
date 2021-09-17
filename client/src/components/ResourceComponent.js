@@ -84,6 +84,18 @@ export default class Resource extends Component {
               </CardLink>
             </Card>
           </Col>
+          <Col>
+            <Card body className="text-center">
+              <CardTitle>Gradebook in CC</CardTitle>
+              <br />
+              <CardBody>
+                <CardText>Learn how to use your CyberCampus Gradebook and look cool doing it!</CardText>
+              </CardBody>
+              <CardLink href="https://drive.google.com/file/d/1DfDXOrEZAv36PfSnMSwt61UnOgCHmjvQ/view?usp=sharing">
+                Gradebook Tutorial
+              </CardLink>
+            </Card>
+          </Col>
         </Row>
       </Container>
     );
