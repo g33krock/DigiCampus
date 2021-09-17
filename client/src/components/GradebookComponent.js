@@ -7,7 +7,10 @@ import {
   Card,
   CardTitle,
   CardBody,
+  Row,
+  Col,
 } from "reactstrap";
+import {GradeCalc} from "./GradeCalcComponent"
 import { fetcher } from "../services/fetcher";
 
 export class ClassGrades extends Component {
@@ -15,6 +18,7 @@ export class ClassGrades extends Component {
     super(props);
     this.state = {
       gradebooks: [],
+      gradebook:[],
       modal: false,
     };
   }
@@ -33,22 +37,40 @@ export class ClassGrades extends Component {
       });
   }
 
+  async whatsGoingOnHere() {
+    await this.setState({ gradebook:this.gradebooks })
+    await console.log(this.state.gradebook)
+  }
+
+  
+
   render() {
+    const gradebook = this.state.gradebook
     const gradebooks = this.state.gradebooks
       .filter((gradebook) => gradebook.courses.id === this.props.course.id)
-      .filter((gradebook) => gradebook.students.id === this.props.student.id);
+      .filter((gradebook) => gradebook.students.id === this.props.student.id)
+      .filter((gradebook) => gradebook.pointsAvailable > 0 );
     console.log(gradebooks);
+    const reducer = (previousValue, currentValue) => previousValue + currentValue;
     return (
       <div>
-        <Button color="link" onClick={() => this.setState({ modal: true })}>
+        <Button color="link" onClick={() => {this.setState({ modal: true })}}>
           Grades
         </Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody>
-            <h3>
-              {this.props.student?.firstName} {this.props.student?.lastName}{" "}
-              {this.props.course.name}
-            </h3>
+            <Row>
+              <Col>
+                <h3>
+                  {this.props.student?.firstName} {this.props.student?.lastName}{" "}
+                  {this.props.course.name}
+                </h3>
+              </Col>
+              <Col>
+              <GradeCalc
+              gradebook={gradebooks} />
+              </Col>
+            </Row>
             {gradebooks.map((gradebook) => (
               <Card>
                 <CardBody>
