@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Card, CardText, CardTitle } from "reactstrap";
+import { Container, Table } from "reactstrap";
 import { fetcher } from "../services/fetcher";
 import { baseURL } from "../baseURL";
 
-export class ProgressReport extends Component {
+export default class ProgressReport extends Component {
     
     constructor(props) {
         super(props);
@@ -14,27 +14,45 @@ export class ProgressReport extends Component {
     }
 
     componentDidMount() {
-        fetcher(`${baseURL}/studentschedule?studentId=${this.props.student.id}`)
+        fetcher(`${baseURL}/studentschedules?studentId=${this.props.student.id}`)
       .then((response) => response.json())
       .then((schedule) => {
-        schedule
         this.setState({
           schedule,
         });
       });
       fetcher(`${baseURL}/studentgradebooks?studentsId=${this.props.student.id}`)
       .then((response) => response.json())
-      .then((schedule) => {
-        schedule
+      .then((gradebooks) => {
         this.setState({
           gradebooks,
         });
       });
+      console.log(this.state.schedule)
     }
 
     render() {
         return(
-            <Container></Container>
+          <div class="tableFixHead">
+            <Container>
+              <Table bordered hover size="sm" className="tight">
+                <thead class="shadow">
+                  <tr id="scheduleHeader">
+                    <th>Course Name</th>
+                    <th>Instructor</th>
+                    <th>Grade</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.state.schedule.map(sclass => 
+                    (<tr key={sclass.id}>
+                      <td>{sclass.course?.name}</td>
+                    </tr>)
+                  )}
+                </tbody>
+              </Table>
+            </Container>
+          </div>
         )
     }
 }
