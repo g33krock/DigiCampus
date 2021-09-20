@@ -300,8 +300,6 @@ export default class AdminStudent extends Component {
                   <Attendance student={this.state.student}></Attendance>
                 )}
               </TabPane>
-            </TabContent>
-            <TabContent>
               <TabPane tabId="4">
                 {this.state.student && (
                   <ProgressReport student={this.state.student}></ProgressReport>

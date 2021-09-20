@@ -27,6 +27,7 @@ import { fetcher } from "../services/fetcher";
 import { IncidentCreator } from "./CreateIncident";
 import Attendance from "./AttendanceComponent";
 import { UpdateGuardian } from "./UpdateGuardian";
+import ProgressReport from "./ProgressReportComponent";
 
 export default class Student extends Component {
   constructor(props) {
@@ -106,6 +107,16 @@ export default class Student extends Component {
               }}
             >
               Attendance
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === "4" })}
+              onClick={() => {
+                this.toggle("4");
+              }}
+            >
+              Progress Report
             </NavLink>
           </NavItem>
         </Nav>
@@ -291,6 +302,11 @@ export default class Student extends Component {
               <TabPane tabId="3">
                 {this.state.student && (
                   <Attendance student={this.state.student}></Attendance>
+                )}
+              </TabPane>
+              <TabPane tabId="4">
+                {this.state.student && (
+                  <ProgressReport student={this.state.student}></ProgressReport>
                 )}
               </TabPane>
             </TabContent>
