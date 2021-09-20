@@ -20,6 +20,8 @@ import { StaffAttendanceController } from "./controller/StaffAttendanceControlle
 import { TimeCardController } from "./controller/TimeCardController";
 import { TeacherTimeCardController } from "./controller/TeacherTimeCardController";
 import { StudentTimeCardController } from "./controller/StudentTimeCardController";
+import { StudentGradebookController } from "./controller/StudentGradebookController";
+import { StudentScheduleController } from "./controller/StudentScheduleController";
 
 export const Routes = [{
 	method: "get",
@@ -82,6 +84,11 @@ export const Routes = [{
 	method: "get",
 	route: "/schedules",
 	controller: ScheduleController,
+	action: "all"
+},{
+	method: "get",
+	route: "/studentschedules?:studentId",
+	controller: StudentScheduleController,
 	action: "all"
 }, {
 	method: "get",
@@ -309,6 +316,11 @@ export const Routes = [{
 	method: "get",
 	route: "/gradebooks",
 	controller: GradebookController,
+	action: "all"
+},{
+	method: "get",
+	route: "/studentgradebook?:studentsId",
+	controller: StudentGradebookController,
 	action: "all"
 }, {
 	method: "get",
