@@ -64,6 +64,20 @@ export default class SpedResponse extends Component {
               </tr>
             </thead>
             <tbody>
+              <h3>              
+                {(this.state.speds
+                .filter(
+                  (student) => student.students?.id === this.props.student.id
+                )
+                .filter((speQues) => speQues.question === quest.question)
+                .filter((dog) => dog.meet === "true" || dog.meet === "false" || dog.meet === "IP")
+                .reduce((a, b) => a + b.success, 0)/(this.state.speds
+                  .filter(
+                    (student) => student.students?.id === this.props.student.id
+                  )
+                  .filter((speQues) => speQues.question === quest.question)
+                  .filter((dog) => dog.meet === "true" || dog.meet === "false" || dog.meet === "IP").reduce((a, b) => a + b.opportunity, 0))*100).toFixed(2)}%</h3>
+
               {this.state.speds
                 .filter(
                   (student) => student.students?.id === this.props.student.id
