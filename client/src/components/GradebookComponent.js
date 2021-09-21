@@ -16,6 +16,7 @@ import {
 import { GradeCalc } from "./GradeCalcComponent";
 import { fetcher } from "../services/fetcher";
 import { gradebookService } from "../services/gradebookService";
+import { scheduleService } from "../services/scheduleService";
 
 export class ClassGrades extends Component {
   constructor(props) {
@@ -37,12 +38,12 @@ export class ClassGrades extends Component {
 
   getGradebook() {
     fetcher(`${baseURL}/studentgradebooks?studentsId=${this.props.student.id}`)
-    .then((response) => response.json())
-    .then((data) => {
-      this.setState({
-        gradebooks: data,
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          gradebooks: data,
+        });
       });
-    });
   }
 
   async updateGradebook(i) {
@@ -59,11 +60,23 @@ export class ClassGrades extends Component {
     await gradebookService.update(gradebookObject);
   }
 
+  async updateSchedule() {
+    const scheduleObject = {
+      id: this.props.schedule.id,
+      // startDate: document.getElementById("startDate").value,
+      // endDate: document.getElementById("endDate").value,
+      status: document.getElementById("status").value,
+    };
+    await scheduleService.update(scheduleObject);
+  }
+
   async updateGradebookNinja() {
     this.state.gradebooks.forEach((scheduleQuestion) =>
       this.updateGradebook(scheduleQuestion)
     );
-    setTimeout(() => {  this.getGradebook() }, 2000);
+    setTimeout(() => {
+      this.getGradebook();
+    }, 2000);
   }
 
   async whatsGoingOnHere() {
@@ -91,15 +104,60 @@ export class ClassGrades extends Component {
           <ModalBody>
             <Row>
               <Col>
-                <h3>
-                  {this.props.student?.firstName} {this.props.student?.lastName}{" "}
-                  {this.props.course.name}
-                </h3>
+                <strong>
+                  {this.props.student?.firstName} {this.props.student?.lastName}
+                </strong>
+              </Col>
+              <Col>
+                <strong>{this.props.course.name}</strong>
               </Col>
               <Col>
                 <GradeCalc gradebook={gradebooks} />
               </Col>
             </Row>
+            <Form className="fancy-cursor">
+              {/* <Row>
+                <Col>
+                  <FormGroup>
+                    <Label for="startDate">Start Date</Label>
+                    <Input
+                      defaultValue={this.props.schedule.startDate}
+                      type="text"
+                      name={`startDate`}
+                      id={`startDate`}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col>
+                  <FormGroup>
+                    <Label for="endDate">End Date</Label>
+                    <Input
+                      defaultValue={this.props.schedule.endDate}
+                      type="text"
+                      name={`endDate`}
+                      id={`endDate`}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row> */}
+              <Row>
+                <Col>
+                  <FormGroup>
+                    <Label for="status">Status</Label>
+                    <Input
+                      defaultValue={this.props.schedule.status}
+                      type="select"
+                      name={`status`}
+                      id={`status`}
+                    >
+                      <option></option>
+                      <option value="IP">In Progress</option>
+                      <option value="Complete">Completed</option>
+                    </Input>
+                  </FormGroup>
+                </Col>
+              </Row>
+            </Form>
             {gradebooks.map((gradebook) => (
               <Card>
                 <CardBody>
@@ -161,6 +219,7 @@ export class ClassGrades extends Component {
               onClick={() => {
                 this.setState({ modal: false });
                 this.updateGradebookNinja();
+                this.updateSchedule();
               }}
             >
               Submit Changes

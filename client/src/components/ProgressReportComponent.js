@@ -38,7 +38,10 @@ export default class ProgressReport extends Component {
             <tr id="scheduleHeader">
               <th>Course Name</th>
               <th>Instructor</th>
+              <th>Start Date</th>
+              <th>End Date</th>
               <th>Grade</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
@@ -51,6 +54,8 @@ export default class ProgressReport extends Component {
                   <td>
                     {sclass.teacher?.firstName} {sclass.teacher?.lastName}
                   </td>
+                  <td><small>Coming Soon!</small></td>
+                  <td><small>Coming Soon!</small></td>
                   <td>
                     {(this.state.gradebooks
                       .filter(
@@ -64,6 +69,7 @@ export default class ProgressReport extends Component {
                         )
                         .reduce((a, b) => a + b.pointsAvailable, 0)*100).toFixed(2)}%
                   </td>
+                  <td>{sclass?.status}</td>
                 </tr>
               ))}
           </tbody>

@@ -29,6 +29,11 @@ export class Schedule extends BaseEntity {
 	})
 	link: string;
 
+	@Column({
+		nullable: true
+	})
+	status: string;
+
 	@ManyToOne(() => Teacher, teacher => teacher.pschedule)
 	para: Teacher;
 
@@ -46,6 +51,16 @@ export class Schedule extends BaseEntity {
 		nullable: true
 	})
 	lastUpdate: string;
+
+	// @Column({
+	// 	nullable: true
+	// })
+	// startDate: string;
+
+	// @Column({
+	// 	nullable: true
+	// })
+	// endDate: string;
 
 	@OneToMany(() => Tracker, tracker => tracker.schedules)
 	trackers: Tracker[];
