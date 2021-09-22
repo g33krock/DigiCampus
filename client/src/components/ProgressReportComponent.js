@@ -54,8 +54,8 @@ export default class ProgressReport extends Component {
                   <td>
                     {sclass.teacher?.firstName} {sclass.teacher?.lastName}
                   </td>
-                  <td><small>Coming Soon!</small></td>
-                  <td><small>Coming Soon!</small></td>
+                  <td><small>{sclass?.firstDay}</small></td>
+                  <td><small>{sclass?.lastDay}</small></td>
                   <td>
                     {(this.state.gradebooks
                       .filter(

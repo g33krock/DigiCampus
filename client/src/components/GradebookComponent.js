@@ -63,8 +63,8 @@ export class ClassGrades extends Component {
   async updateSchedule() {
     const scheduleObject = {
       id: this.props.schedule.id,
-      // startDate: document.getElementById("startDate").value,
-      // endDate: document.getElementById("endDate").value,
+      firstDay: document.getElementById("firstDay").value,
+      lastDay: document.getElementById("lastDay").value,
       status: document.getElementById("status").value,
     };
     await scheduleService.update(scheduleObject);
@@ -116,30 +116,30 @@ export class ClassGrades extends Component {
               </Col>
             </Row>
             <Form className="fancy-cursor">
-              {/* <Row>
+              <Row>
                 <Col>
                   <FormGroup>
-                    <Label for="startDate">Start Date</Label>
+                    <Label for="firstDay">Start Date</Label>
                     <Input
-                      defaultValue={this.props.schedule.startDate}
-                      type="text"
-                      name={`startDate`}
-                      id={`startDate`}
+                      defaultValue={this.props.schedule.firstDay}
+                      type="date"
+                      name={`firstDay`}
+                      id={`firstDay`}
                     />
                   </FormGroup>
                 </Col>
                 <Col>
                   <FormGroup>
-                    <Label for="endDate">End Date</Label>
+                    <Label for="lastDay">End Date</Label>
                     <Input
-                      defaultValue={this.props.schedule.endDate}
-                      type="text"
-                      name={`endDate`}
-                      id={`endDate`}
+                      defaultValue={this.props.schedule.lastDay}
+                      type="date"
+                      name={`lastDay`}
+                      id={`lastDay`}
                     />
                   </FormGroup>
                 </Col>
-              </Row> */}
+              </Row>
               <Row>
                 <Col>
                   <FormGroup>

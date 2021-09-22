@@ -55,12 +55,12 @@ export class Schedule extends BaseEntity {
 	@Column({
 		nullable: true
 	})
-	startDate: string;
+	firstDay: string;
 
 	@Column({
 		nullable: true
 	})
-	endDate: string;
+	lastDay: string;
 
 	@OneToMany(() => Tracker, tracker => tracker.schedules)
 	trackers: Tracker[];
