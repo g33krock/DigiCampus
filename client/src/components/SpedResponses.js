@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Table } from "reactstrap";
+import { fetcher } from "../services/fetcher";
+import { baseURL } from "../baseURL";
 import { spedQuestionService } from "../services/spedQuestionService";
-import { spedResponseService } from "../services/spedResponseService";
+// import { spedResponseService } from "../services/spedResponseService";
 
 export default class SpedResponse extends Component {
   constructor(props) {
@@ -18,13 +20,35 @@ export default class SpedResponse extends Component {
 
   componentDidMount() {
     this.getSchedules();
+    this.getResponses();
   }
 
   async getSchedules() {
     const spedQuestions = await spedQuestionService.all();
     this.setState({ speQ: spedQuestions });
-    const spedResponses = await spedResponseService.all();
-    this.setState({speds: spedResponses})
+  }
+
+  getResponses() {
+    fetcher(`${baseURL}/spedResponses?studentsId=${this.props.student.id}`)
+    .then((response) => response.json())
+    .then((speds) => {
+        speds
+        .sort(function (a, b) {
+          let x = b.date;
+          let y = a.date;
+          if (x < y) {
+            return -1;
+          }
+          if (x > y) {
+            return 1;
+          }
+          return 0;
+        })
+      this.setState({
+        speds: speds,
+      })
+      console.log(this.state.speds)
+    });
   }
 
   setSped(speds) {
@@ -66,23 +90,14 @@ export default class SpedResponse extends Component {
             <tbody>
               <h3>              
                 {(this.state.speds
-                .filter(
-                  (student) => student.students?.id === this.props.student.id
-                )
-                .filter((speQues) => speQues.question === quest.question)
+                .filter((speQues) => speQues?.question === quest?.question)
                 .filter((dog) => dog.meet === "true" || dog.meet === "false" || dog.meet === "IP")
                 .reduce((a, b) => a + b.success, 0)/(this.state.speds
-                  .filter(
-                    (student) => student.students?.id === this.props.student.id
-                  )
                   .filter((speQues) => speQues.question === quest.question)
                   .filter((dog) => dog.meet === "true" || dog.meet === "false" || dog.meet === "IP").reduce((a, b) => a + b.opportunity, 0))*100).toFixed(2)}%</h3>
 
               {this.state.speds
-                .filter(
-                  (student) => student.students?.id === this.props.student.id
-                )
-                .filter((speQues) => speQues.question === quest.question)
+                .filter((speQues) => speQues?.question === quest?.question)
                 .filter((dog) => dog.meet === "true" || dog.meet === "false" || dog.meet === "IP")
                 .sort(function (a, b) {
                   let x = a.date;

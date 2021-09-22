@@ -427,7 +427,7 @@ export const Routes = [{
 // SpedResponse
 {
 	method: "get",
-	route: "/spedResponses",
+	route: "/spedResponses?:studentsId",
 	controller: SpedResponseController,
 	action: "all"
 }, {

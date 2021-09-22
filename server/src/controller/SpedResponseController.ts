@@ -4,7 +4,7 @@ import { SpedResponse } from "../entity/SpedResponse";
 export class SpedResponseController {
 
 	async all(request: Request, response: Response, next: NextFunction) {
-		return SpedResponse.find({ relations: ["students", "teachers"] });
+		return SpedResponse.find({ relations: ["students", "teachers"], where:{students:request.query.studentsId} });
 	}
 
 	async one(request: Request, response: Response, next: NextFunction) {
