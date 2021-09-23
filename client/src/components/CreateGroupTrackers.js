@@ -284,7 +284,7 @@ export class GroupTrackerCreator extends Component {
                           <Input
                             type="select"
                             name="method"
-                            id={`Method${sched.student.id}`}
+                            id={`method${sched.student.id}`}
                             className="fancy-cursor"
                           >
                             <option></option>
