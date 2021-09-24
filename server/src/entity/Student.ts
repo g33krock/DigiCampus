@@ -10,6 +10,7 @@ import { SpedQuestion } from "./SpedQuestion";
 import { Transcript } from "./Transcript";
 import { Incident } from "./Incident";
 import { StudentTimeCard } from "./StudentTimeCard";
+import { District } from "./District";
 
 @Entity()
 export class Student extends BaseEntity {
@@ -144,6 +145,26 @@ export class Student extends BaseEntity {
 	@Column({
 		nullable: true
 	})
+	start: string;
+
+	@Column({
+		nullable: true
+	})
+	counselingMinutes: number;
+
+	@Column({
+		nullable: true
+	})
+	speechMinutes: number;
+
+	@Column({
+		nullable: true
+	})
+	otMinutes: number;
+
+	@Column({
+		nullable: true
+	})
 	dailyReport: string;
 
 	@OneToMany(() => Schedule, schedule => schedule.student, {onDelete: 'CASCADE'})
@@ -175,6 +196,9 @@ export class Student extends BaseEntity {
 
 	@ManyToOne(() => Guardian, guardian => guardian.students, {onDelete: 'CASCADE'})
 	guardian: Guardian;
+
+	@ManyToOne(() => District, district => district.students, {onDelete: 'CASCADE'})
+	district: District;
 
 	@OneToMany(() => SpedQuestion, spedQuestion => spedQuestion.student, {onDelete: 'CASCADE'})
 	spedQuestions: SpedQuestion[];

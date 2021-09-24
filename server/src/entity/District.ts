@@ -1,12 +1,17 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, ManyToMany } from "typeorm";
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 import { Student } from "./Student";
 
 @Entity()
-export class Guardian extends BaseEntity {
+export class District extends BaseEntity {
 	@PrimaryGeneratedColumn()
 	id: number;
 
 	@Column({
+		nullable: true
+	})
+	name: string;
+
+    @Column({
 		nullable: true
 	})
 	firstName: string;
@@ -36,9 +41,6 @@ export class Guardian extends BaseEntity {
 	})
 	additional_info: string;
 
-	@ManyToOne(() => Student, student => student.guardians)
-	student: Student;
-
-	@OneToMany(() => Student, student => student.guardian)
-	students: Guardian[];
+	@OneToMany(() => Student, student => student.district)
+	students: District[];
 }
