@@ -22,6 +22,7 @@ import { TeacherTimeCardController } from "./controller/TeacherTimeCardControlle
 import { StudentTimeCardController } from "./controller/StudentTimeCardController";
 import { StudentGradebookController } from "./controller/StudentGradebookController";
 import { StudentScheduleController } from "./controller/StudentScheduleController";
+import { StudentTrackerController } from "./controller/StudentTrackerController";
 
 export const Routes = [{
 	method: "get",
@@ -261,6 +262,11 @@ export const Routes = [{
 	method: "get",
 	route: "/trackers?:teachersId",
 	controller: TrackerController,
+	action: "all"
+},{
+	method: "get",
+	route: "/studenttrackers?:studentsId",
+	controller: StudentTrackerController,
 	action: "all"
 }, {
 	method: "get",

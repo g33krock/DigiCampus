@@ -14,13 +14,25 @@ export default class TrackerResponse extends Component {
   }
 
   getSchedules() {
-    fetcher(`${baseURL}/trackers`)
+    fetcher(`${baseURL}/studenttrackers?studentsId=${this.props.student.id}`)
       // Convert response to a JSON object
       .then((response) => response.json())
       .then((trackers) => {
-          trackers.sort((trackera, trackerb) => trackera?.date-trackerb?.date)
+          trackers
+          .sort(function (a, b) {
+            let x = b.date;
+            let y = a.date;
+            if (x < y) {
+              return -1;
+            }
+            if (x > y) {
+              return 1;
+            }
+            return 0;
+          })
         this.setState({
-          trackers,
+          trackers: trackers
+          // .filter(tracker => tracker?.date >= this.props?.startDate).filter(tracker => tracker?.date <= this.props?.endDate),
         })
         console.log(this.state.trackers)
       });

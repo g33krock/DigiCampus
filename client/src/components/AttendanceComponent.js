@@ -14,8 +14,7 @@ export default class Attendance extends Component {
   }
 
   getSchedules() {
-    fetcher(`${baseURL}/trackers`)
-      // Convert response to a JSON object
+    fetcher(`${baseURL}/studenttrackers?studentsId=${this.props.student.id}`)
       .then((response) => response.json())
       .then((trackers) => {
           trackers.sort((trackera, trackerb) => trackera?.date-trackerb?.date)
@@ -27,7 +26,6 @@ export default class Attendance extends Component {
   }
 
   setTracker(trackers) {
-    // sets student property to student object.  This looks funny because they both are named student
     this.setState({ trackers: trackers });
     console.log(trackers);
   }
