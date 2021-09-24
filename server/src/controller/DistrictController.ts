@@ -4,11 +4,11 @@ import { District } from "../entity/District";
 export class DistrictController {
 
 	async all(request: Request, response: Response, next: NextFunction) {
-		return District.find({ relations: ["student"] });
+		return District.find();
 	}
 
 	async one(request: Request, response: Response, next: NextFunction) {
-		return District.findOne(request.params.id, { relations: ["student"] });
+		return District.findOne(request.params.id, {);
 	}
 
 
