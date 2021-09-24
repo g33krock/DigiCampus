@@ -124,16 +124,6 @@ export class StudentCreator extends Component {
               <Row>
                 <Col>
                   <FormGroup>
-                    <Label for="start">Start Date</Label>
-                    <Input
-                      type="date"
-                      name="start"
-                      id="start"
-                    />
-                  </FormGroup>
-                </Col>
-                <Col>
-                  <FormGroup>
                     <Label for="studentGrade">Grade Level</Label>
                     <Input type="select" name="studentGrade" id="studentGrade">
                       <option>0</option>
@@ -216,6 +206,16 @@ export class StudentCreator extends Component {
                 </Col>
               </Row>
               <Row>
+              <Col>
+                  <FormGroup>
+                    <Label for="start">Start Date</Label>
+                    <Input
+                      type="date"
+                      name="start"
+                      id="start"
+                    />
+                  </FormGroup>
+                </Col>
                 <Col>
                   <FormGroup>
                     <Label for="previousSchools">Previous School(s)</Label>
@@ -228,8 +228,9 @@ export class StudentCreator extends Component {
                 </Col>
               </Row>
               <Container>
+              <h3>Additional Services</h3>
+              <small>Minutes per Month</small>
               <Row>
-                <h3>Minutes per Month</h3>
                 <Col>
                   <FormGroup>
                     <Label for="counselingMinutes">Counseling</Label>
@@ -298,7 +299,6 @@ export class StudentCreator extends Component {
                     </FormGroup>
                   </Col>
                 </Row>
-              </Container>
               <Row>
                 <Col>
                   <FormGroup>
@@ -331,6 +331,7 @@ export class StudentCreator extends Component {
                   </FormGroup>
                 </Col>
               </Row>
+              </Container>
               <Container>
                 <Row>
                   <Col>
