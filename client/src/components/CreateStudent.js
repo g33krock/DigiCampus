@@ -1,5 +1,5 @@
 import { Component } from "react";
-import {baseURL} from "../baseURL";
+import { baseURL } from "../baseURL";
 import {
   Form,
   FormGroup,
@@ -10,29 +10,28 @@ import {
   ModalBody,
   Row,
   Col,
-  Container
+  Container,
 } from "reactstrap";
 import { studentService } from "../services/studentService";
-import { fetcher } from '../services/fetcher';
-
+import { fetcher } from "../services/fetcher";
 
 export class StudentCreator extends Component {
   constructor(props) {
     super(props);
     this.state = {
       modal: false,
-      districts: []
+      districts: [],
     };
   }
 
   componentDidMount() {
     fetcher(`${baseURL}/districts`)
-    .then((response) => response.json())
-    .then((data) => {
-      this.setState({
-        districts: data,
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          districts: data,
+        });
       });
-    });
   }
 
   async createStudent() {
@@ -67,12 +66,12 @@ export class StudentCreator extends Component {
     };
     const student = await studentService.create(studentObject);
     fetcher(`${baseURL}/students`)
-    .then((response) => response.json())
-    .then((data) => {
-      this.setState({
-        students: data,
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          students: data,
+        });
       });
-    });
     console.log(student);
   }
 
@@ -113,11 +112,7 @@ export class StudentCreator extends Component {
                 <Col>
                   <FormGroup>
                     <Label for="birthDate">Date of Birth</Label>
-                    <Input
-                      type="date"
-                      name="birthDate"
-                      id="birthDate"
-                    />
+                    <Input type="date" name="birthDate" id="birthDate" />
                   </FormGroup>
                 </Col>
               </Row>
@@ -155,7 +150,11 @@ export class StudentCreator extends Component {
                 <Col>
                   <FormGroup>
                     <Label for="studentCampus">Student Campus</Label>
-                    <Input type="select" name="studentCampus" id="studentCampus">
+                    <Input
+                      type="select"
+                      name="studentCampus"
+                      id="studentCampus"
+                    >
                       <option></option>
                       <option value="1">Tempe</option>
                       <option value="2">Queen Creek</option>
@@ -171,7 +170,11 @@ export class StudentCreator extends Component {
                 <Col>
                   <FormGroup>
                     <Label for="studentFunding">Funding Source</Label>
-                    <Input type="select" name="studentFunding" id="studentFunding">
+                    <Input
+                      type="select"
+                      name="studentFunding"
+                      id="studentFunding"
+                    >
                       <option></option>
                       <option value="1">ESA</option>
                       <option value="2">District</option>
@@ -184,16 +187,20 @@ export class StudentCreator extends Component {
                   <FormGroup>
                     <Label for="district">District</Label>
                     <Input type="select" name="district" id="district">
-                      {this.state.districts.map(district => 
+                      {this.state.districts.map((district) => (
                         <option value={district.id}>{district.name}</option>
-                        )}
+                      ))}
                     </Input>
                   </FormGroup>
                 </Col>
                 <Col>
                   <FormGroup>
                     <Label for="studentInstructionMode">Instruction Mode</Label>
-                    <Input type="select" name="studentInstructionMode" id="studentInstructionMode">
+                    <Input
+                      type="select"
+                      name="studentInstructionMode"
+                      id="studentInstructionMode"
+                    >
                       <option></option>
                       <option value="1">Ground</option>
                       <option value="2">Home</option>
@@ -206,14 +213,10 @@ export class StudentCreator extends Component {
                 </Col>
               </Row>
               <Row>
-              <Col>
+                <Col>
                   <FormGroup>
                     <Label for="start">Start Date</Label>
-                    <Input
-                      type="date"
-                      name="start"
-                      id="start"
-                    />
+                    <Input type="date" name="start" id="start" />
                   </FormGroup>
                 </Col>
                 <Col>
@@ -228,40 +231,36 @@ export class StudentCreator extends Component {
                 </Col>
               </Row>
               <Container>
-              <h3>Additional Services</h3>
-              <small>Minutes per Month</small>
-              <Row>
-                <Col>
-                  <FormGroup>
-                    <Label for="counselingMinutes">Counseling</Label>
-                    <Input
-                      type="number"
-                      name="counselingMinutes"
-                      id="counselingMinutes"
-                    />
-                  </FormGroup>
-                </Col>
-                <Col>
-                  <FormGroup>
-                    <Label for="speechMinutes">Speech</Label>
-                    <Input
-                      type="number"
-                      name="speechMinutes"
-                      id="speechMinutes"
-                    />
-                  </FormGroup>
-                </Col>
-                <Col>
-                  <FormGroup>
-                    <Label for="speechMinutes">OT</Label>
-                    <Input
-                      type="number"
-                      name="otMinutes"
-                      id="otMinutes"
-                    />
-                  </FormGroup>
-                </Col>
-              </Row>
+                <h3>Additional Services</h3>
+                <small>Minutes per Month</small>
+                <Row>
+                  <Col>
+                    <FormGroup>
+                      <Label for="counselingMinutes">Counseling</Label>
+                      <Input
+                        type="number"
+                        name="counselingMinutes"
+                        id="counselingMinutes"
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col>
+                    <FormGroup>
+                      <Label for="speechMinutes">Speech</Label>
+                      <Input
+                        type="number"
+                        name="speechMinutes"
+                        id="speechMinutes"
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col>
+                    <FormGroup>
+                      <Label for="speechMinutes">OT</Label>
+                      <Input type="number" name="otMinutes" id="otMinutes" />
+                    </FormGroup>
+                  </Col>
+                </Row>
                 <Row>
                   <Col>
                     <h3>Medical</h3>
@@ -299,38 +298,30 @@ export class StudentCreator extends Component {
                     </FormGroup>
                   </Col>
                 </Row>
-              <Row>
-                <Col>
-                  <FormGroup>
-                    <Label for="allergies">Allergies</Label>
-                    <Input
-                      type="text"
-                      name="allergies"
-                      id="allergies"
-                    />
-                  </FormGroup>
-                </Col>
-                <Col>
-                  <FormGroup>
-                    <Label for="therapies">Therapies</Label>
-                    <Input
-                      type="text"
-                      name="therapies"
-                      id="therapies"
-                    />
-                  </FormGroup>
-                </Col>
-                <Col>
-                  <FormGroup>
-                    <Label for="sensitivities">Sensitivities</Label>
-                    <Input
-                      type="text"
-                      name="sensitivities"
-                      id="sensitivities"
-                    />
-                  </FormGroup>
-                </Col>
-              </Row>
+                <Row>
+                  <Col>
+                    <FormGroup>
+                      <Label for="allergies">Allergies</Label>
+                      <Input type="text" name="allergies" id="allergies" />
+                    </FormGroup>
+                  </Col>
+                  <Col>
+                    <FormGroup>
+                      <Label for="therapies">Therapies</Label>
+                      <Input type="text" name="therapies" id="therapies" />
+                    </FormGroup>
+                  </Col>
+                  <Col>
+                    <FormGroup>
+                      <Label for="sensitivities">Sensitivities</Label>
+                      <Input
+                        type="text"
+                        name="sensitivities"
+                        id="sensitivities"
+                      />
+                    </FormGroup>
+                  </Col>
+                </Row>
               </Container>
               <Container>
                 <Row>
@@ -342,11 +333,7 @@ export class StudentCreator extends Component {
                   <Col>
                     <FormGroup>
                       <Label for="social">Social</Label>
-                      <Input
-                        type="text"
-                        name="social"
-                        id="social"
-                      />
+                      <Input type="text" name="social" id="social" />
                     </FormGroup>
                   </Col>
                 </Row>
@@ -354,11 +341,7 @@ export class StudentCreator extends Component {
                   <Col>
                     <FormGroup>
                       <Label for="emotional">Emotional</Label>
-                      <Input
-                        type="text"
-                        name="emotional"
-                        id="emotional"
-                      />
+                      <Input type="text" name="emotional" id="emotional" />
                     </FormGroup>
                   </Col>
                 </Row>
@@ -366,11 +349,7 @@ export class StudentCreator extends Component {
                   <Col>
                     <FormGroup>
                       <Label for="physical">Physical</Label>
-                      <Input
-                        type="text"
-                        name="physical"
-                        id="physical"
-                      />
+                      <Input type="text" name="physical" id="physical" />
                     </FormGroup>
                   </Col>
                 </Row>
@@ -378,11 +357,7 @@ export class StudentCreator extends Component {
                   <Col>
                     <FormGroup>
                       <Label for="math">Math</Label>
-                      <Input
-                        type="text"
-                        name="math"
-                        id="math"
-                      />
+                      <Input type="text" name="math" id="math" />
                     </FormGroup>
                   </Col>
                 </Row>
@@ -390,11 +365,7 @@ export class StudentCreator extends Component {
                   <Col>
                     <FormGroup>
                       <Label for="reading">Reading</Label>
-                      <Input
-                        type="text"
-                        name="reading"
-                        id="reading"
-                      />
+                      <Input type="text" name="reading" id="reading" />
                     </FormGroup>
                   </Col>
                 </Row>
@@ -402,11 +373,7 @@ export class StudentCreator extends Component {
                   <Col>
                     <FormGroup>
                       <Label for="writing">Writing</Label>
-                      <Input
-                        type="text"
-                        name="writing"
-                        id="writing"
-                      />
+                      <Input type="text" name="writing" id="writing" />
                     </FormGroup>
                   </Col>
                 </Row>
@@ -421,11 +388,7 @@ export class StudentCreator extends Component {
                   <Col>
                     <FormGroup>
                       <Label for="interests">Interests</Label>
-                      <Input
-                        type="text"
-                        name="interests"
-                        id="interests"
-                      />
+                      <Input type="text" name="interests" id="interests" />
                     </FormGroup>
                   </Col>
                 </Row>
@@ -434,7 +397,7 @@ export class StudentCreator extends Component {
                 color="primary"
                 onClick={() => {
                   this.createStudent();
-                  this.setState({ modal: false })
+                  this.setState({ modal: false });
                 }}
               >
                 Submit

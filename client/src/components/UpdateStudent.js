@@ -12,13 +12,26 @@ import {
   Container,
 } from "reactstrap";
 import { studentService } from "../services/studentService";
+import { baseURL } from "../baseURL";
+import { fetcher } from "../services/fetcher";
 
 export class StudentUpdater extends Component {
   constructor(props) {
     super(props);
     this.state = {
       modal: false,
+      districts: []
     };
+  }
+
+  componentDidMount() {
+    fetcher(`${baseURL}/districts`)
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          districts: data,
+        });
+      });
   }
 
   async updateStudent() {
@@ -48,6 +61,11 @@ export class StudentUpdater extends Component {
       interests: document.getElementById("interests").value,
       withdraw: document.getElementById("withdraw").value,
       dailyReport: document.getElementById("dailyReport").value,
+      counselingMinutes: document.getElementById("counselingMinutes").value,
+      speechMinutes: document.getElementById("speechMinutes").value,
+      otMinutes: document.getElementById("otMinutes").value,
+      district: document.getElementById("district").value,
+      start: document.getElementById("start").value,
     };
     const student = await studentService.update(studentObject);
     console.log(student);
@@ -188,6 +206,16 @@ export class StudentUpdater extends Component {
                 </Col>
                 <Col>
                   <FormGroup>
+                    <Label for="district">District</Label>
+                    <Input type="select" name="district" id="district" defaultValue={this.props.district}>
+                      {this.state.districts.map((district) => (
+                        <option value={district.id}>{district.name}</option>
+                      ))}
+                    </Input>
+                  </FormGroup>
+                </Col>
+                <Col>
+                  <FormGroup>
                     <Label for="studentInstructionMode">Instruction Mode</Label>
                     <Input
                       type="select"
@@ -209,6 +237,12 @@ export class StudentUpdater extends Component {
               <Row>
                 <Col>
                   <FormGroup>
+                    <Label for="start">Start Date</Label>
+                    <Input type="date" name="start" id="start" defaultValue={this.props.start}/>
+                  </FormGroup>
+                </Col>
+                <Col>
+                  <FormGroup>
                     <Label for="previousSchools">Previous School(s)</Label>
                     <Input
                       defaultValue={this.props.studentPreviousSchools}
@@ -220,6 +254,38 @@ export class StudentUpdater extends Component {
                 </Col>
               </Row>
               <Container>
+                <h3>Additional Services</h3>
+                <small>Minutes per Month</small>
+                <Row>
+                  <Col>
+                    <FormGroup>
+                      <Label for="counselingMinutes">Counseling</Label>
+                      <Input
+                        type="number"
+                        name="counselingMinutes"
+                        id="counselingMinutes"
+                        defaultValue={this.props.counselingMinutes}
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col>
+                    <FormGroup>
+                      <Label for="speechMinutes">Speech</Label>
+                      <Input
+                        type="number"
+                        name="speechMinutes"
+                        id="speechMinutes"
+                        defaultValue={this.props.speechMinutes}
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col>
+                    <FormGroup>
+                      <Label for="speechMinutes">OT</Label>
+                      <Input type="number" name="otMinutes" id="otMinutes" defaultValue={this.props.otMinutes}/>
+                    </FormGroup>
+                  </Col>
+                </Row>
                 <Row>
                   <Col>
                     <h3>Medical</h3>

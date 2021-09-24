@@ -4,11 +4,11 @@ import { Student } from "../entity/Student";
 export class StudentController {
 
 	async all(request: Request, response: Response, next: NextFunction) {
-		return Student.find({ relations: ["schedules", "campuses", "schedules.teacher", "schedules.para", "schedules.course", "guardians", "funding", "instructionmode", "schedules.campus"] });
+		return Student.find({ relations: ["schedules", "campuses", "schedules.teacher", "schedules.para", "schedules.course", "guardians", "funding", "instructionmode", "schedules.campus", "district"] });
 	}
 
 	async one(request: Request, response: Response, next: NextFunction) {
-		return Student.findOne(request.params.id, { relations: ["schedules", "campuses", "schedules.teacher", "schedules.teacher.id", "schedules.course", "guardians", "funding", "instructionmode"] });
+		return Student.findOne(request.params.id, { relations: ["schedules", "campuses", "schedules.teacher", "schedules.teacher.id", "schedules.course", "guardians", "funding", "instructionmode", "district"] });
 	}
 
 
