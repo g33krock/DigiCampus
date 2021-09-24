@@ -23,6 +23,7 @@ import { StudentTimeCardController } from "./controller/StudentTimeCardControlle
 import { StudentGradebookController } from "./controller/StudentGradebookController";
 import { StudentScheduleController } from "./controller/StudentScheduleController";
 import { StudentTrackerController } from "./controller/StudentTrackerController";
+import { DistrictController } from "./controller/DistrictController";
 
 export const Routes = [{
 	method: "get",
@@ -166,6 +167,34 @@ export const Routes = [{
 	method: "delete",
 	route: "/guardians/:id",
 	controller: GuardianController,
+	action: "remove"
+},
+
+// District
+{
+	method: "get",
+	route: "/districts",
+	controller: DistrictController,
+	action: "all"
+}, {
+	method: "get",
+	route: "/districts/:id",
+	controller: DistrictController,
+	action: "one"
+}, {
+	method: "put",
+	route: "/districts/:id",
+	controller: DistrictController,
+	action: "update"
+}, {
+	method: "post",
+	route: "/districts",
+	controller: DistrictController,
+	action: "save"
+}, {
+	method: "delete",
+	route: "/districts/:id",
+	controller: DistrictController,
 	action: "remove"
 },
 

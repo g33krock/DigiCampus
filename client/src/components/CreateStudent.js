@@ -21,7 +21,18 @@ export class StudentCreator extends Component {
     super(props);
     this.state = {
       modal: false,
+      districts: []
     };
+  }
+
+  componentDidMount() {
+    fetcher(`${baseURL}/districts`)
+    .then((response) => response.json())
+    .then((data) => {
+      this.setState({
+        districts: data,
+      });
+    });
   }
 
   async createStudent() {
@@ -48,6 +59,11 @@ export class StudentCreator extends Component {
       reading: document.getElementById("reading").value,
       writing: document.getElementById("writing").value,
       interests: document.getElementById("interests").value,
+      counselingMinutes: document.getElementById("counselingMinutes").value,
+      speechMinutes: document.getElementById("speechMinutes").value,
+      otMinutes: document.getElementById("otMinutes").value,
+      district: document.getElementById("district").value,
+      start: document.getElementById("start").value,
     };
     const student = await studentService.create(studentObject);
     fetcher(`${baseURL}/students`)
@@ -108,6 +124,16 @@ export class StudentCreator extends Component {
               <Row>
                 <Col>
                   <FormGroup>
+                    <Label for="start">Start Date</Label>
+                    <Input
+                      type="date"
+                      name="start"
+                      id="start"
+                    />
+                  </FormGroup>
+                </Col>
+                <Col>
+                  <FormGroup>
                     <Label for="studentGrade">Grade Level</Label>
                     <Input type="select" name="studentGrade" id="studentGrade">
                       <option>0</option>
@@ -166,6 +192,16 @@ export class StudentCreator extends Component {
                 </Col>
                 <Col>
                   <FormGroup>
+                    <Label for="district">District</Label>
+                    <Input type="select" name="district" id="district">
+                      {this.state.districts.map(district => 
+                        <option value={district.id}>{district.name}</option>
+                        )}
+                    </Input>
+                  </FormGroup>
+                </Col>
+                <Col>
+                  <FormGroup>
                     <Label for="studentInstructionMode">Instruction Mode</Label>
                     <Input type="select" name="studentInstructionMode" id="studentInstructionMode">
                       <option></option>
@@ -192,6 +228,39 @@ export class StudentCreator extends Component {
                 </Col>
               </Row>
               <Container>
+              <Row>
+                <h3>Minutes per Month</h3>
+                <Col>
+                  <FormGroup>
+                    <Label for="counselingMinutes">Counseling</Label>
+                    <Input
+                      type="number"
+                      name="counselingMinutes"
+                      id="counselingMinutes"
+                    />
+                  </FormGroup>
+                </Col>
+                <Col>
+                  <FormGroup>
+                    <Label for="speechMinutes">Speech</Label>
+                    <Input
+                      type="number"
+                      name="speechMinutes"
+                      id="speechMinutes"
+                    />
+                  </FormGroup>
+                </Col>
+                <Col>
+                  <FormGroup>
+                    <Label for="speechMinutes">OT</Label>
+                    <Input
+                      type="number"
+                      name="otMinutes"
+                      id="otMinutes"
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
                 <Row>
                   <Col>
                     <h3>Medical</h3>
