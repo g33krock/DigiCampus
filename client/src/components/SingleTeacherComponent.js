@@ -86,13 +86,18 @@ export default class SingleTeacher extends Component {
             </NavLink>
           </NavItem>
         </Nav>
-        <h1 className="perfectdark">
+        <h1 className="parent">
           <img
+            className="image1"
             style={{ width: 80, height: 80, borderRadius: 60 / 2 }}
             src={this.state.teacher?.image}
-            alt={this.state.teacher?.firstName}
           />
-          Hello {this.state.teacher?.firstName}
+          <img
+            className="image2"
+            style={{ width: 80, height: 80, borderRadius: 60 / 2 }}
+            src="https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/FootballHelmet.png"
+          />
+          Hello {this.state.teacher?.firstName}{" "}
         </h1>
         <h3>Link: {this.state.teacher?.link}</h3>
         <TabContent activeTab={this.state.activeTab}>
