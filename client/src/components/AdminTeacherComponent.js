@@ -22,7 +22,7 @@ import { fetcher } from "../services/fetcher";
 import TeacherGroupSchedule from "./TeacherGroupScheduleComponent";
 import { StaffAttendanceCreator } from "./CreateStaffAttendance";
 import TeacherTrackerResponse from "./TeacherTrackerResponses";
-import {TimeCardOverride} from "./OverrideTimeCardComponent";
+import { TimeCardOverride } from "./OverrideTimeCardComponent";
 
 export default class AdminTeacher extends Component {
   constructor(props) {
@@ -90,37 +90,37 @@ export default class AdminTeacher extends Component {
     this.setState({ teacher });
     console.log(this.state);
     console.log(e.target.value);
-      this.getTimes(teacherId)
+    this.getTimes(teacherId);
   };
 
   getTimes(teacherId) {
     fetcher(`${baseURL}/ttimecards?teacherId=${teacherId}`)
-    .then((response) => response.json())
-    .then((timecards) => {
-      timecards.sort(
-        (attendancea, attendanceb) => attendancea?.date - attendanceb?.date
-      );
-      this.setState({
-        timecard: timecards,
+      .then((response) => response.json())
+      .then((timecards) => {
+        timecards.sort(
+          (attendancea, attendanceb) => attendancea?.date - attendanceb?.date
+        );
+        this.setState({
+          timecard: timecards,
+        });
+        console.log(this.state.timecard);
+        console.log(teacherId);
       });
-      console.log(this.state.timecard)
-      console.log(teacherId);
-    });
   }
 
   getTimesCallback() {
     fetcher(`${baseURL}/ttimecards?teacherId=${this.state.teacher.id}`)
-    .then((response) => response.json())
-    .then((timecards) => {
-      timecards.sort(
-        (attendancea, attendanceb) => attendancea?.date - attendanceb?.date
-      );
-      this.setState({
-        timecard: timecards,
+      .then((response) => response.json())
+      .then((timecards) => {
+        timecards.sort(
+          (attendancea, attendanceb) => attendancea?.date - attendanceb?.date
+        );
+        this.setState({
+          timecard: timecards,
+        });
+        console.log(this.state.timecard);
+        console.log(this.state.teacher.id);
       });
-      console.log(this.state.timecard)
-      console.log(this.state.teacher.id);
-    });
   }
 
   render() {
@@ -252,10 +252,16 @@ export default class AdminTeacher extends Component {
             </Form>
           </Col>
         </Row>
-        <h1 className="perfectdark">
+        <h1 className="parent">
           <img
+            className="image1"
             style={{ width: 80, height: 80, borderRadius: 60 / 2 }}
             src={this.state.teacher?.image}
+          />
+          <img
+            className="image2"
+            style={{ width: 80, height: 80, borderRadius: 60 / 2 }}
+            src="https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/FootballHelmet.png"
           />
           Hello {this.state.teacher?.firstName}{" "}
         </h1>
@@ -332,19 +338,17 @@ export default class AdminTeacher extends Component {
             )}
           </TabPane>
           <TabPane tabId="5">
-            {this.state.teacher && (
-              this.state.timecard.map(times =>
+            {this.state.teacher &&
+              this.state.timecard.map((times) => (
                 <TimeCardOverride
-                callback={() => this.getTimesCallback()}
-                timecardId={times.id}
-                date={times.date}
-                time={times.time}
-                inOut={times.inOut}
-                teacher={times.teacher}
-
-              ></TimeCardOverride>
-                )
-            )}
+                  callback={() => this.getTimesCallback()}
+                  timecardId={times.id}
+                  date={times.date}
+                  time={times.time}
+                  inOut={times.inOut}
+                  teacher={times.teacher}
+                ></TimeCardOverride>
+              ))}
           </TabPane>
         </TabContent>
       </Container>

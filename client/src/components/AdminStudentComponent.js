@@ -250,6 +250,11 @@ export default class AdminStudent extends Component {
                         studentWriting={this.state.student?.writing}
                         studentInterests={this.state.student?.interests}
                         dailyReport={this.state.student?.dailyReport}
+                        start={this.state.student?.start}
+                        counselingMinutes={this.state.student?.counselingMinutes}
+                        speechMinutes={this.state.student?.speechMinutes}
+                        otMinutes={this.state.student?.otMinutes}
+                        district={this.state.student?.district?.id}
                       ></StudentUpdater>
                     </Col>
                   </Row>
