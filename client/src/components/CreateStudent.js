@@ -187,6 +187,7 @@ export class StudentCreator extends Component {
                   <FormGroup>
                     <Label for="district">District</Label>
                     <Input type="select" name="district" id="district">
+                      <option></option>
                       {this.state.districts.map((district) => (
                         <option value={district.id}>{district.name}</option>
                       ))}
