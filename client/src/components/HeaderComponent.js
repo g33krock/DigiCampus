@@ -323,6 +323,11 @@ class Header extends Component {
                   TimeCard
                 </NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/billing">
+                  Billing
+                </NavLink>
+              </NavItem>
               <Col sm={3}></Col>
             </Nav>
           </Collapse>
