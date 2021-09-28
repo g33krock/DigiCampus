@@ -65,7 +65,7 @@ export class Jumbo extends Component {
     return (
       <FullWidth className="megatron">
         <Height height={300}>
-          <h1 style={{textAlign:"center", color:"whitesmoke", textShadow:"2px 2px black"}}>Madden Monday!!!</h1>
+          <h1 style={{textAlign:"center", color:"whitesmoke", textShadow:"2px 2px black"}}>Tourist Tuesday!!!</h1>
           {/* <Marquee
             velocity={12}
             minScale={0.7}

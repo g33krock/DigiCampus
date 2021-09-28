@@ -107,7 +107,21 @@ export default class Teacher extends Component {
     });
   }
 
+  picSwitch(randomInt) {
+    switch(randomInt) {
+      case 0:
+        return 'https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/tourist1.png';
+      case 1:
+        return 'https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/tourist2.png';
+      default:
+        return 'https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/tourist3.png'
+    }
+  }
+
   render() {
+    const getRandomInt = () => {
+      return Math.floor(Math.random()*3)
+    }
     const date = new Date();
     return (
       <Container>
@@ -193,15 +207,15 @@ export default class Teacher extends Component {
           teacherP10={this.state.teacher?.pTen}
         ></TeacherUpdater>
         <h1 className="parent">
-          <img
+        <img
             className="image1"
             style={{ width: 80, height: 80, borderRadius: 60 / 2 }}
             src={this.state.teacher?.image}
           />
           <img
             className="image2"
-            style={{ width: 80, height: 80, borderRadius: 60 / 2 }}
-            src="https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/FootballHelmet.png"
+            style={{ width: 100, borderRadius: 60 / 2 }}
+            src={this.picSwitch(getRandomInt())}
           />
           Hello {this.state.teacher?.firstName}{" "}
         </h1>

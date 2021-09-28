@@ -1,27 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
-html, body, h1 {
+html, body {
   padding: 0;
   margin: 0;
   /* background-color: rgb(174, 216, 255); */
   background-position: bottom;
-  background-color: rgb(87, 172, 76);
+  background-image: linear-gradient(rgb(4, 239, 252), rgb(2, 6, 248), rgb(255, 251, 0));
   background-repeat: no-repeat;
   background-size:contain;
   font-family: 'Helvetica', sans-serif;
-  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/football_2.cur')
-  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'); */
+  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/football_2.cur') */
+  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A');
 }
 
 html {
   /* background-color: rgb(174, 216, 255); */
-  background-color: rgb(87, 172, 76);
+  background-image: radial-gradient(rgb(4, 239, 252), rgb(2, 6, 248), rgb(255, 251, 0));
   background-repeat: no-repeat;
   background-position: bottom;
  
 }
 
 .megatron {
-  background-image:url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/MaddenMonday.gif');
+  background-image:url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Tourist.gif');
   /* background-image: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Aspire-Owl.gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvQXNwaXJlLU93bC5naWYiLCJpYXQiOjE2MjQ1NTUxMzAsImV4cCI6MTkzOTkxNTEzMH0.t7V5iTGS19-Dt0-T6xu-RHIKfkfYK5AO7dXtXjjxc1s'); */
   background-repeat: no-repeat;
   background-position: bottom;
@@ -326,15 +326,15 @@ skew to change the 'thickness' of the glitch.*/
  }
 
  .fancy-cursor {
-  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto; */
-  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/football_2.cur'), auto;
+  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto;
+  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/football_2.cur'), auto; */
  }
 
  .card-title {
   font-size: large;
   font-weight: bolder;
-  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/football_2.cur'), auto;
-  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto; */
+  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/football_2.cur'), auto; */
+  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto;
   /* text-shadow: 2px 2px #050505; */
  }
  
@@ -346,22 +346,22 @@ skew to change the 'thickness' of the glitch.*/
    border: 2px solid #000000;
    font-size: large;
    font-weight: bolder;
-   cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/football_2.cur'), auto;
-   /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto; */
+   /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/football_2.cur'), auto; */
+   cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto;
  }
 
  .schedule-container {
   display: grid;
   grid-template-columns: 15% 15% 15% 15% 15% 15%;
   grid-row-gap: 0px;
-  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/football_2.cur'), auto;
-  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto; */
+  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/football_2.cur'), auto; */
+  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto;
 }
 
 #trackerBox {
   border: 2px solid #000000;
-  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/football_2.cur'), auto;
-  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto; */
+  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/football_2.cur'), auto; */
+  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto;
   position: relative;
   bottom: 3
 }
@@ -657,8 +657,8 @@ skew to change the 'thickness' of the glitch.*/
 }
 .image2 {
   position: absolute;
-  top: -15px;
-  left: 0;
+  top: -2px;
+  left: -5px;
 
 }
 
