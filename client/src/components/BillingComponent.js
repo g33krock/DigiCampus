@@ -164,7 +164,7 @@ export default class Billing extends Component {
               </Table>
             </TabPane>
             <TabPane tabId="2">
-            {this.state.districts.map(district => 
+            {this.state.districts.filter(district => district?.id !== 19).map(district => 
             <Container><h3>{district.name}</h3>
                           <Table>
                 <thead>

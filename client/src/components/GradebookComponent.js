@@ -153,6 +153,8 @@ export class ClassGrades extends Component {
                       <option></option>
                       <option value="IP">In Progress</option>
                       <option value="Complete">Completed</option>
+                      <option value="S">Satisfactory</option>
+                      <option value="NI">Needs Improvement</option>
                     </Input>
                   </FormGroup>
                 </Col>
