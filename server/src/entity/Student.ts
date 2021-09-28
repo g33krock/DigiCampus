@@ -155,12 +155,57 @@ export class Student extends BaseEntity {
 	@Column({
 		nullable: true
 	})
+	counselingScope: string;
+
+	@Column({
+		nullable: true
+	})
 	speechMinutes: number;
 
 	@Column({
 		nullable: true
 	})
+	speechScope: string;
+
+	@Column({
+		nullable: true
+	})
 	otMinutes: number;
+
+	@Column({
+		nullable: true
+	})
+	otScope: string;
+
+	@Column({
+		nullable: true
+	})
+	ptMinutes: number;
+
+	@Column({
+		nullable: true
+	})
+	ptScope: string;
+
+	@Column({
+		nullable: true
+	})
+	musicMinutes: number;
+
+	@Column({
+		nullable: true
+	})
+	musicScope: string;
+
+	@Column({
+		nullable: true
+	})
+	abaMinutes: number;
+
+	@Column({
+		nullable: true
+	})
+	abaScope: string;
 
 	@Column({
 		nullable: true
