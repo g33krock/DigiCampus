@@ -47,9 +47,26 @@ export default class Billing extends Component {
     }
   }
 
+  calcMinutes(minutes, scope){
+      switch(scope){
+        case 'Daily':
+            return (minutes * 45).toFixed(2);
+        case 'Weekly':
+            return ((minutes/5) * 45).toFixed(2);
+        case 'Monthly':
+            return ((minutes/20.5) * 45).toFixed(2);
+        case 'Quarterly':
+            return ((minutes/45) * 45).toFixed(2);
+        case 'Semi-Annually':
+            return ((minutes/90) * 45).toFixed(2);
+        case 'Annually':
+            return ((minutes/180) * 45).toFixed(2);
+      }
+  }
+
   render() {
     return (
-      <Container>
+      <div>
         <Nav tabs>
           <NavItem>
             <NavLink
@@ -163,6 +180,9 @@ export default class Billing extends Component {
                     <th>Counseling</th>
                     <th>Speech</th>
                     <th>OT</th>
+                    <th>PT</th>
+                    <th>ABA</th>
+                    <th>Music</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -217,9 +237,12 @@ export default class Billing extends Component {
                         }
                       </td>
                       <td>{student.campuses.name}</td>
-                      <td>{student.counselingMinutes}<small>minutes/month</small></td>
-                      <td>{student.speechMinutes}<small>minutes/month</small></td>
-                      <td>{student.otMinutes}<small>minutes/month</small></td>
+                      <td>{this.calcMinutes(student.counselingMinutes, student.counselingScope)} <small>Quarterly</small><br/>{student.counselingMinutes}<small>minutes/{student.counselingScope}</small></td>
+                      <td>{this.calcMinutes(student.speechMinutes, student.speechScope)} <small>Quarterly</small><br/>{student.speechMinutes}<small>minutes/{student.speechScope}</small></td>
+                      <td>{this.calcMinutes(student.otMinutes, student.otScope)} <small>Quarterly</small><br/>{student.otMinutes}<small>minutes/{student.otScope}</small></td>
+                      <td>{this.calcMinutes(student.ptMinutes, student.ptScope)} <small>Quarterly</small><br/>{student.ptMinutes}<small>minutes/{student.ptScope}</small></td>
+                      <td>{this.calcMinutes(student.abaMinutes, student.abaScope)} <small>Quarterly</small><br/>{student.abaMinutes}<small>minutes/{student.abaScope}</small></td>
+                      <td>{this.calcMinutes(student.musicMinutes, student.musicScope)} <small>Quarterly</small><br/>{student.musicMinutes}<small>minutes/{student.musicScope}</small></td>
                     </tr>
                   ))}
                 </tbody>
@@ -229,7 +252,7 @@ export default class Billing extends Component {
             </TabPane>
           </TabContent>
         </div>
-      </Container>
+      </div>
     );
   }
 }

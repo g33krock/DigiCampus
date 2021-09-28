@@ -62,8 +62,17 @@ export class StudentUpdater extends Component {
       withdraw: document.getElementById("withdraw").value,
       dailyReport: document.getElementById("dailyReport").value,
       counselingMinutes: document.getElementById("counselingMinutes").value,
+      counselingScope: document.getElementById("counselingScope").value,
       speechMinutes: document.getElementById("speechMinutes").value,
+      speechScope: document.getElementById("speechScope").value,
       otMinutes: document.getElementById("otMinutes").value,
+      otScope: document.getElementById("otScope").value,
+      musicMinutes: document.getElementById("musicMinutes").value,
+      musicScope: document.getElementById("musicScope").value,
+      abaMinutes: document.getElementById("abaMinutes").value,
+      abaScope: document.getElementById("abaScope").value,
+      ptMinutes: document.getElementById("ptMinutes").value,
+      ptScope: document.getElementById("ptScope").value,
       district: document.getElementById("district").value,
       start: document.getElementById("start").value,
     };
@@ -208,7 +217,18 @@ export class StudentUpdater extends Component {
                   <FormGroup>
                     <Label for="district">District</Label>
                     <Input type="select" name="district" id="district" defaultValue={this.props.district}>
-                      {this.state.districts.map((district) => (
+                      {this.state.districts
+                      .sort(function (a, b) {
+                        let x = a.name.toLowerCase();
+                        let y = b.name.toLowerCase();
+                        if (x < y) {
+                          return -1;
+                        }
+                        if (x > y) {
+                          return 1;
+                        }
+                        return 0;
+                      }).map((district) => (
                         <option value={district.id}>{district.name}</option>
                       ))}
                     </Input>
@@ -255,7 +275,6 @@ export class StudentUpdater extends Component {
               </Row>
               <Container>
                 <h3>Additional Services</h3>
-                <small>Minutes per Month</small>
                 <Row>
                   <Col>
                     <FormGroup>
@@ -264,25 +283,149 @@ export class StudentUpdater extends Component {
                         type="number"
                         name="counselingMinutes"
                         id="counselingMinutes"
+                        placeholder="minutes"
                         defaultValue={this.props.counselingMinutes}
                       />
+                    </FormGroup>
+                    <FormGroup>
+                      <Input
+                        type="select"
+                        name="counselingScope"
+                        id="counselingScope"
+                        defaultValue={this.props.counselingScope}
+                      >
+                        <option>Daily</option>
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                        <option>Quarterly</option>
+                        <option>Semi-Annually</option>
+                        <option>Annually</option>
+                      </Input>
                     </FormGroup>
                   </Col>
                   <Col>
                     <FormGroup>
-                      <Label for="speechMinutes">Speech</Label>
+                      <Label for="speechMinutes"><small>Speech Therapy</small></Label>
                       <Input
                         type="number"
                         name="speechMinutes"
                         id="speechMinutes"
+                        placeholder="minutes"
                         defaultValue={this.props.speechMinutes}
                       />
+                    </FormGroup>
+                    <FormGroup>
+                      <Input
+                        type="select"
+                        name="speechScope"
+                        id="speechScope"
+                        defaultValue={this.props.speechScope}
+                      >
+                        <option>Daily</option>
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                        <option>Quarterly</option>
+                        <option>Semi-Annually</option>
+                        <option>Annually</option>
+                      </Input>
                     </FormGroup>
                   </Col>
                   <Col>
                     <FormGroup>
-                      <Label for="speechMinutes">OT</Label>
-                      <Input type="number" name="otMinutes" id="otMinutes" defaultValue={this.props.otMinutes}/>
+                      <Label for="otMinutes"><small>Occupational Therapy</small></Label>
+                      <Input type="number" name="otMinutes" id="otMinutes" placeholder="minutes" defaultValue={this.props.otMinutes}/>
+                    </FormGroup>
+                    <FormGroup>
+                      <Input
+                        type="select"
+                        name="otScope"
+                        id="otScope"
+                        defaultValue={this.props.otScope}
+                      >
+                        <option>Daily</option>
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                        <option>Quarterly</option>
+                        <option>Semi-Annually</option>
+                        <option>Annually</option>
+                      </Input>
+                    </FormGroup>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <FormGroup>
+                      <Label for="abaMinutes"><small>ABA Therapy</small></Label>
+                      <Input
+                        type="number"
+                        name="abaMinutes"
+                        id="abaMinutes"
+                        placeholder="minutes"
+                        defaultValue={this.props.abaMinutes}
+                      />
+                    </FormGroup>
+                    <FormGroup>
+                      <Input
+                        type="select"
+                        name="abaScope"
+                        id="abaScope"
+                        defaultValue={this.props.abaScope}
+                      >
+                        <option>Daily</option>
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                        <option>Quarterly</option>
+                        <option>Semi-Annually</option>
+                        <option>Annually</option>
+                      </Input>
+                    </FormGroup>
+                  </Col>
+                  <Col>
+                    <FormGroup>
+                      <Label for="ptMinutes"><small>Physical Therapy</small></Label>
+                      <Input
+                        type="number"
+                        name="ptMinutes"
+                        id="ptMinutes"
+                        placeholder="minutes"
+                        defaultValue={this.props.ptMinutes}
+                      />
+                    </FormGroup>
+                    <FormGroup>
+                      <Input
+                        type="select"
+                        name="ptScope"
+                        id="ptScope"
+                        defaultValue={this.props.ptScope}
+                      >
+                        <option>Daily</option>
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                        <option>Quarterly</option>
+                        <option>Semi-Annually</option>
+                        <option>Annually</option>
+                      </Input>
+                    </FormGroup>
+                  </Col>
+                  <Col>
+                    <FormGroup>
+                      <Label for="musicMinutes"><small>Music Therapy</small></Label>
+                      <Input type="number" name="musicMinutes" id="musicMinutes" placeholder="minutes" defaultValue={this.props.musicMinutes}/>
+                    </FormGroup>
+                    <FormGroup>
+                      <Input
+                        type="select"
+                        name="musicScope"
+                        id="musicScope"
+                        defaultValue={this.props.musicScope}
+                      >
+                        <option>Daily</option>
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                        <option>Quarterly</option>
+                        <option>Semi-Annually</option>
+                        <option>Annually</option>
+                      </Input>
                     </FormGroup>
                   </Col>
                 </Row>

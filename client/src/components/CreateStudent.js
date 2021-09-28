@@ -58,9 +58,18 @@ export class StudentCreator extends Component {
       reading: document.getElementById("reading").value,
       writing: document.getElementById("writing").value,
       interests: document.getElementById("interests").value,
-      counselingMinutes: document.getElementById("counselingMinutes").value,
-      speechMinutes: document.getElementById("speechMinutes").value,
-      otMinutes: document.getElementById("otMinutes").value,
+      counselingMinutes: parseInt(document.getElementById("counselingMinutes").value),
+      counselingScope: document.getElementById("counselingScope").value,
+      speechMinutes: parseInt(document.getElementById("speechMinutes").value),
+      speechScope: document.getElementById("speechScope").value,
+      otMinutes: document.parseInt(document.getElementById("otMinutes").value),
+      otScope: document.getElementById("otScope").value,
+      musicMinutes: parseInt(document.getElementById("musicMinutes").value),
+      musicScope: document.getElementById("musicScope").value,
+      abaMinutes: parseInt(document.getElementById("abaMinutes").value),
+      abaScope: document.getElementById("abaScope").value,
+      ptMinutes: parseInt(document.getElementById("ptMinutes").value),
+      ptScope: document.getElementById("ptScope").value,
       district: document.getElementById("district").value,
       start: document.getElementById("start").value,
     };
@@ -188,7 +197,18 @@ export class StudentCreator extends Component {
                     <Label for="district">District</Label>
                     <Input type="select" name="district" id="district">
                       <option></option>
-                      {this.state.districts.map((district) => (
+                      {this.state.districts
+                      .sort(function (a, b) {
+                        let x = a.name.toLowerCase();
+                        let y = b.name.toLowerCase();
+                        if (x < y) {
+                          return -1;
+                        }
+                        if (x > y) {
+                          return 1;
+                        }
+                        return 0;
+                      }).map((district) => (
                         <option value={district.id}>{district.name}</option>
                       ))}
                     </Input>
@@ -233,7 +253,6 @@ export class StudentCreator extends Component {
               </Row>
               <Container>
                 <h3>Additional Services</h3>
-                <small>Minutes per Month</small>
                 <Row>
                   <Col>
                     <FormGroup>
@@ -242,23 +261,139 @@ export class StudentCreator extends Component {
                         type="number"
                         name="counselingMinutes"
                         id="counselingMinutes"
+                        defaultValue="0"
                       />
+                    </FormGroup>
+                    <FormGroup>
+                      <Input
+                        type="select"
+                        name="counselingScope"
+                        id="counselingScope"
+                      >
+                        <option>Daily</option>
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                        <option>Quarterly</option>
+                        <option>Semi-Annually</option>
+                        <option>Annually</option>
+                      </Input>
                     </FormGroup>
                   </Col>
                   <Col>
                     <FormGroup>
-                      <Label for="speechMinutes">Speech</Label>
+                      <Label for="speechMinutes"><small>Speech Therapy</small></Label>
                       <Input
                         type="number"
                         name="speechMinutes"
                         id="speechMinutes"
+                        defaultValue="0"
                       />
+                    </FormGroup>
+                    <FormGroup>
+                      <Input
+                        type="select"
+                        name="speechScope"
+                        id="speechScope"
+                      >
+                        <option>Daily</option>
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                        <option>Quarterly</option>
+                        <option>Semi-Annually</option>
+                        <option>Annually</option>
+                      </Input>
                     </FormGroup>
                   </Col>
                   <Col>
                     <FormGroup>
-                      <Label for="speechMinutes">OT</Label>
-                      <Input type="number" name="otMinutes" id="otMinutes" />
+                      <Label for="otMinutes"><small>Occupational Therapy</small></Label>
+                      <Input type="number" name="otMinutes" id="otMinutes" defaultValue="0"/>
+                    </FormGroup>
+                    <FormGroup>
+                      <Input
+                        type="select"
+                        name="otScope"
+                        id="otScope"
+                      >
+                        <option>Daily</option>
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                        <option>Quarterly</option>
+                        <option>Semi-Annually</option>
+                        <option>Annually</option>
+                      </Input>
+                    </FormGroup>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <FormGroup>
+                      <Label for="abaMinutes"><small>ABA Therapy</small></Label>
+                      <Input
+                        type="number"
+                        name="abaMinutes"
+                        id="abaMinutes"
+                        defaultValue="0"
+                      />
+                    </FormGroup>
+                    <FormGroup>
+                      <Input
+                        type="select"
+                        name="abaScope"
+                        id="abaScope"
+                      >
+                        <option>Daily</option>
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                        <option>Quarterly</option>
+                        <option>Semi-Annually</option>
+                        <option>Annually</option>
+                      </Input>
+                    </FormGroup>
+                  </Col>
+                  <Col>
+                    <FormGroup>
+                      <Label for="ptMinutes"><small>Physical Therapy</small></Label>
+                      <Input
+                        type="number"
+                        name="ptMinutes"
+                        id="ptMinutes"
+                        defaultValue="0"
+                      />
+                    </FormGroup>
+                    <FormGroup>
+                      <Input
+                        type="select"
+                        name="ptScope"
+                        id="ptScope"
+                      >
+                        <option>Daily</option>
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                        <option>Quarterly</option>
+                        <option>Semi-Annually</option>
+                        <option>Annually</option>
+                      </Input>
+                    </FormGroup>
+                  </Col>
+                  <Col>
+                    <FormGroup>
+                      <Label for="musicMinutes"><small>Music Therapy</small></Label>
+                      <Input type="number" name="musicMinutes" id="musicMinutes" defaultValue="0"/>
+                    </FormGroup>
+                    <FormGroup>
+                      <Input
+                        type="select"
+                        name="musicScope"
+                        id="musicScope"
+                      >
+                        <option>Daily</option>
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                        <option>Quarterly</option>
+                        <option>Semi-Annually</option>
+                        <option>Annually</option>
+                      </Input>
                     </FormGroup>
                   </Col>
                 </Row>

@@ -254,6 +254,15 @@ export default class AdminStudent extends Component {
                         counselingMinutes={this.state.student?.counselingMinutes}
                         speechMinutes={this.state.student?.speechMinutes}
                         otMinutes={this.state.student?.otMinutes}
+                        counselingScope={this.state.student?.counselingScope}
+                        speechScope={this.state.student?.speechScope}
+                        otScope={this.state.student?.otScope}
+                        ptMinutes={this.state.student?.ptMinutes}
+                        abaMinutes={this.state.student?.abaMinutes}
+                        musicMinutes={this.state.student?.musicMinutes}
+                        ptScope={this.state.student?.ptScope}
+                        abaScope={this.state.student?.abaScope}
+                        musicScope={this.state.student?.musicScope}
                         district={this.state.student?.district?.id}
                       ></StudentUpdater>
                     </Col>
