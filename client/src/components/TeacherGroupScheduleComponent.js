@@ -3,6 +3,7 @@ import { baseURL } from "../baseURL";
 import { Card, CardText, CardTitle, Col, Row } from "reactstrap";
 import { fetcher } from "../services/fetcher";
 import { GroupTrackerCreator } from "./CreateGroupTrackers";
+import { GroupGradebookCreator } from "./CreateGroupGradebook";
 
 export default class TeacherGroupSchedule extends Component {
   constructor(props) {
@@ -133,6 +134,11 @@ export default class TeacherGroupSchedule extends Component {
                   block = {p1}
                   teacher = {teachersched}
                   ></GroupTrackerCreator>
+                  <GroupGradebookCreator
+                  period = "1"
+                  block = {p1}
+                  teacher = {teachersched}
+                  ></GroupGradebookCreator>
                   <p>
                     Teacher:<br></br>
                     {this.props.teacher?.firstName}{" "}
@@ -169,6 +175,11 @@ export default class TeacherGroupSchedule extends Component {
                   period = "2"
                   block = {p2}
                   ></GroupTrackerCreator>
+                                    <GroupGradebookCreator
+                  period = "2"
+                  block = {p2}
+                  teacher = {teachersched}
+                  ></GroupGradebookCreator>
                   <p>
                     Teacher:<br></br>
                     {this.props.teacher?.firstName}{" "}
@@ -205,6 +216,11 @@ export default class TeacherGroupSchedule extends Component {
                   period = "3"
                   block = {p3}
                   ></GroupTrackerCreator>
+                                    <GroupGradebookCreator
+                  period = "3"
+                  block = {p3}
+                  teacher = {teachersched}
+                  ></GroupGradebookCreator>
                   <p>
                     Teacher:<br></br>
                     {this.props.teacher?.firstName}{" "}
