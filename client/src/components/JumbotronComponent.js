@@ -95,8 +95,8 @@ export class Jumbo extends Component {
     return (
       <FullWidth className="megatron">
         <Height height={300}>
-          <h1 style={{textAlign:"center", color:"whitesmoke", textShadow:"2px 2px black"}}>Way Back Wednesday!!!</h1>
-          <strong style={{textAlign:"center", color:"gold", position: "absolute", bottom: "15%", left: "46%"}}>Class of {this.textSwitch(getRandomInt())}</strong>
+          <h1 style={{textAlign:"center", color:"whitesmoke", textShadow:"2px 2px black"}}>Twinning Thursday!!!</h1>
+          {/* <strong style={{textAlign:"center", color:"gold", position: "absolute", bottom: "15%", left: "46%"}}>Class of {this.textSwitch(getRandomInt())}</strong> */}
           {/* <Marquee
             velocity={12}
             minScale={0.7}

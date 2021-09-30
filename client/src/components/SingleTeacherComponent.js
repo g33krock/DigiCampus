@@ -129,25 +129,23 @@ export default class SingleTeacher extends Component {
         </Nav>
         <div>
           <Row>
-            <Col className="parent">
-              <Row>
-              <Col>
+            <Col>
+            <Row>
+                <Container className="parent" style={{borderRadius: 60 / 2 }}>
                 <img
-                  className="image1"
-                  style={{ width: 120 }}
+                  className="image2"
+                  style={{ width: 120, opacity: 0.5 }}
                   src={this.state.teacher?.image}
                 />
-                <br />
-                <strong>
-                  {this.state.teacher?.firstName} {this.state.teacher?.lastName}
-                </strong>
-              </Col>
-              <Col>
-                <small><strong>Most Likely To:</strong> {this.textSwitch(getRandomInt())}</small>
-              </Col>
+                <img
+                  className="image1"
+                  style={{ width: 120, opacity: 0.5 }}
+                  src={this.state.teacher?.image}
+                />
+                </Container>
               </Row>
             </Col>
-            <Col xs="9" />
+            <Col xs="9" style={{justifyContent: "left", bottom: 0 }}><h1>Best Friends Forever!!!</h1></Col>
           </Row>
           {/* <img
             className="image2"

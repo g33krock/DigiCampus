@@ -4,7 +4,7 @@ html, body {
   margin: 0;
   /* background-color: rgb(174, 216, 255); */
   background-position: bottom;
-  background: lightgray;
+  background: pink;
   background-repeat: no-repeat;
   background-size:contain;
   font-family: 'Helvetica', sans-serif;
@@ -14,14 +14,15 @@ html, body {
 
 html {
   /* background-color: rgb(174, 216, 255); */
-  background: lightgray;
+  background: pink;
   background-repeat: no-repeat;
   background-position: bottom;
  
 }
 
 .megatron {
-  background-image:url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/AspireOwlGraphic.png');
+  background-image: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/twin2.jpg');
+  /* background-image:url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/AspireOwlGraphic.png'); */
   /* background-image: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Aspire-Owl.gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvQXNwaXJlLU93bC5naWYiLCJpYXQiOjE2MjQ1NTUxMzAsImV4cCI6MTkzOTkxNTEzMH0.t7V5iTGS19-Dt0-T6xu-RHIKfkfYK5AO7dXtXjjxc1s'); */
   background-repeat: no-repeat;
   background-position: bottom;
@@ -646,33 +647,35 @@ skew to change the 'thickness' of the glitch.*/
 }
 
 .parent {
-  position: relative;
+  /* position: relative;
   top: 0;
-  left: 0;
-  border: 2px rgb(1, 0, 8) solid;
-  background-color: whitesmoke;
-  padding-left: 0;
+  left: 0; */
+  /* border: 2px rgb(1, 0, 8) solid; */
+  background-image: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Heart.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 240px, 240px;
+  /* padding-left: 0;
   padding-right: 0;
-  justify-content: left;
+  justify-content: left; */
 }
-.image1 {
+/* .image1 {
   position: relative;
   top: 0;
   left: 0;
   border: 1px rgb(17, 0, 255) solid;
-}
+} */
 .image2 {
-  position: absolute;
-  top: -2px;
-  left: -5px;
+  /* position: absolute; */
+  /* top: -2px;
+  left: -5px; */
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
 
 }
 
-img {
-  filter: gray; /* IE6-9 */
-  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
-  filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
-}
+
+
 
 
 

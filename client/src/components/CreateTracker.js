@@ -641,7 +641,7 @@ export class TrackerCreator extends Component {
                 color="primary"
                 onClick={() => {
                   // this.playClick('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/click.mp3');
-                  this.playClick('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/greatscott.mp3');
+                  this.playClick('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/IGotIt.mp3');
                   this.createTracker();
                   this.createSpedResponseNinja();
                   this.updateSchedule();
