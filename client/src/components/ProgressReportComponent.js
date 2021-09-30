@@ -8,6 +8,7 @@ export default class ProgressReport extends Component {
     super(props);
     this.state = {
       schedule: [],
+      transcript: [],
       gradebooks: [],
     };
   }
@@ -25,6 +26,13 @@ export default class ProgressReport extends Component {
       .then((gradebooks) => {
         this.setState({
           gradebooks,
+        });
+      });
+      fetcher(`${baseURL}/studenttranscripts?studentId=${this.props.student.id}`)
+      .then((response) => response.json())
+      .then((transcript) => {
+        this.setState({
+          transcript,
         });
       });
     console.log(this.state.schedule);
@@ -72,6 +80,17 @@ export default class ProgressReport extends Component {
                   <td>{sclass?.status}</td>
                 </tr>
               ))}
+              {this.state.transcript
+              .filter(tran =>tran.date >= '2021-07-26')
+              .map(tran => 
+              <tr>
+                <td>{tran.altCourse}</td>
+                <td></td>
+                <td></td>
+                <td>{tran.date}</td>
+                <td>{tran.grade}</td>
+                <td>Complete</td>
+              </tr>)}
           </tbody>
         </Table>
       </Container>

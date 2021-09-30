@@ -24,6 +24,7 @@ import { StudentGradebookController } from "./controller/StudentGradebookControl
 import { StudentScheduleController } from "./controller/StudentScheduleController";
 import { StudentTrackerController } from "./controller/StudentTrackerController";
 import { DistrictController } from "./controller/DistrictController";
+import { StudentTranscriptController } from "./controller/StudentTranscriptController";
 
 export const Routes = [{
 	method: "get",
@@ -493,6 +494,11 @@ export const Routes = [{
     route: "/transcripts",
     controller: TranscriptController,
     action: "all"
+},{
+	method: "get",
+	route: "/studenttranscripts?:studentId",
+	controller: StudentTranscriptController,
+	action: "all"
 }, {
     method: "get",
     route: "/transcripts/:id",
