@@ -121,23 +121,23 @@ export default class TeacherGroupSchedule extends Component {
                     Student:<br></br>
                     {p1.map((students) => (
                       <div>
-                          <small>
-                        {students.student?.firstName}{" "}
-                        {students.student?.lastName} Subject:{" "}
-                        {students.course?.name} {students.course.subject}
+                        <small>
+                          {students.student?.firstName}{" "}
+                          {students.student?.lastName} Subject:{" "}
+                          {students.course?.name} {students.course.subject}
                         </small>
                       </div>
                     ))}
                   </p>
                   <GroupTrackerCreator
-                  period = "1"
-                  block = {p1}
-                  teacher = {teachersched}
+                    period="1"
+                    block={p1}
+                    teacher={teachersched}
                   ></GroupTrackerCreator>
                   <GroupGradebookCreator
-                  period = "1"
-                  block = {p1}
-                  teacher = {teachersched}
+                    period="1"
+                    block={p1}
+                    teacher={teachersched}
                   ></GroupGradebookCreator>
                   <p>
                     Teacher:<br></br>
@@ -163,22 +163,22 @@ export default class TeacherGroupSchedule extends Component {
                     Student:<br></br>
                     {p2.map((students) => (
                       <div>
-                          <small>
-                        {students.student?.firstName}{" "}
-                        {students.student?.lastName} Subject:{" "}
-                        {students.course?.name} {students.course.subject}
+                        <small>
+                          {students.student?.firstName}{" "}
+                          {students.student?.lastName} Subject:{" "}
+                          {students.course?.name} {students.course.subject}
                         </small>
                       </div>
                     ))}
                   </p>
                   <GroupTrackerCreator
-                  period = "2"
-                  block = {p2}
+                    period="2"
+                    block={p2}
                   ></GroupTrackerCreator>
-                                    <GroupGradebookCreator
-                  period = "2"
-                  block = {p2}
-                  teacher = {teachersched}
+                  <GroupGradebookCreator
+                    period="2"
+                    block={p2}
+                    teacher={teachersched}
                   ></GroupGradebookCreator>
                   <p>
                     Teacher:<br></br>
@@ -204,22 +204,22 @@ export default class TeacherGroupSchedule extends Component {
                     Student:<br></br>
                     {p3.map((students) => (
                       <div>
-                          <small>
-                        {students.student?.firstName}{" "}
-                        {students.student?.lastName} Subject:{" "}
-                        {students.course?.name} {students.course.subject}
+                        <small>
+                          {students.student?.firstName}{" "}
+                          {students.student?.lastName} Subject:{" "}
+                          {students.course?.name} {students.course.subject}
                         </small>
                       </div>
                     ))}
                   </p>
                   <GroupTrackerCreator
-                  period = "3"
-                  block = {p3}
+                    period="3"
+                    block={p3}
                   ></GroupTrackerCreator>
-                                    <GroupGradebookCreator
-                  period = "3"
-                  block = {p3}
-                  teacher = {teachersched}
+                  <GroupGradebookCreator
+                    period="3"
+                    block={p3}
+                    teacher={teachersched}
                   ></GroupGradebookCreator>
                   <p>
                     Teacher:<br></br>
@@ -245,18 +245,23 @@ export default class TeacherGroupSchedule extends Component {
                     Student:<br></br>
                     {p4.map((students) => (
                       <div>
-                          <small>
-                        {students.student?.firstName}{" "}
-                        {students.student?.lastName} Subject:{" "}
-                        {students.course?.name} {students.course.subject}
+                        <small>
+                          {students.student?.firstName}{" "}
+                          {students.student?.lastName} Subject:{" "}
+                          {students.course?.name} {students.course.subject}
                         </small>
                       </div>
                     ))}
                   </p>
                   <GroupTrackerCreator
-                  period = "4"
-                  block = {p4}
+                    period="4"
+                    block={p4}
                   ></GroupTrackerCreator>
+                  <GroupGradebookCreator
+                    period="4"
+                    block={p4}
+                    teacher={teachersched}
+                  ></GroupGradebookCreator>
                   <p>
                     Teacher:<br></br>
                     {this.props.teacher?.firstName}{" "}
@@ -281,18 +286,22 @@ export default class TeacherGroupSchedule extends Component {
                     Student:<br></br>
                     {p5.map((students) => (
                       <div>
-                          <small>
-                        {students.student?.firstName}{" "}
-                        {students.student?.lastName} Subject:{" "}
-                        {students.course?.name} {students.course.subject}
+                        <small>
+                          {students.student?.firstName}{" "}
+                          {students.student?.lastName} Subject:{" "}
+                          {students.course?.name} {students.course.subject}
                         </small>
                       </div>
                     ))}
                   </p>
                   <GroupTrackerCreator
-                  period = "5"
-                  block = {p5}
+                    period="5"
+                    block={p5}
                   ></GroupTrackerCreator>
+                  <GroupGradebookCreator
+                    period="5"
+                    block={p5}
+                  ></GroupGradebookCreator>
                   <p>
                     Teacher:<br></br>
                     {this.props.teacher?.firstName}{" "}
@@ -317,18 +326,22 @@ export default class TeacherGroupSchedule extends Component {
                     Student:<br></br>
                     {p6.map((students) => (
                       <div>
-                          <small>
-                        {students.student?.firstName}{" "}
-                        {students.student?.lastName} Subject:{" "}
-                        {students.course?.name} {students.course.subject}
+                        <small>
+                          {students.student?.firstName}{" "}
+                          {students.student?.lastName} Subject:{" "}
+                          {students.course?.name} {students.course.subject}
                         </small>
                       </div>
                     ))}
                   </p>
                   <GroupTrackerCreator
-                  period = "6"
-                  block = {p6}
+                    period="6"
+                    block={p6}
                   ></GroupTrackerCreator>
+                  <GroupGradebookCreator
+                    period="6"
+                    block={p6}
+                  ></GroupGradebookCreator>
                   <p>
                     Teacher:<br></br>
                     {this.props.teacher?.firstName}{" "}
@@ -353,18 +366,22 @@ export default class TeacherGroupSchedule extends Component {
                     Student:<br></br>
                     {p7.map((students) => (
                       <div>
-                          <small>
-                        {students.student?.firstName}{" "}
-                        {students.student?.lastName} Subject:{" "}
-                        {students.course?.name} {students.course.subject}
+                        <small>
+                          {students.student?.firstName}{" "}
+                          {students.student?.lastName} Subject:{" "}
+                          {students.course?.name} {students.course.subject}
                         </small>
                       </div>
                     ))}
                   </p>
                   <GroupTrackerCreator
-                  period = "7"
-                  block = {p7}
+                    period="7"
+                    block={p7}
                   ></GroupTrackerCreator>
+                  <GroupGradebookCreator
+                    period="7"
+                    block={p7}
+                  ></GroupGradebookCreator>
                   <p>
                     Teacher:<br></br>
                     {this.props.teacher?.firstName}{" "}
@@ -389,18 +406,22 @@ export default class TeacherGroupSchedule extends Component {
                     Student:<br></br>
                     {p8.map((students) => (
                       <div>
-                          <small>
-                        {students.student?.firstName}{" "}
-                        {students.student?.lastName} Subject:{" "}
-                        {students.course?.name} {students.course.subject}
+                        <small>
+                          {students.student?.firstName}{" "}
+                          {students.student?.lastName} Subject:{" "}
+                          {students.course?.name} {students.course.subject}
                         </small>
                       </div>
                     ))}
                   </p>
                   <GroupTrackerCreator
-                  period = "8"
-                  block = {p8}
+                    period="8"
+                    block={p8}
                   ></GroupTrackerCreator>
+                  <GroupGradebookCreator
+                    period="8"
+                    block={p8}
+                  ></GroupGradebookCreator>
                   <p>
                     Teacher:<br></br>
                     {this.props.teacher?.firstName}{" "}
@@ -425,18 +446,22 @@ export default class TeacherGroupSchedule extends Component {
                     Student:<br></br>
                     {p9.map((students) => (
                       <div>
-                          <small>
-                        {students.student?.firstName}{" "}
-                        {students.student?.lastName} Subject:{" "}
-                        {students.course?.name} {students.course.subject}
+                        <small>
+                          {students.student?.firstName}{" "}
+                          {students.student?.lastName} Subject:{" "}
+                          {students.course?.name} {students.course.subject}
                         </small>
                       </div>
                     ))}
                   </p>
                   <GroupTrackerCreator
-                  period = "9"
-                  block = {p9}
+                    period="9"
+                    block={p9}
                   ></GroupTrackerCreator>
+                  <GroupGradebookCreator
+                    period="9"
+                    block={p9}
+                  ></GroupGradebookCreator>
                   <p>
                     Teacher:<br></br>
                     {this.props.teacher?.firstName}{" "}
@@ -461,18 +486,22 @@ export default class TeacherGroupSchedule extends Component {
                     Student:<br></br>
                     {p10.map((students) => (
                       <div>
-                          <small>
-                        {students.student?.firstName}{" "}
-                        {students.student?.lastName} Subject:{" "}
-                        {students.course?.name} {students.course.subject}
+                        <small>
+                          {students.student?.firstName}{" "}
+                          {students.student?.lastName} Subject:{" "}
+                          {students.course?.name} {students.course.subject}
                         </small>
                       </div>
                     ))}
                   </p>
                   <GroupTrackerCreator
-                  period = "10"
-                  block = {p10}
+                    period="10"
+                    block={p10}
                   ></GroupTrackerCreator>
+                  <GroupGradebookCreator
+                    period="10"
+                    block={p10}
+                  ></GroupGradebookCreator>
                   <p>
                     Teacher:<br></br>
                     {this.props.teacher?.firstName}{" "}

@@ -7,6 +7,7 @@ import {
   Button,
   Modal,
   ModalBody,
+  Table,
 } from "reactstrap";
 import { gradebookService } from "../services/gradebookService";
 
@@ -15,8 +16,12 @@ export class GroupGradebookCreator extends Component {
     super(props);
     this.state = {
       modal: false,
-      block: null
+      block: null,
     };
+  }
+
+  componentDidMount() {
+    console.log(this.props.block);
   }
 
   async createGradebook(i) {
@@ -26,19 +31,21 @@ export class GroupGradebookCreator extends Component {
       schedule: i.id,
       courses: i.course.id,
       period: i.period,
-      pointsEarned: document.getElementById("pointsEarned"+i.id).value,
-      pointsAvailable: document.getElementById("pointsAvailable"+i.id).value,
+      pointsEarned: document.getElementById("pointsEarned" + i.student.id)
+        .value,
+      pointsAvailable: document.getElementById("pointsAvailable" + i.student.id)
+        .value,
       assignmentDate: Date.now(),
-      name: document.getElementById("name"+i.id).value,
+      name: document.getElementById("name").value,
     };
     const gradebook = await gradebookService.create(gradebookObject);
     console.log(gradebook);
   }
 
-  createGradebookNinja(){
+  createGradebookNinja() {
     this.state.block.forEach((studentGrade) =>
-    this.updateSchedule(studentGrade)
-  );
+      this.createGradebook(studentGrade)
+    );
   }
 
   toggle() {
@@ -48,7 +55,13 @@ export class GroupGradebookCreator extends Component {
   render() {
     return (
       <div>
-        <Button color="link" onClick={() => this.setState({ modal: true })}>
+        <Button
+          color="link"
+          onClick={() => {
+            this.setState({ modal: true });
+            this.setState({ block: this.props.block });
+          }}
+        >
           Gradebook
         </Button>
         <Modal isOpen={this.state.modal} toggle={() => this.toggle()}>
@@ -61,26 +74,19 @@ export class GroupGradebookCreator extends Component {
               textAlign: "center",
             }}
           >
-                          <Form className="fancy-cursor">
-              {this.props.block.map((sched) => (
-                  <div>
-            <p>
-              <strong>Student: </strong>
-              {sched.student?.firstName} {sched.student?.lastName}
-            </p>
-            <p>
+            {/* <p>
               <strong>Teacher: </strong>
-              {sched.teacher?.firstName} {sched.teacher?.lastName}
+              {this.props.block[0].teacher?.firstName} {this.props.block[0].teacher?.lastName}
             </p>
             <p>
               <strong>Course: </strong>
-              {sched.course?.name}
+              {this.props.block[0].course?.name}
             </p>
             <p>
               <strong>Period: </strong>
-              {sched?.period}
-            </p>
-
+              {this.props.block[0]?.period}
+            </p> */}
+            <Form className="fancy-cursor">
               <FormGroup id="trackerBox">
                 <Label for="name">
                   <h3>Assignment Name</h3>
@@ -88,34 +94,49 @@ export class GroupGradebookCreator extends Component {
                 <Input
                   type="text"
                   name="name"
-                  id={`name${sched.student.id}`}
+                  id={`name`}
                   className="fancy-cursor"
                 ></Input>
               </FormGroup>
-              <FormGroup id="trackerBox">
-                <Label for="pointsEarned">
-                  <h3>Points Earned</h3>
-                </Label>
-                <Input
-                  type="number"
-                  name="pointsEarned"
-                  id={`pointsEarned${sched.student.id}`}
-                  className="fancy-cursor"
-                ></Input>
-              </FormGroup>
-              <FormGroup id="trackerBox">
-                <Label for="pointsAvailable">
-                  <h3>Points Available</h3>
-                </Label>
-                <Input
-                  type="number"
-                  name="pointsAvailable"
-                  id={`pointsAvailable${sched.student.id}`}
-                  className="fancy-cursor"
-                />
-              </FormGroup>
-              </div>
-              ))}
+              <Table>
+                <thead>
+                  <tr>
+                    <th>Student</th>
+                    <th>Points Earned</th>
+                    <th>Points Available</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.props.block.map((sched) => (
+                    <tr>
+                      <td>
+                        {sched.student?.firstName} {sched.student?.lastName}
+                      </td>
+                      <td>
+                        <FormGroup id="trackerBox">
+                          <Input
+                            type="number"
+                            name="pointsEarned"
+                            id={`pointsEarned${sched.student.id}`}
+                            className="fancy-cursor"
+                          ></Input>
+                        </FormGroup>
+                      </td>
+                      <td>
+                        <FormGroup id="trackerBox">
+                          <Input
+                            type="number"
+                            name="pointsAvailable"
+                            id={`pointsAvailable${sched.student.id}`}
+                            className="fancy-cursor"
+                          />
+                        </FormGroup>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+
               <Button
                 color="primary"
                 onClick={() => {
