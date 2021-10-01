@@ -147,8 +147,8 @@ class Header extends Component {
     )
     {
       var a = new Audio(
-        // "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/Owl Coo - QuickSounds.com.mp3"
-        "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/doublemint.mp3"
+        "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/Owl Coo - QuickSounds.com.mp3"
+        // "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/doublemint.mp3"
       );
       a.play();
       console.log("alarm");

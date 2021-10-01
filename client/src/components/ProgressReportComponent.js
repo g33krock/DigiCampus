@@ -89,7 +89,7 @@ export default class ProgressReport extends Component {
                 <td></td>
                 <td>{tran.date}</td>
                 <td>{tran.grade}</td>
-                <td>Complete</td>
+                <td>Completed</td>
               </tr>)}
           </tbody>
         </Table>

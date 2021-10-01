@@ -109,45 +109,45 @@ export default class Teacher extends Component {
     });
   }
 
-  textSwitch(randomInt) {
-    switch (randomInt) {
-      case 0:
-        return "start a rock band and tour Ohio";
-      case 1:
-        return "invent 38 new flavors of hashbrowns";
-      case 2:
-        return "run for president without disclosing their party affiliation";
-      case 3:
-        return "host a reality dating show featuring gorillas";
-      case 4:
-        return "discover a magical land accessible through a sock drawer";
-      case 5:
-        return "become a stunt double for a potato";
-      case 6:
-        return "decipher the secret language of marionettes";
-      case 7:
-        return "become a teaching ninja";
-      case 8:
-        return "become a teaching pirate";
-      default:
-        return "buy Dallas a Dr. Pepper";
-    }
-  }
-
-  // picSwitch(randomInt) {
-  //   switch(randomInt) {
+  // textSwitch(randomInt) {
+  //   switch (randomInt) {
   //     case 0:
-  //       return 'https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/tourist1.png';
+  //       return "start a rock band and tour Ohio";
   //     case 1:
-  //       return 'https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/tourist2.png';
+  //       return "invent 38 new flavors of hashbrowns";
+  //     case 2:
+  //       return "run for president without disclosing their party affiliation";
+  //     case 3:
+  //       return "host a reality dating show featuring gorillas";
+  //     case 4:
+  //       return "discover a magical land accessible through a sock drawer";
+  //     case 5:
+  //       return "become a stunt double for a potato";
+  //     case 6:
+  //       return "decipher the secret language of marionettes";
+  //     case 7:
+  //       return "become a teaching ninja";
+  //     case 8:
+  //       return "become a teaching pirate";
   //     default:
-  //       return 'https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/tourist3.png'
+  //       return "buy Dallas a Dr. Pepper";
   //   }
   // }
 
+  picSwitch(randomInt) {
+    switch (randomInt) {
+      case 0:
+        return "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/thewave.png";
+      case 1:
+        return "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/spikeamerica.png";
+      default:
+        return "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/spikehawk.png";
+    }
+  }
+
   render() {
     const getRandomInt = () => {
-      return Math.floor(Math.random() * 10);
+      return Math.floor(Math.random() * 3);
     };
     const date = new Date();
     return (
@@ -234,30 +234,27 @@ export default class Teacher extends Component {
           teacherP10={this.state.teacher?.pTen}
         ></TeacherUpdater>
         <div>
-          <Row>
+        <Row>
             <Col>
-            <Row>
-                <Container className="parent" style={{borderRadius: 60 / 2 }}>
-                <img
-                  className="image2"
-                  style={{ width: 120, opacity: 0.5 }}
-                  src={this.state.teacher?.image}
-                />
-                <img
-                  className="image1"
-                  style={{ width: 120, opacity: 0.5 }}
-                  src={this.state.teacher?.image}
-                />
+              <Row>
+                <Container className="parent">
+                  <img
+                    className="image1"
+                    style={{ width: 100, borderRadius: 60 / 2 }}
+                    src={this.state.teacher?.image}
+                  />
+                  <img
+                    className="image2"
+                    style={{ width: 80, borderRadius: 60 / 2 }}
+                    src={this.picSwitch(getRandomInt())}
+                  />
                 </Container>
               </Row>
             </Col>
-            <Col xs="9" style={{justifyContent: "left", bottom: 0 }}><h1>Best Friends Forever!!!</h1></Col>
+            <Col xs="9" style={{ justifyContent: "left", bottom: 0 }}>
+              <h1>Have a great Fall Break!!!</h1>
+            </Col>
           </Row>
-          {/* <img
-            className="image2"
-            style={{ width: 100, borderRadius: 60 / 2 }}
-            src={this.picSwitch(getRandomInt())}
-          /> */}
           Hello {this.state.teacher?.firstName}{" "}
         </div>
         <h3>Link: {this.state.teacher?.link}</h3>
