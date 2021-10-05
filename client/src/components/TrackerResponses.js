@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {baseURL} from "../baseURL";
-import { Table } from "reactstrap";
+import { Table, Button } from "reactstrap";
 import { fetcher } from '../services/fetcher';
 
 export default class TrackerResponse extends Component {
@@ -39,7 +39,6 @@ export default class TrackerResponse extends Component {
   }
 
   setTracker(trackers) {
-    // sets student property to student object.  This looks funny because they both are named student
     this.setState({ trackers: trackers });
     console.log(trackers);
   }
@@ -48,6 +47,10 @@ export default class TrackerResponse extends Component {
   render() {
     return (
       <div class="tableFixHead">
+                <Button
+        onClick={() => {
+          this.getSchedules()
+        }}>Update</Button>
         <Table bordered hover size="sm">
           <thead class="shadow">
             <tr>

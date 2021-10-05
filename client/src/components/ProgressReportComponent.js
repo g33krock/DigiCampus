@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Table } from "reactstrap";
+import { Container, Table, Button } from "reactstrap";
 import { fetcher } from "../services/fetcher";
 import { baseURL } from "../baseURL";
 
@@ -14,6 +14,31 @@ export default class ProgressReport extends Component {
   }
 
   componentDidMount() {
+    fetcher(`${baseURL}/studentschedules?studentId=${this.props.student.id}`)
+      .then((response) => response.json())
+      .then((schedule) => {
+        this.setState({
+          schedule,
+        });
+      });
+    fetcher(`${baseURL}/studentgradebooks?studentsId=${this.props.student.id}`)
+      .then((response) => response.json())
+      .then((gradebooks) => {
+        this.setState({
+          gradebooks,
+        });
+      });
+      fetcher(`${baseURL}/studenttranscripts?studentId=${this.props.student.id}`)
+      .then((response) => response.json())
+      .then((transcript) => {
+        this.setState({
+          transcript,
+        });
+      });
+    console.log(this.state.schedule);
+  }
+
+  updatePage() {
     fetcher(`${baseURL}/studentschedules?studentId=${this.props.student.id}`)
       .then((response) => response.json())
       .then((schedule) => {
@@ -93,6 +118,10 @@ export default class ProgressReport extends Component {
               </tr>)}
           </tbody>
         </Table>
+        <Button
+        onClick={() => {
+          this.updatePage()
+        }}>Update</Button>
       </Container>
     );
   }
