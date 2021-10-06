@@ -1,4 +1,4 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne } from "typeorm";
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, ManyToMany } from "typeorm";
 import { Schedule } from "./Schedule";
 import { Guardian } from "./Guardian";
 import { Campus } from "./Campus";
@@ -11,6 +11,7 @@ import { Transcript } from "./Transcript";
 import { Incident } from "./Incident";
 import { StudentTimeCard } from "./StudentTimeCard";
 import { District } from "./District";
+import { Attendance } from "./Attendance";
 
 @Entity()
 export class Student extends BaseEntity {
@@ -250,6 +251,9 @@ export class Student extends BaseEntity {
 
 	@OneToMany(() => StudentTimeCard, stimecard => stimecard.student)
 	stimecard: StudentTimeCard[];
+
+	@ManyToMany(() => Attendance, attendance => attendance.student)
+    attendance: Attendance[];
 
 	@Column({
 		nullable: true

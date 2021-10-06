@@ -10,6 +10,9 @@ import {
   Nav,
   NavItem,
   NavLink,
+  Form,
+  Row,
+  Button
 } from "reactstrap";
 import { ScheduleUpdater } from "./UpdateSchedule";
 // import { DeleteSchedule } from "./DeleteSchedule";
@@ -19,6 +22,7 @@ import { campusService } from "../services/campusService";
 import { courseService } from "../services/courseService";
 import { teacherService } from "../services/teacherService";
 import { scheduleService } from "../services/scheduleService";
+import { schooldayService } from "../services/schooldayService";
 import { TeacherPrepUpdater } from "./UpdateTeacherPrepOne";
 import { isNull } from "lodash";
 
@@ -38,6 +42,9 @@ export default class Schedule extends Component {
       courses: [],
       teachers: [],
       activeTab: "1",
+      startDate:new Date(new Date().getTime()-(7*24*60*60*1000)).toISOString().slice(0, 10), 
+      endDate:new Date().toISOString().slice(0, 10),
+      schooldays:[],
       pOne: [],
       pTwo: [],
       pThree: [],
@@ -61,6 +68,7 @@ export default class Schedule extends Component {
 
   componentDidMount() {
     this.getSchedules();
+    this.getSchoolDays();
     console.log(this.props.campus);
     campusService.all().then((campuses) => {
       this.setState({
@@ -73,6 +81,15 @@ export default class Schedule extends Component {
         schedules,
       });
       console.log(this.state.schedules);
+    });
+  }
+
+  getSchoolDays(){
+    schooldayService.all().then((schooldays) => {
+      this.setState({
+        schooldays,
+      });
+      console.log(this.state.schooldays);
     });
   }
 
@@ -150,6 +167,15 @@ export default class Schedule extends Component {
     this.setState({
       isNavOpen: !this.state.isNavOpen,
     });
+  }
+
+  async saveTheDate() {
+    const date = await this.setState({
+      startDate: document.getElementById("startDate").value,
+      endDate: document.getElementById("endDate").value,
+    });
+    console.log(date);
+    console.log(`Start: ${this.state.startDate}  End: ${this.state.endDate}`);
   }
 
   onChange = (e) => {
@@ -647,6 +673,16 @@ export default class Schedule extends Component {
               }}
             >
               Efficiency
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === "6" })}
+              onClick={() => {
+                this.toggle("6");
+              }}
+            >
+              Attendance
             </NavLink>
           </NavItem>
         </Nav>
@@ -1414,6 +1450,182 @@ export default class Schedule extends Component {
                           ).length
                         }
                       </th>
+                    </tr>
+                  ))}
+              </tbody>
+            </Table>
+          </TabPane>
+          <TabPane tabId="6">
+          <Col md="8">
+            <Form>
+              <Row>
+                <Col md="3">
+                  <Label for="startDate">
+                    <small>Start Date</small>
+                  </Label>
+                  <Input
+                    type="date"
+                    name="startDate"
+                    id="startDate"
+                    placeholder="Start"
+                  />
+                </Col>
+                <Col md="3">
+                  <Label for="endDate">
+                    <small>End Date</small>
+                  </Label>
+                  <Input
+                    type="date"
+                    name="endDate"
+                    id="endDate"
+                    placeholder="End"
+                  />
+                </Col>
+                <Col md="2">
+                  <Button
+                    color="link"
+                    size="sm"
+                    onClick={() => {
+                      this.saveTheDate();
+                    }}
+                  >
+                    Submit
+                  </Button>
+                </Col>
+              </Row>
+            </Form>
+          </Col>
+          <Col sm={3}>
+              <Label>Select Campus: </Label>
+              <Input type="select" id="selectCampus" onChange={this.onChange}>
+                <option></option>
+                {this.state.campuses.map((campus) => (
+                  <option value={campus.id}>{campus.name}</option>
+                ))}
+              </Input>
+            </Col>
+            <h1 id="headline">K-5</h1>
+            <Table bordered hover size="sm" className="tight">
+              <thead class="shadow">
+                <tr id="scheduleHeader">
+                  <th>
+                    <h2>Student</h2>
+                    <br /> <br />
+                  </th>
+                  {this.state.schooldays
+                  .filter(day => day.date>this.state.startDate && day.date<this.state.endDate && day.inSchool === true)
+                  .map(day => 
+                  <th>{day.date}</th>
+                  )}
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.students
+                  .filter(
+                    (cstudent) =>
+                      cstudent.campuses.id === this.state?.campus?.id
+                  ).filter(student => student.grade <= 5)
+                  .sort(function (a, b) {
+                    let x = a.firstName.toLowerCase();
+                    let y = b.firstName.toLowerCase();
+                    if (x < y) {
+                      return -1;
+                    }
+                    if (x > y) {
+                      return 1;
+                    }
+                    return 0;
+                  })
+                  .map((student) => (
+                    <tr>
+                      <th key={student.id}>
+                        {student.firstName} {student.lastName}
+                      </th>
+                      {/* {student.schedules
+                        .sort((a, b) => a.period - b.period)
+                        .map((schedule) => (
+                          <td
+                            className={schedule.teacher?.firstName}
+                            id="schedItem"
+                          >
+                            <small>{schedule.course.name}</small>
+                            <br />
+                            <small>
+                              {schedule.teacher?.firstName}{" "}
+                              {schedule.teacher?.lastName}
+                            </small>{" "}
+                            <br />
+                            <small>
+                              {schedule.para?.firstName}{" "}
+                              {schedule.para?.lastName}
+                            </small>{" "}
+                            <br />
+                            <small>{schedule.teacher?.link} </small>{" "}
+                          </td>
+                        ))} */}
+                    </tr>
+                  ))}
+              </tbody>
+            </Table>
+            <h1 id="headline">6-12</h1>
+            <Table bordered hover size="sm" className="tight">
+              <thead class="shadow">
+              <tr id="scheduleHeader">
+                  <th>
+                    <h2>Student</h2>
+                    <br /> <br />
+                  </th>
+                  {this.state.schooldays
+                  .filter(day => day.date>this.state.startDate && day.date<this.state.endDate && day.inSchool === true)
+                  .map(day => 
+                  <th>{day.date}</th>
+                  )}
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.students
+                  .filter(
+                    (cstudent) =>
+                      cstudent.campuses.id === this.state?.campus?.id
+                  ).filter(student => student.grade >= 6)
+                  .sort(function (a, b) {
+                    let x = a.firstName.toLowerCase();
+                    let y = b.firstName.toLowerCase();
+                    if (x < y) {
+                      return -1;
+                    }
+                    if (x > y) {
+                      return 1;
+                    }
+                    return 0;
+                  })
+                  .map((student) => (
+                    <tr>
+                      <th key={student.id}>
+                        {student.firstName} {student.lastName}
+                      </th>
+                      {/* {student.schedules
+                        .sort((a, b) => a.period - b.period)
+                        .map((schedule) => (
+                          <td
+                            className={schedule.teacher?.firstName}
+                            id="schedItem"
+                          >
+                            <small>{schedule.course.name}</small>
+                            <br />
+                            <small>
+                              {schedule.teacher?.firstName}{" "}
+                              {schedule.teacher?.lastName}
+                            </small>{" "}
+                            <br />
+                            <small>
+                              {schedule.para?.firstName}{" "}
+                              {schedule.para?.lastName}
+                            </small>{" "}
+                            <br />
+                            <small>{schedule.teacher?.link} </small>{" "}
+                          </td>
+                        ))} */}
                     </tr>
                   ))}
               </tbody>
