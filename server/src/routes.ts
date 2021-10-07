@@ -26,6 +26,7 @@ import { StudentTrackerController } from "./controller/StudentTrackerController"
 import { DistrictController } from "./controller/DistrictController";
 import { StudentTranscriptController } from "./controller/StudentTranscriptController";
 import { SchoolDayController } from "./controller/SchoolDayController";
+import { AttendanceController } from "./controller/AttendanceController";
 
 export const Routes = [{
 	method: "get",
@@ -697,6 +698,35 @@ export const Routes = [{
     method: "delete",
     route: "/schooldays/:id",
     controller: SchoolDayController,
+    action: "remove"
+},
+
+// Attendance
+
+{
+    method: "get",
+    route: "/attendance",
+    controller: AttendanceController,
+    action: "all"
+}, {
+    method: "get",
+    route: "/attendance/:id",
+    controller: AttendanceController,
+    action: "one"
+}, {
+    method: "put",
+    route: "/attendance/:id",
+    controller: AttendanceController,
+    action: "update"
+}, {
+    method: "post",
+    route: "/attendance",
+    controller: AttendanceController,
+    action: "save"
+}, {
+    method: "delete",
+    route: "/attendance/:id",
+    controller: AttendanceController,
     action: "remove"
 },
 ];

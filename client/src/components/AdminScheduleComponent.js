@@ -10,6 +10,9 @@ import {
   Nav,
   NavItem,
   NavLink,
+  Form,
+  Row,
+  Button,
 } from "reactstrap";
 import { ScheduleUpdater } from "./UpdateSchedule";
 // import { DeleteSchedule } from "./DeleteSchedule";
@@ -20,8 +23,8 @@ import { courseService } from "../services/courseService";
 import { teacherService } from "../services/teacherService";
 import { scheduleService } from "../services/scheduleService";
 import { TeacherPrepUpdater } from "./UpdateTeacherPrepOne";
-import DateRangeFilter from "./DateRangeFilter";
 import { isNull } from "lodash";
+import { attendanceService } from "../services/attendanceService";
 
 export default class AdminSchedule extends Component {
   constructor(props) {
@@ -39,6 +42,11 @@ export default class AdminSchedule extends Component {
       courses: [],
       teachers: [],
       activeTab: "1",
+      startDate: new Date(new Date().getTime() - 14 * 24 * 60 * 60 * 1000)
+        .toISOString()
+        .slice(0, 10),
+      endDate: new Date().toISOString().slice(0, 10),
+      attendance: [],
       pOne: [],
       pTwo: [],
       pThree: [],
@@ -62,6 +70,7 @@ export default class AdminSchedule extends Component {
 
   componentDidMount() {
     this.getSchedules();
+    this.getAttendance();
     campusService.all().then((campuses) => {
       this.setState({
         campuses,
@@ -73,6 +82,15 @@ export default class AdminSchedule extends Component {
         schedules,
       });
       console.log(this.state.schedules);
+    });
+  }
+
+  getAttendance() {
+    attendanceService.all().then((attendance) => {
+      this.setState({
+        attendance,
+      });
+      console.log(this.state.attendance);
     });
   }
 
@@ -96,66 +114,43 @@ export default class AdminSchedule extends Component {
     const teachers = await teacherService.all();
     this.setState({ teachers });
     const pOne = this.state.teachers
-      .filter(
-        (teacher) => teacher.pOne === "Yes"
-      )
+      .filter((teacher) => teacher.pOne === "Yes")
       .filter((teacher) => teacher.campus.id === this.state?.campus?.id);
     this.setState({ pOne });
     const pTwo = this.state.teachers
-      .filter(
-        (teacher) => teacher.pTwo === "Yes"
-      )
+      .filter((teacher) => teacher.pTwo === "Yes")
       .filter((teacher) => teacher.campus.id === this.state?.campus?.id);
     this.setState({ pTwo });
     const pThree = this.state.teachers
-      .filter(
-        (teacher) =>
-          teacher.pThree === "Yes"
-      )
+      .filter((teacher) => teacher.pThree === "Yes")
       .filter((teacher) => teacher.campus.id === this.state?.campus?.id);
     this.setState({ pThree });
     const pFour = this.state.teachers
-      .filter(
-        (teacher) => teacher.pFour === "Yes" 
-      )
+      .filter((teacher) => teacher.pFour === "Yes")
       .filter((teacher) => teacher.campus.id === this.state?.campus?.id);
     this.setState({ pFour });
     const pFive = this.state.teachers
-      .filter(
-        (teacher) => teacher.pFive === "Yes"
-      )
+      .filter((teacher) => teacher.pFive === "Yes")
       .filter((teacher) => teacher.campus.id === this.state?.campus?.id);
     this.setState({ pFive });
     const pSix = this.state.teachers
-      .filter(
-        (teacher) => teacher.pSix === "Yes"
-      )
+      .filter((teacher) => teacher.pSix === "Yes")
       .filter((teacher) => teacher.campus.id === this.state?.campus?.id);
     this.setState({ pSix });
     const pSeven = this.state.teachers
-      .filter(
-        (teacher) =>
-          teacher.pSeven === "Yes"
-      )
+      .filter((teacher) => teacher.pSeven === "Yes")
       .filter((teacher) => teacher.campus.id === this.state?.campus?.id);
     this.setState({ pSeven });
     const pEight = this.state.teachers
-      .filter(
-        (teacher) =>
-          teacher.pEight === "Yes"
-      )
+      .filter((teacher) => teacher.pEight === "Yes")
       .filter((teacher) => teacher.campus.id === this.state?.campus?.id);
     this.setState({ pEight });
     const pNine = this.state.teachers
-      .filter(
-        (teacher) => teacher.pNine === "Yes"
-      )
+      .filter((teacher) => teacher.pNine === "Yes")
       .filter((teacher) => teacher.campus.id === this.state?.campus?.id);
     this.setState({ pNine });
     const pTen = this.state.teachers
-      .filter(
-        (teacher) => teacher.pTen === "Yes"
-      )
+      .filter((teacher) => teacher.pTen === "Yes")
       .filter((teacher) => teacher.campus.id === this.state?.campus?.id);
     this.setState({ pTen });
     const courses = await courseService.all();
@@ -173,6 +168,15 @@ export default class AdminSchedule extends Component {
     });
   }
 
+  async saveTheDate() {
+    const date = await this.setState({
+      startDate: document.getElementById("startDate").value,
+      endDate: document.getElementById("endDate").value,
+    });
+    console.log(date);
+    console.log(`Start: ${this.state.startDate}  End: ${this.state.endDate}`);
+  }
+
   onChange = (e) => {
     const campusId = Number(e.target.value);
     const campus = this.state.campuses.find((campus) => campus.id === campusId);
@@ -184,6 +188,17 @@ export default class AdminSchedule extends Component {
 
   releaseKraken() {
     ScheduleUpdater.toggle();
+  }
+
+  attendanceSwitch(randomInt) {
+    switch (randomInt) {
+      case 0:
+        return "Absent";
+      case 1:
+        return "Present";
+      default:
+        return "Incorporeal Being";
+    }
   }
 
   render() {
@@ -210,7 +225,9 @@ export default class AdminSchedule extends Component {
         (teacher.pOne === "Yes" || teacher.pOne === "Para Support") &&
         teacher.pOne !== "No" &&
         teacher.pOne !== "Prep" &&
-        (teacher.campus.id === this.state?.campus?.id || (teacher.campus.id === 10 && teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
+        (teacher.campus.id === this.state?.campus?.id ||
+          (teacher.campus.id === 10 &&
+            teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
           teacher.role.id === 7 ||
@@ -221,7 +238,9 @@ export default class AdminSchedule extends Component {
         (teacher.pTwo === "Yes" || teacher.pTwo === "Para Support") &&
         teacher.pTwo !== "No" &&
         teacher.pTwo !== "Prep" &&
-        (teacher.campus.id === this.state?.campus?.id || (teacher.campus.id === 10 && teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
+        (teacher.campus.id === this.state?.campus?.id ||
+          (teacher.campus.id === 10 &&
+            teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
           teacher.role.id === 7 ||
@@ -232,7 +251,9 @@ export default class AdminSchedule extends Component {
         (teacher.pThree === "Yes" || teacher.pThree === "Para Support") &&
         teacher.pThree !== "No" &&
         teacher.pThree !== "Prep" &&
-        (teacher.campus.id === this.state?.campus?.id || (teacher.campus.id === 10 && teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
+        (teacher.campus.id === this.state?.campus?.id ||
+          (teacher.campus.id === 10 &&
+            teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
           teacher.role.id === 7 ||
@@ -243,7 +264,9 @@ export default class AdminSchedule extends Component {
         (teacher.pFour === "Yes" || teacher.pFour === "Para Support") &&
         teacher.pFour !== "No" &&
         teacher.pFour !== "Prep" &&
-        (teacher.campus.id === this.state?.campus?.id || (teacher.campus.id === 10 && teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
+        (teacher.campus.id === this.state?.campus?.id ||
+          (teacher.campus.id === 10 &&
+            teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
           teacher.role.id === 7 ||
@@ -254,7 +277,9 @@ export default class AdminSchedule extends Component {
         (teacher.pFive === "Yes" || teacher.pFive === "Para Support") &&
         teacher.pFive !== "No" &&
         teacher.pFive !== "Prep" &&
-        (teacher.campus.id === this.state?.campus?.id || (teacher.campus.id === 10 && teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
+        (teacher.campus.id === this.state?.campus?.id ||
+          (teacher.campus.id === 10 &&
+            teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
           teacher.role.id === 7 ||
@@ -265,7 +290,9 @@ export default class AdminSchedule extends Component {
         (teacher.pSix === "Yes" || teacher.pSix === "Para Support") &&
         teacher.pSix !== "No" &&
         teacher.pSix !== "Prep" &&
-        (teacher.campus.id === this.state?.campus?.id || (teacher.campus.id === 10 && teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
+        (teacher.campus.id === this.state?.campus?.id ||
+          (teacher.campus.id === 10 &&
+            teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
           teacher.role.id === 7 ||
@@ -276,7 +303,9 @@ export default class AdminSchedule extends Component {
         (teacher.pSeven === "Yes" || teacher.pSeven === "Para Support") &&
         teacher.pSeven !== "No" &&
         teacher.pSeven !== "Prep" &&
-        (teacher.campus.id === this.state?.campus?.id || (teacher.campus.id === 10 && teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
+        (teacher.campus.id === this.state?.campus?.id ||
+          (teacher.campus.id === 10 &&
+            teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
           teacher.role.id === 7 ||
@@ -287,7 +316,9 @@ export default class AdminSchedule extends Component {
         (teacher.pEight === "Yes" || teacher.pEight === "Para Support") &&
         teacher.pEight !== "No" &&
         teacher.pEight !== "Prep" &&
-        (teacher.campus.id === this.state?.campus?.id || (teacher.campus.id === 10 && teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
+        (teacher.campus.id === this.state?.campus?.id ||
+          (teacher.campus.id === 10 &&
+            teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
           teacher.role.id === 7 ||
@@ -298,7 +329,9 @@ export default class AdminSchedule extends Component {
         (teacher.pNine === "Yes" || teacher.pNine === "Para Support") &&
         teacher.pNine !== "No" &&
         teacher.pNine !== "Prep" &&
-        (teacher.campus.id === this.state?.campus?.id || (teacher.campus.id === 10 && teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
+        (teacher.campus.id === this.state?.campus?.id ||
+          (teacher.campus.id === 10 &&
+            teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
           teacher.role.id === 7 ||
@@ -309,7 +342,9 @@ export default class AdminSchedule extends Component {
         (teacher.pTen === "Yes" || teacher.pTen === "Para Support") &&
         teacher.pTen !== "No" &&
         teacher.pTen !== "Prep" &&
-        (teacher.campus.id === this.state?.campus?.id || (teacher.campus.id === 10 && teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
+        (teacher.campus.id === this.state?.campus?.id ||
+          (teacher.campus.id === 10 &&
+            teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
           teacher.role.id === 7 ||
@@ -330,7 +365,11 @@ export default class AdminSchedule extends Component {
       );
     let total1 = sched1.concat(para1);
     let teach1 = this.state.pOne
-      .filter((teacher) => teacher.campus.id === this.state.campus?.id || teacher.campus.id === 10)
+      .filter(
+        (teacher) =>
+          teacher.campus.id === this.state.campus?.id ||
+          teacher.campus.id === 10
+      )
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -358,7 +397,11 @@ export default class AdminSchedule extends Component {
       );
     let total2 = sched2.concat(para2);
     let teach2 = this.state.pTwo
-      .filter((teacher) => teacher.campus.id === this.state.campus?.id  || teacher.campus.id === 10)
+      .filter(
+        (teacher) =>
+          teacher.campus.id === this.state.campus?.id ||
+          teacher.campus.id === 10
+      )
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -386,7 +429,11 @@ export default class AdminSchedule extends Component {
       );
     let total3 = sched3.concat(para3);
     let teach3 = this.state.pThree
-      .filter((teacher) => teacher.campus.id === this.state.campus?.id || teacher.campus.id === 10)
+      .filter(
+        (teacher) =>
+          teacher.campus.id === this.state.campus?.id ||
+          teacher.campus.id === 10
+      )
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -414,7 +461,11 @@ export default class AdminSchedule extends Component {
       );
     let total4 = sched4.concat(para4);
     let teach4 = this.state.pFour
-      .filter((teacher) => teacher.campus.id === this.state.campus?.id || teacher.campus.id === 10)
+      .filter(
+        (teacher) =>
+          teacher.campus.id === this.state.campus?.id ||
+          teacher.campus.id === 10
+      )
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -442,7 +493,11 @@ export default class AdminSchedule extends Component {
       );
     let total5 = sched5.concat(para5);
     let teach5 = this.state.pFive
-      .filter((teacher) => teacher.campus.id === this.state.campus?.id || teacher.campus.id === 10)
+      .filter(
+        (teacher) =>
+          teacher.campus.id === this.state.campus?.id ||
+          teacher.campus.id === 10
+      )
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -470,7 +525,11 @@ export default class AdminSchedule extends Component {
       );
     let total6 = sched6.concat(para6);
     let teach6 = this.state.pSix
-      .filter((teacher) => teacher.campus.id === this.state.campus?.id || teacher.campus.id === 10)
+      .filter(
+        (teacher) =>
+          teacher.campus.id === this.state.campus?.id ||
+          teacher.campus.id === 10
+      )
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -498,7 +557,11 @@ export default class AdminSchedule extends Component {
       );
     let total7 = sched7.concat(para7);
     let teach7 = this.state.pSeven
-      .filter((teacher) => teacher.campus.id === this.state.campus?.id || teacher.campus.id === 10)
+      .filter(
+        (teacher) =>
+          teacher.campus.id === this.state.campus?.id ||
+          teacher.campus.id === 10
+      )
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -526,7 +589,11 @@ export default class AdminSchedule extends Component {
       );
     let total8 = sched8.concat(para8);
     let teach8 = this.state.pEight
-      .filter((teacher) => teacher.campus.id === this.state.campus?.id || teacher.campus.id === 10)
+      .filter(
+        (teacher) =>
+          teacher.campus.id === this.state.campus?.id ||
+          teacher.campus.id === 10
+      )
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -554,7 +621,11 @@ export default class AdminSchedule extends Component {
       );
     let total9 = sched9.concat(para9);
     let teach9 = this.state.pNine
-      .filter((teacher) => teacher.campus.id === this.state.campus?.id || teacher.campus.id === 10)
+      .filter(
+        (teacher) =>
+          teacher.campus.id === this.state.campus?.id ||
+          teacher.campus.id === 10
+      )
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -582,7 +653,11 @@ export default class AdminSchedule extends Component {
       );
     let total10 = sched10.concat(para10);
     let teach10 = this.state.pTen
-      .filter((teacher) => teacher.campus.id === this.state.campus?.id || teacher.campus.id === 10)
+      .filter(
+        (teacher) =>
+          teacher.campus.id === this.state.campus?.id ||
+          teacher.campus.id === 10
+      )
       .filter(
         (teacher) =>
           teacher.role.id === 2 ||
@@ -666,7 +741,7 @@ export default class AdminSchedule extends Component {
                 this.toggle("6");
               }}
             >
-              Date filter
+              Attendance
             </NavLink>
           </NavItem>
         </Nav>
@@ -1319,7 +1394,9 @@ export default class AdminSchedule extends Component {
               <tbody>
                 {this.state.teachers
                   .filter(
-                    (cstudent) => cstudent.campus.id === this.state?.campus?.id || cstudent.campus.id === 10
+                    (cstudent) =>
+                      cstudent.campus.id === this.state?.campus?.id ||
+                      cstudent.campus.id === 10
                   )
                   .filter(
                     (teacher) =>
@@ -1468,7 +1545,188 @@ export default class AdminSchedule extends Component {
             </Table>
           </TabPane>
           <TabPane tabId="6">
-            <DateRangeFilter></DateRangeFilter>
+            <Col md="8">
+              <Form>
+                <Row>
+                  <Col md="3">
+                    <Label for="startDate">
+                      <small>Start Date</small>
+                    </Label>
+                    <Input
+                      type="date"
+                      name="startDate"
+                      id="startDate"
+                      placeholder="Start"
+                    />
+                  </Col>
+                  <Col md="3">
+                    <Label for="endDate">
+                      <small>End Date</small>
+                    </Label>
+                    <Input
+                      type="date"
+                      name="endDate"
+                      id="endDate"
+                      placeholder="End"
+                    />
+                  </Col>
+                  <Col md="2">
+                    <br />
+                    <Button
+                      color="primary"
+                      onClick={() => {
+                        this.saveTheDate();
+                      }}
+                    >
+                      Update
+                    </Button>
+                  </Col>
+                </Row>
+              </Form>
+            </Col>
+            <Col sm={3}>
+              <Label>Select Campus: </Label>
+              <Input type="select" id="selectCampus" onChange={this.onChange}>
+                <option></option>
+                {this.state.campuses.map((campus) => (
+                  <option value={campus.id}>{campus.name}</option>
+                ))}
+              </Input>
+            </Col>
+            <h1 id="headline">K-5</h1>
+            <Table bordered hover size="sm" className="tight">
+              <thead class="shadow" id="scheduleHeader">
+                <tr>
+                  <th>
+                    <h1>Student</h1>
+                    <br /> <br /> <br />
+                  </th>
+                  {this.state.attendance
+                    .filter(
+                      (day) =>
+                        day.date >= this.state.startDate &&
+                        day.date <= this.state.endDate
+                    )
+                    .map((day) => (
+                      <th>{day.date}</th>
+                    ))}
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.students
+                  .filter(
+                    (cstudent) =>
+                      cstudent.campuses.id === this.state?.campus?.id
+                  )
+                  .filter((student) => student.grade <= 5)
+                  .sort(function (a, b) {
+                    let x = a.firstName.toLowerCase();
+                    let y = b.firstName.toLowerCase();
+                    if (x < y) {
+                      return -1;
+                    }
+                    if (x > y) {
+                      return 1;
+                    }
+                    return 0;
+                  })
+                  .map((student) => (
+                    <tr>
+                      <th key={student.id}>
+                        {student.firstName} {student.lastName}
+                      </th>
+                      {this.state.attendance
+                        .filter(
+                          (day) =>
+                            day.date >= this.state.startDate &&
+                            day.date <= this.state.endDate
+                        )
+                        .map((day) => (
+                          <td
+                            className={this.attendanceSwitch(
+                              day.student.filter(
+                                (here) => here.id === student.id
+                              ).length
+                            )}
+                          >
+                            {this.attendanceSwitch(
+                              day.student.filter(
+                                (here) => here.id === student.id
+                              ).length
+                            )}
+                          </td>
+                        ))}
+                    </tr>
+                  ))}
+              </tbody>
+            </Table>
+            <h1 id="headline">6-12</h1>
+            <Table bordered hover size="sm" className="tight">
+              <thead class="shadow" id="scheduleHeader">
+                <tr>
+                  <th>
+                    <h1>Student</h1>
+                    <br /> <br /> <br />
+                  </th>
+                  {this.state.attendance
+                    .filter(
+                      (day) =>
+                        day.date >= this.state.startDate &&
+                        day.date <= this.state.endDate
+                    )
+                    .map((day) => (
+                      <th>{day.date}</th>
+                    ))}
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.students
+                  .filter(
+                    (cstudent) =>
+                      cstudent.campuses.id === this.state?.campus?.id
+                  )
+                  .filter((student) => student.grade >= 6)
+                  .sort(function (a, b) {
+                    let x = a.firstName.toLowerCase();
+                    let y = b.firstName.toLowerCase();
+                    if (x < y) {
+                      return -1;
+                    }
+                    if (x > y) {
+                      return 1;
+                    }
+                    return 0;
+                  })
+                  .map((student) => (
+                    <tr>
+                      <th key={student.id}>
+                        {student.firstName} {student.lastName}
+                      </th>
+                      {this.state.attendance
+                        .filter(
+                          (day) =>
+                            day.date >= this.state.startDate &&
+                            day.date <= this.state.endDate
+                        )
+                        .map((day) => (
+                          <td
+                            className={this.attendanceSwitch(
+                              day.student.filter(
+                                (here) => here.id === student.id
+                              ).length
+                            )}
+                          >
+                            {this.attendanceSwitch(
+                              day.student.filter(
+                                (here) => here.id === student.id
+                              ).length
+                            )}
+                          </td>
+                        ))}
+                    </tr>
+                  ))}
+              </tbody>
+            </Table>
           </TabPane>
         </TabContent>
       </div>
