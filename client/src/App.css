@@ -407,6 +407,14 @@ skew to change the 'thickness' of the glitch.*/
   background:blue
 }
 
+.Present{
+  background: rgb(1, 253, 64);
+}
+
+.Absent{
+  background: rgb(253, 9, 1);
+}
+
 .true{
   background: rgb(96, 252, 96);
 }

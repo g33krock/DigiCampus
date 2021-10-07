@@ -4,11 +4,11 @@ import { Attendance } from "../entity/Attendance";
 export class AttendanceController {
 
 	async all(request: Request, response: Response, next: NextFunction) {
-		return Attendance.find({ relations: ["students.id"] });
+		return Attendance.find({ relations: ["student"] });
 	}
 
 	async one(request: Request, response: Response, next: NextFunction) {
-		return Attendance.findOne(request.params.id, { relations: ["students.id"] });
+		return Attendance.findOne(request.params.id, { relations: ["student"] });
 	}
 
 	async save(request: Request, response: Response, next: NextFunction) {
