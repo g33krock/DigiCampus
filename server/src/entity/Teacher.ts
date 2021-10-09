@@ -9,6 +9,7 @@ import { StaffAttendance } from "./StaffAttendance";
 import { SpedResponse } from "./SpedResponse";
 import { TimeCard } from "./TimeCard";
 import { RelatedService } from "./RelatedService";
+import { SessionInfo } from "./SessionInfo";
 
 @Entity()
 export class Teacher extends BaseEntity {
@@ -167,6 +168,9 @@ export class Teacher extends BaseEntity {
 
 	@OneToMany(() => RelatedService, relatedService => relatedService.teacher, {onDelete: 'CASCADE'})
 	relatedService: RelatedService[];
+
+	@OneToMany(() => SessionInfo, sessionInfo => sessionInfo.teacher, {onDelete: 'CASCADE'})
+	sessionInfo: SessionInfo[];
 
 	@Column({
 		nullable: true

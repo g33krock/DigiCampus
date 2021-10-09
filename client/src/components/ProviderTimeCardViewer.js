@@ -1,7 +1,16 @@
 import { Component } from "react";
-import { Card, CardTitle, CardBody, Col, Container, Row, Button } from "reactstrap";
+import {
+  Card,
+  CardTitle,
+  CardBody,
+  Col,
+  Container,
+  Row,
+  Button,
+} from "reactstrap";
 import { baseURL } from "../baseURL";
 import { fetcher } from "../services/fetcher";
+import { SessionInfoCreator } from "./CreateSessionInfo";
 
 var today = new Date();
 
@@ -103,6 +112,14 @@ export class ProviderTimeCardViewer extends Component {
                         {stud.firstName} {stud.lastName}
                       </CardTitle>
                       <CardBody>
+                        <SessionInfoCreator
+                          studentId={stud.id}
+                          teacherId={this.state.teacherId}
+                          relatedServiceRoleId={student.relatedServiceRole?.id}
+                          today={day}
+                          studentName={stud.firstName}
+                          relatedServiceRoleType={student.relatedServiceRole?.type}
+                        />
                         {this.state.stimecards
                           .filter((card) => card.student.id === stud.id)
                           .map((punch) => (

@@ -29,6 +29,7 @@ import { SchoolDayController } from "./controller/SchoolDayController";
 import { AttendanceController } from "./controller/AttendanceController";
 import { RelatedServiceController } from "./controller/RelatedServiceController";
 import { RelatedServiceRoleController } from "./controller/RelatedServiceRoleController";
+import { SessionInfoController } from "./controller/SessionInfoController";
 
 export const Routes = [{
 	method: "get",
@@ -787,6 +788,35 @@ export const Routes = [{
     method: "delete",
     route: "/relatedServiceRoles/:id",
     controller: RelatedServiceRoleController,
+    action: "remove"
+},
+
+// SessionInfo
+
+{
+    method: "get",
+    route: "/sessionInfo",
+    controller: SessionInfoController,
+    action: "all"
+}, {
+    method: "get",
+    route: "/sessionInfo/:id",
+    controller: SessionInfoController,
+    action: "one"
+}, {
+    method: "put",
+    route: "/sessionInfo/:id",
+    controller: SessionInfoController,
+    action: "update"
+}, {
+    method: "post",
+    route: "/sessionInfo",
+    controller: SessionInfoController,
+    action: "save"
+}, {
+    method: "delete",
+    route: "/sessionInfo/:id",
+    controller: SessionInfoController,
     action: "remove"
 },
 ];
