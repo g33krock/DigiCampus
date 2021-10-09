@@ -1,4 +1,4 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne } from "typeorm";
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, ManyToMany, JoinTable } from "typeorm";
 import { Schedule } from "./Schedule";
 import { Role } from "./Role";
 import { Campus } from "./Campus";
@@ -8,6 +8,7 @@ import { Incident } from "./Incident";
 import { StaffAttendance } from "./StaffAttendance";
 import { SpedResponse } from "./SpedResponse";
 import { TimeCard } from "./TimeCard";
+import { RelatedService } from "./RelatedService";
 
 @Entity()
 export class Teacher extends BaseEntity {
@@ -163,6 +164,9 @@ export class Teacher extends BaseEntity {
 
 	@OneToMany(() => Gradebook, gradebook => gradebook.teachers)
 	gradebooks: Gradebook[];
+
+	@OneToMany(() => RelatedService, relatedService => relatedService.teacher, {onDelete: 'CASCADE'})
+	relatedService: RelatedService[];
 
 	@Column({
 		nullable: true

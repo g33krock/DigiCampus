@@ -18,6 +18,7 @@ import Announcement from './AnnouncementComponent';
 import Resource from './ResourceComponent';
 import { TimeCard } from './TimeCardComponent';
 import Billing from './BillingComponent';
+import { ProviderTimeCardViewer } from './ProviderTimeCardViewer';
 
 class Main extends Component {
     
@@ -64,7 +65,11 @@ class Main extends Component {
                 </Switch>
             </div>
         )
-        } else {
+        } else if(this.state.teacher?.role.id === 8) {
+            return (
+                <PrivateRoute path='/providerTimeCardViewer' component={ProviderTimeCardViewer} userEmail = {this.props?.userEmail} teacher = {this.state.teacher} />
+            )
+         } else {
             return (
                 <div>
                     <Switch>

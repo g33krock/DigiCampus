@@ -32,7 +32,7 @@ export class GuardianCreator extends Component {
       additional_info: document.getElementById("guardianAdditionalInfo").value
     };
     const guardian = await guardianService.create(guardianObject);
-    fetcher(`${baseURL}/spedQuestions`)
+    fetcher(`${baseURL}/guardians`)
     .then((response) => response.json())
     .then((data) => {
       this.setState({

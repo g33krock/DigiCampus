@@ -27,6 +27,8 @@ import { DistrictController } from "./controller/DistrictController";
 import { StudentTranscriptController } from "./controller/StudentTranscriptController";
 import { SchoolDayController } from "./controller/SchoolDayController";
 import { AttendanceController } from "./controller/AttendanceController";
+import { RelatedServiceController } from "./controller/RelatedServiceController";
+import { RelatedServiceRoleController } from "./controller/RelatedServiceRoleController";
 
 export const Routes = [{
 	method: "get",
@@ -727,6 +729,64 @@ export const Routes = [{
     method: "delete",
     route: "/attendance/:id",
     controller: AttendanceController,
+    action: "remove"
+},
+
+// RelatedService
+
+{
+    method: "get",
+    route: "/relatedServices",
+    controller: RelatedServiceController,
+    action: "all"
+}, {
+    method: "get",
+    route: "/relatedServices/:id",
+    controller: RelatedServiceController,
+    action: "one"
+}, {
+    method: "put",
+    route: "/relatedServices/:id",
+    controller: RelatedServiceController,
+    action: "update"
+}, {
+    method: "post",
+    route: "/relatedServices",
+    controller: RelatedServiceController,
+    action: "save"
+}, {
+    method: "delete",
+    route: "/relatedServices/:id",
+    controller: RelatedServiceController,
+    action: "remove"
+},
+
+// RelatedServiceRole
+
+{
+    method: "get",
+    route: "/relatedServiceRoles",
+    controller: RelatedServiceRoleController,
+    action: "all"
+}, {
+    method: "get",
+    route: "/relatedServiceRoles/:id",
+    controller: RelatedServiceRoleController,
+    action: "one"
+}, {
+    method: "put",
+    route: "/relatedServiceRoles/:id",
+    controller: RelatedServiceRoleController,
+    action: "update"
+}, {
+    method: "post",
+    route: "/relatedServiceRoles",
+    controller: RelatedServiceRoleController,
+    action: "save"
+}, {
+    method: "delete",
+    route: "/relatedServiceRoles/:id",
+    controller: RelatedServiceRoleController,
     action: "remove"
 },
 ];

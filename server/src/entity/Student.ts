@@ -12,6 +12,7 @@ import { Incident } from "./Incident";
 import { StudentTimeCard } from "./StudentTimeCard";
 import { District } from "./District";
 import { Attendance } from "./Attendance";
+import { RelatedService } from "./RelatedService";
 
 @Entity()
 export class Student extends BaseEntity {
@@ -248,6 +249,9 @@ export class Student extends BaseEntity {
 
 	@OneToMany(() => SpedQuestion, spedQuestion => spedQuestion.student, {onDelete: 'CASCADE'})
 	spedQuestions: SpedQuestion[];
+
+	@OneToMany(() => RelatedService, relatedService => relatedService.student, {onDelete: 'CASCADE'})
+	relatedService: RelatedService[];
 
 	@OneToMany(() => StudentTimeCard, stimecard => stimecard.student)
 	stimecard: StudentTimeCard[];

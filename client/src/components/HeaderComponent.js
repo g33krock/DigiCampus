@@ -94,28 +94,29 @@ class Header extends Component {
   }
 
   checkAlarmClock() {
-    if (this.state.teacher?.id === 21 &&
+    if (
+      this.state.teacher?.id === 21 &&
       (this.state.currentTime === this.state.alarmTime1 ||
-      this.state.currentTime === this.state.alarmTime2 ||
-      this.state.currentTime === this.state.alarmTime3 ||
-      this.state.currentTime === this.state.alarmTime4 ||
-      this.state.currentTime === this.state.alarmTime5 ||
-      this.state.currentTime === this.state.alarmTime6 ||
-      this.state.currentTime === this.state.alarmTime7 ||
-      this.state.currentTime === this.state.alarmTime8 ||
-      this.state.currentTime === this.state.alarmTime9 ||
-      this.state.currentTime === this.state.alarmTime10 ||
-      this.state.currentTime === this.state.alarmTime11 ||
-      this.state.currentTime === this.state.alarmTime12 ||
-      this.state.currentTime === this.state.alarmTime13 ||
-      this.state.currentTime === this.state.alarmTime14 ||
-      this.state.currentTime === this.state.alarmTime15 ||
-      this.state.currentTime === this.state.alarmTime16 ||
-      this.state.currentTime === this.state.alarmTime17 ||
-      this.state.currentTime === this.state.alarmTime18 ||
-      this.state.currentTime === this.state.alarmTime19 ||
-      this.state.currentTime === this.state.alarmTime20 ||
-      this.state.currentTime === this.state.alarmTime20)
+        this.state.currentTime === this.state.alarmTime2 ||
+        this.state.currentTime === this.state.alarmTime3 ||
+        this.state.currentTime === this.state.alarmTime4 ||
+        this.state.currentTime === this.state.alarmTime5 ||
+        this.state.currentTime === this.state.alarmTime6 ||
+        this.state.currentTime === this.state.alarmTime7 ||
+        this.state.currentTime === this.state.alarmTime8 ||
+        this.state.currentTime === this.state.alarmTime9 ||
+        this.state.currentTime === this.state.alarmTime10 ||
+        this.state.currentTime === this.state.alarmTime11 ||
+        this.state.currentTime === this.state.alarmTime12 ||
+        this.state.currentTime === this.state.alarmTime13 ||
+        this.state.currentTime === this.state.alarmTime14 ||
+        this.state.currentTime === this.state.alarmTime15 ||
+        this.state.currentTime === this.state.alarmTime16 ||
+        this.state.currentTime === this.state.alarmTime17 ||
+        this.state.currentTime === this.state.alarmTime18 ||
+        this.state.currentTime === this.state.alarmTime19 ||
+        this.state.currentTime === this.state.alarmTime20 ||
+        this.state.currentTime === this.state.alarmTime20)
     ) {
       var a = new Audio(
         "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/rickroll.mp3"
@@ -144,8 +145,7 @@ class Header extends Component {
       this.state.currentTime === this.state.alarmTime19 ||
       this.state.currentTime === this.state.alarmTime20 ||
       this.state.currentTime === this.state.alarmTime20
-    )
-    {
+    ) {
       var a = new Audio(
         "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/Owl Coo - QuickSounds.com.mp3"
         // "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/doublemint.mp3"
@@ -262,6 +262,37 @@ class Header extends Component {
         </div>
       );
     } else if (
+      this.state.teacher?.role.id === 8
+    ) {
+      user = (
+        <div className="container">
+          <NavbarBrand className="mr-auto" href="/">
+            <img
+              src="https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/sign/images/Aspire-Owl.gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvQXNwaXJlLU93bC5naWYiLCJpYXQiOjE2Mjg2MjAzMTAsImV4cCI6MTk0Mzk4MDMxMH0.K6zKYMhaQEiYPgsFOVq-EnadF8KeZAg51Ape30-Q9NA"
+              height="50"
+              width="50"
+              alt="Aspire Owl"
+            />
+          </NavbarBrand>
+          <NavbarToggler onClick={this.toggleNav} />
+          <Collapse isOpen={this.state.isNavOpen} navbar>
+            <Nav navbar>
+              <NavItem>
+                <NavLink className="nav-link" to="/home">
+                  Home
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/providerTimeCardViewer">
+                  Students
+                </NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+          <Col sm={3}></Col>
+        </div>
+      );
+    } else if (
       this.state.teacher?.role.id === 5 ||
       this.state.teacher?.role.id === 7
     ) {
@@ -333,9 +364,7 @@ class Header extends Component {
           </Collapse>
         </div>
       );
-    } else if (
-      this.state.teacher?.role.id === 9
-    ) {
+    } else if (this.state.teacher?.role.id === 9) {
       user = (
         <div className="container">
           <NavbarBrand className="mr-auto" href="/">
