@@ -28,6 +28,7 @@ import { IncidentCreator } from "./CreateIncident";
 import Attendance from "./AttendanceComponent";
 import { UpdateGuardian } from "./UpdateGuardian";
 import ProgressReport from "./ProgressReportComponent";
+import { RelatedServiceCreator } from "./CreateRelatedService";
 
 export default class Student extends Component {
   constructor(props) {
@@ -255,7 +256,9 @@ export default class Student extends Component {
                         studentInterests={this.state.student?.interests}
                         dailyReport={this.state.student?.dailyReport}
                         start={this.state.student?.start}
-                        counselingMinutes={this.state.student?.counselingMinutes}
+                        counselingMinutes={
+                          this.state.student?.counselingMinutes
+                        }
                         speechMinutes={this.state.student?.speechMinutes}
                         otMinutes={this.state.student?.otMinutes}
                         district={this.state.student?.district?.id}
@@ -282,6 +285,11 @@ export default class Student extends Component {
                         teacher={this.state.teacher}
                         student={this.state.student}
                       ></IncidentCreator>
+                    </Col>
+                    <Col md="4">
+                      <RelatedServiceCreator
+                        studentId={this.state.student?.id}
+                      ></RelatedServiceCreator>
                     </Col>
                   </Row>
                 </CardBody>

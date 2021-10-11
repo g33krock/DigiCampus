@@ -22,12 +22,13 @@ export function Dashboard() {
 
   return (
     <div>
-      {/* Change it to display the user ID too 👇*/}
-      <p>Welcome, {user?.email}!</p>
-      <button onClick={handleSignOut}>Sign out</button>
       <BrowserRouter>
         <div>
-          <Header campus={campus} userEmail={user?.email} />
+          <p style={{ color: "lightgreen", backgroundColor: "rgb(5, 1, 58)", padding:0, margin:0 }}>
+            <button onClick={handleSignOut}>Sign out</button> Welcome,{" "}
+            {user?.email}!
+          </p>
+          <Header campus={campus} userEmail={user?.email}></Header>
           <Main campus={campus} userEmail={user?.email} />
         </div>
       </BrowserRouter>

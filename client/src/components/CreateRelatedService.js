@@ -8,6 +8,8 @@ import {
   Button,
   Modal,
   ModalBody,
+  Row,
+  Col,
 } from "reactstrap";
 import { relatedServiceService } from "../services/relatedServiceService";
 import { fetcher } from "../services/fetcher";
@@ -76,6 +78,8 @@ export class RelatedServiceCreator extends Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody>
             <Form>
+              <Row>
+                <Col>
               <FormGroup>
                 <Label for="relatedServiceName">Provider Name</Label>
                 <Input
@@ -93,6 +97,8 @@ export class RelatedServiceCreator extends Component {
                     ))}
                 </Input>
               </FormGroup>
+              </Col>
+              <Col>
               <FormGroup>
                 <Label for="relatedServiceRole">Service Type</Label>
                 <Input
@@ -109,6 +115,8 @@ export class RelatedServiceCreator extends Component {
                     ))}
                 </Input>
               </FormGroup>
+              </Col>
+              </Row>
               <Button
                 color="primary"
                 onClick={() => {

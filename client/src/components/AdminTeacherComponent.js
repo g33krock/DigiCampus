@@ -123,16 +123,16 @@ export default class AdminTeacher extends Component {
       });
   }
 
-  picSwitch(randomInt) {
-    switch (randomInt) {
-      case 0:
-        return "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/thewave.png";
-      case 1:
-        return "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/spikeamerica.png";
-      default:
-        return "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/spikehawk.png";
-    }
-  }
+  // picSwitch(randomInt) {
+  //   switch (randomInt) {
+  //     case 0:
+  //       return "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/thewave.png";
+  //     case 1:
+  //       return "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/spikeamerica.png";
+  //     default:
+  //       return "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/spikehawk.png";
+  //   }
+  // }
 
   // textSwitch(randomInt) {
   //   switch (randomInt) {
@@ -160,9 +160,9 @@ export default class AdminTeacher extends Component {
   // }
 
   render() {
-    const getRandomInt = () => {
-      return Math.floor(Math.random() * 3);
-    };
+    // const getRandomInt = () => {
+    //   return Math.floor(Math.random() * 3);
+    // };
     return (
       <Container>
         <Nav tabs>
@@ -301,11 +301,11 @@ export default class AdminTeacher extends Component {
                     style={{ width: 100, borderRadius: 60 / 2 }}
                     src={this.state.teacher?.image}
                   />
-                  <img
+                  {/* <img
                     className="image2"
                     style={{ width: 80, borderRadius: 60 / 2 }}
                     src={this.picSwitch(getRandomInt())}
-                  />
+                  /> */}
                 </Container>
               </Row>
             </Col>

@@ -69,7 +69,46 @@ class Main extends Component {
             return (
                 <PrivateRoute path='/providerTimeCardViewer' component={ProviderTimeCardViewer} userEmail = {this.props?.userEmail} teacher = {this.state.teacher} />
             )
-         } else {
+         } else if(this.state.teacher?.role.id === 1||this.state.teacher?.role.id === 2||this.state.teacher?.role.id === 11) {
+            return (
+                <div>
+                <Switch>
+                    <PrivateRoute path='/sped' component={Sped} campus = {this.state.campus}/>
+                    <PrivateRoute path='/schedules' component={Schedule} campus = {this.state.campus}/>
+                    <PrivateRoute path='/teachers' component={Teacher} campus = {this.state.campus}/>
+                    <PrivateRoute path='/students' component={Student} campus = {this.state.campus} teacher = {this.state.teacher}/>
+                    <PrivateRoute path='/transcripts' component={Transcript} campus = {this.state.campus}/>
+                    <PrivateRoute path='/announcements' component={Announcement} campus = {this.state.campus}/>
+                    <PrivateRoute path='/substitute' component={Sub} userEmail = {this.props?.userEmail} campus = {this.state.campus} teacher = {this.state.teacher} />
+                    <PrivateRoute path='/calendar' component={Calendar} userEmail = {this.props?.userEmail} />
+                    <PrivateRoute path='/resources' component={Resource} userEmail = {this.props?.userEmail} />
+                    <PrivateRoute path='/timeCard' component={TimeCard} userEmail = {this.props?.userEmail} campus = {this.state.campus} />
+                    <PrivateRoute path='/home' component={Home} />
+                    <Redirect to='/home' />
+                </Switch>
+            </div>
+            )
+         } else if(this.state.teacher?.role.id === 5||this.state.teacher?.role.id === 7) {
+            return (
+                <div>
+                    <Switch>
+                        <PrivateRoute path='/sped' component={Sped} campus = {this.state.campus}/>
+                        <PrivateRoute path='/schedules' component={Schedule} campus = {this.state.campus}/>
+                        <PrivateRoute path='/adminSchedules' component={AdminSchedule} campus = {this.state.campus}/>
+                        <PrivateRoute path='/adminTeachers' component={AdminTeacher} campus = {this.state.campus}/>
+                        <PrivateRoute path='/adminStudents' component={AdminStudent} campus = {this.state.campus} teacher = {this.state.teacher}/>
+                        <PrivateRoute path='/transcripts' component={Transcript} campus = {this.state.campus}/>
+                        <PrivateRoute path='/announcements' component={Announcement} campus = {this.state.campus}/>
+                        <PrivateRoute path='/substitute' component={Sub} userEmail = {this.props?.userEmail} campus = {this.state.campus} teacher = {this.state.teacher} />
+                        <PrivateRoute path='/calendar' component={Calendar} userEmail = {this.props?.userEmail} />
+                        <PrivateRoute path='/resources' component={Resource} userEmail = {this.props?.userEmail} />
+                        <PrivateRoute path='/timeCard' component={TimeCard} userEmail = {this.props?.userEmail} campus = {this.state.campus} />
+                        <PrivateRoute path='/home' component={Home} />
+                        <Redirect to='/home' />
+                    </Switch>
+                </div>
+            )
+        } else {
             return (
                 <div>
                     <Switch>
