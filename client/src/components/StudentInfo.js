@@ -34,13 +34,6 @@ export class StudentInfo extends Component {
               </CardTitle>
               <CardBody>
                 <p><strong>Grade:</strong> {this.props.student?.grade}</p>
-                <p>
-                  <strong>Medical Information:</strong> {this.props.student?.medical_information}
-                </p>
-                <p>
-                  <strong>Additional Information:</strong>{" "}
-                  {this.props.student?.additional_information}
-                </p>
                 {this.props.student?.guardians.map((guardian) => (
                   <div>
                     <p>
@@ -51,8 +44,22 @@ export class StudentInfo extends Component {
                     <p><strong>Address:</strong> {guardian?.address}</p>
                   </div>
                 ))}
+                <p><strong>Birthday:</strong> {this.props.student?.birthDate}</p>
                 <p><strong>Funding:</strong> {this.props.student?.funding.type}</p>
                 <p><strong>Instruction Mode:</strong> {this.props.student?.instructionmode.type}</p>
+                <p><strong>Allergies:</strong> {this.props.student?.allergies}</p>
+                <p><strong>Hearing:</strong> {this.props.student?.hearingLimitations}</p>
+                <p><strong>Vision:</strong> {this.props.student?.visionLimitations}</p>
+                <p><strong>Mobility:</strong> {this.props.student?.mobilityLimitations}</p>
+                <p><strong>Sensitivities:</strong> {this.props.student?.sensitivities}</p>
+                <p><strong>Social:</strong> {this.props.student?.social}</p>
+                <p><strong>Emotional:</strong> {this.props.student?.emotional}</p>
+                <p><strong>Physical:</strong> {this.props.student?.physical}</p>
+                <p><strong>Math:</strong> {this.props.student?.math}</p>
+                <p><strong>Reading:</strong> {this.props.student?.reading}</p>
+                <p><strong>Writing:</strong> {this.props.student?.writing}</p>
+                <p><strong>Interests:</strong> {this.props.student?.interests}</p>
+                <p><strong>Receives Daily Report:</strong> {this.props.student?.dailyReport}</p>
               </CardBody>
             </Card>
             <Button

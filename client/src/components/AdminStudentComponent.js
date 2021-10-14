@@ -161,6 +161,7 @@ export default class AdminStudent extends Component {
                   alt={`${this.state.student?.firstName}`}
                 ></CardImg>
               )}
+              {this.state.student && <h3>Guardian:</h3>}
               {this.state.student?.guardians.map((guardian) => (
                 <div>
                   <p>
@@ -187,6 +188,16 @@ export default class AdminStudent extends Component {
                   /> */}
                 </div>
               ))}
+              {this.state.student && <h3>Services:</h3>}
+              {this.state.student?.relatedService.map((service) => (
+                <div>
+                  <strong>{service.relatedServiceRole.type}: </strong>
+                  <p>
+                    {service.teacher.firstName} {service.teacher.lastName}
+                  </p>
+                </div>
+              ))}
+              {this.state.student && <h3>Info:</h3>}
               {this.state.student && (
                 <CardBody>
                   <p>
@@ -194,10 +205,6 @@ export default class AdminStudent extends Component {
                   </p>
                   <p>
                     <strong>Grade:</strong> {this.state.student.grade}
-                  </p>
-                  <p>
-                    <strong>Additional Information:</strong>{" "}
-                    {this.state.student.additional_information}
                   </p>
                   <Row>
                     <Col md="4">
@@ -252,7 +259,9 @@ export default class AdminStudent extends Component {
                         studentInterests={this.state.student?.interests}
                         dailyReport={this.state.student?.dailyReport}
                         start={this.state.student?.start}
-                        counselingMinutes={this.state.student?.counselingMinutes}
+                        counselingMinutes={
+                          this.state.student?.counselingMinutes
+                        }
                         speechMinutes={this.state.student?.speechMinutes}
                         otMinutes={this.state.student?.otMinutes}
                         counselingScope={this.state.student?.counselingScope}

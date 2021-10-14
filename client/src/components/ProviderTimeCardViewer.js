@@ -112,6 +112,7 @@ export class ProviderTimeCardViewer extends Component {
                         {stud.firstName} {stud.lastName}
                       </CardTitle>
                       <CardBody>
+                        {student.relatedServiceRole.type}
                         <SessionInfoCreator
                           studentId={stud.id}
                           teacherId={this.state.teacherId}
