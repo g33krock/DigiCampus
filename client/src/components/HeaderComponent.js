@@ -294,6 +294,37 @@ class Header extends Component {
         </div>
       );
     } else if (
+      this.state.teacher?.role.id === 12
+    ) {
+      user = (
+        <div className="container">
+          <NavbarBrand className="mr-auto" href="/">
+            <img
+              src="https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/sign/images/Aspire-Owl.gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvQXNwaXJlLU93bC5naWYiLCJpYXQiOjE2Mjg2MjAzMTAsImV4cCI6MTk0Mzk4MDMxMH0.K6zKYMhaQEiYPgsFOVq-EnadF8KeZAg51Ape30-Q9NA"
+              height="50"
+              width="50"
+              alt="Aspire Owl"
+            />
+          </NavbarBrand>
+          <NavbarToggler onClick={this.toggleNav} />
+          <Collapse isOpen={this.state.isNavOpen} navbar>
+            <Nav navbar>
+              <NavItem>
+                <NavLink className="nav-link" to="/home">
+                  Home
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/adminProviderTimeCardViewer">
+                  Students
+                </NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+          <Col sm={3}></Col>
+        </div>
+      );
+    }else if (
       this.state.teacher?.role.id === 5 ||
       this.state.teacher?.role.id === 7
     ) {
