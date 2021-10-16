@@ -14,6 +14,7 @@ import {
 } from "reactstrap";
 import { trackerService } from "../services/trackerService";
 import { spedResponseService } from "../services/spedResponseService";
+import { tallyResponseService } from "../services/tallyResponseService";
 import { scheduleService } from "../services/scheduleService";
 import { fetcher } from "../services/fetcher";
 
@@ -23,7 +24,9 @@ export class TrackerCreator extends Component {
     this.state = {
       modal: false,
       spedQuestions: [],
+      tallyQuestions: [],
       method: null,
+      count: 0
     };
     this.onChangeValue = this.onChangeValue.bind(this);
   }
@@ -34,6 +37,15 @@ export class TrackerCreator extends Component {
       .then((data) => {
         this.setState({
           spedQuestions: data.filter(
+            (datas) => datas.student.id === this.props.student.id
+          ),
+        });
+      });
+      fetcher(`${baseURL}/tallyQuestions`)
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          tallyQuestions: data.filter(
             (datas) => datas.student.id === this.props.student.id
           ),
         });
@@ -107,6 +119,25 @@ export class TrackerCreator extends Component {
   createSpedResponseNinja() {
     this.state.spedQuestions.forEach((scheduleQuestion) =>
       this.createSpedResponse(scheduleQuestion)
+    );
+  }
+
+  async createTallyResponse(i) {
+    const tallyResponseObject = {
+      teachers: this.props.teacher.id,
+      date: document.getElementById("spedResponseDate").value,
+      question: i.question,
+      point: document.getElementById("tallyResponsePoint" + i.id).value,
+      students: this.props.student.id,
+      tallyQuestions: i.id,
+    };
+    const tallyResponse = await tallyResponseService.create(tallyResponseObject);
+    console.log(tallyResponse);
+  }
+
+  createTallyResponseNinja() {
+    this.state.tallyQuestions.forEach((scheduleQuestion) =>
+      this.createTallyResponse(scheduleQuestion)
     );
   }
 
@@ -644,6 +675,7 @@ export class TrackerCreator extends Component {
                   this.playClick('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/applause2.mp3');
                   this.createTracker();
                   this.createSpedResponseNinja();
+                  this.createTallyResponseNinja();
                   this.updateSchedule();
                   this.setState({ modal: false });
                 }}

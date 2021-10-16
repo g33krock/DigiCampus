@@ -62,7 +62,7 @@ export class StudentCreator extends Component {
       counselingScope: document.getElementById("counselingScope").value,
       speechMinutes: parseInt(document.getElementById("speechMinutes").value),
       speechScope: document.getElementById("speechScope").value,
-      otMinutes: document.parseInt(document.getElementById("otMinutes").value),
+      otMinutes: parseInt(document.getElementById("octMinutes").value),
       otScope: document.getElementById("otScope").value,
       musicMinutes: parseInt(document.getElementById("musicMinutes").value),
       musicScope: document.getElementById("musicScope").value,
@@ -196,7 +196,7 @@ export class StudentCreator extends Component {
                   <FormGroup>
                     <Label for="district">District</Label>
                     <Input type="select" name="district" id="district">
-                      <option></option>
+                      <option value="19"></option>
                       {this.state.districts
                       .sort(function (a, b) {
                         let x = a.name.toLowerCase();
@@ -306,8 +306,13 @@ export class StudentCreator extends Component {
                   </Col>
                   <Col>
                     <FormGroup>
-                      <Label for="otMinutes"><small>Occupational Therapy</small></Label>
-                      <Input type="number" name="otMinutes" id="otMinutes" defaultValue="0"/>
+                    <Label for="octMinutes"><small>Occupational Therapy</small></Label>
+                      <Input
+                        type="number"
+                        name="octMinutes"
+                        id="octMinutes"
+                        defaultValue="0"
+                      />
                     </FormGroup>
                     <FormGroup>
                       <Input

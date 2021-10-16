@@ -30,6 +30,8 @@ import { AttendanceController } from "./controller/AttendanceController";
 import { RelatedServiceController } from "./controller/RelatedServiceController";
 import { RelatedServiceRoleController } from "./controller/RelatedServiceRoleController";
 import { SessionInfoController } from "./controller/SessionInfoController";
+import { TallyQuestionController } from "./controller/TallyQuestionController";
+import { TallyResponseController } from "./controller/TallyResponseController";
 
 export const Routes = [{
 	method: "get",
@@ -490,6 +492,61 @@ export const Routes = [{
 	method: "delete",
 	route: "/spedResponses/:id",
 	controller: SpedResponseController,
+	action: "remove"
+},
+
+// TallyQuestion
+{
+	method: "get",
+	route: "/tallyQuestions",
+	controller: TallyQuestionController,
+	action: "all"
+}, {
+	method: "get",
+	route: "/tallyQuestions/:id",
+	controller: TallyQuestionController,
+	action: "one"
+}, {
+	method: "put",
+	route: "/tallyQuestions/:id",
+	controller: TallyQuestionController,
+	action: "update"
+}, {
+	method: "post",
+	route: "/tallyQuestions",
+	controller: TallyQuestionController,
+	action: "save"
+}, {
+	method: "delete",
+	route: "/tallyQuestions/:id",
+	controller: TallyQuestionController,
+	action: "remove"
+},
+// TallyResponse
+{
+	method: "get",
+	route: "/tallyResponses?:studentsId",
+	controller: TallyResponseController,
+	action: "all"
+}, {
+	method: "get",
+	route: "/tallyResponses/:id",
+	controller: TallyResponseController,
+	action: "one"
+}, {
+	method: "put",
+	route: "/tallyResponses/:id",
+	controller: TallyResponseController,
+	action: "update"
+}, {
+	method: "post",
+	route: "/tallyResponses",
+	controller: TallyResponseController,
+	action: "save"
+}, {
+	method: "delete",
+	route: "/tallyResponses/:id",
+	controller: TallyResponseController,
 	action: "remove"
 },
 

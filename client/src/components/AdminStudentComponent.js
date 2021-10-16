@@ -29,6 +29,8 @@ import Attendance from "./AttendanceComponent";
 // import { UpdateGuardian } from "./UpdateGuardian";
 import ProgressReport from "./ProgressReportComponent";
 import { RelatedServiceCreator } from "./CreateRelatedService";
+import { TallyComponent } from "./TallyComponent";
+import StudentID from "./StudentID";
 
 export default class AdminStudent extends Component {
   constructor(props) {
@@ -42,6 +44,7 @@ export default class AdminStudent extends Component {
       student: null,
       id: null,
       teacher: this.props.teacher,
+      tallyQuestions: [],
     };
   }
 
@@ -72,6 +75,15 @@ export default class AdminStudent extends Component {
     this.setState({ student });
     console.log(this.state);
     console.log(e.target.value);
+    fetcher(`${baseURL}/tallyQuestions`)
+    .then((response) => response.json())
+    .then((tdata) => {
+      this.setState({
+        tallyQuestions: tdata.filter(
+          (datas) => datas?.student.id === studentId
+        ),
+      });
+    });
   };
 
   render() {
@@ -118,6 +130,26 @@ export default class AdminStudent extends Component {
               }}
             >
               Progress Report
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === "5" })}
+              onClick={() => {
+                this.toggle("5");
+              }}
+            >
+              Tally
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === "6" })}
+              onClick={() => {
+                this.toggle("6");
+              }}
+            >
+              ID
             </NavLink>
           </NavItem>
         </Nav>
@@ -333,6 +365,19 @@ export default class AdminStudent extends Component {
                 {this.state.student && (
                   <ProgressReport student={this.state.student}></ProgressReport>
                 )}
+              </TabPane>
+              <TabPane tabId="5">
+                {this.state?.tallyQuestions.map((tquest) => (
+                  <TallyComponent
+                    tallyQuestionsId={tquest.id}
+                    tallyQuestionsQuestion={tquest.question}
+                    teacher={this.state.teacher}
+                    student={this.state.student}
+                  ></TallyComponent>
+                ))}
+              </TabPane>
+              <TabPane tabId="6">
+                <StudentID student={this.state.student}></StudentID>
               </TabPane>
             </TabContent>
           </div>

@@ -13,7 +13,9 @@
 		"react-sound": "^1.2.0",
 		"styled-components": "^5.3.0"
 	},
-	"devDependencies": {},
+	"devDependencies": {
+		"react-barcode": "^1.4.1"
+	},
 	"scripts": {
 		"start": "npm run server",
 		"client": "cd client && npm start",

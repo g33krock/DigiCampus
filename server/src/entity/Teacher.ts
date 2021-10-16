@@ -10,6 +10,7 @@ import { SpedResponse } from "./SpedResponse";
 import { TimeCard } from "./TimeCard";
 import { RelatedService } from "./RelatedService";
 import { SessionInfo } from "./SessionInfo";
+import { TallyResponse } from "./TallyResponse";
 
 @Entity()
 export class Teacher extends BaseEntity {
@@ -156,6 +157,9 @@ export class Teacher extends BaseEntity {
 
 	@OneToMany(() => SpedResponse, spedResponse => spedResponse.teachers)
 	spedResponse: SpedResponse[];
+
+	@OneToMany(() => TallyResponse, tallyResponse => tallyResponse.teachers)
+	tallyResponse: TallyResponse[];
 
 	@OneToMany(() => Tracker, tracker => tracker.teachers)
 	trackers: Tracker[];

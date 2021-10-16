@@ -6,6 +6,7 @@ import { TrackerCreator } from "./CreateTracker";
 import { StudentInfo } from "./StudentInfo";
 import { fetcher } from "../services/fetcher";
 import { ClassGrades } from "./GradebookComponent";
+import { TallyComponent } from "./TallyComponent";
 
 export default class TeacherSchedule extends Component {
   constructor(props) {
@@ -54,8 +55,15 @@ export default class TeacherSchedule extends Component {
       .map((teachersched) => {
         let block;
         let done;
-        const date = new Date()
-        if (teachersched?.lastUpdate === `${date.getFullYear()}-${("0" + (date.getMonth() + 1)).slice(-2)}-${("0" + date.getDate()).slice(-2)}`) {done = "green"}
+        const date = new Date();
+        if (
+          teachersched?.lastUpdate ===
+          `${date.getFullYear()}-${("0" + (date.getMonth() + 1)).slice(-2)}-${(
+            "0" + date.getDate()
+          ).slice(-2)}`
+        ) {
+          done = "green";
+        }
         switch (teachersched.period) {
           case 1:
             block = "7:50 - 8:40";

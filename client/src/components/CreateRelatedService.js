@@ -95,6 +95,8 @@ export class RelatedServiceCreator extends Component {
                         {provider.firstName} {provider.lastName}
                       </option>
                     ))}
+                    <option value="95">Claudia Bennett</option>
+                    <option value="124">Linda Howell</option>
                 </Input>
               </FormGroup>
               </Col>
