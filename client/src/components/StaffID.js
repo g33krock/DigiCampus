@@ -1,43 +1,39 @@
 import React, { Component } from "react";
-import {
-  Row,
-  Col,
-  Container,
-} from "reactstrap";
+import { Row, Col, Container } from "reactstrap";
 
 var Barcode = require("react-barcode");
 
-export default class StudentID extends Component {
+export default class StaffID extends Component {
   render() {
     return (
       <Container
         style={{
+            width: 600,
           backgroundColor: "white",
           backgroundImage:
             "url(https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/AspireOwlGraphic.png)",
           backgroundRepeat: "no-repeat",
+          backgroundSize: "75%",
           backgroundPosition: "center",
           display: "inline-block",
           border: "2px solid black",
         }}
       >
         <Row>
-          <Col
-            style={{ justifyContent: "center" }}
-            xs="4"
-          >
+          <Col style={{ justifyContent: "center" }} xs="4">
             <Row>
               <img
                 className="image1"
-                style={{ width: 200, borderRadius: 60 / 2, margin: "5px" }}
-                src={`https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/${this.props.student?.firstName}${this.props.student?.lastName}.jpg`}
+                style={{ width: 150, borderRadius: 60 / 2, margin: "5px" }}
+                src={`https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/${this.props.teacher?.firstName}${this.props.teacher?.lastName}.jpg`}
               />
             </Row>
-            <Row style={{ justifyContent: "center" }}>
+            <Row style={{ justifyContent: "center", textShadow: "1px 1px white", }}>
               <strong>
-                {this.props.student?.firstName} {this.props.student?.lastName}
-                <br/>
-              AZ Aspire Academy</strong>
+                {this.props.teacher?.firstName} {this.props.teacher?.lastName}
+                <br />
+                AZ Aspire Academy
+              </strong>
             </Row>
           </Col>
           <Col
@@ -46,39 +42,46 @@ export default class StudentID extends Component {
           >
             <Row
               style={{
-                left: "30%",
+                left: "25%",
                 top: "0",
                 position: "absolute",
-                justifyContent: "center"
+                justifyContent: "center",
+                textShadow: "1px 1px white",
               }}
             >
-              <strong style={{justifyContent: "center"}}>{this.props.student?.campuses.name}</strong>
+              <strong style={{ justifyContent: "center", fontSize: "150%", }}>
+                {this.props.teacher?.campus.name}
+              </strong>
             </Row>
             <Row
               style={{
-                left: "30%",
+                left: "15%",
                 bottom: "0",
                 position: "absolute",
-                justifyContent: "center"
+                justifyContent: "center",
+                textShadow: "1px 1px white",
               }}
             >
-              <strong style={{justifyContent: "center"}}>2021-2022</strong>
+              <strong style={{ justifyContent: "center", fontSize: "200%", }}>2021-2022</strong>
             </Row>
           </Col>
           <Col
             xs="3"
-            style={{ position: "relative", justifyContent: "center" }}
+            style={{ position: "relative", justifyContent: "right", textShadow: "1px 1px white", }}
           >
-            <strong style={{justifyContent: "center"}}>Student</strong>
+            <strong style={{ justifyContent: "center", right: "0", fontSize: "125%" }}>
+              {this.props.teacher?.role.name}
+            </strong>
             <Row
               style={{
+                right: "15px",
                 bottom: "0",
                 position: "absolute",
               }}
             >
               <Barcode
                 style={{ height: 50, width: 50 }}
-                value={this.props.student?.id}
+                value={this.props.teacher?.id}
               />
             </Row>
           </Col>
@@ -88,8 +91,6 @@ export default class StudentID extends Component {
             justifyContent: "center",
             fontFamily: "'Brush Script MT', cursive",
             fontSize: "200%",
-            border: "2px solid black",
-            backgroundColor: "gray",
             textShadow: "1px 1px white",
           }}
         >

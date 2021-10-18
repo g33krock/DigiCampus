@@ -23,6 +23,7 @@ import TeacherGroupSchedule from "./TeacherGroupScheduleComponent";
 import { StaffAttendanceCreator } from "./CreateStaffAttendance";
 import TeacherTrackerResponse from "./TeacherTrackerResponses";
 import { TimeCardOverride } from "./OverrideTimeCardComponent";
+import StaffID from "./StaffID";
 
 export default class AdminTeacher extends Component {
   constructor(props) {
@@ -216,6 +217,16 @@ export default class AdminTeacher extends Component {
               TimeCard Override
             </NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === "6" })}
+              onClick={() => {
+                this.toggle("6");
+              }}
+            >
+              Staff ID
+            </NavLink>
+          </NavItem>
         </Nav>
         <Row>
           <Col md="2">
@@ -309,9 +320,7 @@ export default class AdminTeacher extends Component {
                 </Container>
               </Row>
             </Col>
-            <Col xs="9" style={{ justifyContent: "left", bottom: 0 }}>
-              <h1>Have a great Fall Break!!!</h1>
-            </Col>
+            <Col xs="9" style={{ justifyContent: "left", bottom: 0 }}></Col>
           </Row>
           Hello {this.state.teacher?.firstName}{" "}
         </div>
@@ -399,6 +408,9 @@ export default class AdminTeacher extends Component {
                   teacher={times.teacher}
                 ></TimeCardOverride>
               ))}
+          </TabPane>
+          <TabPane tabId="6">
+            <StaffID teacher={this.state.teacher}></StaffID>
           </TabPane>
         </TabContent>
       </Container>
