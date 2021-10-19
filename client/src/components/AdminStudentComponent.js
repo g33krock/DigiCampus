@@ -31,6 +31,7 @@ import ProgressReport from "./ProgressReportComponent";
 import { RelatedServiceCreator } from "./CreateRelatedService";
 import { TallyComponent } from "./TallyComponent";
 import StudentID from "./StudentID";
+import { TallyQuestionCreator } from "./CreateTallyQuestion";
 
 export default class AdminStudent extends Component {
   constructor(props) {
@@ -76,14 +77,14 @@ export default class AdminStudent extends Component {
     console.log(this.state);
     console.log(e.target.value);
     fetcher(`${baseURL}/tallyQuestions`)
-    .then((response) => response.json())
-    .then((tdata) => {
-      this.setState({
-        tallyQuestions: tdata.filter(
-          (datas) => datas?.student.id === studentId
-        ),
+      .then((response) => response.json())
+      .then((tdata) => {
+        this.setState({
+          tallyQuestions: tdata.filter(
+            (datas) => datas?.student.id === studentId
+          ),
+        });
       });
-    });
   };
 
   render() {
@@ -367,6 +368,7 @@ export default class AdminStudent extends Component {
                 )}
               </TabPane>
               <TabPane tabId="5">
+                <TallyQuestionCreator student={this.state.student} />
                 {this.state?.tallyQuestions.map((tquest) => (
                   <TallyComponent
                     tallyQuestionsId={tquest.id}

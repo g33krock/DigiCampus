@@ -24,7 +24,6 @@ export class TrackerCreator extends Component {
     this.state = {
       modal: false,
       spedQuestions: [],
-      tallyQuestions: [],
       method: null,
       count: 0
     };
@@ -37,15 +36,6 @@ export class TrackerCreator extends Component {
       .then((data) => {
         this.setState({
           spedQuestions: data.filter(
-            (datas) => datas.student.id === this.props.student.id
-          ),
-        });
-      });
-      fetcher(`${baseURL}/tallyQuestions`)
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({
-          tallyQuestions: data.filter(
             (datas) => datas.student.id === this.props.student.id
           ),
         });

@@ -31,5 +31,15 @@ export class TallyResponse extends BaseEntity {
 	@Column({
 		nullable: true
 	})
+	in: number;
+
+	@Column({
+		nullable: true
+	})
+	out: number;
+
+	@Column({
+		nullable: true
+	})
 	point: number;
 }

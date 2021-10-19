@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import DisplayContainer from "./DisplayContainer";
 import ButtonContainer from "./ButtonContainer";
+import {
+  Button,
+} from "reactstrap";
 import { tallyResponseService } from "../services/tallyResponseService";
 
 export class TallyComponent extends Component {
@@ -17,6 +20,7 @@ export class TallyComponent extends Component {
       countIn: 0,
       countOut: 0,
       countTotal: 0,
+      date: new Date()
     };
 
     this.increment = this.increment.bind(this);
@@ -58,7 +62,7 @@ export class TallyComponent extends Component {
     var date = new Date();
     const tallyResponseObject = {
       teachers: this.props.teacher.id,
-      date:
+      tdate:
         date.getFullYear().toString() +
         "-" +
         (date.getMonth() + 1).toString().padStart(2, 0) +
@@ -66,6 +70,8 @@ export class TallyComponent extends Component {
         date.getDate().toString().padStart(2, 0),
       question: this.props.tallyQuestionsQuestion,
       point: this.state.countTotal,
+      in: this.state.countIn,
+      out: this.state.countOut,
       students: this.props.student.id,
       tallyQuestions: this.props.tallyQuestionsId,
     };
@@ -79,7 +85,9 @@ export class TallyComponent extends Component {
     return (
       <div className="container" style={{ padding: 16 }}>
         <div className="navbar navbar-dark bg-dark">
-          <h2 style={{ color: "white" }}>{this.props?.tallyQuestionsQuestion}</h2>
+          <h2 style={{ color: "white" }}>
+            {this.props?.tallyQuestionsQuestion}
+          </h2>
         </div>
         <DisplayContainer
           data={this.state.data}
@@ -93,6 +101,15 @@ export class TallyComponent extends Component {
             decrement={this.decrement}
             reset={this.reset}
           />
+          <Button
+            color="primary"
+            onClick={() => {
+              this.createTallyResponse();
+              this.reset();
+            }}
+          >
+            Submit
+          </Button>
         </div>
       </div>
     );
