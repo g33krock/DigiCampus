@@ -665,7 +665,7 @@ export class TrackerCreator extends Component {
                   this.playClick('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/applause2.mp3');
                   this.createTracker();
                   this.createSpedResponseNinja();
-                  this.createTallyResponseNinja();
+                  // this.createTallyResponseNinja();
                   this.updateSchedule();
                   this.setState({ modal: false });
                 }}
