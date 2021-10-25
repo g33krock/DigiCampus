@@ -1606,7 +1606,7 @@ export default class AdminSchedule extends Component {
                       (day) =>
                         day.date >= this.state.startDate &&
                         day.date <= this.state.endDate
-                    )
+                    ).sort((a,b) => a.id-b.id)
                     .map((day) => (
                       <th>{day.date}</th>
                     ))}
@@ -1640,7 +1640,7 @@ export default class AdminSchedule extends Component {
                           (day) =>
                             day.date >= this.state.startDate &&
                             day.date <= this.state.endDate
-                        )
+                        ).sort((a,b) => a.id-b.id)
                         .map((day) => (
                           <td
                             className={this.attendanceSwitch(
@@ -1673,7 +1673,7 @@ export default class AdminSchedule extends Component {
                       (day) =>
                         day.date >= this.state.startDate &&
                         day.date <= this.state.endDate
-                    )
+                    ).sort((a,b) => a.id-b.id)
                     .map((day) => (
                       <th>{day.date}</th>
                     ))}
@@ -1707,7 +1707,7 @@ export default class AdminSchedule extends Component {
                           (day) =>
                             day.date >= this.state.startDate &&
                             day.date <= this.state.endDate
-                        )
+                        ).sort((a,b) => a.id-b.id)
                         .map((day) => (
                           <td
                             className={this.attendanceSwitch(
