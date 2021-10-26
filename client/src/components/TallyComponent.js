@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import DisplayContainer from "./DisplayContainer";
 import ButtonContainer from "./ButtonContainer";
 import {
-  Button,
+  Button, Col, Row,
 } from "reactstrap";
 import { tallyResponseService } from "../services/tallyResponseService";
+import StopWatch from "./StopWatch/StopWatch";
 
 export class TallyComponent extends Component {
   constructor() {
@@ -101,6 +102,11 @@ export class TallyComponent extends Component {
             decrement={this.decrement}
             reset={this.reset}
           />
+          <Row>
+            <Col>
+          <StopWatch />
+            </Col>
+            <Col>
           <Button
             color="primary"
             onClick={() => {
@@ -110,6 +116,8 @@ export class TallyComponent extends Component {
           >
             Submit
           </Button>
+          </Col>
+          </Row>
         </div>
       </div>
     );
