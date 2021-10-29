@@ -12,6 +12,11 @@ html, body {
   /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'); */
 }
 
+@font-face {
+  font-family: spooky;
+  src: url(https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/font/SHLOP.ttf);
+}
+
 html {
   /* background-color: rgb(174, 216, 255); */
   background: rgb(187, 162, 82);
