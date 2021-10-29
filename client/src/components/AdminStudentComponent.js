@@ -32,6 +32,7 @@ import { RelatedServiceCreator } from "./CreateRelatedService";
 import { TallyComponent } from "./TallyComponent";
 import StudentID from "./StudentID";
 import { TallyQuestionCreator } from "./CreateTallyQuestion";
+import { UpdateGuardian } from "./UpdateGuardian";
 
 export default class AdminStudent extends Component {
   constructor(props) {
@@ -210,7 +211,7 @@ export default class AdminStudent extends Component {
                   <p>
                     <strong>Address:</strong> {guardian?.address}
                   </p>
-                  {/* <UpdateGuardian
+                  <UpdateGuardian
                     guardianId={guardian?.id}
                     firstName={guardian?.firstName}
                     lastName={guardian?.lastName}
@@ -218,7 +219,7 @@ export default class AdminStudent extends Component {
                     email={guardian?.email}
                     address={guardian?.address}
                     additionalInfo={guardian?.guardian_additionalinfo}
-                  /> */}
+                  />
                 </div>
               ))}
               {this.state.student && <h3>Services:</h3>}

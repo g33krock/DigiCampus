@@ -31,6 +31,7 @@ import ProgressReport from "./ProgressReportComponent";
 import { RelatedServiceCreator } from "./CreateRelatedService";
 import { TallyQuestionCreator } from "./CreateTallyQuestion";
 import { TallyComponent } from "./TallyComponent";
+import StopWatch from "./StopWatch/StopWatch";
 
 export default class Student extends Component {
   constructor(props) {
@@ -202,7 +203,7 @@ export default class Student extends Component {
                     <strong>Address:</strong> {guardian?.address}
                   </p>
 
-                  {/* <UpdateGuardian
+                  <UpdateGuardian
                     guardianId={guardian?.id}
                     firstName={guardian?.firstName}
                     lastName={guardian?.lastName}
@@ -210,7 +211,7 @@ export default class Student extends Component {
                     email={guardian?.email}
                     address={guardian?.address}
                     additionalInfo={guardian?.guardian_additionalinfo}
-                  /> */}
+                  />
                 </div>
               ))}
               {this.state.student && (
@@ -352,7 +353,7 @@ export default class Student extends Component {
                     tallyQuestionsQuestion={tquest.question}
                     teacher={this.state.teacher}
                     student={this.state.student}
-                  ></TallyComponent>
+                  > </TallyComponent>
                 ))}
               </TabPane>
             </TabContent>

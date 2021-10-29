@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
-import { Button, UncontrolledPopover, PopoverHeader, PopoverBody, Form, Container, Row, Col, Label, FormGroup, Input } from 'reactstrap';
+import { Button, Form, Container, Row, Col, Label, FormGroup, Input, Modal, ModalBody, ModalHeader } from 'reactstrap';
 import { guardianService } from "../services/guardianService";
 
 
 
 export class UpdateGuardian extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false,
+    };
+  }
 
     async updateGuardian() {
         const guardianObject = {
@@ -20,15 +26,19 @@ export class UpdateGuardian extends Component {
         console.log(guardian);
       }
 
+      toggle() {
+        return !this.state.modal;
+      }
+
     render() {
         return (
             <div>
-            <Button color="link" size="sm" id="UncontrolledPopover" type="button">
+            <Button outline color="primary" size="sm" onClick={() => this.setState({ modal: true })}>
                 Update Guardian
             </Button>
-            <UncontrolledPopover placement="bottom" target="UncontrolledPopover">
-                <PopoverHeader>Update {this.props.firstName} {this.props.lastName}</PopoverHeader>
-                <PopoverBody>
+            <Modal isOpen={this.state.modal} toggle={this.toggle}>
+                <ModalHeader>Update {this.props.firstName} {this.props.lastName}</ModalHeader>
+                <ModalBody>
                     <Form>
                     <Container>
                 <Row>
@@ -105,15 +115,22 @@ export class UpdateGuardian extends Component {
               <Button
                 color="primary"
                 onClick={() => {
-                  this.updateGuardian();
+                  this.updateGuardian()
+                  this.setState({ modal: false })
                 }}
               >
                 Submit
               </Button>
+              <Button
+                color="danger"
+                onClick={() => this.setState({ modal: false })}
+              >
+                Cancel
+              </Button>
 
                     </Form>
-                </PopoverBody>
-            </UncontrolledPopover>
+                </ModalBody>
+            </Modal>
             </div>
         );
     }
