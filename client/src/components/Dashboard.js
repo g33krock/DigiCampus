@@ -24,7 +24,7 @@ export function Dashboard() {
     <div>
       <BrowserRouter>
         <div>
-          <p style={{ color: "lightgreen", backgroundColor: "rgb(5, 1, 58)", padding:0, margin:0 }}>
+          <p style={{ color: "blue", backgroundColor: "rgb(200, 200, 200)", padding:0, margin:0 }}>
             <button onClick={handleSignOut}>Sign out</button> Welcome,{" "}
             {user?.email}!
           </p>

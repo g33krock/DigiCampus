@@ -425,8 +425,8 @@ export class GroupTrackerCreator extends Component {
               <Button
                 color="primary"
                 onClick={() => {
-                  // this.playClick('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/click.mp3');
-                  this.playClick('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/applause2.mp3');
+                  this.playClick('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/click.mp3');
+                  // this.playClick('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/applause2.mp3');
                   this.createTrackerNinja();
                   this.createSpedResponseNinja();
                   this.updateScheduleNinja();
