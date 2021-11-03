@@ -8,7 +8,12 @@ export class EmptyScheduleCreator extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      buttonStatus: this.props.schedLength
     };
+  }
+
+  componentDidMount(){
+    console.log(this.state.buttonStatus)
   }
 
   async emptySchedule() {
@@ -25,14 +30,27 @@ export class EmptyScheduleCreator extends Component {
     
     const schedule = await scheduleService.create(scheduleObject);
     console.log(schedule)}
+    this.setState({buttonStatus: 1})
+    console.log(this.state.buttonStatus)
   }
 
   render() {
-    return (
-      <div>
-        <Button outline color="primary" size="sm" onClick={() => this.emptySchedule()}>
-          Add Schedule
-        </Button>
-    </div>
-    )}
+    if(this.state.buttonStatus >= 1){
+      return (
+        <div>
+          <Button outline color="primary" size="sm" disabled={true}>
+            Add Schedule
+          </Button>
+      </div>
+      )
+    } else {
+      return (
+        <div>
+          <Button outline color="primary" size="sm" onClick={() => this.emptySchedule()}>
+            Add Schedule
+          </Button>
+      </div>
+      )
+    }
+}
 }

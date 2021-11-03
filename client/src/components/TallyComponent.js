@@ -6,6 +6,7 @@ import {
 } from "reactstrap";
 import { tallyResponseService } from "../services/tallyResponseService";
 import StopWatch from "./StopWatch/StopWatch";
+import Display from "./Display";
 
 export class TallyComponent extends Component {
   constructor() {
@@ -57,6 +58,7 @@ export class TallyComponent extends Component {
       countOut: 0,
       countTotal: 0,
     }));
+    console.log(`${StopWatch.time}`)
   }
 
   async createTallyResponse(i) {
@@ -81,7 +83,7 @@ export class TallyComponent extends Component {
     );
     console.log(tallyResponse);
   }
-
+// hi
   render() {
     return (
       <div className="container" style={{ padding: 16 }}>

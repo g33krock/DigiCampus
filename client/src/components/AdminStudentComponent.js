@@ -318,6 +318,7 @@ export default class AdminStudent extends Component {
                         studentFirstName={this.state.student?.firstName}
                         studentLastName={this.state.student?.lastName}
                         campusId={this.state.student?.campuses.id}
+                        schedLength={Object.keys(this.state.student?.schedules).length}
                       ></EmptyScheduleCreator>
                     </Col>
                     <Col md="2"></Col>

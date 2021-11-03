@@ -42,4 +42,9 @@ export class TallyResponse extends BaseEntity {
 		nullable: true
 	})
 	point: number;
+
+	@Column({
+		nullable: true
+	})
+	duration: string;
 }
