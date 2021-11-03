@@ -19,7 +19,6 @@ import { StudentCreator } from "./CreateStudent";
 // import {DeleteStudent} from "./DeleteStudent";
 import { StudentUpdater } from "./UpdateStudent";
 import AltStudentSchedule from "./AltStudentSchedule";
-// import { EmptyScheduleCreator } from "./EmptySchedule";
 import { GuardianCreator } from "./CreateGuardian";
 import TrackerResponse from "./TrackerResponses";
 import classnames from "classnames";
@@ -32,6 +31,7 @@ import { RelatedServiceCreator } from "./CreateRelatedService";
 import { TallyQuestionCreator } from "./CreateTallyQuestion";
 import { TallyComponent } from "./TallyComponent";
 import StopWatch from "./StopWatch/StopWatch";
+import { EmptyScheduleCreator } from "./EmptySchedule";
 
 export default class Student extends Component {
   constructor(props) {
