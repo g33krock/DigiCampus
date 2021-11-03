@@ -1,10 +1,19 @@
 import React, { Component } from "react";
-import { Table } from "reactstrap";
+import { Table, Row, Col, Label, Input, Button, Form } from "reactstrap";
 import { fetcher } from "../services/fetcher";
 import { baseURL } from "../baseURL";
 import { spedQuestionService } from "../services/spedQuestionService";
 import { SpedResponseUpdater } from "./UpdateSpedResponse";
 // import { spedResponseService } from "../services/spedResponseService";
+
+const date = new Date();
+
+const today =
+  date.getFullYear().toString() +
+  "-" +
+  (date.getMonth() + 1).toString().padStart(2, 0) +
+  "-" +
+  date.getDate().toString().padStart(2, 0)
 
 export default class SpedResponse extends Component {
   constructor(props) {
@@ -15,6 +24,8 @@ export default class SpedResponse extends Component {
       schedule: null,
       students: [],
       student: null,
+      startDate: "2021-08-30",
+      endDate: today,
       teachers: [],
     };
   }
@@ -27,6 +38,16 @@ export default class SpedResponse extends Component {
   async getSchedules() {
     const spedQuestions = await spedQuestionService.all();
     this.setState({ speQ: spedQuestions });
+  }
+
+  async saveTheDate() {
+    const date = await this.setState({
+      startDate: document.getElementById("startDate").value,
+      endDate: document.getElementById("endDate").value,
+    });
+    console.log(date);
+    console.log(`Start: ${this.state.startDate}  End: ${this.state.endDate}`);
+    this.getResponses();
   }
 
   getResponses() {
@@ -45,20 +66,56 @@ export default class SpedResponse extends Component {
           return 0;
         });
         this.setState({
-          speds: speds,
+          speds: speds
+            .filter((sped) => sped?.date >= this.state?.startDate)
+            .filter((sped) => sped?.date <= this.state?.endDate),
         });
         console.log(this.state.speds);
       });
   }
 
-  setSped(speds) {
-    this.setState({ speds: speds });
-    console.log(speds);
-  }
-
   render() {
     return (
       <div class="tableFixHead">
+        <Col md="12">
+          <Form>
+            <Row>
+              <Col md="5">
+                <Label for="startDate">
+                  <small>Start Date</small>
+                </Label>
+                <Input
+                  type="date"
+                  name="startDate"
+                  id="startDate"
+                  placeholder="Start"
+                />
+              </Col>
+              <Col md="5">
+                <Label for="endDate">
+                  <small>End Date</small>
+                </Label>
+                <Input
+                  type="date"
+                  name="endDate"
+                  id="endDate"
+                  placeholder="End"
+                />
+              </Col>
+              <Col md="2">
+                <Button
+                  color="link"
+                  size="sm"
+                  onClick={() => {
+                    this.saveTheDate();
+                  }}
+                >
+                  Submit
+                </Button>
+              </Col>
+            </Row>
+          </Form>
+        </Col>
         {this.state.speQ
           .filter((stu) => stu.student?.id === this.props.student.id)
           .map((quest) => (
