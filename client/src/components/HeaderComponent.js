@@ -60,7 +60,7 @@ class Header extends Component {
       teacher: teacher,
       campus: teacher.campus,
     });
-    console.log(this.state.teachers);
+    console.log(this.state.teacher);
     this.getAnnouncements();
     this.clock = setInterval(() => this.setCurrentTime(), 1000);
     this.interval = setInterval(() => this.checkAlarmClock(), 1000);
@@ -489,7 +489,8 @@ class Header extends Component {
     }
     return (
       <React.Fragment>
-        <Jumbo />
+        <Jumbo
+        teacher={this.state.teacher} />
         <Navbar dark sticky="top" expand="md">
           {user}
         </Navbar>

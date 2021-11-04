@@ -39,7 +39,7 @@ class Main extends Component {
     const teacher = teachers.find(
       (teacher) => teacher.email === this.props.userEmail
     );
-    console.log(teacher.birthDate.slice(5));
+    console.log(teacher?.birthDate?.slice(5));
 
     this.setState({
       teachers: teachers,

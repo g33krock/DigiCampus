@@ -91,71 +91,79 @@ export class Jumbo extends Component {
     const getRandomInt = () => {
       return Math.floor(Math.random() * 9);
     };
-
-    return (
-      <FullWidth className="megatron">
-        <Height height={300}>
-          {/* <h1 style={{textAlign:"center", color:"whitesmoke", textShadow:"2px 2px black"}}>Funky Hair Friday!!!</h1> */}
-          {/* <strong style={{textAlign:"center", color:"gold", position: "absolute", bottom: "15%", left: "46%"}}>Class of {this.textSwitch(getRandomInt())}</strong> */}
-          {/* <Marquee
-            velocity={12}
-            minScale={0.7}
-            resetAfterTries={200}
-            scatterRandomly
-          >
-            {times(2, Number).map((id) => (
-              <Box key={`child-${id}`} scale={this.scale}>
-                <Review scale={this.scale}>
-                  <Content scale={this.scale}>
-                    {this.state.announcements
-                      .filter((announcement) => announcement.id === id)
-                      .map((announcement) => (
-                        <div>
-                          <strong>{announcement.head}</strong>
-                          <small>{announcement.body}</small>
-                        </div>
-                      ))}
-                  </Content>
-                </Review>
-              </Box>
-              // <Motion
-              //   key={`child-${id}`}
-              //   className="motion"
-              //   initDeg={randomIntFromInterval(0, 360)}
-              //   direction={
-              //     Math.random() > 0.5 ? "clockwise" : "counterclockwise"
-              //   }
-              //   velocity={10}
-              //   radius={50}
-              // >
-              //   <div
-              //     style={{
-              //       minWidth: "300px",
-              //       backgroundImage:
-              //           // "url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/sign/images/flappingowl.gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvZmxhcHBpbmdvd2wuZ2lmIiwiaWF0IjoxNjI5NDk0NzI4LCJleHAiOjE5NDQ4NTQ3Mjh9.l4YhGnu8NaW8SOQBt-SH8v48ob__pckb7Tv3MyOyQ9c')",
-              //         "url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/sign/images/Bubble.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvQnViYmxlLnBuZyIsImlhdCI6MTYyODY0MzczMywiZXhwIjoxOTQ0MDAzNzMzfQ.dI8BFOJk-032ydJfO5SiJdNOr-KPj7NILzu_Y5KVIS4')",
-              //       backgroundSize: "contain",
-              //       backgroundRepeat: "no-repeat",
-              //       backgroundPosition: "center center",
-              //       textAlign: "center",
-              //       lineHeight: "20px",
-              //     }}
-              //   >
-              //     {this.state.announcements
-              //       .filter((announcement) => announcement.id === id)
-              //       .map((announcement) => (
-              //         <div>
-              //           <h3>{announcement.head}</h3>
-              //           <p>{announcement.body}</p>
-              //         </div>
-              //       ))}
-              //   </div>
-              // </Motion>
-            ))}
-          </Marquee> */}
-        </Height>
-      </FullWidth>
-    );
+    // if(this.props.teacher?.id === 84) {
+    // return (
+    //   <FullWidth className="birthday">
+    //     <Height height={300}>
+    //       <h1 style={{textAlign:"center", position: "relative", top: "25%", fontSize:"500%", color: "yellow", fontFamily:"jedi", textShadow:"2px 2px black"}}>Happy Birthday!</h1>
+    //     </Height>
+    //   </FullWidth>
+    // )} else {
+      return (
+        <FullWidth className="megatron">
+          <Height height={300}>
+            {/* <h1 style={{textAlign:"center", position: "relative", top: "25%", fontSize:"500%", color: "yellow", fontFamily:"jedi", textShadow:"2px 2px black"}}>Happy Birthday!</h1> */}
+            {/* <strong style={{textAlign:"center", color:"gold", position: "absolute", bottom: "15%", left: "46%"}}>Class of {this.textSwitch(getRandomInt())}</strong> */}
+            {/* <Marquee
+              velocity={12}
+              minScale={0.7}
+              resetAfterTries={200}
+              scatterRandomly
+            >
+              {times(2, Number).map((id) => (
+                <Box key={`child-${id}`} scale={this.scale}>
+                  <Review scale={this.scale}>
+                    <Content scale={this.scale}>
+                      {this.state.announcements
+                        .filter((announcement) => announcement.id === id)
+                        .map((announcement) => (
+                          <div>
+                            <strong>{announcement.head}</strong>
+                            <small>{announcement.body}</small>
+                          </div>
+                        ))}
+                    </Content>
+                  </Review>
+                </Box>
+                // <Motion
+                //   key={`child-${id}`}
+                //   className="motion"
+                //   initDeg={randomIntFromInterval(0, 360)}
+                //   direction={
+                //     Math.random() > 0.5 ? "clockwise" : "counterclockwise"
+                //   }
+                //   velocity={10}
+                //   radius={50}
+                // >
+                //   <div
+                //     style={{
+                //       minWidth: "300px",
+                //       backgroundImage:
+                //           // "url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/sign/images/flappingowl.gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvZmxhcHBpbmdvd2wuZ2lmIiwiaWF0IjoxNjI5NDk0NzI4LCJleHAiOjE5NDQ4NTQ3Mjh9.l4YhGnu8NaW8SOQBt-SH8v48ob__pckb7Tv3MyOyQ9c')",
+                //         "url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/sign/images/Bubble.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvQnViYmxlLnBuZyIsImlhdCI6MTYyODY0MzczMywiZXhwIjoxOTQ0MDAzNzMzfQ.dI8BFOJk-032ydJfO5SiJdNOr-KPj7NILzu_Y5KVIS4')",
+                //       backgroundSize: "contain",
+                //       backgroundRepeat: "no-repeat",
+                //       backgroundPosition: "center center",
+                //       textAlign: "center",
+                //       lineHeight: "20px",
+                //     }}
+                //   >
+                //     {this.state.announcements
+                //       .filter((announcement) => announcement.id === id)
+                //       .map((announcement) => (
+                //         <div>
+                //           <h3>{announcement.head}</h3>
+                //           <p>{announcement.body}</p>
+                //         </div>
+                //       ))}
+                //   </div>
+                // </Motion>
+              ))}
+            </Marquee> */}
+          </Height>
+        </FullWidth>
+      );
+    // }
   }
 }
 

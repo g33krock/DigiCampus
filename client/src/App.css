@@ -8,13 +8,19 @@ html, body {
   background-repeat: no-repeat;
   background-size:contain;
   font-family: 'Helvetica', sans-serif;
-  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/candycorn- normal.cur'), auto; */
+  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/StarWars.cur'), auto; */
   cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur');
 }
 
 @font-face {
   font-family: spooky;
   src: url(https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/font/SHLOP.ttf);
+}
+
+@font-face {
+  font-family: jedi;
+  src: url(https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/font/star-jedi.ttf);
+  color: yellow
 }
 
 html {
@@ -25,12 +31,19 @@ html {
  
 }
 
+.birthday {
+  background-color: rgb(0, 0, 0);
+  background-image: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/light-speed.gif');
+  border-radius: 60/2;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover, cover;
+}
+
 .megatron {
   background-color: rgb(200, 200, 200);
-  /* background-image: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/AspireHalloween2.gif'); */
   border-radius: 60/2;
   background-image:url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/AspireOwlGraphic.png');
-  /* background-image: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Aspire-Owl.gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvQXNwaXJlLU93bC5naWYiLCJpYXQiOjE2MjQ1NTUxMzAsImV4cCI6MTkzOTkxNTEzMH0.t7V5iTGS19-Dt0-T6xu-RHIKfkfYK5AO7dXtXjjxc1s'); */
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: auto, contain;
@@ -43,7 +56,7 @@ html {
 #wrapper {
   text-align: center;
   cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto;
-  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/candycorn- normal.cur'), auto; */
+  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/StarWars.cur'), auto; */
 
 }
 
@@ -67,7 +80,7 @@ text set in the data-text attribute. */
   for more information on how to random skew. */
   animation: glitch-skew 1s infinite linear alternate-reverse;
   cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto;
-  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/candycorn- normal.cur'), auto; */
+  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/StarWars.cur'), auto; */
 
 }
 .glitch::before {
@@ -338,13 +351,13 @@ skew to change the 'thickness' of the glitch.*/
 
  .fancy-cursor {
   cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto;
-  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/candycorn- normal.cur'), auto; */
+  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/StarWars.cur'), auto; */
  }
 
  .card-title {
   font-size: large;
   font-weight: bolder;
-  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/candycorn- normal.cur'), auto; */
+  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/StarWars.cur'), auto; */
   cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto;
   /* text-shadow: 2px 2px #050505; */
  }
@@ -357,7 +370,7 @@ skew to change the 'thickness' of the glitch.*/
    border: 2px solid #000000;
    font-size: large;
    font-weight: bolder;
-   /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/football_2.cur'), auto; */
+   /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/StarWars.cur'), auto; */
    cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto;
  }
 
@@ -365,13 +378,13 @@ skew to change the 'thickness' of the glitch.*/
   display: grid;
   grid-template-columns: 15% 15% 15% 15% 15% 15%;
   grid-row-gap: 0px;
-  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/candycorn- normal.cur'), auto; */
+  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/StarWars.cur'), auto; */
   cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto;
 }
 
 #trackerBox {
   border: 2px solid #000000;
-  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/candycorn- normal.cur'), auto; */
+  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/StarWars.cur'), auto; */
   cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto;
   position: relative;
   bottom: 3
