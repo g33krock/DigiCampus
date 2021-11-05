@@ -205,6 +205,7 @@ export default class Schedule extends Component {
   }
 
   render() {
+    let one2one = (schedule) => {if(schedule.oneToOne === 'true'){return 'One to One'} else {return ""}};
     let teachingHours = this.state.schedules
       .filter((schedule) => schedule.campus.id === this.props?.campus?.id)
       .filter(
@@ -828,6 +829,7 @@ export default class Schedule extends Component {
                               scheduleId={schedule.id}
                               period={schedule.period}>
                             </DeleteSchedule> */}
+                            <small style={{color: "white", textShadow:"1px 1px black"}}>{one2one(schedule)}</small>
                           </td>
                         ))}
                     </tr>
@@ -948,6 +950,7 @@ export default class Schedule extends Component {
                               scheduleId={schedule.id}
                               period={schedule.period}>
                             </DeleteSchedule> */}
+                            <small style={{color: "white", textShadow:"1px 1px black"}}>{one2one(schedule)}</small>
                           </td>
                         ))}
                     </tr>

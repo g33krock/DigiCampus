@@ -202,6 +202,7 @@ export default class AdminSchedule extends Component {
   }
 
   render() {
+    let one2one = (schedule) => {if(schedule.oneToOne === 'true'){return 'One to One'} else {return ""}};
     let teachingHours = this.state.schedules
       .filter((schedule) => schedule.campus.id === this.state?.campus?.id)
       .filter(
@@ -865,6 +866,7 @@ export default class AdminSchedule extends Component {
                               courses={this.state.courses}
                               teachers={this.state.teachers}
                             ></ScheduleUpdater>
+                            <small style={{color: "white", textShadow:"1px 1px black"}}>{one2one(schedule)}</small>
                             {/* <DeleteSchedule
                               callback={() => this.getSchedules()}
                               scheduleId={schedule.id}
@@ -990,6 +992,7 @@ export default class AdminSchedule extends Component {
                               scheduleId={schedule.id}
                               period={schedule.period}>
                             </DeleteSchedule> */}
+                            <small style={{color: "white", textShadow:"1px 1px black"}}>{one2one(schedule)}</small>
                           </td>
                         ))}
                     </tr>
