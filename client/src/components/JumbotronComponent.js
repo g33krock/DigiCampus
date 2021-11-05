@@ -91,14 +91,14 @@ export class Jumbo extends Component {
     const getRandomInt = () => {
       return Math.floor(Math.random() * 9);
     };
-    // if(this.props.teacher?.id === 84) {
-    // return (
-    //   <FullWidth className="birthday">
-    //     <Height height={300}>
-    //       <h1 style={{textAlign:"center", position: "relative", top: "25%", fontSize:"500%", color: "yellow", fontFamily:"jedi", textShadow:"2px 2px black"}}>Happy Birthday!</h1>
-    //     </Height>
-    //   </FullWidth>
-    // )} else {
+    if(this.props.teacher?.id === 28) {
+    return (
+      <FullWidth className="birthday">
+        <Height height={300}>
+          <h1 style={{textAlign:"center", position: "relative", top: "25%", fontSize:"500%", color: "yellow", fontFamily:"jedi", textShadow:"2px 2px black"}}>Happy Birthday!</h1>
+        </Height>
+      </FullWidth>
+    )} else {
       return (
         <FullWidth className="megatron">
           <Height height={300}>
@@ -163,7 +163,7 @@ export class Jumbo extends Component {
           </Height>
         </FullWidth>
       );
-    // }
+    }
   }
 }
 
