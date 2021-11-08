@@ -529,7 +529,17 @@ export default class Billing extends Component {
                             (day) =>
                               day.date >= this.state.startDate &&
                               day.date <= this.state.endDate
-                          )
+                          ).sort(function (a, b) {
+                            let x = a.id;
+                            let y = b.id;
+                            if (x < y) {
+                              return -1;
+                            }
+                            if (x > y) {
+                              return 1;
+                            }
+                            return 0;
+                          })
                           .map((day) => (
                             <td
                               className={this.attendanceSwitch(
