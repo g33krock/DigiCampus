@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Form, Container, Row, Col, Label, FormGroup, Input, Modal, ModalBody, ModalHeader } from 'reactstrap';
 import { guardianService } from "../services/guardianService";
+import Draggable from 'react-draggable';
 
 
 
@@ -36,6 +37,7 @@ export class UpdateGuardian extends Component {
             <Button outline color="primary" size="sm" onClick={() => this.setState({ modal: true })}>
                 Update Guardian
             </Button>
+            <Draggable>
             <Modal isOpen={this.state.modal} toggle={this.toggle}>
                 <ModalHeader>Update {this.props.firstName} {this.props.lastName}</ModalHeader>
                 <ModalBody>
@@ -131,6 +133,7 @@ export class UpdateGuardian extends Component {
                     </Form>
                 </ModalBody>
             </Modal>
+            </Draggable>
             </div>
         );
     }

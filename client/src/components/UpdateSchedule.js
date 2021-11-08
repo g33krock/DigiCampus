@@ -11,6 +11,7 @@ import {
   Col,
 } from "reactstrap";
 import { scheduleService } from "../services/scheduleService";
+import Draggable from 'react-draggable';
 
 export class ScheduleUpdater extends Component {
   constructor(props) {
@@ -52,6 +53,7 @@ export class ScheduleUpdater extends Component {
         >
           Update Schedule
         </Button>
+        <Draggable>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody>
             <Form>
@@ -200,6 +202,7 @@ export class ScheduleUpdater extends Component {
             </Form>
           </ModalBody>
         </Modal>
+        </Draggable>
       </div>
     );
   }

@@ -9,6 +9,7 @@ import {
   ModalBody,
 } from "reactstrap";
 import { announcementService } from "../services/announcementService";
+import Draggable from 'react-draggable';
 
 export class AnnouncementUpdater extends Component {
   constructor(props) {
@@ -39,6 +40,7 @@ export class AnnouncementUpdater extends Component {
         <Button outline color="primary" size="sm" onClick={() => this.setState({ modal: true })}>
           Update Announcement
         </Button>
+        <Draggable>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody>
             <Form>
@@ -78,6 +80,7 @@ export class AnnouncementUpdater extends Component {
             </Form>
           </ModalBody>
         </Modal>
+        </Draggable>
       </div>
     );
   }

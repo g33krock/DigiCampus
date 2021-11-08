@@ -14,6 +14,7 @@ import {
 import { studentService } from "../services/studentService";
 import { baseURL } from "../baseURL";
 import { fetcher } from "../services/fetcher";
+import Draggable from 'react-draggable';
 
 export class StudentUpdater extends Component {
   constructor(props) {
@@ -95,6 +96,7 @@ export class StudentUpdater extends Component {
         >
           Update Student
         </Button>
+        <Draggable>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody>
             <Form>
@@ -190,6 +192,7 @@ export class StudentUpdater extends Component {
                       <option value="4">Scottsdale</option>
                       <option value="5">Tucson</option>
                       <option value="9">BRACE</option>
+                      <option value="12">Off Campus</option>
                       <option value="8">Withdrawn</option>
                     </Input>
                   </FormGroup>
@@ -651,6 +654,7 @@ export class StudentUpdater extends Component {
             </Form>
           </ModalBody>
         </Modal>
+        </Draggable>
       </div>
     );
   }

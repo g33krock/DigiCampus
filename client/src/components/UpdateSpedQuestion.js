@@ -9,6 +9,7 @@ import {
   ModalBody,
 } from "reactstrap";
 import { spedQuestionService } from "../services/spedQuestionService";
+import Draggable from 'react-draggable';
 
 export class SpedQuestionUpdater extends Component {
   constructor(props) {
@@ -39,6 +40,7 @@ export class SpedQuestionUpdater extends Component {
         <Button outline color="primary" size="sm" onClick={() => this.setState({ modal: true })}>
           Update Question
         </Button>
+        <Draggable>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody>
             <Form>
@@ -86,6 +88,7 @@ export class SpedQuestionUpdater extends Component {
             </Form>
           </ModalBody>
         </Modal>
+        </Draggable>
       </div>
     );
   }

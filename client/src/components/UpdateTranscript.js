@@ -12,6 +12,7 @@ import {
   Row
 } from "reactstrap";
 import { transcriptService } from "../services/transcriptService";
+import Draggable from 'react-draggable';
 
 export class TranscriptUpdater extends Component {
   constructor(props) {
@@ -48,6 +49,7 @@ export class TranscriptUpdater extends Component {
         <Button outline color="primary" size="sm" onClick={() => this.setState({ modal: true })}>
           Update Transcript
         </Button>
+        <Draggable>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody>
             <Form>
@@ -205,6 +207,7 @@ export class TranscriptUpdater extends Component {
             </Form>
           </ModalBody>
         </Modal>
+        </Draggable>
       </div>
     );
   }

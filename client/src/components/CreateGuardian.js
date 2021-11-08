@@ -11,6 +11,7 @@ import {
 } from "reactstrap";
 import { guardianService } from "../services/guardianService";
 import { fetcher } from '../services/fetcher';
+import Draggable from 'react-draggable';
 
 
 export class GuardianCreator extends Component {
@@ -52,6 +53,7 @@ export class GuardianCreator extends Component {
         <Button outline color="primary" size="sm" onClick={() => this.setState({ modal: true })}>
           Add Guardian
         </Button>
+        <Draggable>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody>
             <Form>
@@ -109,6 +111,7 @@ export class GuardianCreator extends Component {
             </Form>
           </ModalBody>
         </Modal>
+        </Draggable>
       </div>
     );
   }

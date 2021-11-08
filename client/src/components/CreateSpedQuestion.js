@@ -11,6 +11,7 @@ import {
 } from "reactstrap";
 import { spedQuestionService } from "../services/spedQuestionService";
 import { fetcher } from '../services/fetcher';
+import Draggable from 'react-draggable';
 
 
 export class SpedQuestionCreator extends Component {
@@ -49,6 +50,7 @@ export class SpedQuestionCreator extends Component {
         <Button outline color="success" onClick={() => this.setState({ modal: true })}>
           Create IEP Question
         </Button>
+        <Draggable>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody>
             <Form>
@@ -97,6 +99,7 @@ export class SpedQuestionCreator extends Component {
             </Form>
           </ModalBody>
         </Modal>
+        </Draggable>
       </div>
     );
   }

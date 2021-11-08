@@ -12,6 +12,7 @@ import {
   Container
 } from "reactstrap";
 import { teacherService } from "../services/teacherService";
+import Draggable from 'react-draggable';
 
 export class TeacherUpdater extends Component {
   constructor(props) {
@@ -64,6 +65,7 @@ export class TeacherUpdater extends Component {
         <Button color="link" size="sm" onClick={() => this.setState({ modal: true })}>
           Update Teacher
         </Button>
+        <Draggable>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
         <ModalBody>
             <Form>
@@ -367,6 +369,7 @@ export class TeacherUpdater extends Component {
             </Form>
           </ModalBody>
         </Modal>
+        </Draggable>
       </div>
     );
   }

@@ -10,6 +10,7 @@ import {
   Table,
 } from "reactstrap";
 import { gradebookService } from "../services/gradebookService";
+import Draggable from 'react-draggable';
 
 export class GroupGradebookCreator extends Component {
   constructor(props) {
@@ -64,6 +65,7 @@ export class GroupGradebookCreator extends Component {
         >
           Gradebook
         </Button>
+        <Draggable>
         <Modal isOpen={this.state.modal} toggle={() => this.toggle()}>
           <ModalBody
             id="fancy-cursor"
@@ -155,6 +157,7 @@ export class GroupGradebookCreator extends Component {
             </Form>
           </ModalBody>
         </Modal>
+        </Draggable>
       </div>
     );
   }

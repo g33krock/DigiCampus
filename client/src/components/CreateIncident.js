@@ -14,6 +14,7 @@ import {
 } from "reactstrap";
 import { incidentService } from "../services/incidentService";
 import { fetcher } from "../services/fetcher";
+import Draggable from 'react-draggable';
 
 export class IncidentCreator extends Component {
   constructor(props) {
@@ -85,6 +86,7 @@ export class IncidentCreator extends Component {
         <Button outline color="danger" size="sm" onClick={() => this.setState({ modal: true })}>
           Incident Report
         </Button>
+        <Draggable>
         <Modal isOpen={this.state.modal} toggle={() => this.toggle()}>
           <ModalBody
             id="fancy-cursor"
@@ -348,6 +350,7 @@ export class IncidentCreator extends Component {
             </Form>
           </ModalBody>
         </Modal>
+        </Draggable>
       </div>
     );
   }

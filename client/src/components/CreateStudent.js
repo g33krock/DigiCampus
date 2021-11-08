@@ -14,6 +14,7 @@ import {
 } from "reactstrap";
 import { studentService } from "../services/studentService";
 import { fetcher } from "../services/fetcher";
+import Draggable from 'react-draggable';
 
 export class StudentCreator extends Component {
   constructor(props) {
@@ -94,6 +95,7 @@ export class StudentCreator extends Component {
         <Button color="link" onClick={() => this.setState({ modal: true })}>
           Add Student
         </Button>
+        <Draggable>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody>
             <Form>
@@ -171,6 +173,7 @@ export class StudentCreator extends Component {
                       <option value="4">Scottsdale</option>
                       <option value="5">Tucson</option>
                       <option value="9">BRACE</option>
+                      <option value="12">Off Campus</option>
                     </Input>
                   </FormGroup>
                 </Col>
@@ -552,6 +555,7 @@ export class StudentCreator extends Component {
             </Form>
           </ModalBody>
         </Modal>
+        </Draggable>
       </div>
     );
   }

@@ -9,6 +9,7 @@ import {
   ModalBody,
 } from "reactstrap";
 import { gradebookService } from "../services/gradebookService";
+import Draggable from 'react-draggable';
 
 export class GradebookCreator extends Component {
   constructor(props) {
@@ -44,6 +45,7 @@ export class GradebookCreator extends Component {
         <Button color="link" onClick={() => this.setState({ modal: true })}>
           Gradebook
         </Button>
+        <Draggable>
         <Modal isOpen={this.state.modal} toggle={() => this.toggle()}>
           <ModalBody
             id="fancy-cursor"
@@ -122,6 +124,7 @@ export class GradebookCreator extends Component {
             </Form>
           </ModalBody>
         </Modal>
+        </Draggable>
       </div>
     );
   }

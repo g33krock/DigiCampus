@@ -9,6 +9,7 @@ import {
   ModalBody,
 } from "reactstrap";
 import { spedResponseService } from "../services/spedResponseService";
+import Draggable from 'react-draggable';
 
 export class SpedResponseUpdater extends Component {
   constructor(props) {
@@ -51,6 +52,7 @@ export class SpedResponseUpdater extends Component {
         >
           Update Response
         </Button>
+        <Draggable>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody>
             <Form>
@@ -113,6 +115,7 @@ export class SpedResponseUpdater extends Component {
             </Form>
           </ModalBody>
         </Modal>
+        </Draggable>
       </div>
     );
   }

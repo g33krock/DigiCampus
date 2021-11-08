@@ -13,6 +13,7 @@ import {
 } from "reactstrap";
 import { relatedServiceService } from "../services/relatedServiceService";
 import { fetcher } from "../services/fetcher";
+import Draggable from 'react-draggable';
 
 export class RelatedServiceCreator extends Component {
   constructor(props) {
@@ -75,6 +76,7 @@ export class RelatedServiceCreator extends Component {
         >
           Add RelatedService
         </Button>
+        <Draggable>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody>
             <Form>
@@ -137,6 +139,7 @@ export class RelatedServiceCreator extends Component {
             </Form>
           </ModalBody>
         </Modal>
+        </Draggable>
       </div>
     );
   }

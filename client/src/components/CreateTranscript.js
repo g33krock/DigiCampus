@@ -14,6 +14,7 @@ import {
 } from "reactstrap";
 import { transcriptService } from "../services/transcriptService";
 import { fetcher } from '../services/fetcher';
+import Draggable from 'react-draggable';
 
 export class TranscriptCreator extends Component {
   constructor(props) {
@@ -73,6 +74,7 @@ export class TranscriptCreator extends Component {
         >
           Create Transcript Entry
         </Button>
+        <Draggable>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody>
             <Form>
@@ -225,6 +227,7 @@ export class TranscriptCreator extends Component {
             </Form>
           </ModalBody>
         </Modal>
+        </Draggable>
       </div>
     );
   }

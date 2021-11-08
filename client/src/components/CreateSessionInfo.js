@@ -13,6 +13,7 @@ import {
 } from "reactstrap";
 import { sessionInfoService } from "../services/sessionInfoService";
 import { fetcher } from "../services/fetcher";
+import Draggable from 'react-draggable';
 
 export class SessionInfoCreator extends Component {
   constructor(props) {
@@ -57,6 +58,7 @@ export class SessionInfoCreator extends Component {
         >
           Add SessionInfo
         </Button>
+        <Draggable>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody>
             <h3>
@@ -112,6 +114,7 @@ export class SessionInfoCreator extends Component {
             </Form>
           </ModalBody>
         </Modal>
+        </Draggable>
       </div>
     );
   }
