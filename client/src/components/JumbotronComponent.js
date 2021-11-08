@@ -91,7 +91,7 @@ export class Jumbo extends Component {
     const getRandomInt = () => {
       return Math.floor(Math.random() * 9);
     };
-    if(this.props.teacher?.id === 28) {
+    if(this.props.teacher?.id === 40) {
     return (
       <FullWidth className="birthday">
         <Height height={300}>
