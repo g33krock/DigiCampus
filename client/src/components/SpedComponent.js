@@ -16,7 +16,7 @@ import {
   Table,
   Form,
   Input,
-  Button
+  Button,
 } from "reactstrap";
 import { SpedQuestionCreator } from "./CreateSpedQuestion";
 import SpedResponse from "./SpedResponses";
@@ -67,14 +67,14 @@ export default class Sped extends Component {
     });
   }
 
-  onChange = (e) => {
-    const districtId = Number(e.target.value);
+  onChangeD = (f) => {
+    const districtId = Number(f.target.value);
     const district = this.state.districts.find(
       (district) => district.id === districtId
     );
     this.setState({ district });
     console.log(district);
-    console.log(e.target.value);
+    console.log(f.target.value);
     this.getAttendance();
   };
 
@@ -158,6 +158,8 @@ export default class Sped extends Component {
   render() {
     const first = this.state.student?.firstName;
     const last = this.state.student?.lastName;
+    const reducer = (previousValue, currentValue) =>
+      previousValue + currentValue;
     return (
       <Container>
         <Nav tabs>
@@ -536,7 +538,7 @@ export default class Sped extends Component {
                   <Input
                     type="select"
                     id="selectCampus"
-                    onChange={this.onChange}
+                    onChange={this.onChangeD}
                   >
                     <option></option>
                     {this.state.districts.map((district) => (
@@ -552,8 +554,8 @@ export default class Sped extends Component {
                         <h1>Student</h1>
                         <br /> <br /> <br />
                       </th>
-                      {/* <th>Present</th>
-                    <th>Absent</th> */}
+                      <th>Present</th>
+                      <th>Absent</th>
                       {this.state.attendance
                         .filter(
                           (day) =>
@@ -598,16 +600,41 @@ export default class Sped extends Component {
                           <th key={student.id}>
                             {student.firstName} {student.lastName}
                           </th>
-                          {/* <th>
-                          {
-                            this.state.attendance.filter(
+                          <th>
+                            {this.state.attendance
+                              .filter(
+                                (day) =>
+                                  day.date >= this.state.startDate &&
+                                  day.date <= this.state.endDate
+                              )
+                              .map(
+                                (day) =>
+                                  day.student.filter(
+                                    (stud) => stud.id === student.id
+                                  ).length
+                              )
+                              .reduce(reducer, 0)}
+                          </th>
+                          <th>
+                            {this.state.attendance.filter(
                               (day) =>
                                 day.date >= this.state.startDate &&
                                 day.date <= this.state.endDate
-                            ).length
-                          }
-                        </th>
-                        <th></th> */}
+                            ).length -
+                              this.state.attendance
+                                .filter(
+                                  (day) =>
+                                    day.date >= this.state.startDate &&
+                                    day.date <= this.state.endDate
+                                )
+                                .map(
+                                  (day) =>
+                                    day.student.filter(
+                                      (stud) => stud.id === student.id
+                                    ).length
+                                )
+                                .reduce(reducer, 0)}
+                          </th>
                           {this.state.attendance
                             .filter(
                               (day) =>
