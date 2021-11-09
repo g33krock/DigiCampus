@@ -445,6 +445,30 @@ skew to change the 'thickness' of the glitch.*/
   background: rgb(243, 122, 122);
 }
 
+.Tara{
+  background-image: linear-gradient(rgb(0, 255, 13), rgb(255, 255, 255), rgb(17, 0, 255));
+}
+
+.Kheanna{
+  background-image: radial-gradient(rgb(208, 245, 247), rgb(2, 240, 248), rgb(41, 128, 136));
+}
+
+.Margaret{
+  background-image: linear-gradient(rgb(255, 115, 0), rgb(229, 255, 0));
+}
+
+.Paul{
+  background: rgb(253, 1, 253);
+}
+
+.Jessica{
+  background-image: linear-gradient(rgba(114, 71, 2, 0.623), rgba(5, 238, 255, 0.829), rgba(253, 236, 5, 0.671));
+}
+
+.Raelee{
+  background-image: linear-gradient(rgba(194, 5, 252, 0.849), rgb(248, 107, 97), rgb(5, 232, 253));
+}
+
 .Chris{
   background-image: linear-gradient(rgb(255, 0, 0), rgb(255, 255, 255), rgb(17, 0, 255));
 }

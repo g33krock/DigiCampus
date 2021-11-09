@@ -205,6 +205,8 @@ export default class Schedule extends Component {
   }
 
   render() {
+    const reducer = (previousValue, currentValue) =>
+    previousValue + currentValue;
     let one2one = (schedule) => {if(schedule.oneToOne === 'true'){return 'One to One'} else {return ""}};
     let teachingHours = this.state.schedules
       .filter((schedule) => schedule.campus.id === this.props?.campus?.id)
@@ -1535,6 +1537,8 @@ export default class Schedule extends Component {
                     <h1>Student</h1>
                     <br /> <br /> <br />
                   </th>
+                  <th>Present</th>
+                  <th>Absent</th>
                   {this.state.attendance
                     .filter(
                       (day) =>
@@ -1569,6 +1573,41 @@ export default class Schedule extends Component {
                       <th key={student.id}>
                         {student.firstName} {student.lastName}
                       </th>
+                      <th>
+                          {this.state.attendance
+                            .filter(
+                              (day) =>
+                                day.date >= this.state.startDate &&
+                                day.date <= this.state.endDate
+                            )
+                            .map(
+                              (day) =>
+                                day.student.filter(
+                                  (stud) => stud.id === student.id
+                                ).length
+                            )
+                            .reduce(reducer, 0)}
+                        </th>
+                        <th>
+                          {this.state.attendance.filter(
+                            (day) =>
+                              day.date >= this.state.startDate &&
+                              day.date <= this.state.endDate
+                          ).length -
+                            this.state.attendance
+                              .filter(
+                                (day) =>
+                                  day.date >= this.state.startDate &&
+                                  day.date <= this.state.endDate
+                              )
+                              .map(
+                                (day) =>
+                                  day.student.filter(
+                                    (stud) => stud.id === student.id
+                                  ).length
+                              )
+                              .reduce(reducer, 0)}
+                        </th>
                       {this.state.attendance
                         .filter(
                           (day) =>
@@ -1602,6 +1641,8 @@ export default class Schedule extends Component {
                     <h1>Student</h1>
                     <br /> <br /> <br />
                   </th>
+                  <th>Present</th>
+                  <th>Absent</th>
                   {this.state.attendance
                     .filter(
                       (day) =>
@@ -1636,6 +1677,41 @@ export default class Schedule extends Component {
                       <th key={student.id}>
                         {student.firstName} {student.lastName}
                       </th>
+                      <th>
+                          {this.state.attendance
+                            .filter(
+                              (day) =>
+                                day.date >= this.state.startDate &&
+                                day.date <= this.state.endDate
+                            )
+                            .map(
+                              (day) =>
+                                day.student.filter(
+                                  (stud) => stud.id === student.id
+                                ).length
+                            )
+                            .reduce(reducer, 0)}
+                        </th>
+                        <th>
+                          {this.state.attendance.filter(
+                            (day) =>
+                              day.date >= this.state.startDate &&
+                              day.date <= this.state.endDate
+                          ).length -
+                            this.state.attendance
+                              .filter(
+                                (day) =>
+                                  day.date >= this.state.startDate &&
+                                  day.date <= this.state.endDate
+                              )
+                              .map(
+                                (day) =>
+                                  day.student.filter(
+                                    (stud) => stud.id === student.id
+                                  ).length
+                              )
+                              .reduce(reducer, 0)}
+                        </th>
                       {this.state.attendance
                         .filter(
                           (day) =>
