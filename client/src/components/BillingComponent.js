@@ -112,9 +112,9 @@ export default class Billing extends Component {
   attendanceSwitch(randomInt) {
     switch (randomInt) {
       case 0:
-        return "-";
+        return "A";
       case 1:
-        return "X";
+        return "P";
       default:
         return "Incorporeal Being";
     }
