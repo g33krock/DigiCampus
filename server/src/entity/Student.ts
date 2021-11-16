@@ -164,12 +164,22 @@ export class Student extends BaseEntity {
 	@Column({
 		nullable: true
 	})
+	counselingBTD: string;
+
+	@Column({
+		nullable: true
+	})
 	speechMinutes: number;
 
 	@Column({
 		nullable: true
 	})
 	speechScope: string;
+
+	@Column({
+		nullable: true
+	})
+	speechBTD: string;
 
 	@Column({
 		nullable: true
@@ -184,12 +194,22 @@ export class Student extends BaseEntity {
 	@Column({
 		nullable: true
 	})
+	otBTD: string;
+
+	@Column({
+		nullable: true
+	})
 	ptMinutes: number;
 
 	@Column({
 		nullable: true
 	})
 	ptScope: string;
+
+	@Column({
+		nullable: true
+	})
+	ptBTD: string;
 
 	@Column({
 		nullable: true
@@ -204,6 +224,11 @@ export class Student extends BaseEntity {
 	@Column({
 		nullable: true
 	})
+	musicBTD: string;
+
+	@Column({
+		nullable: true
+	})
 	abaMinutes: number;
 
 	@Column({
@@ -214,7 +239,27 @@ export class Student extends BaseEntity {
 	@Column({
 		nullable: true
 	})
+	abaBTD: string;
+
+	@Column({
+		nullable: true
+	})
 	dailyReport: string;
+
+	@Column({
+		nullable: true
+	})
+	SAIS: string;
+
+	@Column({
+		nullable: true
+	})
+	teacherHours: number;
+
+	@Column({
+		nullable: true
+	})
+	paraHours: number;
 
 	@OneToMany(() => Schedule, schedule => schedule.student, {onDelete: 'CASCADE'})
 	schedules: Schedule[];

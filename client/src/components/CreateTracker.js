@@ -17,7 +17,6 @@ import { spedResponseService } from "../services/spedResponseService";
 import { tallyResponseService } from "../services/tallyResponseService";
 import { scheduleService } from "../services/scheduleService";
 import { fetcher } from "../services/fetcher";
-import Draggable from 'react-draggable';
 
 export class TrackerCreator extends Component {
   constructor(props) {
@@ -148,7 +147,6 @@ export class TrackerCreator extends Component {
         <Button color="link" onClick={() => this.setState({ modal: true })}>
           Student Tracking
         </Button>
-        <Draggable>
         <Modal isOpen={this.state.modal} toggle={() => this.toggle()}>
           <ModalBody
             id="fancy-cursor"
@@ -686,7 +684,6 @@ export class TrackerCreator extends Component {
             </Form>
           </ModalBody>
         </Modal>
-        </Draggable>
       </div>
     );
   }
