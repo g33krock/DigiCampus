@@ -155,6 +155,90 @@ class Header extends Component {
     }
   }
 
+  // checkAlarmClock() {
+  //   if (
+  //     this.state.currentTime === this.state.alarmTime1
+  //   ) {
+  //     var a = new Audio(
+  //       "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/happyTrails.mp3"
+  //     );
+  //     a.play();
+  //     console.log("alarm");
+  //   } else if (
+  //     this.state.currentTime === this.state.alarmTime3
+  //   ) {
+  //     var a = new Audio(
+  //       "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/fireAndRain.mp3"
+  //     );
+  //     a.play();
+  //     console.log("alarm");
+  //   } else if (
+  //     this.state.currentTime === this.state.alarmTime5
+  //   ) {
+  //     var a = new Audio(
+  //       "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/dontYouForgetAboutMe.mp3"
+  //     );
+  //     a.play();
+  //     console.log("alarm");
+  //   } else if (
+  //     this.state.currentTime === this.state.alarmTime7
+  //   ) {
+  //     var a = new Audio(
+  //       "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/soLongFarewell.mp3"
+  //     );
+  //     a.play();
+  //     console.log("alarm");
+  //   } else if (
+  //     this.state.currentTime === this.state.alarmTime9
+  //   ) {
+  //     var a = new Audio(
+  //       "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/timeOfMyLife.mp3"
+  //     );
+  //     a.play();
+  //     console.log("alarm");
+  //   } else if (
+  //     this.state.currentTime === this.state.alarmTime11
+  //   ) {
+  //     var a = new Audio(
+  //       "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/goodRiddance.mp3"
+  //     );
+  //     a.play();
+  //     console.log("alarm");
+  //   } else if (
+  //     this.state.currentTime === this.state.alarmTime13
+  //   ) {
+  //     var a = new Audio(
+  //       "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/dontWannaCloseMyEyes.mp3"
+  //     );
+  //     a.play();
+  //     console.log("alarm");
+  //   } else if (
+  //     this.state.currentTime === this.state.alarmTime15
+  //   ) {
+  //     var a = new Audio(
+  //       "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/dontYouForgetAboutMe.mp3"
+  //     );
+  //     a.play();
+  //     console.log("alarm");
+  //   } else if (
+  //     this.state.currentTime === this.state.alarmTime17
+  //   ) {
+  //     var a = new Audio(
+  //       "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/iWillRememberYou.mp3"
+  //     );
+  //     a.play();
+  //     console.log("alarm");
+  //   } else if (
+  //     this.state.currentTime === this.state.alarmTime19
+  //   ) {
+  //     var a = new Audio(
+  //       "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/byebyebye.mp3"
+  //     );
+  //     a.play();
+  //     console.log("alarm");
+  //   }
+  // }
+
   render() {
     let user;
     if (
