@@ -35,9 +35,6 @@ export class GroupTrackerCreator extends Component {
       .then((data) => {
         this.setState({
           spedQuestions: data,
-          //   .filter(function (item) {
-          //     return this.state.block.includes(item);
-          //   })
         });
       });
   }
