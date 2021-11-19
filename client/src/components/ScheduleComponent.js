@@ -205,6 +205,28 @@ export default class Schedule extends Component {
   }
 
   render() {
+    let numberMatch = (student) => {
+      if (
+        student.schedules.filter(
+          (schedule) =>
+            schedule.course.subject === "ELA" ||
+            schedule.course.subject === "Math" ||
+            schedule.oneToOne === "true"
+        ).length === student.teacherHours &&
+        student.schedules.filter(
+          (schedule) =>
+            schedule?.para?.id !== 26 &&
+            schedule?.para?.id !== isNull &&
+            schedule?.para?.id >= 1
+          // schedule.course.id !== 48
+        ).length === student.paraHours
+      ) {
+        return "Present";
+      } else {
+        return "Absent";
+      }
+    }
+
     const reducer = (previousValue, currentValue) =>
     previousValue + currentValue;
     let one2one = (schedule) => {if(schedule.oneToOne === 'true'){return 'One to One'} else {return ""}};
@@ -790,7 +812,7 @@ export default class Schedule extends Component {
                   })
                   .map((student) => (
                     <tr>
-                      <th key={student.id}>
+                      <th className={numberMatch(student)} key={student.id}>
                         {student.firstName} {student.lastName}
                       </th>
                       {student.schedules
@@ -911,7 +933,7 @@ export default class Schedule extends Component {
                   })
                   .map((student) => (
                     <tr>
-                      <th key={student.id}>
+                      <th className={numberMatch(student)} key={student.id}>
                         {student.firstName} {student.lastName}
                       </th>
                       {student.schedules
@@ -1460,7 +1482,7 @@ export default class Schedule extends Component {
                   })
                   .map((student) => (
                     <tr>
-                      <th>
+                      <th className={numberMatch(student)}>
                         {student.lastName}, {student.firstName}
                       </th>
                       <th>
