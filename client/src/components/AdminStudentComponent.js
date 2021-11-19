@@ -1,5 +1,7 @@
 // import { supabase } from "../../utils/supabaseClient";
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { fetchStudents } from '../store/students';
 import { baseURL } from "../baseURL";
 import {
   Card,
@@ -34,7 +36,7 @@ import StudentID from "./StudentID";
 import { TallyQuestionCreator } from "./CreateTallyQuestion";
 import { UpdateGuardian } from "./UpdateGuardian";
 
-export default class AdminStudent extends Component {
+class AdminStudent extends Component {
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
@@ -42,23 +44,17 @@ export default class AdminStudent extends Component {
       activeTab: "1",
     };
     this.state = {
-      students: [],
       student: null,
       id: null,
       teacher: this.props.teacher,
       tallyQuestions: [],
+      loading: true,
     };
   }
 
   componentDidMount() {
-    // Fetch Student Table from API
-    fetcher(`${baseURL}/students`)
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({
-          students: data,
-        });
-      });
+    this.props.loadStudents();
+    this.setState({ loading: false });
   }
 
   toggle(tab) {
@@ -71,7 +67,7 @@ export default class AdminStudent extends Component {
 
   onChange = (e) => {
     const studentId = Number(e.target.value);
-    const student = this.state.students.find(
+    const student = this.props.students.find(
       (student) => student.id === studentId
     );
     this.setState({ student });
@@ -89,6 +85,15 @@ export default class AdminStudent extends Component {
   };
 
   render() {
+    const { loading } = this.state;
+
+    if (loading) {
+      console.log("LOADING: ");
+      return (
+        <div>loading... please wait!</div>
+      )
+    }
+
     const first = this.state.student?.firstName;
     const last = this.state.student?.lastName;
     return (
@@ -160,7 +165,7 @@ export default class AdminStudent extends Component {
             <Label for="scheduleStudent">Select Student: </Label>
             <select id="scheduleStudent" onChange={this.onChange}>
               <option selected>None</option>
-              {this.state.students
+              {this.props.students
                 .sort(function (a, b) {
                   let x = a.firstName.toLowerCase();
                   let y = b.firstName.toLowerCase();
@@ -399,3 +404,17 @@ export default class AdminStudent extends Component {
     );
   }
 }
+
+const mapState = (state) => {
+  return {
+    students: state.students,
+  };
+};
+
+const mapDispatch = (dispatch) => {
+  return {
+    loadStudents: () => dispatch(fetchStudents()),
+  };
+};
+
+export default connect(mapState, mapDispatch)(AdminStudent);
