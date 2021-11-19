@@ -93,151 +93,151 @@ class Header extends Component {
     });
   }
 
-  checkAlarmClock() {
-    if (
-      this.state.teacher?.id === 40 &&
-      (this.state.currentTime === this.state.alarmTime1 ||
-        this.state.currentTime === this.state.alarmTime2 ||
-        this.state.currentTime === this.state.alarmTime3 ||
-        this.state.currentTime === this.state.alarmTime4 ||
-        this.state.currentTime === this.state.alarmTime5 ||
-        this.state.currentTime === this.state.alarmTime6 ||
-        this.state.currentTime === this.state.alarmTime7 ||
-        this.state.currentTime === this.state.alarmTime8 ||
-        this.state.currentTime === this.state.alarmTime9 ||
-        this.state.currentTime === this.state.alarmTime10 ||
-        this.state.currentTime === this.state.alarmTime11 ||
-        this.state.currentTime === this.state.alarmTime12 ||
-        this.state.currentTime === this.state.alarmTime13 ||
-        this.state.currentTime === this.state.alarmTime14 ||
-        this.state.currentTime === this.state.alarmTime15 ||
-        this.state.currentTime === this.state.alarmTime16 ||
-        this.state.currentTime === this.state.alarmTime17 ||
-        this.state.currentTime === this.state.alarmTime18 ||
-        this.state.currentTime === this.state.alarmTime19 ||
-        this.state.currentTime === this.state.alarmTime20 ||
-        this.state.currentTime === this.state.alarmTime20)
-    ) {
-      var a = new Audio(
-        "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/darkside.mp3"
-      );
-      a.play();
-      console.log("alarm");
-    } else if (
-      this.state.currentTime === this.state.alarmTime1 ||
-      this.state.currentTime === this.state.alarmTime2 ||
-      this.state.currentTime === this.state.alarmTime3 ||
-      this.state.currentTime === this.state.alarmTime4 ||
-      this.state.currentTime === this.state.alarmTime5 ||
-      this.state.currentTime === this.state.alarmTime6 ||
-      this.state.currentTime === this.state.alarmTime7 ||
-      this.state.currentTime === this.state.alarmTime8 ||
-      this.state.currentTime === this.state.alarmTime9 ||
-      this.state.currentTime === this.state.alarmTime10 ||
-      this.state.currentTime === this.state.alarmTime11 ||
-      this.state.currentTime === this.state.alarmTime12 ||
-      this.state.currentTime === this.state.alarmTime13 ||
-      this.state.currentTime === this.state.alarmTime14 ||
-      this.state.currentTime === this.state.alarmTime15 ||
-      this.state.currentTime === this.state.alarmTime16 ||
-      this.state.currentTime === this.state.alarmTime17 ||
-      this.state.currentTime === this.state.alarmTime18 ||
-      this.state.currentTime === this.state.alarmTime19 ||
-      this.state.currentTime === this.state.alarmTime20 ||
-      this.state.currentTime === this.state.alarmTime20
-    ) {
-      var a = new Audio(
-        "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/Owl Coo - QuickSounds.com.mp3"
-        // "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/doublemint.mp3"
-      );
-      a.play();
-      console.log("alarm");
-    }
-  }
-
   // checkAlarmClock() {
   //   if (
-  //     this.state.currentTime === this.state.alarmTime1
+  //     this.state.teacher?.id === 40 &&
+  //     (this.state.currentTime === this.state.alarmTime1 ||
+  //       this.state.currentTime === this.state.alarmTime2 ||
+  //       this.state.currentTime === this.state.alarmTime3 ||
+  //       this.state.currentTime === this.state.alarmTime4 ||
+  //       this.state.currentTime === this.state.alarmTime5 ||
+  //       this.state.currentTime === this.state.alarmTime6 ||
+  //       this.state.currentTime === this.state.alarmTime7 ||
+  //       this.state.currentTime === this.state.alarmTime8 ||
+  //       this.state.currentTime === this.state.alarmTime9 ||
+  //       this.state.currentTime === this.state.alarmTime10 ||
+  //       this.state.currentTime === this.state.alarmTime11 ||
+  //       this.state.currentTime === this.state.alarmTime12 ||
+  //       this.state.currentTime === this.state.alarmTime13 ||
+  //       this.state.currentTime === this.state.alarmTime14 ||
+  //       this.state.currentTime === this.state.alarmTime15 ||
+  //       this.state.currentTime === this.state.alarmTime16 ||
+  //       this.state.currentTime === this.state.alarmTime17 ||
+  //       this.state.currentTime === this.state.alarmTime18 ||
+  //       this.state.currentTime === this.state.alarmTime19 ||
+  //       this.state.currentTime === this.state.alarmTime20 ||
+  //       this.state.currentTime === this.state.alarmTime20)
   //   ) {
   //     var a = new Audio(
-  //       "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/happyTrails.mp3"
+  //       "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/darkside.mp3"
   //     );
   //     a.play();
   //     console.log("alarm");
   //   } else if (
-  //     this.state.currentTime === this.state.alarmTime3
+  //     this.state.currentTime === this.state.alarmTime1 ||
+  //     this.state.currentTime === this.state.alarmTime2 ||
+  //     this.state.currentTime === this.state.alarmTime3 ||
+  //     this.state.currentTime === this.state.alarmTime4 ||
+  //     this.state.currentTime === this.state.alarmTime5 ||
+  //     this.state.currentTime === this.state.alarmTime6 ||
+  //     this.state.currentTime === this.state.alarmTime7 ||
+  //     this.state.currentTime === this.state.alarmTime8 ||
+  //     this.state.currentTime === this.state.alarmTime9 ||
+  //     this.state.currentTime === this.state.alarmTime10 ||
+  //     this.state.currentTime === this.state.alarmTime11 ||
+  //     this.state.currentTime === this.state.alarmTime12 ||
+  //     this.state.currentTime === this.state.alarmTime13 ||
+  //     this.state.currentTime === this.state.alarmTime14 ||
+  //     this.state.currentTime === this.state.alarmTime15 ||
+  //     this.state.currentTime === this.state.alarmTime16 ||
+  //     this.state.currentTime === this.state.alarmTime17 ||
+  //     this.state.currentTime === this.state.alarmTime18 ||
+  //     this.state.currentTime === this.state.alarmTime19 ||
+  //     this.state.currentTime === this.state.alarmTime20 ||
+  //     this.state.currentTime === this.state.alarmTime20
   //   ) {
   //     var a = new Audio(
-  //       "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/fireAndRain.mp3"
-  //     );
-  //     a.play();
-  //     console.log("alarm");
-  //   } else if (
-  //     this.state.currentTime === this.state.alarmTime5
-  //   ) {
-  //     var a = new Audio(
-  //       "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/dontYouForgetAboutMe.mp3"
-  //     );
-  //     a.play();
-  //     console.log("alarm");
-  //   } else if (
-  //     this.state.currentTime === this.state.alarmTime7
-  //   ) {
-  //     var a = new Audio(
-  //       "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/soLongFarewell.mp3"
-  //     );
-  //     a.play();
-  //     console.log("alarm");
-  //   } else if (
-  //     this.state.currentTime === this.state.alarmTime9
-  //   ) {
-  //     var a = new Audio(
-  //       "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/timeOfMyLife.mp3"
-  //     );
-  //     a.play();
-  //     console.log("alarm");
-  //   } else if (
-  //     this.state.currentTime === this.state.alarmTime11
-  //   ) {
-  //     var a = new Audio(
-  //       "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/goodRiddance.mp3"
-  //     );
-  //     a.play();
-  //     console.log("alarm");
-  //   } else if (
-  //     this.state.currentTime === this.state.alarmTime13
-  //   ) {
-  //     var a = new Audio(
-  //       "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/dontWannaCloseMyEyes.mp3"
-  //     );
-  //     a.play();
-  //     console.log("alarm");
-  //   } else if (
-  //     this.state.currentTime === this.state.alarmTime15
-  //   ) {
-  //     var a = new Audio(
-  //       "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/dontYouForgetAboutMe.mp3"
-  //     );
-  //     a.play();
-  //     console.log("alarm");
-  //   } else if (
-  //     this.state.currentTime === this.state.alarmTime17
-  //   ) {
-  //     var a = new Audio(
-  //       "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/iWillRememberYou.mp3"
-  //     );
-  //     a.play();
-  //     console.log("alarm");
-  //   } else if (
-  //     this.state.currentTime === this.state.alarmTime19
-  //   ) {
-  //     var a = new Audio(
-  //       "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/byebyebye.mp3"
+  //       "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/Owl Coo - QuickSounds.com.mp3"
+  //       // "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/doublemint.mp3"
   //     );
   //     a.play();
   //     console.log("alarm");
   //   }
   // }
+
+  checkAlarmClock() {
+    if (
+      this.state.currentTime === this.state.alarmTime1
+    ) {
+      var a = new Audio(
+        "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/happyTrails.mp3"
+      );
+      a.play();
+      console.log("alarm");
+    } else if (
+      this.state.currentTime === this.state.alarmTime3
+    ) {
+      var a = new Audio(
+        "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/fireAndRain.mp3"
+      );
+      a.play();
+      console.log("alarm");
+    } else if (
+      this.state.currentTime === this.state.alarmTime5
+    ) {
+      var a = new Audio(
+        "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/dontYouForgetAboutMe.mp3"
+      );
+      a.play();
+      console.log("alarm");
+    } else if (
+      this.state.currentTime === this.state.alarmTime7
+    ) {
+      var a = new Audio(
+        "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/soLongFarewell.mp3"
+      );
+      a.play();
+      console.log("alarm");
+    } else if (
+      this.state.currentTime === this.state.alarmTime9
+    ) {
+      var a = new Audio(
+        "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/timeOfMyLife.mp3"
+      );
+      a.play();
+      console.log("alarm");
+    } else if (
+      this.state.currentTime === this.state.alarmTime11
+    ) {
+      var a = new Audio(
+        "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/goodRiddance.mp3"
+      );
+      a.play();
+      console.log("alarm");
+    } else if (
+      this.state.currentTime === this.state.alarmTime13
+    ) {
+      var a = new Audio(
+        "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/dontWannaCloseMyEyes.mp3"
+      );
+      a.play();
+      console.log("alarm");
+    } else if (
+      this.state.currentTime === this.state.alarmTime15
+    ) {
+      var a = new Audio(
+        "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/dontYouForgetAboutMe.mp3"
+      );
+      a.play();
+      console.log("alarm");
+    } else if (
+      this.state.currentTime === this.state.alarmTime17
+    ) {
+      var a = new Audio(
+        "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/iWillRememberYou.mp3"
+      );
+      a.play();
+      console.log("alarm");
+    } else if (
+      this.state.currentTime === this.state.alarmTime19
+    ) {
+      var a = new Audio(
+        "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/byebyebye.mp3"
+      );
+      a.play();
+      console.log("alarm");
+    }
+  }
 
   render() {
     let user;
