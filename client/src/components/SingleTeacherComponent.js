@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 import { baseURL } from "../baseURL";
 import {
   Container,
@@ -13,36 +14,15 @@ import {
 import classnames from "classnames";
 import TeacherSchedule from "./TeacherScheduleComponent";
 import TeacherGroupSchedule from "./TeacherGroupScheduleComponent";
-import { fetcher } from "../services/fetcher";
 import TeacherTrackerResponse from "./TeacherTrackerResponses";
 import StaffID from "./StaffID";
 
-export default class SingleTeacher extends Component {
+class SingleTeacher extends Component {
   constructor(props) {
     super(props);
     this.state = {
       activeTab: "1",
     };
-    this.state = { teachers: [], teacher: null };
-  }
-
-  componentDidMount() {
-    // Fetch Student Table from API
-    fetcher(`${baseURL}/teachers`)
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({
-          teachers: data,
-        });
-      })
-      .then(() => {
-        this.setState({
-          teacher: this.state.teachers.find(
-            (teacher) => teacher.email === this.props?.userEmail
-          ),
-        });
-      });
-    console.log(this.props?.userEmail);
   }
 
   toggle(tab) {
@@ -146,7 +126,7 @@ export default class SingleTeacher extends Component {
                   <img
                     className="image1"
                     style={{ width: 100, borderRadius: 60 / 2 }}
-                    // src={this.state.teacher?.image}
+                    // src={this.props.teacher?.image}
                     src="https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/DallasLovell.jpg"
                   />
                   {/* <img
@@ -160,45 +140,54 @@ export default class SingleTeacher extends Component {
             <Col xs="9" style={{ justifyContent: "left", bottom: 0 }}>
             </Col>
           </Row>
-          Hello {this.state.teacher?.firstName}{" "}
+          Hello {this.props.teacher?.firstName}{" "}
         </div>
-        <h3>Link: {this.state.teacher?.link}</h3>
+        <h3>Link: {this.props.teacher?.link}</h3>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
-            {this.state.teacher && (
+            {this.props.teacher && (
               <TeacherSchedule
-                teacher={this.state.teacher}
+                teacher={this.props.teacher}
                 userEmail={this.props?.userEmail}
               ></TeacherSchedule>
             )}
           </TabPane>
           <TabPane tabId="2">
             <h3>Ahoy!</h3>
-            {this.state.teacher && (
+            {this.props.teacher && (
               <TeacherGroupSchedule
-                teacher={this.state.teacher}
+                teacher={this.props.teacher}
                 userEmail={this.props?.userEmail}
               ></TeacherGroupSchedule>
             )}
           </TabPane>
           <TabPane tabId="3">
-            {this.state.teacher && (
+            {this.props.teacher && (
               <TeacherTrackerResponse
                 startDate="2021-08-04"
                 endDate={`${date.getFullYear()}-${(
                   "0" +
                   (date.getMonth() + 1)
                 ).slice(-2)}-${("0" + date.getDate()).slice(-2)}`}
-                teacher={this.state.teacher}
+                teacher={this.props.teacher}
                 userEmail={this.props?.userEmail}
               ></TeacherTrackerResponse>
             )}
           </TabPane>
           <TabPane tabId="4">
-            <StaffID teacher={this.state.teacher}></StaffID>
+            <StaffID teacher={this.props.teacher}></StaffID>
           </TabPane>
         </TabContent>
       </Container>
     );
   }
 }
+
+const mapState = (state) => {
+  return {
+    teachers: state.teachers,
+    teacher: state.teacher,
+  };
+};
+
+ export default connect(mapState, null)(SingleTeacher);

@@ -6,26 +6,21 @@ import { Login } from './components/Login';
 import { Dashboard } from './components/Dashboard';
 import { AuthProvider } from './contexts/Auth';
 import { PrivateRoute } from './components/PrivateRoute'
-import { Provider } from 'react-redux';
-import { ConfigureStore } from './redux/configureStore'
 
-const store = ConfigureStore()
 class App extends Component {
-    render() {
-        return (
-          <Provider store={store}>
-            <Router>
-              <AuthProvider>
-                <Switch>
-                <PrivateRoute exact path="/" component={Dashboard} />
-                  <Route path="/signup" component={Signup} />
-                  <Route path="/login" component={Login} />
-                </Switch>
-              </AuthProvider>
-            </Router>
-          </Provider>
-        );
-    }
+  render() {
+    return (
+      <Router>
+        <AuthProvider>
+          <Switch>
+            <PrivateRoute exact path="/" component={Dashboard} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/login" component={Login} />
+          </Switch>
+        </AuthProvider>
+      </Router>
+    );
+  }
 }
 
 

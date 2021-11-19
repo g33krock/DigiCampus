@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { fetchTeachers } from '../store/teachers';
+import { setTeacher } from '../store/teacher';
 import Student from "./StudentComponent";
 import AdminStudent from "./AdminStudentComponent";
 import Sub from "./SubComponent";
@@ -13,46 +16,55 @@ import { PrivateRoute } from "./PrivateRoute";
 import Sped from "./SpedComponent";
 import Transcript from "./TranscriptComponent";
 import Calendar from "./CalendarComponent";
-import { teacherService } from "../services/teacherService";
 import Announcement from "./AnnouncementComponent";
 import Resource from "./ResourceComponent";
-import { TimeCard } from "./TimeCardComponent";
+import TimeCard from "./TimeCardComponent";
 import Billing from "./BillingComponent";
-import { ProviderTimeCardViewer } from "./ProviderTimeCardViewer";
-import { AdminProviderTimeCardViewer } from "./AdminProviderTimeCardViewer";
+import ProviderTimeCardViewer from "./ProviderTimeCardViewer";
+import AdminProviderTimeCardViewer from "./AdminProviderTimeCardViewer";
 
 class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      students: [],
-      teachers: [],
-      teacher: null,
-      campus: null,
       userEmail: null,
+      loading: true,
     };
   }
 
   async componentDidMount() {
-    const teachers = await teacherService.all();
-    console.log(teachers);
-    const teacher = teachers.find(
+    await this.props.loadTeachers();
+
+    const teacher = this.props.teachers.find(
       (teacher) => teacher.email === this.props.userEmail
     );
-    console.log(teacher?.birthDate?.slice(5));
+    this.props.setTeacher(teacher);
 
-    this.setState({
-      teachers: teachers,
-      teacher: teacher,
-      campus: teacher.campus,
-    });
-    console.log(this.state.teachers);
+    this.setState({ loading: false });
   }
 
   render() {
+    const { teachers } = this.props;
+    const { loading } = this.state;
+
+    if (loading) {
+      console.log("LOADING: ");
+      return (
+        <div>loading... please wait!</div>
+      )
+    }
+
+    console.log("DONE LOADING: ", this.props);
+    console.log("TEACHERS -->", teachers);
+
+    // could we fetch less when we load all teachers if 
+    // we fetch the current teacher's entire data from the server?
+    const teacher = this.props.teacher;
+    const campus = teacher.campus;
+
     if (
-      this.state.teacher?.role.id === 3 ||
-      this.state.teacher?.role.id === 4
+      teacher?.role.id === 3 ||
+      teacher?.role.id === 4
     ) {
       return (
         <div>
@@ -60,7 +72,7 @@ class Main extends Component {
             <PrivateRoute
               path="/singleteachers"
               component={SingleTeacher}
-              userEmail={this.props?.userEmail}
+              userEmail={this.props?.appuserEmail}
             />
             <PrivateRoute
               path="/calendar"
@@ -71,8 +83,8 @@ class Main extends Component {
               path="/substitute"
               component={Sub}
               userEmail={this.props?.userEmail}
-              campus={this.state.campus}
-              teacher={this.state.teacher}
+              campus={campus}
+              teacher={teacher}
             />
             <PrivateRoute
               path="/resources"
@@ -84,28 +96,28 @@ class Main extends Component {
           </Switch>
         </div>
       );
-    } else if (this.state.teacher?.role.id === 8) {
+    } else if (teacher?.role.id === 8) {
       return (
         <PrivateRoute
           path="/providerTimeCardViewer"
           component={ProviderTimeCardViewer}
           userEmail={this.props?.userEmail}
-          teacher={this.state.teacher}
+          teacher={teacher}
         />
       );
-    } else if (this.state.teacher?.role.id === 12) {
+    } else if (teacher?.role.id === 12) {
       return (
         <PrivateRoute
           path="/adminProviderTimeCardViewer"
           component={AdminProviderTimeCardViewer}
           userEmail={this.props?.userEmail}
-          teacher={this.state.teacher}
+          teacher={teacher}
         />
       );
     } else if (
-      this.state.teacher?.role.id === 1 ||
-      this.state.teacher?.role.id === 2 ||
-      this.state.teacher?.role.id === 11
+      teacher?.role.id === 1 ||
+      teacher?.role.id === 2 ||
+      teacher?.role.id === 11
     ) {
       return (
         <div>
@@ -113,40 +125,40 @@ class Main extends Component {
             <PrivateRoute
               path="/sped"
               component={Sped}
-              campus={this.state.campus}
+              campus={campus}
             />
             <PrivateRoute
               path="/schedules"
               component={Schedule}
-              campus={this.state.campus}
+              campus={campus}
             />
             <PrivateRoute
               path="/teachers"
               component={Teacher}
-              campus={this.state.campus}
+              campus={campus}
             />
             <PrivateRoute
               path="/students"
               component={Student}
-              campus={this.state.campus}
-              teacher={this.state.teacher}
+              campus={campus}
+              teacher={teacher}
             />
             <PrivateRoute
               path="/transcripts"
               component={Transcript}
-              campus={this.state.campus}
+              campus={campus}
             />
             <PrivateRoute
               path="/announcements"
               component={Announcement}
-              campus={this.state.campus}
+              campus={campus}
             />
             <PrivateRoute
               path="/substitute"
               component={Sub}
               userEmail={this.props?.userEmail}
-              campus={this.state.campus}
-              teacher={this.state.teacher}
+              campus={campus}
+              teacher={teacher}
             />
             <PrivateRoute
               path="/calendar"
@@ -162,7 +174,7 @@ class Main extends Component {
               path="/timeCard"
               component={TimeCard}
               userEmail={this.props?.userEmail}
-              campus={this.state.campus}
+              campus={campus}
             />
             <PrivateRoute path="/home" component={Home} />
             <Redirect to="/home" />
@@ -170,8 +182,8 @@ class Main extends Component {
         </div>
       );
     } else if (
-      this.state.teacher?.role.id === 5 ||
-      this.state.teacher?.role.id === 7
+      teacher?.role.id === 5 ||
+      teacher?.role.id === 7
     ) {
       return (
         <div>
@@ -179,45 +191,45 @@ class Main extends Component {
             <PrivateRoute
               path="/sped"
               component={Sped}
-              campus={this.state.campus}
+              campus={campus}
             />
             <PrivateRoute
               path="/schedules"
               component={Schedule}
-              campus={this.state.campus}
+              campus={campus}
             />
             <PrivateRoute
               path="/adminSchedules"
               component={AdminSchedule}
-              campus={this.state.campus}
+              campus={campus}
             />
             <PrivateRoute
               path="/adminTeachers"
               component={AdminTeacher}
-              campus={this.state.campus}
+              campus={campus}
             />
             <PrivateRoute
               path="/adminStudents"
               component={AdminStudent}
-              campus={this.state.campus}
-              teacher={this.state.teacher}
+              campus={campus}
+              teacher={teacher}
             />
             <PrivateRoute
               path="/transcripts"
               component={Transcript}
-              campus={this.state.campus}
+              campus={campus}
             />
             <PrivateRoute
               path="/announcements"
               component={Announcement}
-              campus={this.state.campus}
+              campus={campus}
             />
             <PrivateRoute
               path="/substitute"
               component={Sub}
               userEmail={this.props?.userEmail}
-              campus={this.state.campus}
-              teacher={this.state.teacher}
+              campus={campus}
+              teacher={teacher}
             />
             <PrivateRoute
               path="/calendar"
@@ -233,7 +245,7 @@ class Main extends Component {
               path="/timeCard"
               component={TimeCard}
               userEmail={this.props?.userEmail}
-              campus={this.state.campus}
+              campus={campus}
             />
             <PrivateRoute path="/home" component={Home} />
             <Redirect to="/home" />
@@ -247,56 +259,56 @@ class Main extends Component {
             <PrivateRoute
               path="/sped"
               component={Sped}
-              campus={this.state.campus}
+              campus={campus}
             />
             <PrivateRoute
               path="/schedules"
               component={Schedule}
-              campus={this.state.campus}
+              campus={campus}
             />
             <PrivateRoute
               path="/adminSchedules"
               component={AdminSchedule}
-              campus={this.state.campus}
+              campus={campus}
             />
             <PrivateRoute
               path="/teachers"
               component={Teacher}
-              campus={this.state.campus}
+              campus={campus}
             />
             <PrivateRoute
               path="/adminTeachers"
               component={AdminTeacher}
-              campus={this.state.campus}
+              campus={campus}
             />
             <PrivateRoute
               path="/students"
               component={Student}
-              campus={this.state.campus}
-              teacher={this.state.teacher}
+              campus={campus}
+              teacher={teacher}
             />
             <PrivateRoute
               path="/adminStudents"
               component={AdminStudent}
-              campus={this.state.campus}
-              teacher={this.state.teacher}
+              campus={campus}
+              teacher={teacher}
             />
             <PrivateRoute
               path="/transcripts"
               component={Transcript}
-              campus={this.state.campus}
+              campus={campus}
             />
             <PrivateRoute
               path="/announcements"
               component={Announcement}
-              campus={this.state.campus}
+              campus={campus}
             />
             <PrivateRoute
               path="/substitute"
               component={Sub}
               userEmail={this.props?.userEmail}
-              campus={this.state.campus}
-              teacher={this.state.teacher}
+              campus={campus}
+              teacher={teacher}
             />
             <PrivateRoute
               path="/calendar"
@@ -312,7 +324,7 @@ class Main extends Component {
               path="/timeCard"
               component={TimeCard}
               userEmail={this.props?.userEmail}
-              campus={this.state.campus}
+              campus={campus}
             />
             <PrivateRoute
               path="/billing"
@@ -328,4 +340,18 @@ class Main extends Component {
   }
 }
 
-export default Main;
+const mapState = (state) => {
+  return {
+    teachers: state.teachers,
+    teacher: state.teacher,
+  };
+};
+
+const mapDispatch = (dispatch) => {
+  return {
+    loadTeachers: () => dispatch(fetchTeachers()),
+    setTeacher: (teacher) => dispatch(setTeacher(teacher)),
+  };
+};
+
+export default connect(mapState, mapDispatch)(Main);

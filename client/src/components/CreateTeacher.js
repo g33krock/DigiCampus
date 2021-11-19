@@ -1,4 +1,6 @@
 import { Component } from "react";
+import { connect } from 'react-redux';
+import { createTeacher } from '../store/teachers';
 import {baseURL} from "../baseURL";
 import {
   Form,
@@ -12,12 +14,10 @@ import {
   Col,
   Container
 } from "reactstrap";
-import { teacherService } from "../services/teacherService";
-import { fetcher } from '../services/fetcher';
 import Draggable from 'react-draggable';
 
 
-export class TeacherCreator extends Component {
+class TeacherCreator extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -53,15 +53,7 @@ export class TeacherCreator extends Component {
       pNine: document.getElementById("teacherP9").value,
       pTen: document.getElementById("teacherP10").value
     };
-    const teacher = await teacherService.create(teacherObject);
-    fetcher(`${baseURL}/teachers`)
-    .then((response) => response.json())
-    .then((data) => {
-      this.setState({
-        teachers: data,
-      });
-    });
-    console.log(teacher);
+    this.props.createTeacher(teacherObject);
   }
 
   toggle() {
@@ -377,3 +369,17 @@ export class TeacherCreator extends Component {
     );
   }
 }
+
+const mapState = (state) => {
+  return {
+    teachers: state.teachers,
+  };
+};
+
+const mapDispatch = (dispatch) => {
+  return {
+    createTeacher: (teacher) => dispatch(createTeacher(teacher)),
+  };
+};
+
+export default connect(mapState, mapDispatch)(TeacherCreator);

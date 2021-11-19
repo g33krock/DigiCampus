@@ -15,7 +15,7 @@ import {
   TabPane,
   Table,
 } from "reactstrap";
-import { TranscriptCreator } from "./CreateTranscript";
+import TranscriptCreator from "./CreateTranscript";
 import classnames from "classnames";
 import { fetcher } from "../services/fetcher";
 import { TranscriptUpdater } from "./UpdateTranscript";

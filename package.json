@@ -7,15 +7,8 @@
 		"node": "14.x"
 	},
 	"dependencies": {
-		"heroku": "^7.59.2",
-		"lodash": "^4.17.21",
-		"react-marquee-slider": "^1.1.5",
-		"react-sound": "^1.2.0",
-		"styled-components": "^5.3.3"
-	},
-	"devDependencies": {
-		"react-barcode": "^1.4.1",
-		"typescript": "^4.5.2"
+		"heroku": "^7.56.0",
+		"lodash": "^4.17.21"
 	},
 	"scripts": {
 		"start": "npm run server",
@@ -23,7 +16,8 @@
 		"server": "cd server && npm start",
 		"client:build": "cd client && npm i && npm run build && cd ..",
 		"build": "npm run client:build && npm run server:build",
-		"server:build": "cd server && npm i && npm run build && cd .."
+		"server:build": "cd server && npm i && npm run build && cd ..",
+    "start:build": "npm run build && npm run start"
 	},
 	"repository": {
 		"type": "git",
