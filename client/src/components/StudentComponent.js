@@ -27,7 +27,7 @@ import { IncidentCreator } from "./CreateIncident";
 import Attendance from "./AttendanceComponent";
 import { UpdateGuardian } from "./UpdateGuardian";
 import ProgressReport from "./ProgressReportComponent";
-import { RelatedServiceCreator } from "./CreateRelatedService";
+import RelatedServiceCreator from "./CreateRelatedService";
 import { TallyQuestionCreator } from "./CreateTallyQuestion";
 import { TallyComponent } from "./TallyComponent";
 import StopWatch from "./StopWatch/StopWatch";

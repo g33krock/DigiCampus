@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { connect } from 'react-redux';
 import {
   Card,
   CardTitle,
@@ -21,12 +22,11 @@ var day =
   "-" +
   today.getDate().toString().padStart(2, 0);
 
-export class AdminProviderTimeCardViewer extends Component {
+class AdminProviderTimeCardViewer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       teacherId: this.props.teacher.id,
-      teachers: [],
       students: [],
       timecards: [],
       stimecards: [],
@@ -36,16 +36,6 @@ export class AdminProviderTimeCardViewer extends Component {
   componentDidMount() {
     this.loadTeachers();
     this.loadStudents();
-  }
-
-  loadTeachers() {
-    fetcher(`${baseURL}/teachers`)
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({
-          teachers: data,
-        });
-      });
   }
 
   loadStudents() {
@@ -132,3 +122,11 @@ export class AdminProviderTimeCardViewer extends Component {
     );
   }
 }
+
+const mapState = (state) => {
+  return {
+    teachers: state.teachers,
+  };
+};
+
+export default connect(mapState, null)(AdminProviderTimeCardViewer);

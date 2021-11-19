@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 import { baseURL } from "../baseURL";
 import {
   Container,
@@ -16,7 +17,7 @@ import {
 } from "reactstrap";
 import classnames from "classnames";
 import TeacherSchedule from "./TeacherScheduleComponent";
-import { TeacherCreator } from "./CreateTeacher";
+import TeacherCreator from "./CreateTeacher";
 import { TeacherUpdater } from "./UpdateTeacher";
 import { fetcher } from "../services/fetcher";
 import TeacherGroupSchedule from "./TeacherGroupScheduleComponent";
@@ -25,30 +26,18 @@ import TeacherTrackerResponse from "./TeacherTrackerResponses";
 import { TimeCardOverride } from "./OverrideTimeCardComponent";
 import StaffID from "./StaffID";
 
-export default class AdminTeacher extends Component {
+class AdminTeacher extends Component {
   constructor(props) {
     super(props);
     this.state = {
       activeTab: "1",
     };
     this.state = {
-      teachers: [],
       teacher: null,
       startDate: null,
       endDate: null,
       timecard: [],
     };
-  }
-
-  componentDidMount() {
-    // Fetch Student Table from API
-    fetcher(`${baseURL}/teachers`)
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({
-          teachers: data,
-        });
-      });
   }
 
   toggle(tab) {
@@ -64,7 +53,6 @@ export default class AdminTeacher extends Component {
       startDate: document.getElementById("startDate").value,
       endDate: document.getElementById("endDate").value,
     });
-    console.log(date);
     console.log(`Start: ${this.state.startDate}  End: ${this.state.endDate}`);
   }
 
@@ -85,7 +73,7 @@ export default class AdminTeacher extends Component {
 
   onChange = (e) => {
     const teacherId = Number(e.target.value);
-    const teacher = this.state.teachers.find(
+    const teacher = this.props.teachers.find(
       (teacher) => teacher.id === teacherId
     );
     this.setState({ teacher });
@@ -330,7 +318,7 @@ export default class AdminTeacher extends Component {
           <Label for="scheduleTeacher">Select Teacher</Label>
           <select id="scheduleTeacher" onChange={this.onChange}>
             <option selected>None</option>
-            {this.state.teachers
+            {this.props.teachers
               .sort(function (a, b) {
                 let x = a.firstName.toLowerCase();
                 let y = b.firstName.toLowerCase();
@@ -418,3 +406,11 @@ export default class AdminTeacher extends Component {
     );
   }
 }
+
+const mapState = (state) => {
+  return {
+    teachers: state.teachers,
+  };
+};
+
+export default connect(mapState, null)(AdminTeacher);

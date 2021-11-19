@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { connect } from 'react-redux';
 import { Card, CardTitle, CardBody, Col, Container, Row, Nav, NavItem, NavLink, TabContent, TabPane } from "reactstrap";
 import classnames from "classnames";
 import { baseURL } from "../baseURL";
@@ -14,14 +15,13 @@ var day = today.getFullYear().toString() +
 "-" +
 today.getDate().toString().padStart(2, 0);
 
-export class TimeCard extends Component {
+class TimeCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
       activeTab: "1",
     };
     this.state = {
-      teachers: [],
       students: [],
       timecards: [],
       stimecards: []
@@ -34,13 +34,6 @@ export class TimeCard extends Component {
   }
 
   loadTeachers() {
-    fetcher(`${baseURL}/teachers`)
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({
-          teachers: data,
-        });
-      });
       fetcher(`${baseURL}/timecards`)
       .then((response) => response.json())
       .then((data) => {
@@ -103,7 +96,7 @@ export class TimeCard extends Component {
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
         <Row>
-          {this.state.teachers
+          {this.props.teachers
             .filter((teacher) => teacher.campus.id === this.props?.campus.id && (teacher.role.id <= 4 || teacher.role.id === 7 ))
             .sort(function (a, b) {
               let x = a.firstName.toLowerCase();
@@ -178,3 +171,11 @@ export class TimeCard extends Component {
     );
   }
 }
+
+const mapState = (state) => {
+  return {
+    teachers: state.teachers,
+  };
+};
+
+export default connect(mapState, null)(TimeCard);

@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { connect } from 'react-redux';
 import { baseURL } from "../baseURL";
 import {
   Form,
@@ -15,24 +16,16 @@ import { relatedServiceService } from "../services/relatedServiceService";
 import { fetcher } from "../services/fetcher";
 import Draggable from 'react-draggable';
 
-export class RelatedServiceCreator extends Component {
+class RelatedServiceCreator extends Component {
   constructor(props) {
     super(props);
     this.state = {
       modal: false,
-      providers: [],
       relatedServiceRoles: [],
     };
   }
 
   componentDidMount() {
-    fetcher(`${baseURL}/teachers`)
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({
-          providers: data,
-        });
-      });
     fetcher(`${baseURL}/relatedServiceRoles`)
       .then((response) => response.json())
       .then((data) => {
@@ -66,6 +59,7 @@ export class RelatedServiceCreator extends Component {
   }
 
   render() {
+    const { teachers: providers } = this.props;
     return (
       <div>
         <Button
@@ -90,7 +84,7 @@ export class RelatedServiceCreator extends Component {
                   id="relatedServiceName"
                 >
                   <option></option>
-                  {this.state.providers
+                  {providers
                     .filter((provider) => provider.role.id === 8)
                     .map((provider) => (
                       <option value={provider.id}>
@@ -144,3 +138,11 @@ export class RelatedServiceCreator extends Component {
     );
   }
 }
+
+const mapState = (state) => {
+  return {
+    teachers: state.teachers,
+  };
+};
+
+export default connect(mapState, null)(RelatedServiceCreator);

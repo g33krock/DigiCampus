@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { fetchTeachers } from '../store/teachers';
+import { setTeacher } from '../store/teacher';
 import Student from "./StudentComponent";
 import AdminStudent from "./AdminStudentComponent";
 import Sub from "./SubComponent";
@@ -15,13 +16,12 @@ import { PrivateRoute } from "./PrivateRoute";
 import Sped from "./SpedComponent";
 import Transcript from "./TranscriptComponent";
 import Calendar from "./CalendarComponent";
-import { teacherService } from "../services/teacherService";
 import Announcement from "./AnnouncementComponent";
 import Resource from "./ResourceComponent";
-import { TimeCard } from "./TimeCardComponent";
+import TimeCard from "./TimeCardComponent";
 import Billing from "./BillingComponent";
-import { ProviderTimeCardViewer } from "./ProviderTimeCardViewer";
-import { AdminProviderTimeCardViewer } from "./AdminProviderTimeCardViewer";
+import ProviderTimeCardViewer from "./ProviderTimeCardViewer";
+import AdminProviderTimeCardViewer from "./AdminProviderTimeCardViewer";
 
 class Main extends Component {
   constructor(props) {
@@ -34,6 +34,12 @@ class Main extends Component {
 
   async componentDidMount() {
     await this.props.loadTeachers();
+
+    const teacher = this.props.teachers.find(
+      (teacher) => teacher.email === this.props.userEmail
+    );
+    this.props.setTeacher(teacher);
+
     this.setState({ loading: false });
   }
 
@@ -51,15 +57,10 @@ class Main extends Component {
     console.log("DONE LOADING: ", this.props);
     console.log("TEACHERS -->", teachers);
 
-    const teacher = teachers.find(
-      (teacher) => teacher.email === this.props.userEmail
-    );
-
+    // could we fetch less when we load all teachers if 
+    // we fetch the current teacher's entire data from the server?
+    const teacher = this.props.teacher;
     const campus = teacher.campus;
-
-    console.log("about to set state...");
-
-    console.log("state set");
 
     if (
       teacher?.role.id === 3 ||
@@ -342,13 +343,15 @@ class Main extends Component {
 const mapState = (state) => {
   return {
     teachers: state.teachers,
-  }
-}
+    teacher: state.teacher,
+  };
+};
 
 const mapDispatch = (dispatch) => {
   return {
     loadTeachers: () => dispatch(fetchTeachers()),
-  }
-}
+    setTeacher: (teacher) => dispatch(setTeacher(teacher)),
+  };
+};
 
 export default connect(mapState, mapDispatch)(Main);
