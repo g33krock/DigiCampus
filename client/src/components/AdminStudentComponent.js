@@ -308,6 +308,15 @@ export default class AdminStudent extends Component {
                         abaScope={this.state.student?.abaScope}
                         musicScope={this.state.student?.musicScope}
                         district={this.state.student?.district?.id}
+                        teacherHours={this.state.student?.teacherHours}
+                        paraHours={this.state.student?.paraHours}
+                        counselingBTD={this.state.student?.counselingBTD}
+                        speechBTD={this.state.student?.speechBTD}
+                        otBTD={this.state.student?.otBTD}
+                        ptBTD={this.state.student?.ptBTD}
+                        musicBTD={this.state.student?.musicBTD}
+                        abaBTD={this.state.student?.abaBTD}
+                        SAIS={this.state.student?.SAIS}
                       ></StudentUpdater>
                     </Col>
                   </Row>

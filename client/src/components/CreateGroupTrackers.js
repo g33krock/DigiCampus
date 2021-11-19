@@ -16,7 +16,6 @@ import { trackerService } from "../services/trackerService";
 import { spedResponseService } from "../services/spedResponseService";
 import { scheduleService } from "../services/scheduleService";
 import { fetcher } from "../services/fetcher";
-import Draggable from 'react-draggable';
 
 export class GroupTrackerCreator extends Component {
   constructor(props) {
@@ -36,9 +35,6 @@ export class GroupTrackerCreator extends Component {
       .then((data) => {
         this.setState({
           spedQuestions: data,
-          //   .filter(function (item) {
-          //     return this.state.block.includes(item);
-          //   })
         });
       });
   }
@@ -133,7 +129,6 @@ export class GroupTrackerCreator extends Component {
         >
           Student Group Tracking
         </Button>
-        <Draggable>
         <Modal isOpen={this.state.modal} toggle={() => this.toggle()}>
           <ModalBody
             id="fancy-cursor"
@@ -449,7 +444,6 @@ export class GroupTrackerCreator extends Component {
             </Form>
           </ModalBody>
         </Modal>
-        </Draggable>
       </div>
     );
   }

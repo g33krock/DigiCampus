@@ -285,6 +285,15 @@ export default class Student extends Component {
                         speechMinutes={this.state.student?.speechMinutes}
                         otMinutes={this.state.student?.otMinutes}
                         district={this.state.student?.district?.id}
+                        teacherHours={this.state.student?.teacherHours}
+                        paraHours={this.state.student?.paraHours}
+                        counselingBTD={this.state.student?.counselingBTD}
+                        speechBTD={this.state.student?.speechBTD}
+                        otBTD={this.state.student?.otBTD}
+                        ptBTD={this.state.student?.ptBTD}
+                        musicBTD={this.state.student?.musicBTD}
+                        abaBTD={this.state.student?.abaBTD}
+                        SAIS={this.state.student?.SAIS}
                       ></StudentUpdater>
                     </Col>
                   </Row>
