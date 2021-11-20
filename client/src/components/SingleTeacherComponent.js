@@ -126,8 +126,8 @@ class SingleTeacher extends Component {
                   <img
                     className="image1"
                     style={{ width: 100, borderRadius: 60 / 2 }}
-                    // src={this.props.teacher?.image}
-                    src="https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/DallasLovell.jpg"
+                    src={this.props.teacher?.image}
+                    // src="https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/DallasLovell.jpg"
                   />
                   {/* <img
                     className="image2"
