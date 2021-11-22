@@ -93,17 +93,17 @@ export default class Billing extends Component {
   calcMinutes(minutes, scope) {
     switch (scope) {
       case "Daily":
-        return (minutes * 45).toFixed(2);
+        return (minutes * 20.5).toFixed(2);
       case "Weekly":
-        return ((minutes / 5) * 45).toFixed(2);
+        return ((minutes / 5) * 20.5).toFixed(2);
       case "Monthly":
-        return ((minutes / 20.5) * 45).toFixed(2);
+        return ((minutes / 20.5) * 20.5).toFixed(2);
       case "Quarterly":
-        return ((minutes / 45) * 45).toFixed(2);
+        return ((minutes / 45) * 20.5).toFixed(2);
       case "Semi-Annually":
-        return ((minutes / 90) * 45).toFixed(2);
+        return ((minutes / 90) * 20.5).toFixed(2);
       case "Annually":
-        return ((minutes / 180) * 45).toFixed(2);
+        return ((minutes / 180) * 20.5).toFixed(2);
       default:
         return minutes.toFixed(2);
     }
@@ -165,6 +165,7 @@ export default class Billing extends Component {
                 <thead>
                   <tr id="scheduleHeader">
                     <th>Student</th>
+                    <th>Funding</th>
                     <th>Parent</th>
                     <th>Email</th>
                     <th>Start</th>
@@ -176,7 +177,7 @@ export default class Billing extends Component {
                 </thead>
                 <tbody>
                   {this.state.students
-                    .filter((student) => student?.funding?.id === 1)
+                    .filter((student) => (student?.funding?.id === 1 || student?.funding?.id === 3 || student?.funding?.id === 4) && student.campuses.id !== 8)
                     .sort(function (a, b) {
                       let x = a.firstName.toLowerCase();
                       let y = b.firstName.toLowerCase();
@@ -204,6 +205,9 @@ export default class Billing extends Component {
                         <th>
                           {student.firstName} {student.lastName}
                         </th>
+                        <td>
+                          {student.funding.type}
+                        </td>
                         <td>
                           {student.guardians?.map((guardian) => (
                             <small>

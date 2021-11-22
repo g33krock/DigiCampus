@@ -146,11 +146,11 @@ class Header extends Component {
       this.state.currentTime === this.state.alarmTime20 ||
       this.state.currentTime === this.state.alarmTime20
     ) {
-      var a = new Audio(
+      var aud = new Audio(
         // "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/Owl Coo - QuickSounds.com.mp3"
         "https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/sounds/turkey-gobble1.mp3"
       );
-      a.play();
+      aud.play();
       console.log("alarm");
     }
   }
