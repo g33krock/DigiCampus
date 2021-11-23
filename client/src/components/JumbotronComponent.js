@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Marquee from "react-marquee-slider";
+// import Marquee from "react-marquee-slider";
 import styled from "styled-components";
-import times from "lodash/times";
+// import times from "lodash/times";
 import { announcementService } from "../services/announcementService";
 
 export class Jumbo extends Component {

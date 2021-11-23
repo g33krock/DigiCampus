@@ -284,6 +284,9 @@ export default class Student extends Component {
                         }
                         speechMinutes={this.state.student?.speechMinutes}
                         otMinutes={this.state.student?.otMinutes}
+                        abaMinutes={this.state.student?.abaMinutes}
+                        ptMinutes={this.state.student?.ptMinutes}
+                        musicMinutes={this.state.student?.musicMinutes}
                         district={this.state.student?.district?.id}
                         teacherHours={this.state.student?.teacherHours}
                         paraHours={this.state.student?.paraHours}
