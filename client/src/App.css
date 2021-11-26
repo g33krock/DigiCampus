@@ -1,14 +1,17 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
-html, body {
+
+html,
+body {
   padding: 0;
   margin: 0;
   /* background-color: rgb(174, 216, 255); */
   background-position: bottom;
-  background: rgb(200, 200, 200);
+  background: rgb(136, 172, 250);
   background-repeat: no-repeat;
-  background-size:contain;
-  font-family: 'Fredoka One', cursive;
+  background-size: contain;
+  font-family: 'winter';
+  /* font-family: 'Fredoka One', cursive; */
   /* font-family: 'Helvetica', sans-serif; */
   cursor: url('https://cur.cursors-4u.net/holidays/hol-3/hol231.cur'), auto;
   /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur'); */
@@ -25,12 +28,19 @@ html, body {
   color: yellow
 }
 
+@font-face {
+  font-family: winter;
+  src: url(https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/font/SnowtopCaps.ttf);
+  color: blue; 
+  font-size: 150%;
+}
+
 html {
   /* background-color: rgb(174, 216, 255); */
   background: rgb(200, 200, 200);
   background-repeat: no-repeat;
   background-position: bottom;
- 
+
 }
 
 .birthday {
@@ -43,14 +53,14 @@ html {
 }
 
 .megatron {
-  background-color: rgb(221, 191, 134);
+  background-color: rgb(8, 20, 90);
   border-radius: 60/2;
   border: solid round silver;
-  background-image: url('https://gallery.yopriceville.com/var/resizes/Free-Clipart-Pictures/Thanksgiving-PNG/Happy_Thanksgiving_PNG_Clipart_Picture.png?m=1507172106');
+  background-image: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Aspire Winter.gif');
   /* background-image:url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/AspireOwlGraphic.png'); */
   background-repeat: no-repeat;
   background-position: bottom;
-  background-size: auto, contain;
+  background-size: contain;
 }
 
 .motion {
@@ -87,6 +97,7 @@ text set in the data-text attribute. */
   cursor: url('https://cur.cursors-4u.net/holidays/hol-3/hol231.cur'), auto;
 
 }
+
 .glitch::before {
   content: attr(data-text);
   position: absolute;
@@ -106,6 +117,7 @@ text set in the data-text attribute. */
   src: url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
   font-family: 'Orbitron', sans-serif;
 }
+
 .glitch::after {
   content: attr(data-text);
   position: absolute;
@@ -130,204 +142,256 @@ skew to change the 'thickness' of the glitch.*/
     clip: rect(92px, 9999px, 90px, 0);
     transform: skew(0.13deg);
   }
+
   5% {
     clip: rect(100px, 9999px, 56px, 0);
     transform: skew(0.32deg);
   }
+
   10% {
     clip: rect(46px, 9999px, 80px, 0);
     transform: skew(0.22deg);
   }
+
   15% {
     clip: rect(6px, 9999px, 58px, 0);
     transform: skew(0.67deg);
   }
+
   20% {
     clip: rect(91px, 9999px, 54px, 0);
     transform: skew(0.3deg);
   }
+
   25% {
     clip: rect(97px, 9999px, 12px, 0);
     transform: skew(0.15deg);
   }
+
   30% {
     clip: rect(49px, 9999px, 51px, 0);
     transform: skew(0.29deg);
   }
+
   35% {
     clip: rect(83px, 9999px, 60px, 0);
     transform: skew(0.55deg);
   }
+
   40% {
     clip: rect(27px, 9999px, 27px, 0);
     transform: skew(0.55deg);
   }
+
   45% {
     clip: rect(87px, 9999px, 6px, 0);
     transform: skew(0.95deg);
   }
+
   50% {
     clip: rect(76px, 9999px, 33px, 0);
     transform: skew(0.41deg);
   }
+
   55% {
     clip: rect(9px, 9999px, 70px, 0);
     transform: skew(0.39deg);
   }
+
   60% {
     clip: rect(11px, 9999px, 19px, 0);
     transform: skew(0.59deg);
   }
+
   65% {
     clip: rect(66px, 9999px, 13px, 0);
     transform: skew(0.87deg);
   }
+
   70% {
     clip: rect(66px, 9999px, 62px, 0);
     transform: skew(0.56deg);
   }
+
   75% {
     clip: rect(8px, 9999px, 96px, 0);
     transform: skew(0.75deg);
   }
+
   80% {
     clip: rect(49px, 9999px, 37px, 0);
     transform: skew(0.5deg);
   }
+
   85% {
     clip: rect(37px, 9999px, 7px, 0);
     transform: skew(0.61deg);
   }
+
   90% {
     clip: rect(92px, 9999px, 27px, 0);
     transform: skew(0.12deg);
   }
+
   95% {
     clip: rect(24px, 9999px, 15px, 0);
     transform: skew(0.58deg);
   }
+
   100% {
     clip: rect(53px, 9999px, 54px, 0);
     transform: skew(0.01deg);
   }
 }
+
 @keyframes glitch-anim2 {
   0% {
     clip: rect(61px, 9999px, 47px, 0);
     transform: skew(0.99deg);
   }
+
   5% {
     clip: rect(65px, 9999px, 95px, 0);
     transform: skew(0.06deg);
   }
+
   10% {
     clip: rect(44px, 9999px, 4px, 0);
     transform: skew(0.58deg);
   }
+
   15% {
     clip: rect(75px, 9999px, 5px, 0);
     transform: skew(0.84deg);
   }
+
   20% {
     clip: rect(96px, 9999px, 36px, 0);
     transform: skew(0.05deg);
   }
+
   25% {
     clip: rect(67px, 9999px, 51px, 0);
     transform: skew(0.68deg);
   }
+
   30% {
     clip: rect(92px, 9999px, 52px, 0);
     transform: skew(0.98deg);
   }
+
   35% {
     clip: rect(94px, 9999px, 71px, 0);
     transform: skew(0.34deg);
   }
+
   40% {
     clip: rect(85px, 9999px, 30px, 0);
     transform: skew(0.11deg);
   }
+
   45% {
     clip: rect(77px, 9999px, 10px, 0);
     transform: skew(0.45deg);
   }
+
   50% {
     clip: rect(69px, 9999px, 49px, 0);
     transform: skew(0.35deg);
   }
+
   55% {
     clip: rect(19px, 9999px, 65px, 0);
     transform: skew(0.34deg);
   }
+
   60% {
     clip: rect(52px, 9999px, 33px, 0);
     transform: skew(0.61deg);
   }
+
   65% {
     clip: rect(49px, 9999px, 4px, 0);
     transform: skew(0.16deg);
   }
+
   70% {
     clip: rect(96px, 9999px, 36px, 0);
     transform: skew(0.56deg);
   }
+
   75% {
     clip: rect(32px, 9999px, 52px, 0);
     transform: skew(0.67deg);
   }
+
   80% {
     clip: rect(23px, 9999px, 91px, 0);
     transform: skew(0.81deg);
   }
+
   85% {
     clip: rect(89px, 9999px, 79px, 0);
     transform: skew(0.36deg);
   }
+
   90% {
     clip: rect(57px, 9999px, 20px, 0);
     transform: skew(0.53deg);
   }
+
   95% {
     clip: rect(97px, 9999px, 21px, 0);
     transform: skew(0.38deg);
   }
+
   100% {
     clip: rect(50px, 9999px, 92px, 0);
     transform: skew(0.57deg);
   }
 }
+
 @keyframes glitch-skew {
   0% {
     transform: skew(4deg);
   }
+
   10% {
     transform: skew(5deg);
   }
+
   20% {
     transform: skew(-2deg);
   }
+
   30% {
     transform: skew(5deg);
   }
+
   40% {
     transform: skew(-4deg);
   }
+
   50% {
     transform: skew(1deg);
   }
+
   60% {
     transform: skew(-4deg);
   }
+
   70% {
     transform: skew(2deg);
   }
+
   80% {
     transform: skew(3deg);
   }
+
   90% {
     transform: skew(-2deg);
   }
+
   100% {
     transform: skew(5deg);
   }
@@ -340,45 +404,48 @@ skew to change the 'thickness' of the glitch.*/
 .navbar-dark {
   background-color: #302f30;
 }
+
 .editbutton {
-  border: 1px solid black ;
+  border: 1px solid black;
   background-color: blue;
   color: white;
   vertical-align: text-top;
- }
- .sentry {
-   font-size: x-small;
- }
- .sheader {
-   font-size: small;
- }
+}
 
- .fancy-cursor {
+.sentry {
+  font-size: x-small;
+}
+
+.sheader {
+  font-size: small;
+}
+
+.fancy-cursor {
   /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto; */
   cursor: url('https://cur.cursors-4u.net/holidays/hol-3/hol231.cur'), auto;
- }
+}
 
- .card-title {
+.card-title {
   font-size: large;
   font-weight: bolder;
   cursor: url('https://cur.cursors-4u.net/holidays/hol-3/hol231.cur'), auto;
   /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto; */
   /* text-shadow: 2px 2px #050505; */
- }
- 
- .shadow {
+}
+
+.shadow {
   text-shadow: 2px 2px white;
- }
+}
 
- #schedBox {
-   border: 2px solid #000000;
-   font-size: large;
-   font-weight: bolder;
-   cursor: url('https://cur.cursors-4u.net/holidays/hol-3/hol231.cur'), auto;
-   /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto; */
- }
+#schedBox {
+  border: 2px solid #000000;
+  font-size: large;
+  font-weight: bolder;
+  cursor: url('https://cur.cursors-4u.net/holidays/hol-3/hol231.cur'), auto;
+  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto; */
+}
 
- .schedule-container {
+.schedule-container {
   display: grid;
   grid-template-columns: 15% 15% 15% 15% 15% 15%;
   grid-row-gap: 0px;
@@ -394,7 +461,11 @@ skew to change the 'thickness' of the glitch.*/
   bottom: 3
 }
 
-.tableFixHead thead th { position: sticky; top: 0; z-index: 1; }
+.tableFixHead thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
 
 #schedItem:hover {
   opacity: 1;
@@ -403,305 +474,367 @@ skew to change the 'thickness' of the glitch.*/
   background-repeat: no-repeat;
 }
 
-#headline{
+#headline {
 
   justify-content: 'center';
   align-items: 'center'
 }
 
-#tallInput{
+#tallInput {
   height: 150px;
 }
 
-#green{
+#green {
   background: green
 }
 
-.tight{
+.tight {
   line-height: 80%;
 }
 
-.No{
+.No {
   background: rgb(36, 36, 36)
 }
 
-.Yes{
+.Yes {
   background: green
 }
 
-.Prep{
-  background:blue
+.Prep {
+  background: blue
 }
 
-.Present{
+.Present {
   background: rgb(1, 253, 64);
 }
 
-.Absent{
+.Absent {
   background: rgb(253, 9, 1);
 }
 
-.true{
+.true {
   background: rgb(96, 252, 96);
 }
 
-.false{
+.false {
   background: rgb(243, 122, 122);
 }
 
-.Tara{
+.Tara {
   background-image: linear-gradient(rgb(0, 255, 13), rgb(255, 255, 255), rgb(17, 0, 255));
 }
 
-.Kheanna{
+.Kheanna {
   background-image: radial-gradient(rgb(208, 245, 247), rgb(2, 240, 248), rgb(41, 128, 136));
 }
 
-.Margaret{
+.Margaret {
   background-image: linear-gradient(rgb(255, 115, 0), rgb(229, 255, 0));
 }
 
-.Paul{
+.Paul {
   background: rgb(253, 1, 253);
 }
 
-.Jessica{
+.Jessica {
   background-image: linear-gradient(rgba(114, 71, 2, 0.623), rgba(5, 238, 255, 0.829), rgba(253, 236, 5, 0.671));
 }
 
-.Raelee{
+.Raelee {
   background-image: linear-gradient(rgba(194, 5, 252, 0.849), rgb(248, 107, 97), rgb(5, 232, 253));
 }
 
-.Chris{
+.Chris {
   background-image: linear-gradient(rgb(255, 0, 0), rgb(255, 255, 255), rgb(17, 0, 255));
 }
-.Crystal{
+
+.Crystal {
   background-image: radial-gradient(rgb(208, 245, 247), rgb(2, 240, 248), rgb(41, 128, 136));
 }
-.Atlas{
+
+.Atlas {
   background-image: linear-gradient(rgb(255, 115, 0), rgb(229, 255, 0));
 }
-.Sherry{
+
+.Sherry {
   background-image: linear-gradient(rgb(2, 0, 128), rgb(5, 167, 5));
   color: white
 }
-.Amber{
+
+.Amber {
   background: rgb(253, 1, 253);
 }
-.Susan{
+
+.Susan {
   background: rgb(138, 118, 248);
 }
-.Jacob{
+
+.Jacob {
   background: rgb(253, 144, 1);
 }
-.Tawna{
+
+.Tawna {
   background: rgb(1, 253, 240);
 }
-.Yolanda{
+
+.Yolanda {
   background-image: linear-gradient(rgb(0, 247, 255), rgb(247, 101, 157));
 }
-.Noelle{
+
+.Noelle {
   background-image: linear-gradient(rgba(114, 71, 2, 0.623), rgba(5, 238, 255, 0.829), rgba(253, 236, 5, 0.671));
 }
-.Anna{
+
+.Anna {
   background: rgb(88, 1, 37);
   color: white
 }
-.Brianna{
+
+.Brianna {
   background-image: radial-gradient(rgb(54, 252, 5), rgb(248, 208, 97), rgb(5, 232, 253));
 }
-.Kiri{
+
+.Kiri {
   background-image: linear-gradient(rgba(194, 5, 252, 0.849), rgb(248, 107, 97), rgb(5, 232, 253));
 }
-.Michael{
+
+.Michael {
   background-image: linear-gradient(rgba(0, 68, 255, 0.678), rgba(136, 136, 136, 0.568));
 }
-.Mary{
+
+.Mary {
   background: rgb(250, 225, 2);
 }
-.Grant{
+
+.Grant {
   background-image: linear-gradient(purple, lime);
   color: white
 }
-.Sara{
+
+.Sara {
   background-image: linear-gradient(purple, rgb(255, 0, 179));
   color: white
 }
-.Justin{
+
+.Justin {
   background-image: linear-gradient(red, yellow);
 }
-.Ana{
+
+.Ana {
   background-image: linear-gradient(Blue, red);
   color: white
 }
-.Daniel{
+
+.Daniel {
   background-image: linear-gradient(Orange, Pink);
 }
-.Bill{
+
+.Bill {
   background-image: linear-gradient(Brown, Gray);
   color: white
 }
-.Justice{
+
+.Justice {
   background-image: linear-gradient(Lime, Pink);
 }
-.Pam{
+
+.Pam {
   background-image: linear-gradient(Red, Purple);
   color: white
 }
-.Donna{
+
+.Donna {
   background-image: radial-gradient(white, rgb(193, 97, 248), rgb(5, 232, 253));
 }
-.David{
+
+.David {
   background-image: linear-gradient(rgb(0, 255, 21), rgb(2, 0, 128));
   color: white
 }
-.Del{
+
+.Del {
   background-image: linear-gradient(rgb(255, 0, 0), rgb(255, 102, 0));
 }
-.Keegan{
+
+.Keegan {
   background-image: linear-gradient(rgb(126, 0, 0), rgb(2, 0, 144));
   color: white
 }
-.Kiier{
+
+.Kiier {
   background-image: linear-gradient(rgb(47, 0, 255), rgb(80, 1, 126), rgb(0, 144, 55));
   color: white
 }
-.Selena{
+
+.Selena {
   background-image: linear-gradient(rgb(251, 255, 0), rgb(195, 0, 186));
 }
-.Brandon{
+
+.Brandon {
   background-image: linear-gradient(rgb(105, 105, 105), rgb(134, 112, 82));
 }
-.Kalee{
+
+.Kalee {
   background-image: linear-gradient(rgba(85, 0, 0, 0.561), rgb(248, 244, 0));
 }
-.Rocky{
+
+.Rocky {
   background-image: linear-gradient(rgb(250, 233, 0), rgba(14, 163, 1, 0.739));
 }
-.Sonia{
+
+.Sonia {
   background-image: linear-gradient(rgb(87, 0, 250), rgba(152, 163, 1, 0.739));
   color: white
 }
-.Zhane{
+
+.Zhane {
   background-image: linear-gradient(rgb(0, 212, 250), rgba(255, 102, 0, 0.972));
 }
-.Brooke{
+
+.Brooke {
   background-image: linear-gradient(rgb(86, 87, 87), rgba(253, 252, 252, 0.972));
 }
-.Claudia{
+
+.Claudia {
   background-image: linear-gradient(rgb(185, 0, 123), rgba(209, 255, 2, 0.972));
 }
-.Julia{
+
+.Julia {
   background-image: linear-gradient(rgb(180, 98, 153), rgba(173, 131, 97, 0.972));
 }
-.Laura{
+
+.Laura {
   background-image: linear-gradient(rgb(117, 165, 106), rgba(18, 194, 71, 0.972));
 }
-.Scott{
+
+.Scott {
   background-image: linear-gradient(rgba(192, 0, 0, 0.719), rgba(194, 197, 1, 0.972));
 }
-.Tina{
+
+.Tina {
   background-image: linear-gradient(rgba(192, 35, 119, 0.719), rgba(197, 96, 1, 0.972));
 }
-.Heidi{
+
+.Heidi {
   background-image: linear-gradient(rgb(251, 255, 0), rgba(46, 80, 173, 0.972));
 }
-.Rosa{
+
+.Rosa {
   background-image: linear-gradient(rgba(255, 0, 0, 0.719), rgba(255, 255, 255, 0.972), rgba(24, 197, 1, 0.972));
 }
-.Harold{
+
+.Harold {
   background-image: linear-gradient(rgba(255, 136, 0, 0.719), rgba(131, 0, 238, 0.972));
 }
-.Katherine{
+
+.Katherine {
   background-image: linear-gradient(rgba(251, 255, 0, 0.719), rgba(160, 100, 228, 0.972), rgba(126, 126, 126, 0.972));
 }
-.Olivia{
+
+.Olivia {
   background-image: linear-gradient(rgba(255, 0, 221, 0.719), rgba(8, 253, 0, 0.972), rgba(197, 145, 1, 0.972));
 }
-.Daisy{
+
+.Daisy {
   background-image: radial-gradient(rgb(114, 84, 2), rgb(250, 233, 0), rgb(255, 255, 255));
 }
-.Gabrielle{
-  background-image: linear-gradient(rgb(255, 0, 0), rgb(255, 196, 0), rgb(255, 251, 0), rgb(9, 255, 0),rgb(4, 0, 255),  rgb(153, 0, 255));
+
+.Gabrielle {
+  background-image: linear-gradient(rgb(255, 0, 0), rgb(255, 196, 0), rgb(255, 251, 0), rgb(9, 255, 0), rgb(4, 0, 255), rgb(153, 0, 255));
 }
-.Alicia{
+
+.Alicia {
   background-image: linear-gradient(rgba(0, 4, 255, 0.726), rgb(0, 122, 20), rgb(155, 32, 1));
   color: white
 }
-.Brittnee{
+
+.Brittnee {
   background-image: linear-gradient(rgba(0, 255, 242, 0.726), rgb(187, 255, 1), rgb(255, 187, 0));
 }
-.Angel{
+
+.Angel {
   background-image: linear-gradient(rgb(104, 0, 5), rgb(0, 10, 156), rgb(21, 107, 0));
   color: white
 }
-.Hailey{
+
+.Hailey {
   background-image: linear-gradient(rgb(255, 0, 234), rgb(119, 255, 115), rgb(0, 255, 242));
 }
-.Roman{
+
+.Roman {
   background-image: linear-gradient(rgb(101, 0, 104), rgb(156, 153, 0), rgb(0, 34, 107));
   color: white
 }
-.Jerek{
+
+.Jerek {
   background-image: linear-gradient(rgb(0, 139, 93), rgb(156, 18, 0), rgb(59, 0, 107));
   color: white
 }
-.Jay{
+
+.Jay {
   background-image: linear-gradient(rgb(1, 253, 169), rgb(255, 30, 0), rgb(141, 1, 255));
 }
-.Juanita{
+
+.Juanita {
   background-image: linear-gradient(rgb(0, 21, 139), rgb(156, 88, 0), rgb(107, 0, 0));
   color: white
 }
-.Curtis{
+
+.Curtis {
   background-image: linear-gradient(rgb(23, 139, 0), rgb(0, 156, 0), rgb(0, 107, 62));
   color: white
 }
-.Corinne{
+
+.Corinne {
   background-image: linear-gradient(rgb(0, 14, 139), rgb(0, 81, 156), rgb(32, 0, 107));
   color: white
 }
-.Karol{
+
+.Karol {
   background-image: linear-gradient(rgb(139, 5, 0), rgb(156, 0, 91), rgb(107, 0, 5));
   color: white
 }
-.Paloma{
+
+.Paloma {
   background-image: linear-gradient(rgb(139, 90, 0), rgb(156, 114, 0), rgb(107, 34, 0));
   color: white
 }
-.Angela{
+
+.Angela {
   background-image: linear-gradient(rgb(127, 0, 139), rgb(143, 0, 156), rgb(67, 1, 80));
   color: white
 }
-.Romon{
+
+.Romon {
   background-image: linear-gradient(rgb(0, 75, 173), rgb(255, 255, 255), rgb(196, 0, 10));
 }
-.Tyler{
+
+.Tyler {
   background-image: linear-gradient(rgb(255, 0, 242), rgb(156, 0, 143), rgb(255, 0, 242));
 }
-.Terrance{
+
+.Terrance {
   background-image: linear-gradient(rgb(0, 150, 50), rgb(249, 253, 0), rgb(4, 107, 0));
 }
-.Kassandra{
+
+.Kassandra {
   background-image: linear-gradient(rgb(139, 0, 139), rgb(0, 156, 65), rgb(141, 92, 0));
   color: white
 }
-.None{
+
+.None {
   background: black;
 }
 
 .aspireOwl {
-  background-image: url("https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Aspire-Owl.gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvQXNwaXJlLU93bC5naWYiLCJpYXQiOjE2MTg3NzMwNDksImV4cCI6MTkzNDEzMzA0OX0.Rz17BSP_eY9jSZYbevGMPXdQbH7G24PkrdZf-zf-zrQ"); 
+  background-image: url("https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Aspire-Owl.gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvQXNwaXJlLU93bC5naWYiLCJpYXQiOjE2MTg3NzMwNDksImV4cCI6MTkzNDEzMzA0OX0.Rz17BSP_eY9jSZYbevGMPXdQbH7G24PkrdZf-zf-zrQ");
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: auto
-
 }
 
-#scheduleHeader{
+#scheduleHeader {
   background: rgba(71, 125, 241, 0.5)
-  
 }
 
 .parent {
@@ -712,17 +845,166 @@ skew to change the 'thickness' of the glitch.*/
   padding-right: 0;
   justify-content: left;
 }
+
 .image1 {
   position: relative;
   top: 0;
   left: 0;
   border: 1px rgb(17, 0, 255) solid;
 }
+
 .image2 {
   position: absolute;
   top: -2px;
   left: 15px;
 
+}
+
+/* customizable snowflake styling */
+.snowflake {
+  color: #fff;
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 5px #000;
+}
+
+@-webkit-keyframes snowflakes-fall {
+  0% {
+    top: -10%
+  }
+
+  100% {
+    top: 100%
+  }
+}
+
+@-webkit-keyframes snowflakes-shake {
+
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0)
+  }
+
+  50% {
+    -webkit-transform: translateX(80px);
+    transform: translateX(80px)
+  }
+}
+
+@keyframes snowflakes-fall {
+  0% {
+    top: -10%
+  }
+
+  100% {
+    top: 100%
+  }
+}
+
+@keyframes snowflakes-shake {
+
+  0%,
+  100% {
+    transform: translateX(0)
+  }
+
+  50% {
+    transform: translateX(80px)
+  }
+}
+
+.snowflake {
+  position: fixed;
+  top: -10%;
+  z-index: 9999;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+  -webkit-animation-name: snowflakes-fall, snowflakes-shake;
+  -webkit-animation-duration: 10s, 3s;
+  -webkit-animation-timing-function: linear, ease-in-out;
+  -webkit-animation-iteration-count: infinite, infinite;
+  -webkit-animation-play-state: running, running;
+  animation-name: snowflakes-fall, snowflakes-shake;
+  animation-duration: 10s, 3s;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+  animation-play-state: running, running
+}
+
+.snowflake:nth-of-type(0) {
+  left: 1%;
+  -webkit-animation-delay: 0s, 0s;
+  animation-delay: 0s, 0s
+}
+
+.snowflake:nth-of-type(1) {
+  left: 10%;
+  -webkit-animation-delay: 1s, 1s;
+  animation-delay: 1s, 1s
+}
+
+.snowflake:nth-of-type(2) {
+  left: 20%;
+  -webkit-animation-delay: 6s, .5s;
+  animation-delay: 6s, .5s
+}
+
+.snowflake:nth-of-type(3) {
+  left: 30%;
+  -webkit-animation-delay: 4s, 2s;
+  animation-delay: 4s, 2s
+}
+
+.snowflake:nth-of-type(4) {
+  left: 40%;
+  -webkit-animation-delay: 2s, 2s;
+  animation-delay: 2s, 2s
+}
+
+.snowflake:nth-of-type(5) {
+  left: 50%;
+  -webkit-animation-delay: 8s, 3s;
+  animation-delay: 8s, 3s
+}
+
+.snowflake:nth-of-type(6) {
+  left: 60%;
+  -webkit-animation-delay: 6s, 2s;
+  animation-delay: 6s, 2s
+}
+
+.snowflake:nth-of-type(7) {
+  left: 70%;
+  -webkit-animation-delay: 2.5s, 1s;
+  animation-delay: 2.5s, 1s
+}
+
+.snowflake:nth-of-type(8) {
+  left: 80%;
+  -webkit-animation-delay: 1s, 0s;
+  animation-delay: 1s, 0s
+}
+
+.snowflake:nth-of-type(9) {
+  left: 90%;
+  -webkit-animation-delay: 3s, 1.5s;
+  animation-delay: 3s, 1.5s
+}
+
+.snowflake:nth-of-type(10) {
+  left: 25%;
+  -webkit-animation-delay: 2s, 0s;
+  animation-delay: 2s, 0s
+}
+
+.snowflake:nth-of-type(11) {
+  left: 65%;
+  -webkit-animation-delay: 4s, 2.5s;
+  animation-delay: 4s, 2.5s
 }
 
 
