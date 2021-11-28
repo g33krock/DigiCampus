@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Col, Row } from "reactstrap";
 // import Marquee from "react-marquee-slider";
 import styled from "styled-components";
 // import times from "lodash/times";
@@ -101,7 +102,14 @@ export class Jumbo extends Component {
     )} else {
       return (
         <FullWidth className="megatron">
-          <Height height={300}>
+          <Height height={300} style={{alignContent:"center"}}>
+            <Row>
+              <Col />
+              <Col>
+          <img src="https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/AspireWinter.gif" style={{height:"300px", position:"absolute", alignContent:"center"}}/>
+          </Col>
+          <Col />
+          </Row>
             {/* <h1 style={{textAlign:"center", position: "relative", top: "25%", fontSize:"500%", color: "yellow", fontFamily:"jedi", textShadow:"2px 2px black"}}>Happy Birthday!</h1> */}
             {/* <strong style={{textAlign:"center", color:"gold", position: "absolute", bottom: "15%", left: "46%"}}>Class of {this.textSwitch(getRandomInt())}</strong> */}
             {/* <Marquee

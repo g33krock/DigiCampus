@@ -96,6 +96,18 @@ export default class Resource extends Component {
               </CardLink>
             </Card>
           </Col>
+          <Col>
+            <Card body className="text-center">
+              <CardTitle>Grant's STEAM Activities</CardTitle>
+              <br />
+              <CardBody>
+                <CardText>A collection of activities that Grant has made in JS!</CardText>
+              </CardBody>
+              <CardLink href="http://steam.great-site.net/STEAM/landpage.html">
+                STEAM-Site
+              </CardLink>
+            </Card>
+          </Col>
         </Row>
       </Container>
     );

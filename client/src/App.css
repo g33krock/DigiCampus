@@ -10,10 +10,11 @@ body {
   background: rgb(136, 172, 250);
   background-repeat: no-repeat;
   background-size: contain;
-  font-family: 'winter';
-  /* font-family: 'Fredoka One', cursive; */
+  /* font-family: 'winter'; */
+  font-family: 'Fredoka One', cursive;
   /* font-family: 'Helvetica', sans-serif; */
-  cursor: url('https://cur.cursors-4u.net/holidays/hol-3/hol231.cur'), auto;
+  cursor:url("https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Icicle.cur"),
+  auto; 
   /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur'); */
 }
 
@@ -30,14 +31,14 @@ body {
 
 @font-face {
   font-family: winter;
-  src: url(https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/font/SnowtopCaps.ttf);
+  src: url(https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/font/Snowfall.ttf);
   color: blue; 
-  font-size: 150%;
+  font-size: 500%;
 }
 
 html {
   /* background-color: rgb(174, 216, 255); */
-  background: rgb(200, 200, 200);
+  background-color: rgb(0, 16, 107);
   background-repeat: no-repeat;
   background-position: bottom;
 
@@ -53,14 +54,15 @@ html {
 }
 
 .megatron {
-  background-color: rgb(8, 20, 90);
+  /* background-color: rgb(0, 16, 107); */
   border-radius: 60/2;
-  border: solid round silver;
-  background-image: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Aspire Winter.gif');
-  /* background-image:url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/AspireOwlGraphic.png'); */
+  /* background-image: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/AspireWinter.gif'); */
+  background-image:url(https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Winterscape.png);
   background-repeat: no-repeat;
   background-position: bottom;
-  background-size: contain;
+  background-size: cover;
+  position: relative;
+  align-content: center;
 }
 
 .motion {
