@@ -112,9 +112,9 @@ export default class TeacherGroupSchedule extends Component {
       }
       return (
         <div key={teachersched.id}>
-          <Row>
+          <Row className="g-2">
             <Col xs="3">
-              <Card onClick={() => this.setSchedule(teachersched)}>
+              <Card className="border-primary p-2 h-100" onClick={() => this.setSchedule(teachersched)}>
                 <CardTitle>Period: 7:50 - 8:40</CardTitle>
                 <CardText style={{ color: "black" }}>
                   <p>
@@ -156,7 +156,7 @@ export default class TeacherGroupSchedule extends Component {
               </Card>
             </Col>
             <Col xs="3">
-              <Card onClick={() => this.setSchedule(teachersched)}>
+              <Card className="border-primary p-2 h-100" onClick={() => this.setSchedule(teachersched)}>
                 <CardTitle>Period: 8:40 - 9:30</CardTitle>
                 <CardText style={{ color: "black" }}>
                   <p>
@@ -197,7 +197,7 @@ export default class TeacherGroupSchedule extends Component {
               </Card>
             </Col>
             <Col xs="3">
-              <Card onClick={() => this.setSchedule(teachersched)}>
+              <Card className="border-primary p-2 h-100" onClick={() => this.setSchedule(teachersched)}>
                 <CardTitle>Period: 9:30 - 10:20</CardTitle>
                 <CardText style={{ color: "black" }}>
                   <p>
@@ -238,7 +238,7 @@ export default class TeacherGroupSchedule extends Component {
               </Card>
             </Col>
             <Col xs="3">
-              <Card onClick={() => this.setSchedule(teachersched)}>
+              <Card className="border-primary p-2 h-100" onClick={() => this.setSchedule(teachersched)}>
                 <CardTitle>Period: 10:20-11:10</CardTitle>
                 <CardText style={{ color: "black" }}>
                   <p>
@@ -279,7 +279,7 @@ export default class TeacherGroupSchedule extends Component {
               </Card>
             </Col>
             <Col xs="3">
-              <Card onClick={() => this.setSchedule(teachersched)}>
+              <Card className="border-primary p-2 h-100" onClick={() => this.setSchedule(teachersched)}>
                 <CardTitle>Period: 11:10-12:00</CardTitle>
                 <CardText style={{ color: "black" }}>
                   <p>
@@ -319,7 +319,7 @@ export default class TeacherGroupSchedule extends Component {
               </Card>
             </Col>
             <Col xs="3">
-              <Card onClick={() => this.setSchedule(teachersched)}>
+              <Card className="border-primary p-2 h-100" onClick={() => this.setSchedule(teachersched)}>
                 <CardTitle>Period: 12:00-12:50</CardTitle>
                 <CardText style={{ color: "black" }}>
                   <p>
@@ -359,7 +359,7 @@ export default class TeacherGroupSchedule extends Component {
               </Card>
             </Col>
             <Col xs="3">
-              <Card onClick={() => this.setSchedule(teachersched)}>
+              <Card className="border-primary p-2 h-100" onClick={() => this.setSchedule(teachersched)}>
                 <CardTitle>Period: 12:50-1:40</CardTitle>
                 <CardText style={{ color: "black" }}>
                   <p>
@@ -399,7 +399,7 @@ export default class TeacherGroupSchedule extends Component {
               </Card>
             </Col>
             <Col xs="3">
-              <Card onClick={() => this.setSchedule(teachersched)}>
+              <Card className="border-primary p-2 h-100" onClick={() => this.setSchedule(teachersched)}>
                 <CardTitle>Period: 1:40-2:30</CardTitle>
                 <CardText style={{ color: "black" }}>
                   <p>
@@ -439,7 +439,7 @@ export default class TeacherGroupSchedule extends Component {
               </Card>
             </Col>
             <Col xs="3">
-              <Card onClick={() => this.setSchedule(teachersched)}>
+              <Card className="border-primary p-2 h-100" onClick={() => this.setSchedule(teachersched)}>
                 <CardTitle>Period: 2:30-3:20</CardTitle>
                 <CardText style={{ color: "black" }}>
                   <p>
@@ -479,7 +479,7 @@ export default class TeacherGroupSchedule extends Component {
               </Card>
             </Col>
             <Col xs="3">
-              <Card onClick={() => this.setSchedule(teachersched)}>
+              <Card className="border-primary p-2 h-100" onClick={() => this.setSchedule(teachersched)}>
                 <CardTitle>Period: 3:20-4:10</CardTitle>
                 <CardText style={{ color: "black" }}>
                   <p>
