@@ -347,7 +347,6 @@ class AdminTeacher extends Component {
             )}
           </TabPane>
           <TabPane tabId="2">
-            <h3>Mic Drop... Boom!</h3>
             {this.state.teacher && (
               <TeacherGroupSchedule
                 teacher={this.state.teacher}
