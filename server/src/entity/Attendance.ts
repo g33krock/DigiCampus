@@ -9,14 +9,10 @@ export class Attendance extends BaseEntity {
     @Column()
     date: string;
 
-    @Column()
-    present: string;
-
-    @Column()
-    absent: string;
-
     @ManyToMany(() => Student, student => student.attendance)
     @JoinTable()
     student: Student[];
+    present: string;
+    absent: string;
 
 }
