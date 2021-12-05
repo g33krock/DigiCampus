@@ -142,7 +142,7 @@ class Teacher extends Component {
     // };
     const date = new Date();
     return (
-      <Container>
+      <Container className="border-primary bg-white">
         <Nav tabs>
           <NavItem>
             <NavLink
@@ -205,6 +205,7 @@ class Teacher extends Component {
             </NavLink>
           </NavItem>
         </Nav>
+        
         <TeacherCreator></TeacherCreator>
         <TeacherUpdater
           teacherId={this.state.teacher?.id}

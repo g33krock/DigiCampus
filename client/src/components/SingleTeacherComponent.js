@@ -118,6 +118,7 @@ class SingleTeacher extends Component {
             </NavLink>
           </NavItem>
         </Nav>
+        <div className="border-danger">
         <div>
         <Row>
             <Col>
@@ -143,6 +144,7 @@ class SingleTeacher extends Component {
           Hello {this.props.teacher?.firstName}{" "}
         </div>
         <h3>Link: {this.props.teacher?.link}</h3>
+        </div>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
             {this.props.teacher && (

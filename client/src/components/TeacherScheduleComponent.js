@@ -101,8 +101,8 @@ export default class TeacherSchedule extends Component {
           default:
         }
         return (
-          <div key={teachersched.id} className="col g-2" id="redBrick">
-            <Card className="border-3 border-primary p-2 h-100 cardSpace" onClick={() => this.setSchedule(teachersched)} id={done}>
+          <div key={teachersched.id} className="col" id="redBrick">
+            <Card className="border-primary p-2 h-100 m-2 cardSpace" onClick={() => this.setSchedule(teachersched)} id={done}>
               <CardTitle>Period: {block}</CardTitle>
               <CardText style={{ color: "black" }}>
                 <p>
