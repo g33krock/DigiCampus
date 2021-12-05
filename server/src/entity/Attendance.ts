@@ -12,5 +12,7 @@ export class Attendance extends BaseEntity {
     @ManyToMany(() => Student, student => student.attendance)
     @JoinTable()
     student: Student[];
+    present: string;
+    absent: string;
 
 }
