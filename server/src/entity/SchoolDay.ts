@@ -1,4 +1,5 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { StudentAttendance } from "./StudentAttendance";
 
 @Entity()
 export class SchoolDay extends BaseEntity {
@@ -40,4 +41,7 @@ export class SchoolDay extends BaseEntity {
 		nullable: true
 	})
 	inSchool: boolean;
+
+	@OneToMany(() => StudentAttendance, studentattendance => studentattendance.schoolday, {onDelete: 'CASCADE'})
+	studentattendance: StudentAttendance[];
 }
