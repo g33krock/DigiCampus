@@ -75,7 +75,7 @@ class SingleTeacher extends Component {
     // };
     const date = new Date();
     return (
-      <Container>
+      <Container className="border-primary rounded-lg">
         <Nav tabs>
           <NavItem>
             <NavLink
@@ -118,7 +118,7 @@ class SingleTeacher extends Component {
             </NavLink>
           </NavItem>
         </Nav>
-        <div className="border-danger">
+        <Container className="border-primary bg-white">
         <div>
         <Row>
             <Col>
@@ -144,7 +144,7 @@ class SingleTeacher extends Component {
           Hello {this.props.teacher?.firstName}{" "}
         </div>
         <h3>Link: {this.props.teacher?.link}</h3>
-        </div>
+        </Container>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
             {this.props.teacher && (
@@ -179,6 +179,7 @@ class SingleTeacher extends Component {
           <TabPane tabId="4">
             <StaffID teacher={this.props.teacher}></StaffID>
           </TabPane>
+          
         </TabContent>
       </Container>
     );

@@ -112,7 +112,7 @@ export default class TeacherGroupSchedule extends Component {
       }
       return (
         <div key={teachersched.id} id="redBrick">
-          <Row className="">
+          <Row>
             <Col xs="3">
               <Card className="border-primary p-2 h-100 m-2" id="winterWindow" onClick={() => this.setSchedule(teachersched)}>
                 <CardTitle>Period: 7:50 - 8:40</CardTitle>
