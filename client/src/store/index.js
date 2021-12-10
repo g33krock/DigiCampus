@@ -6,8 +6,9 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import teachers from './teachers';
 import teacher from './teacher';
 import students from './students';
+import finalGrades from './finalGrades';
 
-const reducer = combineReducers({ teachers, teacher, students });
+const reducer = combineReducers({ teachers, teacher, students, finalGrades });
 
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchStudents } from '../store/students';
+import { createGrades } from '../store/finalGrades';
 import { fetcher } from '../services/fetcher';
 import { baseURL } from '../baseURL';
 
@@ -9,14 +10,14 @@ import styles from '../styles/FinalGrades.module.css';
 class FinalGrades extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { teacherSchedule: [], }
+    this.state = { teacherSchedule: [] }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
     // TODO: replace hardcoded number with props teacher id
-    fetcher(`${baseURL}/teachers/${28}/schedules`) //Fetch TeacherSchedule Table from API
+    fetcher(`${baseURL}/teachers/${31}/schedules`) //Fetch TeacherSchedule Table from API
       .then((response) => response.json()) //Convert response to a JSON object
       .then((data) => {
         this.setState({
@@ -31,21 +32,40 @@ class FinalGrades extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log("submitting");
+    console.log("STATE: ", this.state);
+
+    let keys = Object.keys(this.state);
+
+    keys = keys.filter(key => key !== "teacherSchedule");
+
+    let grades = [];
+
+    keys.forEach(id => {
+      const grade = this.state[id];
+      let newGrade = {
+        scheduleId: id,
+        grade,
+      };
+
+      grades.push(newGrade);
+    });
+
+    grades.forEach(grade => this.props.postGrades(grade));
   }
 
-  handleChange(e) {
+  handleChange(id, e) {
     e.preventDefault();
-    console.log("CHANGE: ", e.target.value);
+    this.setState({
+      [id]: e.target.value,
+    });
   }
 
   render() {
     const { handleSubmit, handleChange } = this;
-    console.log("TEACHER--> ", this.props.teacher);
 
     const schedule = this.state.teacherSchedule.sort((a, b) => {
       return a.period - b.period;
     });
-    console.log("teacherSchedule ---> ", schedule);
     let currentPeriod = 0;
 
     return (
@@ -86,24 +106,26 @@ const Entry = ({ scheduleObj, handleChange }) => {
       <label className={styles.label}>
         {scheduleObj.student.firstName} {scheduleObj.student.lastName}
       </label>
-      <Input student={scheduleObj.student} course={scheduleObj.course} handleChange={handleChange} />
+      <Input student={scheduleObj.student} course={scheduleObj.course} handleChange={handleChange} id={scheduleObj.id} />
     </div>
   );
 };
 
-const Input = ({ student, course, handleChange }) => {
+const Input = ({ student, course, handleChange, id }) => {
   if (student.grade < 9 && course.subject === "Elective") {
     return (
       // return an input field with choices 'satisfactory' and 'needs improvement'
-      <select onChange={handleChange}>
-        <option value="satisfactory">Satisfactory</option>
-        <option value="needsImprovement">Needs Improvement</option>
+      <select defaultValue="" onChange={(e) => handleChange(id, e)}>
+        <option hidden value="">Select a grade</option>
+        <option value="Satisfactory">Satisfactory</option>
+        <option value="Needs Improvement">Needs Improvement</option>
       </select>
     );
   } else {
     return (
       // return an input field with letter grades
-      <select onChange={handleChange}>
+      <select defaultValue="" onChange={(e) => handleChange(id, e)}>
+        <option hidden value="">Select a grade</option>
         <option value="A+">A+</option>
         <option value="A">A</option>
         <option value="A-">A-</option>
@@ -133,6 +155,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     loadStudents: () => dispatch(fetchStudents()),
+    postGrades: (grade) => dispatch(createGrades(grade)),
   };
 };
 
