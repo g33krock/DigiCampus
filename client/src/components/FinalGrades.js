@@ -51,7 +51,7 @@ class FinalGrades extends React.Component {
     });
 
     //UNCOMMENT THIS LINE TO POST GRADES TO DB
-    // grades.forEach(grade => this.props.postGrades(grade));
+    grades.forEach(grade => this.props.postGrades(grade));
   }
 
   handleChange(id, e) {
