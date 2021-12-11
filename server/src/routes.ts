@@ -33,6 +33,7 @@ import { SessionInfoController } from "./controller/SessionInfoController";
 import { TallyQuestionController } from "./controller/TallyQuestionController";
 import { TallyResponseController } from "./controller/TallyResponseController";
 import { StudentAttendanceController } from "./controller/StudentAttendanceController";
+import { FinalGradeController } from './controller/FinalGradeController';
 
 export const Routes = [{
 	method: "get",
@@ -906,4 +907,23 @@ export const Routes = [{
     controller: StudentAttendanceController,
     action: "remove"
 },
+
+// FinalGrade
+
+{
+  method: "get",
+  route: "/finalGrade",
+  controller: FinalGradeController,
+  action: "all"
+}, {
+  method: "get",
+  route: "/finalGrade/:id",
+  controller: FinalGradeController,
+  action: "one"
+}, {
+  method: "post",
+  route: "/finalGrade",
+  controller: FinalGradeController,
+  action: "save"
+} 
 ];
