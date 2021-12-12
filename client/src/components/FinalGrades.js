@@ -10,14 +10,16 @@ import styles from '../styles/FinalGrades.module.css';
 class FinalGrades extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { teacherSchedule: [] }
+    this.state = { teacherSchedule: [], newInputs: [], }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleAddInput = this.handleAddInput.bind(this);
+    this.handleAdditionalChange = this.handleAdditionalChange.bind(this);
   }
 
   componentDidMount() {
     // TODO: replace hardcoded number with props teacher id
-    fetcher(`${baseURL}/teachers/${31}/schedules`) //Fetch TeacherSchedule Table from API
+    fetcher(`${baseURL}/teachers/${28}/schedules`) //Fetch TeacherSchedule Table from API
       .then((response) => response.json()) //Convert response to a JSON object
       .then((data) => {
         this.setState({
@@ -50,8 +52,6 @@ class FinalGrades extends React.Component {
       grades.push(newGrade);
     });
 
-
-    //UNCOMMENT THIS LINE TO POST GRADES TO DB
     grades.forEach(grade => this.props.postGrades(grade));
   }
 
@@ -62,8 +62,55 @@ class FinalGrades extends React.Component {
     });
   }
 
+  handleAddInput() {
+    const newInput = {
+      id: this.state.newInputs.length,
+      student: {
+        firstName: "",
+        lastName: "",
+        grade: "",
+        campus: "",
+      },
+      course: {
+        name: "",
+        period: "",
+      },
+      teacher: {
+        firstName: "",
+        lastName: "",
+      },
+      grade: "",
+    };
+
+    this.setState(prevState => ({ newInputs: prevState.newInputs.concat([newInput]) }));
+    console.log(this.state);
+  }
+
+  handleAdditionalChange(id, e) {
+    let entries = [...this.state.newInputs];
+    let entry = {...entries[id]};
+    let name = e.target.name.split(".");
+
+    console.log("STATE: ", this.state);
+    if (name.length === 1) {
+      entry[name[0]] = e.target.value;
+    } else {
+      let [parent, child] = name;
+      console.log("parent: ", parent);
+      console.log("child: ", child);
+      entry[parent][child] = e.target.value;
+    }
+
+    entries[id] = entry;
+
+    console.log(entry);
+    this.setState({
+      newInputs: entries,
+    });
+  }
+
   render() {
-    const { handleSubmit, handleChange } = this;
+    const { handleSubmit, handleChange, handleAddInput } = this;
 
     const schedule = this.state.teacherSchedule.sort((a, b) => {
       return a.period - b.period;
@@ -94,9 +141,26 @@ class FinalGrades extends React.Component {
               }
             })
           }
-          <button>Submit</button>
+          <div>
+            <span>Any students you don&apos;t see here?</span>
+            <button type="button" onClick={handleAddInput}>Add a new student</button>
+            {
+              this.state.newInputs.map(input => (
+                <AdditionalInput
+                  key={input.id}
+                  id={input.id}
+                  student={input.student}
+                  course={input.course}
+                  teacher={input.teacher}
+                  grade={input.grade}
+                  handleChange={this.handleAdditionalChange}
+                />
+              ))
+            }
+          </div>
+          <button type="submit">Submit</button>
         </form>
-      <p>Happy Holidays!</p>
+        <p>Happy Holidays!</p>
       </div>
     );
   }
@@ -145,6 +209,52 @@ const Input = ({ student, course, handleChange, id }) => {
     );
   }
 };
+
+const AdditionalInput = ({ id, student, course, grade, handleChange }) => {
+  console.log("ID: ", id);
+  return (
+    <div className="field">
+      <label>Student Name</label>
+      <input
+        type="text"
+        placeholder="first"
+        name="student.firstName"
+        value={student.firstName}
+        onChange={(e) => handleChange(id, e)}
+      />
+      <input
+        type="text"
+        placeholder="last"
+        name="student.lastName"
+        value={student.lastName}
+        onChange={(e) => handleChange(id, e)}
+      />
+      <label>Course</label>
+      <input
+        type="text"
+        placeholder="course"
+        name="course.name"
+        value={course.name}
+        onChange={(e) => handleChange(id, e)}
+      />
+      <input
+        type="text"
+        placeholder="period"
+        name="course.period"
+        value={course.period}
+        onChange={(e) => handleChange(id, e)}
+      />
+      <label>Grade</label>
+      <input
+        type="text"
+        placeholder="grade"
+        name="grade"
+        value={grade}
+        onChange={(e) => handleChange(id, e)}
+      />
+    </div>
+  )
+}
 
 const mapState = (state) => {
   return {
