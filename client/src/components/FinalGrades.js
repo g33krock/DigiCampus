@@ -17,7 +17,7 @@ class FinalGrades extends React.Component {
 
   componentDidMount() {
     // TODO: replace hardcoded number with props teacher id
-    fetcher(`${baseURL}/teachers/${this.props.teacher.id}/schedules`) //Fetch TeacherSchedule Table from API
+    fetcher(`${baseURL}/teachers/${31}/schedules`) //Fetch TeacherSchedule Table from API
       .then((response) => response.json()) //Convert response to a JSON object
       .then((data) => {
         this.setState({
@@ -43,12 +43,13 @@ class FinalGrades extends React.Component {
     keys.forEach(id => {
       const grade = this.state[id];
       let newGrade = {
-        scheduleId: id,
+        schedule: id,
         grade,
       };
 
       grades.push(newGrade);
     });
+
 
     //UNCOMMENT THIS LINE TO POST GRADES TO DB
     grades.forEach(grade => this.props.postGrades(grade));
