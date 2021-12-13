@@ -1,5 +1,8 @@
 import { finalGradeService } from '../services/finalGradeService';
 
+import { db } from './firebase';
+import { collection, addDoc } from 'firebase/firestore';
+
 // ACTION TYPES
 const CREATE_GRADE = 'CREATE_GRADE';
 
@@ -10,9 +13,12 @@ const _createGrade = (grade) => ({ type: CREATE_GRADE, grade });
 export const createGrades = (grade) => {
   return async (dispatch) => {
     try {
-      const newGrade = await finalGradeService.create(grade);
+      const docRef = await addDoc(collection(db, "entries"), {
+        ...grade
+      });
+      console.log("DOCREF: ", docRef);
 
-      dispatch(_createGrade(newGrade));
+      dispatch(_createGrade(docRef));
     } catch (error) {
       console.error("error in createGrades thunk!", error);
     }

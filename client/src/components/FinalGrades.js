@@ -5,6 +5,8 @@ import { createGrades } from '../store/finalGrades';
 import { fetcher } from '../services/fetcher';
 import { baseURL } from '../baseURL';
 
+import { db } from '../store/firebase';
+
 import styles from '../styles/FinalGrades.module.css';
 
 class FinalGrades extends React.Component {
@@ -19,7 +21,7 @@ class FinalGrades extends React.Component {
 
   componentDidMount() {
     // TODO: replace hardcoded number with props teacher id
-    fetcher(`${baseURL}/teachers/${28}/schedules`) //Fetch TeacherSchedule Table from API
+    fetcher(`${baseURL}/teachers/${this.props.teacher.id}/schedules`) //Fetch TeacherSchedule Table from API
       .then((response) => response.json()) //Convert response to a JSON object
       .then((data) => {
         this.setState({
@@ -28,37 +30,47 @@ class FinalGrades extends React.Component {
       });
   }
 
-  // TODO: edit handleSubmit and handleChange so they organize the data and send it
-  //        a backend where it can be further processed
-
   handleSubmit(e) {
     e.preventDefault();
-    console.log("submitting");
-    console.log("STATE: ", this.state);
 
     let keys = Object.keys(this.state);
 
-    keys = keys.filter(key => key !== "teacherSchedule");
+    keys = keys.filter(key => key !== "teacherSchedule" && key !== "newInputs");
 
     let grades = [];
 
     keys.forEach(id => {
       const grade = this.state[id];
-      let newGrade = {
-        schedule: id,
-        grade,
-      };
 
-      grades.push(newGrade);
+      grades.push(grade);
     });
 
     grades.forEach(grade => this.props.postGrades(grade));
   }
 
-  handleChange(id, e) {
+  handleChange(scheduleObj, id, e) {
     e.preventDefault();
+    console.log("SCHEDULE OBJECT: ", scheduleObj);
+    const { course, period, student, teacher } = scheduleObj;
     this.setState({
-      [id]: e.target.value,
+      [id]: {
+        student: {
+          firstName: student.firstName,
+          lastName: student.lastName,
+          grade: student.grade,
+        },
+        course: {
+          name: course.name,
+          period,
+          subject: course.subject,
+        },
+        teacher: {
+          firstName: teacher.firstName,
+          lastName: teacher.lastName,
+        },
+        grade: e.target.value,
+        campus: "add campus", // TODO: after merged changes replace with campus from scheduleObj
+      },
     });
   }
 
@@ -88,7 +100,7 @@ class FinalGrades extends React.Component {
 
   handleAdditionalChange(id, e) {
     let entries = [...this.state.newInputs];
-    let entry = {...entries[id]};
+    let entry = { ...entries[id] };
     let name = e.target.name.split(".");
 
     console.log("STATE: ", this.state);
@@ -172,16 +184,16 @@ const Entry = ({ scheduleObj, handleChange }) => {
       <label className={styles.label}>
         {scheduleObj.student.firstName} {scheduleObj.student.lastName}
       </label>
-      <Input student={scheduleObj.student} course={scheduleObj.course} handleChange={handleChange} id={scheduleObj.id} />
+      <Input handleChange={handleChange} id={scheduleObj.id} scheduleObj={scheduleObj} />
     </div>
   );
 };
 
-const Input = ({ student, course, handleChange, id }) => {
-  if (student.grade < 9 && course.subject === "Elective") {
+const Input = ({ handleChange, id, scheduleObj }) => {
+  if (scheduleObj.student.grade < 9 && scheduleObj.course.subject === "Elective") {
     return (
       // return an input field with choices 'satisfactory' and 'needs improvement'
-      <select defaultValue="" onChange={(e) => handleChange(id, e)}>
+      <select defaultValue="" onChange={(e) => handleChange(scheduleObj, id, e)}>
         <option hidden value="">Select a grade</option>
         <option value="Satisfactory">Satisfactory</option>
         <option value="Needs Improvement">Needs Improvement</option>
@@ -190,7 +202,7 @@ const Input = ({ student, course, handleChange, id }) => {
   } else {
     return (
       // return an input field with letter grades
-      <select defaultValue="" onChange={(e) => handleChange(id, e)}>
+      <select defaultValue="" onChange={(e) => handleChange(scheduleObj, id, e)}>
         <option hidden value="">Select a grade</option>
         <option value="A+">A+</option>
         <option value="A">A</option>
