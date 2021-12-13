@@ -21,6 +21,7 @@ class FinalGrades extends React.Component {
 
   componentDidMount() {
     // TODO: replace hardcoded number with props teacher id
+    console.log("TEACHER: ", this.props.teacher);
     fetcher(`${baseURL}/teachers/${this.props.teacher.id}/schedules`) //Fetch TeacherSchedule Table from API
       .then((response) => response.json()) //Convert response to a JSON object
       .then((data) => {
@@ -46,12 +47,14 @@ class FinalGrades extends React.Component {
     });
 
     grades.forEach(grade => this.props.postGrades(grade));
+    this.state.newInputs.forEach(grade => this.props.postGrades(grade));
   }
 
   handleChange(scheduleObj, id, e) {
     e.preventDefault();
     console.log("SCHEDULE OBJECT: ", scheduleObj);
     const { course, period, student, teacher } = scheduleObj;
+    const campus = student.campus || "NULL";
     this.setState({
       [id]: {
         student: {
@@ -69,7 +72,7 @@ class FinalGrades extends React.Component {
           lastName: teacher.lastName,
         },
         grade: e.target.value,
-        campus: "add campus", // TODO: after merged changes replace with campus from scheduleObj
+        campus: campus,
       },
     });
   }
@@ -81,21 +84,20 @@ class FinalGrades extends React.Component {
         firstName: "",
         lastName: "",
         grade: "",
-        campus: "",
       },
       course: {
         name: "",
         period: "",
       },
       teacher: {
-        firstName: "",
-        lastName: "",
+        firstName: this.props.teacher.firstName,
+        lastName: this.props.teacher.lastName,
       },
       grade: "",
+      campus: "",
     };
 
     this.setState(prevState => ({ newInputs: prevState.newInputs.concat([newInput]) }));
-    console.log(this.state);
   }
 
   handleAdditionalChange(id, e) {
@@ -226,7 +228,7 @@ const AdditionalInput = ({ id, student, course, grade, handleChange }) => {
   console.log("ID: ", id);
   return (
     <div className="field">
-      <label>Student Name</label>
+      <label>Student</label>
       <input
         type="text"
         placeholder="first"
@@ -239,6 +241,13 @@ const AdditionalInput = ({ id, student, course, grade, handleChange }) => {
         placeholder="last"
         name="student.lastName"
         value={student.lastName}
+        onChange={(e) => handleChange(id, e)}
+      />
+      <input
+        type="text"
+        placeholder="year"
+        name="student.grade"
+        value={student.grade}
         onChange={(e) => handleChange(id, e)}
       />
       <label>Course</label>
