@@ -221,6 +221,7 @@ const Input = ({ handleChange, id, scheduleObj }) => {
         <option hidden value="">Select a grade</option>
         <option value="Satisfactory">Satisfactory</option>
         <option value="Needs Improvement">Needs Improvement</option>
+        <option value="In Progress">In Progress</option>
       </select>
     );
   } else {
@@ -241,6 +242,7 @@ const Input = ({ handleChange, id, scheduleObj }) => {
         <option value="D">D</option>
         <option value="D-">D-</option>
         <option value="F">F</option>
+        <option value="In Progress">In Progress</option>
       </select>
     );
   }
