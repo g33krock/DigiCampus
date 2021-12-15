@@ -221,6 +221,7 @@ const Input = ({ handleChange, id, scheduleObj }) => {
         <option hidden value="">Select a grade</option>
         <option value="Satisfactory">Satisfactory</option>
         <option value="Needs Improvement">Needs Improvement</option>
+        <option value="In Progress">In Progress</option>
       </select>
     );
   } else {
@@ -228,19 +229,20 @@ const Input = ({ handleChange, id, scheduleObj }) => {
       // return an input field with letter grades
       <select defaultValue="" onChange={(e) => handleChange(scheduleObj, id, e)}>
         <option hidden value="">Select a grade</option>
-        <option value="A+">A+</option>
-        <option value="A">A</option>
-        <option value="A-">A-</option>
-        <option value="B+">B+</option>
-        <option value="B">B</option>
-        <option value="B-">B-</option>
-        <option value="C+">C+</option>
-        <option value="C">C</option>
-        <option value="C-">C-</option>
-        <option value="D+">D+</option>
-        <option value="D">D</option>
-        <option value="D-">D-</option>
-        <option value="F">F</option>
+        <option value="A+">A+ (97-100)</option>
+        <option value="A">A (93-96)</option>
+        <option value="A-">A- (90-92)</option>
+        <option value="B+">B+ (87-89)</option>
+        <option value="B">B (83-86)</option>
+        <option value="B-">B- (80-82)</option>
+        <option value="C+">C+ (77-79)</option>
+        <option value="C">C (73-76)</option>
+        <option value="C-">C- (70-72)</option>
+        <option value="D+">D+ (67-69)</option>
+        <option value="D">D (63-66)</option>
+        <option value="D-">D- (60-62)</option>
+        <option value="F">F (below 60)</option>
+        <option value="In Progress">In Progress</option>
       </select>
     );
   }
