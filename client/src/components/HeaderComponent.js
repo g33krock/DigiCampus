@@ -216,6 +216,11 @@ class Header extends Component {
                 </NavLink>
               </NavItem>
               <NavItem>
+                <NavLink className="nav-link" to="/gradeSheet">
+                  Grade Sheet
+                </NavLink>
+              </NavItem>
+              <NavItem>
                 <NavLink className="nav-link" to="/finalGrades">
                   Final Grades
                 </NavLink>
@@ -397,6 +402,11 @@ class Header extends Component {
                 </NavLink>
               </NavItem>
               <NavItem>
+                <NavLink className="nav-link" to="/gradeSheet">
+                  Grade Sheet
+                </NavLink>
+              </NavItem>
+              <NavItem>
                 <NavLink className="nav-link" to="/finalGrades">
                   Final Grades
                 </NavLink>
@@ -470,6 +480,11 @@ class Header extends Component {
               <NavItem>
                 <NavLink className="nav-link" to="/billing">
                   Billing
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/gradeSheet">
+                  Grade Sheet
                 </NavLink>
               </NavItem>
               <NavItem>

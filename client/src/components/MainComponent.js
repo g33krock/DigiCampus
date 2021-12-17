@@ -23,6 +23,7 @@ import Billing from "./BillingComponent";
 import ProviderTimeCardViewer from "./ProviderTimeCardViewer";
 import AdminProviderTimeCardViewer from "./AdminProviderTimeCardViewer";
 import FinalGrades from './FinalGrades';
+import GradeSheet from './GradeSheet';
 
 class Main extends Component {
   constructor(props) {
@@ -187,6 +188,11 @@ class Main extends Component {
               component={FinalGrades}
               userEmail={this.props?.userEmail}
             />
+            <PrivateRoute
+              path="/gradeSheet"
+              component={GradeSheet}
+              userEmail={this.props?.userEmail}
+            />
             <PrivateRoute path="/home" component={Home} />
             <Redirect to="/home" />
           </Switch>
@@ -261,6 +267,11 @@ class Main extends Component {
             <PrivateRoute
               path="/finalGrades"
               component={FinalGrades}
+              userEmail={this.props?.userEmail}
+            />
+            <PrivateRoute
+              path="/gradeSheet"
+              component={GradeSheet}
               userEmail={this.props?.userEmail}
             />
             <PrivateRoute path="/home" component={Home} />
@@ -350,6 +361,11 @@ class Main extends Component {
             <PrivateRoute
               path="/finalGrades"
               component={FinalGrades}
+              userEmail={this.props?.userEmail}
+            />
+            <PrivateRoute
+              path="/gradeSheet"
+              component={GradeSheet}
               userEmail={this.props?.userEmail}
             />
             <PrivateRoute path="/home" component={Home} />

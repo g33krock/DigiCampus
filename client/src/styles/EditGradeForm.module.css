@@ -1,0 +1,36 @@
+.field {
+  display: flex;
+  padding: 10px;
+}
+
+.label {
+  padding-right: 10px;
+}
+
+.instructions {
+  max-width: 500px;
+}
+
+.form {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  grid-column: 1 / 7;
+}
+
+.additionalStudents {
+  padding-top: 20px;
+}
+
+.newInputs {
+  padding: 20px;
+}
+
+.additionalInput {
+  padding-top: 20px;
+}
+
+.field * {
+  padding: 3px;
+  margin: 4px;
+  border-radius: 5px;
+}
