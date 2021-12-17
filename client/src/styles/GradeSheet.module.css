@@ -1,0 +1,23 @@
+.container {
+  background-color: white;
+  font-family: serif;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+}
+
+.row {
+
+}
+
+.cell {
+  border: 1px solid black;
+  padding: 3px;
+}
+
+.form {
+  grid-column: 1 / 7;
+  display: flex;
+}

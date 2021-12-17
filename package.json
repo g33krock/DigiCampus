@@ -8,7 +8,8 @@
 	},
 	"dependencies": {
 		"heroku": "^7.56.0",
-		"lodash": "^4.17.21"
+		"lodash": "^4.17.21",
+		"react-modal": "^3.14.4"
 	},
 	"scripts": {
 		"start": "npm run server",

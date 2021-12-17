@@ -7,8 +7,10 @@ import teachers from './teachers';
 import teacher from './teacher';
 import students from './students';
 import finalGrades from './finalGrades';
+import grades from './grades';
+import schedules from './schedules';
 
-const reducer = combineReducers({ teachers, teacher, students, finalGrades });
+const reducer = combineReducers({ teachers, teacher, students, finalGrades, grades, schedules });
 
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))
