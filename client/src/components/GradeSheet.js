@@ -19,8 +19,7 @@ class GradeSheet extends React.Component {
 
   componentDidMount() {
     const role = this.props.teacher.role.id;
-    // const campus = (role === 10 || role === 5) ? null : this.props.teacher.campus.name;
-    const campus = 'Tempe';
+    const campus = (role === 10 || role === 5) ? null : this.props.teacher.campus.name;
 
     this.props.loadSchedules();
     this.props.loadGrades(campus);
