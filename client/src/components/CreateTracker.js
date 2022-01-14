@@ -393,11 +393,11 @@ export class TrackerCreator extends Component {
                         </option>
                         <option value="3">
                           Ritual: Minimal effort to avoid negative consequences,
-                          no self-directed/ motivated, minimal inquiry
+                          no self-directed/motivated, minimal inquiry
                         </option>
                         <option value="4">
                           Strategic: Clear effort, focus on directions and task
-                          completion to meet standard, minimal inquiry
+                          completion to meet standard, some inquiry
                         </option>
                         <option value="5">
                           High: Persistent, sustained inquiry, self-directed
