@@ -215,16 +215,6 @@ class Header extends Component {
                   TimeCard
                 </NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink className="nav-link" to="/gradeSheet">
-                  Grade Sheet
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink className="nav-link" to="/finalGrades">
-                  Final Grades
-                </NavLink>
-              </NavItem>
             </Nav>
           </Collapse>
           <Col sm={3}></Col>
@@ -265,11 +255,6 @@ class Header extends Component {
               <NavItem>
                 <NavLink className="nav-link" to="/resources">
                   Resources
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink className="nav-link" to="/finalGrades">
-                  Final Grades
                 </NavLink>
               </NavItem>
             </Nav>
@@ -401,16 +386,6 @@ class Header extends Component {
                   TimeCard
                 </NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink className="nav-link" to="/gradeSheet">
-                  Grade Sheet
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink className="nav-link" to="/finalGrades">
-                  Final Grades
-                </NavLink>
-              </NavItem>
               <Col sm={3}></Col>
             </Nav>
           </Collapse>
@@ -480,16 +455,6 @@ class Header extends Component {
               <NavItem>
                 <NavLink className="nav-link" to="/billing">
                   Billing
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink className="nav-link" to="/gradeSheet">
-                  Grade Sheet
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink className="nav-link" to="/finalGrades">
-                  Final Grades
                 </NavLink>
               </NavItem>
               <Col sm={3}></Col>
