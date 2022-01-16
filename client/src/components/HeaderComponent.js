@@ -216,13 +216,8 @@ class Header extends Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="nav-link" to="/gradeSheet">
-                  Grade Sheet
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink className="nav-link" to="/finalGrades">
-                  Final Grades
+                <NavLink className="nav-link" to="/reference">
+                  Reference
                 </NavLink>
               </NavItem>
             </Nav>
@@ -268,8 +263,8 @@ class Header extends Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="nav-link" to="/finalGrades">
-                  Final Grades
+                <NavLink className="nav-link" to="/reference">
+                  Reference
                 </NavLink>
               </NavItem>
             </Nav>
@@ -402,13 +397,8 @@ class Header extends Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="nav-link" to="/gradeSheet">
-                  Grade Sheet
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink className="nav-link" to="/finalGrades">
-                  Final Grades
+                <NavLink className="nav-link" to="/reference">
+                  Reference
                 </NavLink>
               </NavItem>
               <Col sm={3}></Col>
@@ -483,13 +473,8 @@ class Header extends Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="nav-link" to="/gradeSheet">
-                  Grade Sheet
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink className="nav-link" to="/finalGrades">
-                  Final Grades
+                <NavLink className="nav-link" to="/reference">
+                  Reference
                 </NavLink>
               </NavItem>
               <Col sm={3}></Col>

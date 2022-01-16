@@ -22,8 +22,9 @@ import TimeCard from "./TimeCardComponent";
 import Billing from "./BillingComponent";
 import ProviderTimeCardViewer from "./ProviderTimeCardViewer";
 import AdminProviderTimeCardViewer from "./AdminProviderTimeCardViewer";
-import FinalGrades from './FinalGrades';
-import GradeSheet from './GradeSheet';
+// import FinalGrades from './FinalGrades';
+// import GradeSheet from './GradeSheet';
+import Reference from './Reference'
 
 class Main extends Component {
   constructor(props) {
@@ -94,8 +95,8 @@ class Main extends Component {
               userEmail={this.props?.userEmail}
             />
             <PrivateRoute
-              path="/finalGrades"
-              component={FinalGrades}
+              path="/reference"
+              component={Reference}
               userEmail={this.props?.userEmail}
             />
             <PrivateRoute path="/home" component={Home} />
@@ -184,13 +185,8 @@ class Main extends Component {
               campus={campus}
             />
             <PrivateRoute
-              path="/finalGrades"
-              component={FinalGrades}
-              userEmail={this.props?.userEmail}
-            />
-            <PrivateRoute
-              path="/gradeSheet"
-              component={GradeSheet}
+              path="/reference"
+              component={Reference}
               userEmail={this.props?.userEmail}
             />
             <PrivateRoute path="/home" component={Home} />
@@ -265,13 +261,8 @@ class Main extends Component {
               campus={campus}
             />
             <PrivateRoute
-              path="/finalGrades"
-              component={FinalGrades}
-              userEmail={this.props?.userEmail}
-            />
-            <PrivateRoute
-              path="/gradeSheet"
-              component={GradeSheet}
+              path="/reference"
+              component={Reference}
               userEmail={this.props?.userEmail}
             />
             <PrivateRoute path="/home" component={Home} />
@@ -359,13 +350,8 @@ class Main extends Component {
               userEmail={this.props?.userEmail}
             />
             <PrivateRoute
-              path="/finalGrades"
-              component={FinalGrades}
-              userEmail={this.props?.userEmail}
-            />
-            <PrivateRoute
-              path="/gradeSheet"
-              component={GradeSheet}
+              path="/reference"
+              component={Reference}
               userEmail={this.props?.userEmail}
             />
             <PrivateRoute path="/home" component={Home} />
