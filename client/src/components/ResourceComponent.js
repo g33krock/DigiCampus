@@ -103,7 +103,7 @@ export default class Resource extends Component {
               <CardBody>
                 <CardText>A collection of activities that Grant has made in JS!</CardText>
               </CardBody>
-              <CardLink href="http://steam.great-site.net/STEAM/landpage.html">
+              <CardLink href="http://steam.great-site.net/Christmas%20Activity/">
                 STEAM-Site
               </CardLink>
             </Card>

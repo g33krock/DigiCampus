@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+button {
+  border-radius: 5px;
+}
+
+.container {
+  background-color: #e2cae3;
+  font-family: 'Roboto', sans-serif;
+  padding: 20px;
+}
+
+.field {
+  display: flex;
+  padding: 10px;
+}
+
+.label {
+  padding-right: 10px;
+}
+
+.instructions {
+  max-width: 500px;
+}
+
+.form {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.additionalStudents {
+  padding-top: 20px;
+}
+
+.newInputs {
+  padding: 20px;
+}
+
+.additionalInput {
+  padding-top: 20px;
+}
+
+.field * {
+  padding: 3px;
+  margin: 4px;
+  border-radius: 5px;
+}

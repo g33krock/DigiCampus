@@ -164,8 +164,8 @@ export class TeacherUpdater extends Component {
                       <option value="3">Litchfield Park</option>
                       <option value="4">Scottsdale</option>
                       <option value="5">Tucson</option>
-                      <option value="9">BRACE</option>
                       <option value="8">The Abyss</option>
+                      <option value="12">Off Campus</option>
                     </Input>
                   </FormGroup>
                 </Col>

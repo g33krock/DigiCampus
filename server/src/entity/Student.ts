@@ -15,6 +15,7 @@ import { Attendance } from "./Attendance";
 import { RelatedService } from "./RelatedService";
 import { SessionInfo } from "./SessionInfo";
 import { TallyQuestion } from "./TallyQuestion";
+import { StudentAttendance } from "./StudentAttendance";
 
 @Entity()
 export class Student extends BaseEntity {
@@ -311,6 +312,9 @@ export class Student extends BaseEntity {
 
 	@ManyToMany(() => Attendance, attendance => attendance.student)
     attendance: Attendance[];
+
+	@OneToMany(() => StudentAttendance, studentattendance => studentattendance.student, {onDelete: 'CASCADE'})
+	studentattendance: StudentAttendance[];
 
 	@Column({
 		nullable: true

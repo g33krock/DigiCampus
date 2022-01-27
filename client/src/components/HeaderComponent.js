@@ -215,6 +215,11 @@ class Header extends Component {
                   TimeCard
                 </NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/reference">
+                  Reference
+                </NavLink>
+              </NavItem>
             </Nav>
           </Collapse>
           <Col sm={3}></Col>
@@ -255,6 +260,11 @@ class Header extends Component {
               <NavItem>
                 <NavLink className="nav-link" to="/resources">
                   Resources
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/reference">
+                  Reference
                 </NavLink>
               </NavItem>
             </Nav>
@@ -324,7 +334,7 @@ class Header extends Component {
           <Col sm={3}></Col>
         </div>
       );
-    }else if (
+    } else if (
       this.state.teacher?.role.id === 5 ||
       this.state.teacher?.role.id === 7
     ) {
@@ -384,6 +394,11 @@ class Header extends Component {
               <NavItem>
                 <NavLink className="nav-link" to="/timeCard">
                   TimeCard
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/reference">
+                  Reference
                 </NavLink>
               </NavItem>
               <Col sm={3}></Col>
@@ -457,6 +472,11 @@ class Header extends Component {
                   Billing
                 </NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/reference">
+                  Reference
+                </NavLink>
+              </NavItem>
               <Col sm={3}></Col>
             </Nav>
           </Collapse>
@@ -490,7 +510,7 @@ class Header extends Component {
     return (
       <React.Fragment>
         <Jumbo
-        teacher={this.state.teacher} />
+          teacher={this.state.teacher} />
         <Navbar dark sticky="top" expand="md">
           {user}
         </Navbar>

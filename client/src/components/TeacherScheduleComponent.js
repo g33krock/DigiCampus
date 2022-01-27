@@ -47,6 +47,7 @@ export default class TeacherSchedule extends Component {
   }
 
   render() {
+    console.log("this.state.teacherschedule: ", this.state.teacherschedule);
     const teacher = this.props.teacher;
     const teacherSchedBox = this.state.teacherschedule
       .sort(function (a, b) {
@@ -100,6 +101,7 @@ export default class TeacherSchedule extends Component {
 
           default:
         }
+        console.log("TEACHER SCHED OBJECT: ", teachersched);
         return (
           <div key={teachersched.id} className="col" id="redBrick">
             <Card className="border-primary p-2 h-100 m-2 cardSpace" onClick={() => this.setSchedule(teachersched)} id={done}>

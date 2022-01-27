@@ -302,11 +302,11 @@ export class TrackerCreator extends Component {
                 />
               </FormGroup>
               <Container style={{ backgroundColor: "tan" }} id="trackerBox">
-                <h3>Check for Understanding</h3>
+                <h3>Comprehension</h3>
                 <Row form>
                   <Col md={3}>
                     <FormGroup>
-                      <Label for="comprehension">Check for Understanding</Label>
+                      <Label for="comprehension">Comprehension</Label>
                       <Input
                         type="select"
                         name="comprehension"
@@ -314,18 +314,17 @@ export class TrackerCreator extends Component {
                         className="fancy-cursor"
                       >
                         <option value="0"></option>
-                        <option value="1">Not Understanding</option>
-                        <option value="2">Superficial Understanding</option>
-                        <option value="3">Developing</option>
-                        <option value="4">Solid Mastery</option>
+                        <option value="1">No demonstration of concept mastery/no work samples</option>
+                        <option value="2">Beginning: Demonstrates little comprehension of concept</option>
+                        <option value="3">Developing: Demonstrates incomplete and/or partial comprehension of concepts with some errors</option>
+                        <option value="4">Proficient: Demonstrates considerable comprehension of concept</option>
+                        <option value="5">Mastery: Demonstrates complete and thorough comprehension of concept</option>
                       </Input>
                     </FormGroup>
                   </Col>
                   <Col md={9}>
                     <FormGroup>
-                      <Label for="comprehensionAI">
-                        Check for Understanding Additional Information
-                      </Label>
+                      <Label for="comprehensionAI">Additional Information</Label>
                       <Input
                         type="select"
                         name="comprehensionAI"
@@ -356,7 +355,7 @@ export class TrackerCreator extends Component {
                 </Row>
                 <FormGroup>
                   <Label for="comprehensionComment">
-                    Check for Understanding Comment
+                    Comment
                   </Label>
                   <Input
                     type="text"
@@ -393,11 +392,11 @@ export class TrackerCreator extends Component {
                         </option>
                         <option value="3">
                           Ritual: Minimal effort to avoid negative consequences,
-                          no self-directed/ motivated, minimal inquiry
+                          no self-directed/motivated, minimal inquiry
                         </option>
                         <option value="4">
                           Strategic: Clear effort, focus on directions and task
-                          completion to meet standard, minimal inquiry
+                          completion to meet standard, some inquiry
                         </option>
                         <option value="5">
                           High: Persistent, sustained inquiry, self-directed
@@ -409,7 +408,7 @@ export class TrackerCreator extends Component {
                   <Col md={9}>
                     <FormGroup>
                       <Label for="engagementAI">
-                        Engagement Additional Information
+                        Additional Information
                       </Label>
                       <Input
                         type="select"
@@ -448,7 +447,7 @@ export class TrackerCreator extends Component {
                   </Col>
                 </Row>
                 <FormGroup>
-                  <Label for="engagementComment">Engagement Comment</Label>
+                  <Label for="engagementComment">Comment</Label>
                   <Input
                     type="text"
                     name="engagementComment"
@@ -458,11 +457,11 @@ export class TrackerCreator extends Component {
                 </FormGroup>
               </Container>
               <Container style={{ backgroundColor: "gold" }} id="trackerBox">
-                <h3>Behavior/Zone</h3>
+                <h3>Behavior/Zone of Regulation</h3>
                 <Row form>
                   <Col md={3}>
                     <FormGroup>
-                      <Label for="behavior">Behavior/Zone of Regulation</Label>
+                      <Label for="behavior">Behavior/Zone</Label>
                       <Input
                         type="select"
                         name="behavior"
@@ -506,7 +505,7 @@ export class TrackerCreator extends Component {
                   <Col md={9}>
                     <FormGroup>
                       <Label for="behaviorAI">
-                        Behavior/Zone Additional Information
+                        Additional Information
                       </Label>
                       <Input
                         type="select"
@@ -537,7 +536,7 @@ export class TrackerCreator extends Component {
                   </Col>
                 </Row>
                 <FormGroup>
-                  <Label for="behaviorComment">Behavior/Zone Comment</Label>
+                  <Label for="behaviorComment">Comment</Label>
                   <Input
                     type="text"
                     name="behaviorComment"

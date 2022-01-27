@@ -22,6 +22,9 @@ import TimeCard from "./TimeCardComponent";
 import Billing from "./BillingComponent";
 import ProviderTimeCardViewer from "./ProviderTimeCardViewer";
 import AdminProviderTimeCardViewer from "./AdminProviderTimeCardViewer";
+// import FinalGrades from './FinalGrades';
+// import GradeSheet from './GradeSheet';
+import Reference from './Reference'
 
 class Main extends Component {
   constructor(props) {
@@ -89,6 +92,11 @@ class Main extends Component {
             <PrivateRoute
               path="/resources"
               component={Resource}
+              userEmail={this.props?.userEmail}
+            />
+            <PrivateRoute
+              path="/reference"
+              component={Reference}
               userEmail={this.props?.userEmail}
             />
             <PrivateRoute path="/home" component={Home} />
@@ -176,6 +184,11 @@ class Main extends Component {
               userEmail={this.props?.userEmail}
               campus={campus}
             />
+            <PrivateRoute
+              path="/reference"
+              component={Reference}
+              userEmail={this.props?.userEmail}
+            />
             <PrivateRoute path="/home" component={Home} />
             <Redirect to="/home" />
           </Switch>
@@ -246,6 +259,11 @@ class Main extends Component {
               component={TimeCard}
               userEmail={this.props?.userEmail}
               campus={campus}
+            />
+            <PrivateRoute
+              path="/reference"
+              component={Reference}
+              userEmail={this.props?.userEmail}
             />
             <PrivateRoute path="/home" component={Home} />
             <Redirect to="/home" />
@@ -329,6 +347,11 @@ class Main extends Component {
             <PrivateRoute
               path="/billing"
               component={Billing}
+              userEmail={this.props?.userEmail}
+            />
+            <PrivateRoute
+              path="/reference"
+              component={Reference}
               userEmail={this.props?.userEmail}
             />
             <PrivateRoute path="/home" component={Home} />

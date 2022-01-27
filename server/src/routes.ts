@@ -32,6 +32,8 @@ import { RelatedServiceRoleController } from "./controller/RelatedServiceRoleCon
 import { SessionInfoController } from "./controller/SessionInfoController";
 import { TallyQuestionController } from "./controller/TallyQuestionController";
 import { TallyResponseController } from "./controller/TallyResponseController";
+import { StudentAttendanceController } from "./controller/StudentAttendanceController";
+import { FinalGradeController } from './controller/FinalGradeController';
 
 export const Routes = [{
 	method: "get",
@@ -876,4 +878,52 @@ export const Routes = [{
     controller: SessionInfoController,
     action: "remove"
 },
+
+// StudentAttendance
+
+{
+    method: "get",
+    route: "/studentattendance",
+    controller: StudentAttendanceController,
+    action: "all"
+}, {
+    method: "get",
+    route: "/studentattendance/:id",
+    controller: StudentAttendanceController,
+    action: "one"
+}, {
+    method: "put",
+    route: "/studentattendance/:id",
+    controller: StudentAttendanceController,
+    action: "update"
+}, {
+    method: "post",
+    route: "/studentattendance",
+    controller: StudentAttendanceController,
+    action: "save"
+}, {
+    method: "delete",
+    route: "/studentattendance/:id",
+    controller: StudentAttendanceController,
+    action: "remove"
+},
+
+// FinalGrade
+
+{
+  method: "get",
+  route: "/finalGrade",
+  controller: FinalGradeController,
+  action: "all"
+}, {
+  method: "get",
+  route: "/finalGrade/:id",
+  controller: FinalGradeController,
+  action: "one"
+}, {
+  method: "post",
+  route: "/finalGrade",
+  controller: FinalGradeController,
+  action: "save"
+} 
 ];
