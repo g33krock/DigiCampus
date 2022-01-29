@@ -70,8 +70,9 @@ class Main extends Component {
       teacher?.role.id === 4
     ) {
       return (
-        <div>Hello world</div>
         <div>
+          <div>Hello world</div>
+          <div>Goodbye</div>
           <Switch>
             <PrivateRoute
               path="/singleteachers"
