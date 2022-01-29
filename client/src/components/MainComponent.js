@@ -70,6 +70,7 @@ class Main extends Component {
       teacher?.role.id === 4
     ) {
       return (
+        <div>Hello world</div>
         <div>
           <Switch>
             <PrivateRoute
