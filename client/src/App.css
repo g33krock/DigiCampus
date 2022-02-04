@@ -13,9 +13,9 @@ body {
   /* font-family: 'winter'; */
   font-family: 'Fredoka One', cursive;
   /* font-family: 'Helvetica', sans-serif; */
-  cursor:url("https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Icicle.cur"),
-  auto; 
-  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur'); */
+  /* cursor:url("https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Icicle.cur"),
+  auto;  */
+  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur');
 }
 
 @font-face {
@@ -71,12 +71,14 @@ html {
 }
 
 #winterWindow {
-  background-image:url(https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/winterWindow.jpg);
+  /* background-image:url(https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/winterWindow.jpg); */
+  background-color: green;
   background-size: cover
 }
 
 #closedWindow {
-  background-image:url(https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/closedWindow1.png);
+  /* background-image:url(https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/closedWindow1.png); */
+  background-color:white;
   background-size: cover, contain;
 }
 
@@ -86,13 +88,13 @@ html {
 
 #redBrick {
   background-color: silver;
-  background-image:
+  /* background-image:
   linear-gradient(335deg, #b00 23px, transparent 23px),
   linear-gradient(155deg, #d00 23px, transparent 23px),
   linear-gradient(335deg, #b00 23px, transparent 23px),
   linear-gradient(155deg, #d00 23px, transparent 23px);
   background-size:58px 58px;
-  background-position:0px 2px, 4px 35px, 29px 31px, 34px 6px;
+  background-position:0px 2px, 4px 35px, 29px 31px, 34px 6px; */
 }
 
 #wrapper {
