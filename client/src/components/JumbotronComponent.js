@@ -106,7 +106,7 @@ export class Jumbo extends Component {
             <Row>
               <Col />
               <Col>
-          <img src="https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/AspireWinter.gif" style={{height:"300px", position:"absolute", alignContent:"center"}}/>
+          <img src="https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/AspireOwlGraphic.png" style={{height:"300px", position:"absolute", alignContent:"center"}}/>
           </Col>
           <Col />
           </Row>
