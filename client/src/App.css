@@ -1,5 +1,6 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap'); */
 
 html,
 body {
@@ -11,11 +12,12 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   /* font-family: 'winter'; */
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Patua One', cursive;
   /* font-family: 'Helvetica', sans-serif; */
-  cursor:url("https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Icicle.cur"),
+
+  /* cursor:url("https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Icicle.cur"), */
+  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur'),
   auto; 
-  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur'); */
 }
 
 @font-face {
@@ -56,8 +58,22 @@ html {
 .megatron {
   /* background-color: rgb(0, 16, 107); */
   border-radius: 60/2;
-  /* background-image: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/AspireWinter.gif'); */
-  background-image:url(https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Winterscape.png);
+  /* background-image: url(https://www.kindpng.com/picc/m/314-3140248_butterflies-swarm-png-transparent-png.png); */
+  background-image: url(https://i.imgur.com/H74ow7u.png);
+  /* background-image:url(https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Winterscape.png); */
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  position: relative;
+  align-content: center;
+}
+
+.megaBG {
+  /* background-color: rgb(0, 16, 107); */
+  border-radius: 60/2;
+  background-image: url(https://i.pinimg.com/originals/af/5f/97/af5f975e86e404309d0c6ce803498046.png );
+  /* background-image:url(https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Winterscape.png); */
+
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: cover;
@@ -70,34 +86,40 @@ html {
 }
 
 #winterWindow {
-  background-image:url(https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/winterWindow.jpg);
-  background-size: cover
+  /* background-image:url(https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/winterWindow.jpg); */
+  background-image:url(https://i.imgur.com/wMEYn7D.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+
 }
 
 #closedWindow {
-  background-image:url(https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/closedWindow1.png);
+  /* background-image:url(https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/closedWindow1.png); */
+  background-color:white;
   background-size: cover, contain;
 }
 
 .cardSpace {
-  margin-bottom: 2px;
+  margin: 2px;
+  margin-bottom: 3px;
 }
 
 #redBrick {
   background-color: silver;
-  background-image:
+  /* background-image:
   linear-gradient(335deg, #b00 23px, transparent 23px),
   linear-gradient(155deg, #d00 23px, transparent 23px),
   linear-gradient(335deg, #b00 23px, transparent 23px),
   linear-gradient(155deg, #d00 23px, transparent 23px);
   background-size:58px 58px;
-  background-position:0px 2px, 4px 35px, 29px 31px, 34px 6px;
+  background-position:0px 2px, 4px 35px, 29px 31px, 34px 6px; */
 }
 
 #wrapper {
   text-align: center;
-  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto; */
-  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Icicle.cur'), auto;
+  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto;
+  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Icicle.cur'), auto; */
 
 }
 
@@ -120,8 +142,8 @@ text set in the data-text attribute. */
   /* Animation provies a slight random skew. Check bottom of doc
   for more information on how to random skew. */
   animation: glitch-skew 1s infinite linear alternate-reverse;
-  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto; */
-  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Icicle.cur'), auto;
+  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto;
+  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Icicle.cur'), auto; */
 
 }
 
@@ -448,15 +470,15 @@ skew to change the 'thickness' of the glitch.*/
 }
 
 .fancy-cursor {
-  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto; */
-  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Icicle.cur'), auto;
+  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto;
+  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Icicle.cur'), auto; */
 }
 
 .card-title {
   font-size: large;
   font-weight: bolder;
-  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Icicle.cur'), auto;
-  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto; */
+  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Icicle.cur'), auto; */
+  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto;
   /* text-shadow: 2px 2px #050505; */
 }
 
@@ -469,22 +491,22 @@ skew to change the 'thickness' of the glitch.*/
   font-size: large;
   font-weight: bolder;
   margin: bottom 10px;
-  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Icicle.cur'), auto;
-  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto; */
+  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Icicle.cur'), auto; */
+  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto;
 }
 
 .schedule-container {
   display: grid;
   grid-template-columns: 15% 15% 15% 15% 15% 15%;
   grid-row-gap: 0px;
-  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Icicle.cur'), auto;
-  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto; */
+  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Icicle.cur'), auto; */
+  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto;
 }
 
 #trackerBox {
   border: 2px solid #000000;
-  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Icicle.cur'), auto;
-  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto; */
+  /* cursor: url('https://qyctrtcwtwasdktftmuy.supabase.in/storage/v1/object/public/images/Icicle.cur'), auto; */
+  cursor: url('https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/sign/images/Large Pencil Yellow.cur?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZXMvTGFyZ2UgUGVuY2lsIFllbGxvdy5jdXIiLCJpYXQiOjE2MjEyNjg5NTMsImV4cCI6MTkzNjYyODk1M30.ShhNhxaUY1mVwYca4tQ_PITyEZQXHV5t7k7mw-E0x1A'), auto;
   position: relative;
   bottom: 3
 }
