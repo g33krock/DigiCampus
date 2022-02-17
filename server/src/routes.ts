@@ -34,6 +34,7 @@ import { TallyQuestionController } from "./controller/TallyQuestionController";
 import { TallyResponseController } from "./controller/TallyResponseController";
 import { StudentAttendanceController } from "./controller/StudentAttendanceController";
 import { FinalGradeController } from './controller/FinalGradeController';
+import { VideoController } from './controller/VideoController';
 
 export const Routes = [{
 	method: "get",
@@ -925,5 +926,34 @@ export const Routes = [{
   route: "/finalGrade",
   controller: FinalGradeController,
   action: "save"
-} 
+}, 
+
+// Video
+
+{
+    method: "get",
+    route: "/videos",
+    controller: VideoController,
+    action: "all"
+}, {
+    method: "get",
+    route: "/videos/:id",
+    controller: VideoController,
+    action: "one"
+}, {
+    method: "put",
+    route: "/videos/:id",
+    controller: VideoController,
+    action: "update"
+}, {
+    method: "post",
+    route: "/videos",
+    controller: VideoController,
+    action: "save"
+}, {
+    method: "delete",
+    route: "/videos/:id",
+    controller: VideoController,
+    action: "remove"
+},
 ];

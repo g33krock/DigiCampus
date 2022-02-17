@@ -25,6 +25,7 @@ import AdminProviderTimeCardViewer from "./AdminProviderTimeCardViewer";
 // import FinalGrades from './FinalGrades';
 // import GradeSheet from './GradeSheet';
 import Reference from './Reference'
+import { VideoSeries } from "./VideoSeries/VideoSeriesComponent";
 
 class Main extends Component {
   constructor(props) {
@@ -97,6 +98,11 @@ class Main extends Component {
             <PrivateRoute
               path="/reference"
               component={Reference}
+              userEmail={this.props?.userEmail}
+            />
+            <PrivateRoute
+              path="/video"
+              component={VideoSeries}
               userEmail={this.props?.userEmail}
             />
             <PrivateRoute path="/home" component={Home} />
@@ -185,6 +191,11 @@ class Main extends Component {
               campus={campus}
             />
             <PrivateRoute
+              path="/video"
+              component={VideoSeries}
+              userEmail={this.props?.userEmail}
+            />
+            <PrivateRoute
               path="/reference"
               component={Reference}
               userEmail={this.props?.userEmail}
@@ -259,6 +270,11 @@ class Main extends Component {
               component={TimeCard}
               userEmail={this.props?.userEmail}
               campus={campus}
+            />
+            <PrivateRoute
+              path="/video"
+              component={VideoSeries}
+              userEmail={this.props?.userEmail}
             />
             <PrivateRoute
               path="/reference"
@@ -343,6 +359,11 @@ class Main extends Component {
               component={TimeCard}
               userEmail={this.props?.userEmail}
               campus={campus}
+            />
+            <PrivateRoute
+              path="/video"
+              component={VideoSeries}
+              userEmail={this.props?.userEmail}
             />
             <PrivateRoute
               path="/billing"
