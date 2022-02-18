@@ -2,11 +2,7 @@ import React, { Component } from "react";
 import { BsChevronDown } from "react-icons/bs";
 import { Container, Row, Col } from "react-bootstrap";
 import Collapsible from "react-collapsible";
-// import { agentService } from "../../services/AgentService";
 import { videoService } from "../../services/videoService";
-// import { VideoCalendar } from "./VideoCalendarComponent";
-// import { FullCalc } from "./FullCalcComponent";
-// import Auth from "../../Auth";
 
 export class VideoSeries extends Component {
   constructor(props) {
@@ -15,17 +11,6 @@ export class VideoSeries extends Component {
       showCalc: true,
       videos: [],
       video: {
-        id: "1",
-        created_at: "2021-12-17T17:28:05.000Z",
-        title: "Welcome to Compound Interest",
-        vidlink:
-          "https://compoundinterest.com/wp-content/uploads/2021/11/01-Welcome-To-Compound-Interest-1.mp4",
-        poster:
-          "https://compoundinterest.com/wp-content/uploads/2021/11/Chapter-1_-Welcome-to-Compound-Interest_-The-Retirement-You-Deserve.png",
-        number: 1,
-        category: "none",
-        curtisBanner: "block",
-        user: null,
       },
     };
   }
@@ -33,63 +18,17 @@ export class VideoSeries extends Component {
   async componentDidMount() {
     const videos = await videoService.all();
     this.setState({ videos });
-    console.log(videos);
+    console.log(this.state.videos);
   };
 
-  async updateState() {
-    const videos = await videoService.all();
-    this.setState({ videos });
-    console.log(videos);
-  }
-
-  switchShowCalc() {
-    this.setState({ showCalc: false });
-    this.setState({ colHeight: "100vh" });
-    this.setCalcVideo();
-  }
-
-  setCalcVideo = () => {
-    const video = this.state.videos.find((video) => video.id === "18");
-    this.setState({ video });
-    this.setState({ curtisBanner: "none" });
-  };
 
   setVideo = (vid) => {
     const videoId = vid.target.value;
-    console.log(vid.value);
-    const video = this.state.videos.find((video) => video.id === videoId);
+    const video = this.state.videos.find((video) => `${video.id}` === `${videoId}`);
+    console.log(this.state.videos);
+    console.log(video);
     this.setState({ video });
     console.log(this.state.video);
-    this.theCurtisBlock();
-  };
-
-  theCurtisBlock = () => {
-    if (this.state.video.id < 17) {
-      this.setState({ curtisBanner: "block" });
-    } else {
-      this.setState({ curtisBanner: "none" });
-    }
-    setTimeout(() => this.theCurtisBlockAgain(), 500);
-  };
-
-  theCurtisBlockAgain = () => {
-    if (this.state.video.id < 17) {
-      this.setState({ curtisBanner: "block" });
-    } else {
-      this.setState({ curtisBanner: "none" });
-    }
-  };
-
-  freeVideo = (vid) => {
-    if (vid.isFree === true) {
-      return;
-    } else if (vid.isFree === false && this.props.vids === false) {
-      return "disabled: 'disabled'";
-    } else if (vid.isFree === false && this.props.vids === true) {
-      return;
-    } else {
-      return "disabled: 'disabled'";
-    }
   };
 
   render() {
@@ -117,44 +56,6 @@ export class VideoSeries extends Component {
                   backgroundColor: "rgba(211, 211, 211)",
                 }}
               >
-                {/* <Row
-                  style={{
-                    marginTop: "2%",
-                    marginBottom: "2%",
-                    paddingBottom: "2%",
-                    borderBottom: "1px solid black",
-                  }}
-                >
-                  <Button
-                    className="videoButton"
-                    style={{
-                      width: "65%",
-                    }}
-                  >
-                    Secure Compound Interest
-                    <br />
-                    Webinar Replay
-                  </Button>
-                </Row>
-                <Row
-                  style={{
-                    marginTop: "2%",
-                    paddingBottom: "2%",
-                    borderBottom: "1px solid black",
-                  }}
-                >
-                  <Button
-                    className="videoButton"
-                    style={{
-                      width: "65%",
-                    }}
-                  >
-                    MPI®
-                    <br />
-                    Documentary
-                  </Button>
-                </Row> */}
-                {/* <Row></Row> */}
                 <Container
                   style={{
                     backgroundColor: "rgba(211, 211, 211)",
@@ -184,30 +85,14 @@ export class VideoSeries extends Component {
                   >
                     {this.state.videos
                       .filter((vid) => vid.category === "none")
-                      .filter((vid) => vid.id < 10)
                       .map((vid) => (
                         <option
-                          disabled={this.freeVideo(vid)}
                           tabIndex={vid.id}
                           className="selectVideo"
                           value={vid.id}
                           onClick={this.setVideo}
                         >
-                          {`${vid.id}  | ${vid.title}`}
-                        </option>
-                      ))}
-                    {this.state.videos
-                      .filter((vid) => vid.category === "none")
-                      .filter((vid) => vid.id > 9)
-                      .map((vid) => (
-                        <option
-                          disabled={this.freeVideo(vid)}
-                          tabIndex={vid.id}
-                          className="selectVideo"
-                          value={vid.id}
-                          onClick={this.setVideo}
-                        >
-                          {vid.id}| {vid.title}
+                          {`${vid.title}`}
                         </option>
                       ))}
                     <Collapsible
@@ -229,14 +114,13 @@ export class VideoSeries extends Component {
                         .filter((vid) => vid.category === "teaching")
                         .map((vid) => (
                           <option
-                            disabled={this.freeVideo(vid)}
                             tabIndex={vid.id}
                             className="selectVideo"
                             value={vid.id}
                             onClick={this.setVideo}
                             style={{ marginLeft: "30px" }}
                           >
-                            {vid.id} | {vid.title}
+                            {vid.title}
                           </option>
                         ))}
                     </Collapsible>
@@ -259,14 +143,13 @@ export class VideoSeries extends Component {
                         .filter((vid) => vid.category === "technical")
                         .map((vid) => (
                           <option
-                            disabled={this.freeVideo(vid)}
                             tabIndex={vid.id}
                             className="selectVideo"
                             value={vid.id}
                             onClick={this.setVideo}
                             style={{ marginLeft: "30px" }}
                           >
-                            {vid.id} | {vid.title}
+                            {vid.title}
                           </option>
                         ))}
                     </Collapsible>
@@ -289,14 +172,13 @@ export class VideoSeries extends Component {
                         .filter((vid) => vid.category === "steam")
                         .map((vid) => (
                           <option
-                            disabled={this.freeVideo(vid)}
                             tabIndex={vid.id}
                             className="selectVideo"
                             value={vid.id}
                             onClick={this.setVideo}
                             style={{ marginLeft: "30px" }}
                           >
-                            {vid.id} | {vid.title}
+                            {vid.title}
                           </option>
                         ))}
                     </Collapsible>
@@ -339,7 +221,7 @@ export class VideoSeries extends Component {
                   </Container>
                 </Row>
                 <Row style={{ padding: "1%" }}>
-                  <div
+                  <div className="col"
                     style={{ position: "relative", paddingBottom: "56.25%" }}
                   >
                     <iframe
@@ -353,14 +235,11 @@ export class VideoSeries extends Component {
                       style={{
                         border: "4px solid black",
                         backgroundColor: "black",
-                        // position: "absolute",
-                        // left: "0px",
+                        position: "absolute",
+                        left: "0px",
                       }}
                     />
                   </div>
-                </Row>
-                <Row>
-                  <h2 className="videofoot">ALWAYS BE COMPOUNDING™</h2>
                 </Row>
                 <div id="theCalculator" hidden={this.state.showCalc}>
                 </div>
@@ -374,10 +253,6 @@ export class VideoSeries extends Component {
                     borderRight: "4px solid black",
                   }}
                 >
-                  {/* <Image
-                    fluid
-                    src={ag.profileMPIGrey ? ag.profileMPIGrey : ag.profilePic}
-                  /> */}
                 </Row>
                 <Row
                   style={{
@@ -387,8 +262,6 @@ export class VideoSeries extends Component {
                     borderRight: "4px solid black",
                   }}
                 >
-                  {/* <Image fluid src={ag.logo} /> */}
-                  {/* <p className="emailSize">{ag.email}</p> */}
                 </Row>
                 <Row
                   style={{
@@ -398,7 +271,6 @@ export class VideoSeries extends Component {
                     borderBottom: "1px solid black",
                   }}
                 >
-                  {/* <VideoCalendar agent={ag} deposit={this.props.deposit} /> */}
                 </Row>
                 <Row
                   style={{
@@ -408,19 +280,6 @@ export class VideoSeries extends Component {
                     borderBottom: "1px solid black",
                   }}
                 >
-                  {/* <div>
-                    <Button
-                      className="videoButton"
-                      onClick={() => this.switchShowCalc()}
-                      style={{
-                        marginBottom: "0px",
-                        alignItems: "center",
-                        paddingTop: "18px",
-                      }}
-                    >
-                      MPI® Calculator
-                    </Button>
-                  </div> */}
                 </Row>
                 <Row
                   style={{
@@ -431,10 +290,6 @@ export class VideoSeries extends Component {
                     display:"none"
                   }}
                 >
-                  <div>
-                    {/* <Button className="videoButton">Share</Button> */}
-                    {/* <Auth /> */}
-                  </div>
                 </Row>
                 <Row
                   style={{
@@ -445,9 +300,6 @@ export class VideoSeries extends Component {
                     display:"none"
                   }}
                 >
-                  {/* <div>
-                    <Button className="videoButton">Leave A Review</Button>
-                  </div> */}
                 </Row>
               </Col>
             </Row>
