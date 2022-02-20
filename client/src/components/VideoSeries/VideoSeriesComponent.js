@@ -106,12 +106,12 @@ export class VideoSeries extends Component {
                           style={{ fontSize: "110%", textAlign: "left" }}
                         >
                           {" "}
-                          Teaching Guides
+                          Onboarding
                         </h4>,
                       ]}
                     >
                       {this.state.videos
-                        .filter((vid) => vid.category === "teaching")
+                        .filter((vid) => vid.category === "training")
                         .map((vid) => (
                           <option
                             tabIndex={vid.id}
@@ -164,12 +164,12 @@ export class VideoSeries extends Component {
                           style={{ fontSize: "110%", textAlign: "left" }}
                         >
                           {" "}
-                          STEAM
+                          SPED
                         </h4>,
                       ]}
                     >
                       {this.state.videos
-                        .filter((vid) => vid.category === "steam")
+                        .filter((vid) => vid.category === "sped")
                         .map((vid) => (
                           <option
                             tabIndex={vid.id}
