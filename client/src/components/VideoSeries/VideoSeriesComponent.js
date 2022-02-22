@@ -193,32 +193,11 @@ export class VideoSeries extends Component {
                   maxHeight: "100vh",
                 }}
               >
-                <Row>
+                <Row style={{textAlign:"center"}}>
                   <h1 className="videoseriestitle">AZ Aspire Academy</h1>
                   <h2 className="videoseriessubtitle">
                     Education On Your Terms
                   </h2>
-                </Row>
-                <Row
-                  style={{
-                    marginBottom: "1%",
-                    marginTop: "1%",
-                    display: this.state.curtisBanner,
-                  }}
-                >
-                  <Container
-                    style={{
-                      backgroundColor: "grey",
-                      width: "75%",
-                      borderRadius: "5px",
-                      color: "black",
-                      fontWeight: "700",
-                      paddingBottom: "1%",
-                      paddingTop: "1%",
-                    }}
-                  >
-                    <h3>Training</h3>
-                  </Container>
                 </Row>
                 <Row style={{ padding: "1%" }}>
                   <div className="col"
