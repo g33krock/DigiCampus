@@ -180,4 +180,10 @@ export class Teacher extends BaseEntity {
 		nullable: true
 	})
 	here: string;
+
+	@Column({
+		nullable: true,
+		default: false
+	})
+	multicampus: boolean;
 }

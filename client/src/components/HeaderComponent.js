@@ -215,11 +215,11 @@ class Header extends Component {
                   TimeCard
                 </NavLink>
               </NavItem>
-              <NavItem>
+              {/* <NavItem>
                 <NavLink className="nav-link" to="/video">
                   Videos
                 </NavLink>
-              </NavItem>
+              </NavItem> */}
               <NavItem>
                 <NavLink className="nav-link" to="/reference">
                   Reference
@@ -406,11 +406,11 @@ class Header extends Component {
                   TimeCard
                 </NavLink>
               </NavItem>
-              {/* <NavItem>
+              <NavItem>
                 <NavLink className="nav-link" to="/video">
                   Videos
                 </NavLink>
-              </NavItem> */}
+              </NavItem>
               <NavItem>
                 <NavLink className="nav-link" to="/reference">
                   Reference
