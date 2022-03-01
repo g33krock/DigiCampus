@@ -22,8 +22,8 @@ import TimeCard from "./TimeCardComponent";
 import Billing from "./BillingComponent";
 import ProviderTimeCardViewer from "./ProviderTimeCardViewer";
 import AdminProviderTimeCardViewer from "./AdminProviderTimeCardViewer";
-// import FinalGrades from './FinalGrades';
-// import GradeSheet from './GradeSheet';
+import FinalGrades from './FinalGrades';
+import GradeSheet from './GradeSheet';
 import Reference from './Reference'
 import { VideoSeries } from "./VideoSeries/VideoSeriesComponent";
 
@@ -98,6 +98,11 @@ class Main extends Component {
             <PrivateRoute
               path="/reference"
               component={Reference}
+              userEmail={this.props?.userEmail}
+            />
+            <PrivateRoute
+              path="/progress-reports"
+              component={FinalGrades}
               userEmail={this.props?.userEmail}
             />
             <PrivateRoute
@@ -191,6 +196,11 @@ class Main extends Component {
               campus={campus}
             />
             <PrivateRoute
+              path="/progress-reports"
+              component={FinalGrades}
+              userEmail={this.props?.userEmail}
+            />
+            <PrivateRoute
               path="/video"
               component={VideoSeries}
               userEmail={this.props?.userEmail}
@@ -270,6 +280,11 @@ class Main extends Component {
               component={TimeCard}
               userEmail={this.props?.userEmail}
               campus={campus}
+            />
+            <PrivateRoute
+              path="/progress-reports"
+              component={FinalGrades}
+              userEmail={this.props?.userEmail}
             />
             <PrivateRoute
               path="/video"
@@ -359,6 +374,11 @@ class Main extends Component {
               component={TimeCard}
               userEmail={this.props?.userEmail}
               campus={campus}
+            />
+            <PrivateRoute
+              path="/progress-reports"
+              component={FinalGrades}
+              userEmail={this.props?.userEmail}
             />
             <PrivateRoute
               path="/video"
