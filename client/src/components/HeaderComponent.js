@@ -215,6 +215,9 @@ class Header extends Component {
                   TimeCard
                 </NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/progress-reports">Progress Reports</NavLink>
+              </NavItem>
               {/* <NavItem>
                 <NavLink className="nav-link" to="/video">
                   Videos
@@ -266,6 +269,9 @@ class Header extends Component {
                 <NavLink className="nav-link" to="/resources">
                   Resources
                 </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/progress-reports">Progress Reports</NavLink>
               </NavItem>
               {/* <NavItem>
                 <NavLink className="nav-link" to="/video">
@@ -407,6 +413,9 @@ class Header extends Component {
                 </NavLink>
               </NavItem>
               <NavItem>
+                <NavLink className="nav-link" to="/progress-reports">Progress Reports</NavLink>
+              </NavItem>
+              <NavItem>
                 <NavLink className="nav-link" to="/video">
                   Videos
                 </NavLink>
@@ -486,6 +495,9 @@ class Header extends Component {
                 <NavLink className="nav-link" to="/billing">
                   Billing
                 </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/progress-reports">Progress Reports</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink className="nav-link" to="/video">

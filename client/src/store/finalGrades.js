@@ -28,7 +28,7 @@ export const fetchGrades = (campus) => {
   return async (dispatch) => {
     try {
       let q = null;
-      const entriesRef = collection(db, 'entries');
+      const entriesRef = collection(db, 'entries-march');
 
       if (campus) {
         q = query(entriesRef, where('campus', '==', campus));
@@ -50,7 +50,7 @@ export const fetchGrades = (campus) => {
 export const createGrades = (grade) => {
   return async (dispatch) => {
     try {
-      const docRef = await addDoc(collection(db, 'entries'), {
+      const docRef = await addDoc(collection(db, 'entries-march'), {
         ...grade,
       });
       const docSnap = await getDoc(docRef);
@@ -67,7 +67,7 @@ export const createGrades = (grade) => {
 export const updateGrade = (grade) => {
   return async (dispatch) => {
     try {
-      const entriesRef = collection(db, 'entries');
+      const entriesRef = collection(db, 'entries-march');
       const q = query(
         entriesRef,
         where('student.firstName', '==', grade.student.firstName),
@@ -79,7 +79,7 @@ export const updateGrade = (grade) => {
       const entries = await getDocs(q);
       const id = entries.docs[0].id;
 
-      const docRef = doc(db, 'entries', id);
+      const docRef = doc(db, 'entries-march', id);
 
       await updateDoc(docRef, {
         grade: grade.grade,
@@ -95,7 +95,7 @@ export const updateGrade = (grade) => {
 export const deleteGrade = (grade) => {
   return async (dispatch) => {
     try {
-      const entriesRef = collection(db, 'entries');
+      const entriesRef = collection(db, 'entries-march');
       const q = query(
         entriesRef,
         where('student.firstName', '==', grade.student.firstName),
@@ -109,7 +109,7 @@ export const deleteGrade = (grade) => {
       const id = entries.docs[0].id;
 
 
-      await deleteDoc(db, 'entries', id);
+      await deleteDoc(db, 'entries-march', id);
 
       dispatch(_deleteGrade(grade));
     } catch (error) {
