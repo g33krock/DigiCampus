@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchSchedules } from '../store/schedules';
 import { fetchGrades, createGrades } from '../store/finalGrades';
 import styles from '../styles/GradeSheet.module.css';
+import toast from 'react-hot-toast'
 
 import EditGradeForm from './EditGradeForm';
 
@@ -50,6 +51,7 @@ class GradeSheet extends React.Component {
     };
 
     this.props.postNewGrade(gradeObj);
+    toast.success('Grade submitted!')
     console.log('NEW GRADE: ', gradeObj);
   }
 
@@ -178,7 +180,19 @@ const GradeRow = (props) => {
 
   const { grade } = props;
   const { course, student, teacher } = grade;
-  console.log('GRADE ROW: ', grade);
+
+  const handleEditToggle = () => {
+    setEditToggle(prevToggle => {
+      return !prevToggle
+    })
+  }
+
+  const handleAddToggle = () => {
+    setAddToggle(prevToggle => {
+      return !prevToggle
+    })
+  }
+
   return (
     <>
       <p className={styles.cell}>{grade.campus}</p>
@@ -189,9 +203,9 @@ const GradeRow = (props) => {
       <p className={styles.cell}>{course.period}</p>
       <p className={styles.cell}>{grade.grade}</p>
       {grade.grade === 'NOT SUBMITTED' ? (
-        <button onClick={() => setAddToggle(true)}>Add</button>
+        <button onClick={handleAddToggle}>Add</button>
       ) : (
-        <button onClick={() => setEditToggle(true)}>Edit</button>
+        <button onClick={handleEditToggle}>Edit</button>
       )}
       {addToggle ? (
         <form
@@ -229,7 +243,7 @@ const GradeRow = (props) => {
         <></>
       )}
       {editToggle ? (
-        <EditGradeForm student={student} campus={grade.campus} course={course} teacher={teacher} grade={grade.grade} />
+        <EditGradeForm student={student} campus={grade.campus} course={course} teacher={teacher} grade={grade.grade} toggleForm={setEditToggle} />
       ) : (
         <></>
       )}
