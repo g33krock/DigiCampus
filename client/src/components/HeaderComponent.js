@@ -216,6 +216,9 @@ class Header extends Component {
                 </NavLink>
               </NavItem>
               <NavItem>
+                <NavLink className="nav-link" to="/gradesheets">Submitted Grades</NavLink>
+              </NavItem>
+              <NavItem>
                 <NavLink className="nav-link" to="/progress-reports">Progress Reports</NavLink>
               </NavItem>
               {/* <NavItem>
@@ -413,6 +416,9 @@ class Header extends Component {
                 </NavLink>
               </NavItem>
               <NavItem>
+                <NavLink className="nav-link" to="/gradesheets">Submitted Grades</NavLink>
+              </NavItem>
+              <NavItem>
                 <NavLink className="nav-link" to="/progress-reports">Progress Reports</NavLink>
               </NavItem>
               <NavItem>
@@ -495,6 +501,9 @@ class Header extends Component {
                 <NavLink className="nav-link" to="/billing">
                   Billing
                 </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="nav-link" to="/gradesheets">Submitted Grades</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink className="nav-link" to="/progress-reports">Progress Reports</NavLink>

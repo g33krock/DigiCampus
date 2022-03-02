@@ -196,6 +196,11 @@ class Main extends Component {
               campus={campus}
             />
             <PrivateRoute
+              path="/gradesheets"
+              component={GradeSheet}
+              userEmail={this.props?.userEmail}
+            />
+            <PrivateRoute
               path="/progress-reports"
               component={FinalGrades}
               userEmail={this.props?.userEmail}
@@ -280,6 +285,11 @@ class Main extends Component {
               component={TimeCard}
               userEmail={this.props?.userEmail}
               campus={campus}
+            />
+            <PrivateRoute
+              path="/gradesheets"
+              component={GradeSheet}
+              userEmail={this.props?.userEmail}
             />
             <PrivateRoute
               path="/progress-reports"
@@ -374,6 +384,11 @@ class Main extends Component {
               component={TimeCard}
               userEmail={this.props?.userEmail}
               campus={campus}
+            />
+            <PrivateRoute
+              path="/gradesheets"
+              component={GradeSheet}
+              userEmail={this.props?.userEmail}
             />
             <PrivateRoute
               path="/progress-reports"

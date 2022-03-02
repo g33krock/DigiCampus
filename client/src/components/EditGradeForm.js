@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { updateGrade, deleteGrade } from '../store/finalGrades';
 import styles from '../styles/EditGradeForm.module.css';
+import toast from 'react-hot-toast'
 
 const EditGradeForm = (props) => {
   const [grade, setGrade] = useState(props.grade);
+  const { toggleForm } = props;
 
   const handleChange = (e, set) => {
     e.preventDefault();
@@ -32,6 +34,8 @@ const EditGradeForm = (props) => {
     };
 
     props.updateGrade(newGrade);
+    toast.success('Grade edited! If you leave this page and come back, the change will be reflected.')
+    toggleForm(false);
   }
 
   const handleDelete = (e) => {

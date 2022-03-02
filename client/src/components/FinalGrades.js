@@ -7,6 +7,8 @@ import { baseURL } from '../baseURL';
 
 import styles from '../styles/FinalGrades.module.css';
 
+import toast from 'react-hot-toast'
+
 class FinalGrades extends React.Component {
   constructor(props) {
     super(props);
@@ -45,6 +47,7 @@ class FinalGrades extends React.Component {
 
     grades.forEach((grade) => this.props.postGrades(grade));
     this.state.newInputs.forEach((grade) => this.props.postGrades(grade));
+    toast.success("Grades submitted!");
 
     this.props.history.push('/home');
   }
