@@ -102,7 +102,7 @@ export default class Schedule extends Component {
       .then((students) => {
         students
           .sort((studenta, studentb) => studenta.lastName - studentb.lastName)
-          .filter((cstudent) => cstudent.campuses.id === this.state?.campus?.id)
+          .filter((cstudent) => cstudent.campuses.id === this.props?.campus?.id)
           .forEach((student) =>
             student.schedules.sort(
               (schedulea, scheduleb) => schedulea.period - scheduleb.period
@@ -225,11 +225,17 @@ export default class Schedule extends Component {
       } else {
         return "Absent";
       }
-    }
+    };
 
     const reducer = (previousValue, currentValue) =>
-    previousValue + currentValue;
-    let one2one = (schedule) => {if(schedule.oneToOne === 'true'){return 'One to One'} else {return ""}};
+      previousValue + currentValue;
+    let one2one = (schedule) => {
+      if (schedule.oneToOne === "true") {
+        return "One to One";
+      } else {
+        return "";
+      }
+    };
     let teachingHours = this.state.schedules
       .filter((schedule) => schedule.campus.id === this.props?.campus?.id)
       .filter(
@@ -254,7 +260,7 @@ export default class Schedule extends Component {
         teacher.pOne !== "No" &&
         teacher.pOne !== "Prep" &&
         (teacher.campus.id === this.props?.campus?.id ||
-          (teacher.campus.id === 10 &&
+          (teacher.multicampus &&
             teacher.schedules?.campus?.id === this.props?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
@@ -267,7 +273,7 @@ export default class Schedule extends Component {
         teacher.pTwo !== "No" &&
         teacher.pTwo !== "Prep" &&
         (teacher.campus.id === this.props?.campus?.id ||
-          (teacher.campus.id === 10 &&
+          (teacher.multicampus &&
             teacher.schedules?.campus?.id === this.props?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
@@ -280,7 +286,7 @@ export default class Schedule extends Component {
         teacher.pThree !== "No" &&
         teacher.pThree !== "Prep" &&
         (teacher.campus.id === this.props?.campus?.id ||
-          (teacher.campus.id === 10 &&
+          (teacher.multicampus &&
             teacher.schedules?.campus?.id === this.props?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
@@ -293,7 +299,7 @@ export default class Schedule extends Component {
         teacher.pFour !== "No" &&
         teacher.pFour !== "Prep" &&
         (teacher.campus.id === this.props?.campus?.id ||
-          (teacher.campus.id === 10 &&
+          (teacher.multicampus &&
             teacher.schedules?.campus?.id === this.props?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
@@ -306,7 +312,7 @@ export default class Schedule extends Component {
         teacher.pFive !== "No" &&
         teacher.pFive !== "Prep" &&
         (teacher.campus.id === this.props?.campus?.id ||
-          (teacher.campus.id === 10 &&
+          (teacher.multicampus &&
             teacher.schedules?.campus?.id === this.props?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
@@ -319,7 +325,7 @@ export default class Schedule extends Component {
         teacher.pSix !== "No" &&
         teacher.pSix !== "Prep" &&
         (teacher.campus.id === this.props?.campus?.id ||
-          (teacher.campus.id === 10 &&
+          (teacher.multicampus &&
             teacher.schedules?.campus?.id === this.props?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
@@ -332,7 +338,7 @@ export default class Schedule extends Component {
         teacher.pSeven !== "No" &&
         teacher.pSeven !== "Prep" &&
         (teacher.campus.id === this.props?.campus?.id ||
-          (teacher.campus.id === 10 &&
+          (teacher.multicampus &&
             teacher.schedules?.campus?.id === this.props?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
@@ -345,7 +351,7 @@ export default class Schedule extends Component {
         teacher.pEight !== "No" &&
         teacher.pEight !== "Prep" &&
         (teacher.campus.id === this.props?.campus?.id ||
-          (teacher.campus.id === 10 &&
+          (teacher.multicampus &&
             teacher.schedules?.campus?.id === this.props?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
@@ -358,7 +364,7 @@ export default class Schedule extends Component {
         teacher.pNine !== "No" &&
         teacher.pNine !== "Prep" &&
         (teacher.campus.id === this.props?.campus?.id ||
-          (teacher.campus.id === 10 &&
+          (teacher.multicampus &&
             teacher.schedules?.campus?.id === this.props?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
@@ -371,13 +377,29 @@ export default class Schedule extends Component {
         teacher.pTen !== "No" &&
         teacher.pTen !== "Prep" &&
         (teacher.campus.id === this.props?.campus?.id ||
-          (teacher.campus.id === 10 &&
+          (teacher.multicampus &&
             teacher.schedules?.campus?.id === this.props?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
           teacher.role.id === 7 ||
           teacher.role.id === 4)
     ).length;
+    const initialValue = 0;
+    let notMyCampus = this.state.teachers
+      .filter(
+        (teacher) =>
+          teacher.campus.id === this.props?.campus?.id && teacher.multicampus
+      )
+      .map(
+        (teacher) =>
+          teacher.schedules.filter(
+            (schedule) => schedule?.campus?.id !== this.props?.campus?.id
+          ).length
+      );
+    const teachingElsewhere = notMyCampus.reduce(
+      (previousValue, currentValue) => previousValue + currentValue,
+      initialValue
+    );
     let sched1 = this.state.schedules
       .filter((schedule) => schedule.period === 1)
       .filter((schedule) => schedule.teacher.id !== 26)
@@ -668,7 +690,11 @@ export default class Schedule extends Component {
       pSevens +
       pEights +
       pNines +
-      pTens;
+      pTens -
+      teachingElsewhere;
+
+    console.log(teachingElsewhere);
+    console.log(notMyCampus);
 
     return (
       <div class="tableFixHead">
@@ -853,7 +879,14 @@ export default class Schedule extends Component {
                               scheduleId={schedule.id}
                               period={schedule.period}>
                             </DeleteSchedule> */}
-                            <small style={{color: "white", textShadow:"1px 1px black"}}>{one2one(schedule)}</small>
+                            <small
+                              style={{
+                                color: "white",
+                                textShadow: "1px 1px black",
+                              }}
+                            >
+                              {one2one(schedule)}
+                            </small>
                           </td>
                         ))}
                     </tr>
@@ -974,7 +1007,14 @@ export default class Schedule extends Component {
                               scheduleId={schedule.id}
                               period={schedule.period}>
                             </DeleteSchedule> */}
-                            <small style={{color: "white", textShadow:"1px 1px black"}}>{one2one(schedule)}</small>
+                            <small
+                              style={{
+                                color: "white",
+                                textShadow: "1px 1px black",
+                              }}
+                            >
+                              {one2one(schedule)}
+                            </small>
                           </td>
                         ))}
                     </tr>
@@ -1049,7 +1089,7 @@ export default class Schedule extends Component {
                 {this.state.students
                   .filter(
                     (cstudent) =>
-                      cstudent.campuses.id === this.state?.campus?.id
+                      cstudent.campuses.id === this.props?.campus?.id
                   )
                   .filter((student) => student.grade <= 5)
                   .sort(function (a, b) {
@@ -1151,7 +1191,7 @@ export default class Schedule extends Component {
                 {this.state.students
                   .filter(
                     (cstudent) =>
-                      cstudent.campuses.id === this.state?.campus?.id
+                      cstudent.campuses.id === this.props?.campus?.id
                   )
                   .filter((student) => student.grade >= 6)
                   .sort(function (a, b) {
@@ -1538,7 +1578,7 @@ export default class Schedule extends Component {
                     />
                   </Col>
                   <Col md="2">
-                    <br/>
+                    <br />
                     <Button
                       color="primary"
                       onClick={() => {
@@ -1596,7 +1636,27 @@ export default class Schedule extends Component {
                         {student.firstName} {student.lastName}
                       </th>
                       <th>
-                          {this.state.attendance
+                        {this.state.attendance
+                          .filter(
+                            (day) =>
+                              day.date >= this.state.startDate &&
+                              day.date <= this.state.endDate
+                          )
+                          .map(
+                            (day) =>
+                              day.student.filter(
+                                (stud) => stud.id === student.id
+                              ).length
+                          )
+                          .reduce(reducer, 0)}
+                      </th>
+                      <th>
+                        {this.state.attendance.filter(
+                          (day) =>
+                            day.date >= this.state.startDate &&
+                            day.date <= this.state.endDate
+                        ).length -
+                          this.state.attendance
                             .filter(
                               (day) =>
                                 day.date >= this.state.startDate &&
@@ -1609,27 +1669,7 @@ export default class Schedule extends Component {
                                 ).length
                             )
                             .reduce(reducer, 0)}
-                        </th>
-                        <th>
-                          {this.state.attendance.filter(
-                            (day) =>
-                              day.date >= this.state.startDate &&
-                              day.date <= this.state.endDate
-                          ).length -
-                            this.state.attendance
-                              .filter(
-                                (day) =>
-                                  day.date >= this.state.startDate &&
-                                  day.date <= this.state.endDate
-                              )
-                              .map(
-                                (day) =>
-                                  day.student.filter(
-                                    (stud) => stud.id === student.id
-                                  ).length
-                              )
-                              .reduce(reducer, 0)}
-                        </th>
+                      </th>
                       {this.state.attendance
                         .filter(
                           (day) =>
@@ -1700,7 +1740,27 @@ export default class Schedule extends Component {
                         {student.firstName} {student.lastName}
                       </th>
                       <th>
-                          {this.state.attendance
+                        {this.state.attendance
+                          .filter(
+                            (day) =>
+                              day.date >= this.state.startDate &&
+                              day.date <= this.state.endDate
+                          )
+                          .map(
+                            (day) =>
+                              day.student.filter(
+                                (stud) => stud.id === student.id
+                              ).length
+                          )
+                          .reduce(reducer, 0)}
+                      </th>
+                      <th>
+                        {this.state.attendance.filter(
+                          (day) =>
+                            day.date >= this.state.startDate &&
+                            day.date <= this.state.endDate
+                        ).length -
+                          this.state.attendance
                             .filter(
                               (day) =>
                                 day.date >= this.state.startDate &&
@@ -1713,27 +1773,7 @@ export default class Schedule extends Component {
                                 ).length
                             )
                             .reduce(reducer, 0)}
-                        </th>
-                        <th>
-                          {this.state.attendance.filter(
-                            (day) =>
-                              day.date >= this.state.startDate &&
-                              day.date <= this.state.endDate
-                          ).length -
-                            this.state.attendance
-                              .filter(
-                                (day) =>
-                                  day.date >= this.state.startDate &&
-                                  day.date <= this.state.endDate
-                              )
-                              .map(
-                                (day) =>
-                                  day.student.filter(
-                                    (stud) => stud.id === student.id
-                                  ).length
-                              )
-                              .reduce(reducer, 0)}
-                        </th>
+                      </th>
                       {this.state.attendance
                         .filter(
                           (day) =>

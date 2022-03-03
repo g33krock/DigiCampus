@@ -222,7 +222,7 @@ export default class AdminSchedule extends Component {
       } else {
         return "Absent";
       }
-    }
+    };
 
     let one2one = (schedule) => {
       if (schedule.oneToOne === "true") {
@@ -255,7 +255,7 @@ export default class AdminSchedule extends Component {
         teacher.pOne !== "No" &&
         teacher.pOne !== "Prep" &&
         (teacher.campus.id === this.state?.campus?.id ||
-          (teacher.campus.id === 10 &&
+          (teacher.multicampus &&
             teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
@@ -268,7 +268,7 @@ export default class AdminSchedule extends Component {
         teacher.pTwo !== "No" &&
         teacher.pTwo !== "Prep" &&
         (teacher.campus.id === this.state?.campus?.id ||
-          (teacher.campus.id === 10 &&
+          (teacher.multicampus &&
             teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
@@ -281,7 +281,7 @@ export default class AdminSchedule extends Component {
         teacher.pThree !== "No" &&
         teacher.pThree !== "Prep" &&
         (teacher.campus.id === this.state?.campus?.id ||
-          (teacher.campus.id === 10 &&
+          (teacher.multicampus &&
             teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
@@ -294,7 +294,7 @@ export default class AdminSchedule extends Component {
         teacher.pFour !== "No" &&
         teacher.pFour !== "Prep" &&
         (teacher.campus.id === this.state?.campus?.id ||
-          (teacher.campus.id === 10 &&
+          (teacher.multicampus &&
             teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
@@ -307,7 +307,7 @@ export default class AdminSchedule extends Component {
         teacher.pFive !== "No" &&
         teacher.pFive !== "Prep" &&
         (teacher.campus.id === this.state?.campus?.id ||
-          (teacher.campus.id === 10 &&
+          (teacher.multicampus &&
             teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
@@ -320,7 +320,7 @@ export default class AdminSchedule extends Component {
         teacher.pSix !== "No" &&
         teacher.pSix !== "Prep" &&
         (teacher.campus.id === this.state?.campus?.id ||
-          (teacher.campus.id === 10 &&
+          (teacher.multicampus &&
             teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
@@ -333,7 +333,7 @@ export default class AdminSchedule extends Component {
         teacher.pSeven !== "No" &&
         teacher.pSeven !== "Prep" &&
         (teacher.campus.id === this.state?.campus?.id ||
-          (teacher.campus.id === 10 &&
+          (teacher.multicampus &&
             teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
@@ -346,7 +346,7 @@ export default class AdminSchedule extends Component {
         teacher.pEight !== "No" &&
         teacher.pEight !== "Prep" &&
         (teacher.campus.id === this.state?.campus?.id ||
-          (teacher.campus.id === 10 &&
+          (teacher.multicampus &&
             teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
@@ -359,7 +359,7 @@ export default class AdminSchedule extends Component {
         teacher.pNine !== "No" &&
         teacher.pNine !== "Prep" &&
         (teacher.campus.id === this.state?.campus?.id ||
-          (teacher.campus.id === 10 &&
+          (teacher.multicampus &&
             teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
@@ -372,13 +372,29 @@ export default class AdminSchedule extends Component {
         teacher.pTen !== "No" &&
         teacher.pTen !== "Prep" &&
         (teacher.campus.id === this.state?.campus?.id ||
-          (teacher.campus.id === 10 &&
+          (teacher.multicampus &&
             teacher.schedules?.campus?.id === this.state?.campus?.id)) &&
         (teacher.role.id === 2 ||
           teacher.role.id === 3 ||
           teacher.role.id === 7 ||
           teacher.role.id === 4)
     ).length;
+    const initialValue = 0;
+    let notMyCampus = this.state.teachers
+      .filter(
+        (teacher) =>
+          teacher.campus.id === this.state?.campus?.id && teacher.multicampus
+      )
+      .map(
+        (teacher) =>
+          teacher.schedules.filter(
+            (schedule) => schedule?.campus?.id !== this.state?.campus?.id
+          ).length
+      );
+    const teachingElsewhere = notMyCampus.reduce(
+      (previousValue, currentValue) => previousValue + currentValue,
+      initialValue
+    );
     let sched1 = this.state.schedules
       .filter((schedule) => schedule.period === 1)
       .filter((schedule) => schedule.teacher.id !== 26)
@@ -712,7 +728,11 @@ export default class AdminSchedule extends Component {
       pSevens +
       pEights +
       pNines +
-      pTens;
+      pTens -
+      teachingElsewhere;
+
+    console.log(teachingElsewhere);
+    console.log(notMyCampus);
 
     return (
       <div class="tableFixHead">
