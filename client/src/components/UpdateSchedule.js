@@ -99,6 +99,9 @@ export class ScheduleUpdater extends Component {
                       <option value="165">Michael Caruana</option>
                       <option value="168">Tiffany Williams</option>
                       <option value="56">Roman Roberts</option>
+                      <option value="49">Angel Ramirez</option>
+                      <option value="57">Alicia Frank</option>
+                      <option value="82">Sara Lovell</option>
                     </Input>
                   </FormGroup>
                 </Col>
@@ -140,6 +143,9 @@ export class ScheduleUpdater extends Component {
                       <option value="127">Jay Vigil</option>
                       <option value="139">Tyler Mair</option>
                       <option value="56">Roman Roberts</option>
+                      <option value="49">Angel Ramirez</option>
+                      <option value="57">Alicia Frank</option>
+                      <option value="82">Sara Lovell</option>
                     </Input>
                   </FormGroup>
                 </Col>
