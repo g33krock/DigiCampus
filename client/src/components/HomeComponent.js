@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { Col, Container, Row } from "reactstrap";
-import { AprilFools } from "./AprilFoolsComponent";
+// import { AprilFools } from "./AprilFoolsComponent";
 import Calendar from "./CalendarComponent";
 
 class Home extends Component {
@@ -8,13 +8,13 @@ class Home extends Component {
     return (
       <div className="megaBG">
         <Container>
-          <Row>
+          {/* <Row>
             <Col />
             <Col style={{paddingLeft: "auto", paddingRight: "auto"}}>
               <AprilFools style={{marginLeft: "auto", marginRight: "auto"}}/>
             </Col>
             <Col />
-          </Row>
+          </Row> */}
           <Row>
             <Col />
             <Col>
