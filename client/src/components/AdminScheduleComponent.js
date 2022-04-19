@@ -986,7 +986,7 @@ export default class AdminSchedule extends Component {
                   </th>
                   <th>
                     <h3>Period 10</h3>
-                    <p>3:20-4:10</p>
+                    <p>3:20-4:10`</p>
                   </th>
                 </tr>
               </thead>
