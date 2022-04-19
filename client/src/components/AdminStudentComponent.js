@@ -166,7 +166,7 @@ class AdminStudent extends Component {
             <select id="scheduleStudent" onChange={this.onChange}>
               <option selected>None</option>
               {this.props.students
-                .sort(function (a, b) {
+                .sort(function(a, b) {
                   let x = a.firstName.toLowerCase();
                   let y = b.firstName.toLowerCase();
                   if (x < y) {
@@ -201,32 +201,37 @@ class AdminStudent extends Component {
                 ></CardImg>
               )}
               {this.state.student && <h3>Guardian:</h3>}
-              {this.state.student?.guardians.map((guardian) => (
-                <div>
-                  <p>
-                    <strong>Parent:</strong> {guardian?.firstName}{" "}
-                    {guardian?.lastName}
-                  </p>
-                  <p>
-                    <strong>Email:</strong> {guardian?.email}
-                  </p>
-                  <p>
-                    <strong>Phone:</strong> {guardian?.phone}
-                  </p>
-                  <p>
-                    <strong>Address:</strong> {guardian?.address}
-                  </p>
-                  <UpdateGuardian
-                    guardianId={guardian?.id}
-                    firstName={guardian?.firstName}
-                    lastName={guardian?.lastName}
-                    phone={guardian?.phone}
-                    email={guardian?.email}
-                    address={guardian?.address}
-                    additionalInfo={guardian?.guardian_additionalinfo}
-                  />
-                </div>
-              ))}
+              {this.state.student?.guardians.map((guardian) => {
+                if (guardian?.email === 'soniagon62@gmail.com') {
+                  return <></>
+                }
+                return (
+                  <div>
+                    <p>
+                      <strong>Parent:</strong> {guardian?.firstName}{" "}
+                      {guardian?.lastName}
+                    </p>
+                    <p>
+                      <strong>Email:</strong> {guardian?.email}
+                    </p>
+                    <p>
+                      <strong>Phone:</strong> {guardian?.phone}
+                    </p>
+                    <p>
+                      <strong>Address:</strong> {guardian?.address}
+                    </p>
+                    <UpdateGuardian
+                      guardianId={guardian?.id}
+                      firstName={guardian?.firstName}
+                      lastName={guardian?.lastName}
+                      phone={guardian?.phone}
+                      email={guardian?.email}
+                      address={guardian?.address}
+                      additionalInfo={guardian?.guardian_additionalinfo}
+                    />
+                  </div>
+                )
+              })}
               {this.state.student && <h3>Services:</h3>}
               {this.state.student?.relatedService.map((service) => (
                 <div>

@@ -77,14 +77,14 @@ export default class Student extends Component {
     console.log(this.state);
     console.log(e.target.value);
     fetcher(`${baseURL}/tallyQuestions`)
-    .then((response) => response.json())
-    .then((tdata) => {
-      this.setState({
-        tallyQuestions: tdata.filter(
-          (datas) => datas?.student.id === studentId
-        ),
+      .then((response) => response.json())
+      .then((tdata) => {
+        this.setState({
+          tallyQuestions: tdata.filter(
+            (datas) => datas?.student.id === studentId
+          ),
+        });
       });
-    });
   };
 
   render() {
@@ -153,7 +153,7 @@ export default class Student extends Component {
                 .filter(
                   (cstudent) => cstudent.campuses.id === this.props?.campus?.id
                 )
-                .sort(function (a, b) {
+                .sort(function(a, b) {
                   let x = a.firstName.toLowerCase();
                   let y = b.firstName.toLowerCase();
                   if (x < y) {
@@ -187,33 +187,38 @@ export default class Student extends Component {
                   alt={`${this.state.student?.firstName}`}
                 ></CardImg>
               )}
-              {this.state.student?.guardians.map((guardian) => (
-                <div>
-                  <p>
-                    <strong>Parent:</strong> {guardian?.firstName}{" "}
-                    {guardian?.lastName}
-                  </p>
-                  <p>
-                    <strong>Email:</strong> {guardian?.email}
-                  </p>
-                  <p>
-                    <strong>Phone:</strong> {guardian?.phone}
-                  </p>
-                  <p>
-                    <strong>Address:</strong> {guardian?.address}
-                  </p>
+              {this.state.student?.guardians.map((guardian) => {
+                if (guardian?.email === 'soniagon62@gmail.com') {
+                  return <></>
+                }
+                return (
+                  <div>
+                    <p>
+                      <strong>Parent:</strong> {guardian?.firstName}{" "}
+                      {guardian?.lastName}
+                    </p>
+                    <p>
+                      <strong>Email:</strong> {guardian?.email === 'soniagon62@gmail.com?' ? 'erincasey74@gmail.com' : guardian?.email}
+                    </p>
+                    <p>
+                      <strong>Phone:</strong> {guardian?.phone}
+                    </p>
+                    <p>
+                      <strong>Address:</strong> {guardian?.address}
+                    </p>
 
-                  <UpdateGuardian
-                    guardianId={guardian?.id}
-                    firstName={guardian?.firstName}
-                    lastName={guardian?.lastName}
-                    phone={guardian?.phone}
-                    email={guardian?.email}
-                    address={guardian?.address}
-                    additionalInfo={guardian?.guardian_additionalinfo}
-                  />
-                </div>
-              ))}
+                    <UpdateGuardian
+                      guardianId={guardian?.id}
+                      firstName={guardian?.firstName}
+                      lastName={guardian?.lastName}
+                      phone={guardian?.phone}
+                      email={guardian?.email}
+                      address={guardian?.address}
+                      additionalInfo={guardian?.guardian_additionalinfo}
+                    />
+                  </div>
+                )
+              })}
               {this.state.student && (
                 <CardBody>
                   <p>
@@ -302,13 +307,13 @@ export default class Student extends Component {
                   </Row>
                   <Row>
                     <Col md="4">
-                      <EmptyScheduleCreator 
-                      studentId={this.state.student?.id}
-                      studentFirstName={this.state.student?.firstName}
-                      studentLastName={this.state.student?.lastName}
-                      campusId={this.state.student?.campuses.id}
-                      schedLength={Object.keys(this.state.student?.schedules).length}>
-                    </EmptyScheduleCreator>
+                      <EmptyScheduleCreator
+                        studentId={this.state.student?.id}
+                        studentFirstName={this.state.student?.firstName}
+                        studentLastName={this.state.student?.lastName}
+                        campusId={this.state.student?.campuses.id}
+                        schedLength={Object.keys(this.state.student?.schedules).length}>
+                      </EmptyScheduleCreator>
                     </Col>
                     <Col md="2"></Col>
                     <Col md="4">
