@@ -70,7 +70,7 @@ export default class AdminSchedule extends Component {
 
   componentDidMount() {
     this.getSchedules();
-    this.getAttendance();
+    // this.getAttendance();
     campusService.all().then((campuses) => {
       this.setState({
         campuses,
