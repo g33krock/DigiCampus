@@ -71,7 +71,7 @@ export default class Schedule extends Component {
   componentDidMount() {
     this.getSchedules();
     // this.getAttendance();
-    console.log(this.props.campus);
+    // console.log(this.props.campus);
     campusService.all().then((campuses) => {
       this.setState({
         campuses,
