@@ -24,11 +24,12 @@ export function Dashboard() {
   return (
     <div>
       <BrowserRouter>
-        <div>
+        <div style={{position: 'static'}}>
           <p style={{ color: "white", backgroundColor: "rgb(0, 16, 107)", padding:0, margin:0 }}>
             <button onClick={handleSignOut}>Sign out</button> Welcome,{" "}
             {user?.email}!
           </p>
+          <img src='https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/public/images/deathstar.png' alt='Death Star' style={{position: 'absolute', top: '1px', right:'1px', zIndex:'10', width: '20%'}}/>
           <Header campus={campus} userEmail={user?.email}></Header>
           <Main campus={campus} userEmail={user?.email} />
           {/* <Snowflake /> */}
