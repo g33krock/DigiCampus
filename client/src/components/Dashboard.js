@@ -29,8 +29,7 @@ export function Dashboard() {
             <button onClick={handleSignOut}>Sign out</button> Welcome,{" "}
             {user?.email}!
           </p>
-          <img src='https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/public/images/deathstar.png' alt='Death Star' style={{position: 'absolute', top: '1px', right:'1px', zIndex:'10', width: '300px'}}/>
-          <img src='https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/public/images/cincodemayo.png' alt='Cinco De Mayo' style={{position: 'absolute', top: '90px', right:'75px', zIndex:'11', width: '150px', opacity: '0.5'}}/>
+          <img src='https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/public/images/drstrange.png' alt='Dr Strange' style={{position: 'absolute', top: '1px', right:'1px', zIndex:'10', width: '300px'}}/>
           <Header campus={campus} userEmail={user?.email}></Header>
           <Main campus={campus} userEmail={user?.email} />
           {/* <Snowflake /> */}
