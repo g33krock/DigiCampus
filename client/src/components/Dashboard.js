@@ -29,10 +29,8 @@ export function Dashboard() {
             <button onClick={handleSignOut}>Sign out</button> Welcome,{" "}
             {user?.email}!
           </p>
-          <img src='https://qyctrtcwtwasdktftmuy.supabase.co/storage/v1/object/public/images/drstrange.png' alt='Dr Strange' style={{position: 'absolute', top: '1px', right:'1px', zIndex:'10', width: '300px'}}/>
           <Header campus={campus} userEmail={user?.email}></Header>
           <Main campus={campus} userEmail={user?.email} />
-          {/* <Snowflake /> */}
         </div>
       </BrowserRouter>
     </div>
