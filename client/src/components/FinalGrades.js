@@ -133,10 +133,10 @@ class FinalGrades extends React.Component {
     return (
       <div className={styles.container}>
         <div className={styles.instructions}>
-          <h2>Progress Reports (March 2022)</h2>
+          <h2>Final Grades (May 2022)</h2>
           <p>
-            Please carefully fill out the form below to submit your progress report grades
-            for the quarter.
+            Please carefully fill out the form below to submit your 
+            final grades.
           </p>
           <p>
             Elementary and middle school student group classes—Social Skills,
@@ -164,7 +164,7 @@ class FinalGrades extends React.Component {
             </strong>
           </p>
           <p>
-            <strong>Have a great Spring Break! :-)</strong>
+            <strong>Have a great summer!</strong>
           </p>
         </div>
         <form onSubmit={handleSubmit} className={styles.form}>

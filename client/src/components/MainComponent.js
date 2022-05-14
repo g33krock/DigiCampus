@@ -101,7 +101,7 @@ class Main extends Component {
               userEmail={this.props?.userEmail}
             />
             <PrivateRoute
-              path="/progress-reports"
+              path="/final-grades"
               component={FinalGrades}
               userEmail={this.props?.userEmail}
             />
@@ -201,7 +201,7 @@ class Main extends Component {
               userEmail={this.props?.userEmail}
             />
             <PrivateRoute
-              path="/progress-reports"
+              path="/final-grades"
               component={FinalGrades}
               userEmail={this.props?.userEmail}
             />
@@ -292,7 +292,7 @@ class Main extends Component {
               userEmail={this.props?.userEmail}
             />
             <PrivateRoute
-              path="/progress-reports"
+              path="/final-grades"
               component={FinalGrades}
               userEmail={this.props?.userEmail}
             />
@@ -391,7 +391,7 @@ class Main extends Component {
               userEmail={this.props?.userEmail}
             />
             <PrivateRoute
-              path="/progress-reports"
+              path="/final-grades"
               component={FinalGrades}
               userEmail={this.props?.userEmail}
             />

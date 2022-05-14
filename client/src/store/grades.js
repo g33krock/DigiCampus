@@ -13,7 +13,7 @@ export const fetchGrades = (campus) => {
   return async (dispatch) => {
     try {
       let q = null;
-      const entriesRef = collection(db, 'entries-march');
+      const entriesRef = collection(db, 'entries-may-2022');
 
       if (campus) {
         q = query(entriesRef, where("campus", "==", campus));

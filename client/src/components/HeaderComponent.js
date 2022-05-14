@@ -219,7 +219,7 @@ class Header extends Component {
                 <NavLink className="nav-link" to="/gradesheets">Submitted Grades</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="nav-link" to="/progress-reports">Progress Reports</NavLink>
+                <NavLink className="nav-link" to="/final-grades">Final Grades</NavLink>
               </NavItem>
               {/* <NavItem>
                 <NavLink className="nav-link" to="/video">
@@ -274,7 +274,7 @@ class Header extends Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="nav-link" to="/progress-reports">Progress Reports</NavLink>
+                <NavLink className="nav-link" to="/final-grades">Final Grades</NavLink>
               </NavItem>
               {/* <NavItem>
                 <NavLink className="nav-link" to="/video">
@@ -419,7 +419,7 @@ class Header extends Component {
                 <NavLink className="nav-link" to="/gradesheets">Submitted Grades</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="nav-link" to="/progress-reports">Progress Reports</NavLink>
+                <NavLink className="nav-link" to="/final-grades">Final Grades</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink className="nav-link" to="/video">
@@ -506,7 +506,7 @@ class Header extends Component {
                 <NavLink className="nav-link" to="/gradesheets">Submitted Grades</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="nav-link" to="/progress-reports">Progress Reports</NavLink>
+                <NavLink className="nav-link" to="/final-grades">Final Grades</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink className="nav-link" to="/video">
