@@ -160,7 +160,7 @@ class FinalGrades extends React.Component {
           <p>
             <strong>
               Note: if you have submitted this form already, please do not do so
-              again.
+              again, UNLESS you submitted it when it still said "Progress Reports" at the top.
             </strong>
           </p>
           <p>
